@@ -47,7 +47,7 @@ The R version reads the same workbooks and sheets, numbers the categories the sa
 
 These are not changed, because changing them would depart from the published analysis; each is recorded so it can be checked.
 
-- **Race groups from numeric codes.** The original code built the four race groups, and the African American indicator, from `encode`'s numeric codes, with a different list of codes for each sheet, because each sheet's values were numbered separately. The R version does the same, with the code lists in `R/setup.R`, and prints the table of code, recorded value and group so it can be checked (issue V1, drafted in the pull request that added this page).
+- **Race groups from numeric codes.** The original code built the four race groups, and the African American indicator, from `encode`'s numeric codes, with a different list of codes for each sheet, because each sheet's values were numbered separately. The R version does the same, with the code lists in `R/setup.R`, and prints the table of code, recorded value and group so it can be checked (issue [#4](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/4)).
 - **The African American indicator when race is missing.** Stata's `generate AfricanAmerican=(Race==2)` is 0 for a patient with no recorded race, so those patients count as not African American in the African American models and the first set of multivariable models, while the race-group and race models leave them out. The R version reproduces this. It means the two multivariable versions can rest on slightly different samples.
 - **Unmatched patients in the merge.** The original code merged the years-since-diagnosis workbook one to one and kept every row, printing how many matched. A patient in only one file stays in the data with the other file's columns missing. The R version does the same and prints the same counts.
 
@@ -55,13 +55,13 @@ These are not changed, because changing them would depart from the published ana
 
 The original code fitted the era comparison twice, with every patient and with only the patients who had a visit in both eras. The R version fits both.
 
-**Decision pending:** which of the two samples produced the P values the article reports (decision issue D1, drafted in the pull request that added this page).
+**Decision pending:** which of the two samples produced the P values the article reports (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
 
 ### McNemar's test for viral suppression
 
 The original code ran McNemar's test for engagement and retention only. The R version does the same.
 
-**Decision pending:** whether to add it for viral suppression, as the article's Methods describe (decision issue D2, drafted in the pull request that added this page).
+**Decision pending:** whether to add it for viral suppression, as the article's Methods describe (decision issue [#3](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/3)).
 
 ## Not ported
 

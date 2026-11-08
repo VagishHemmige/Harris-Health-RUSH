@@ -29,7 +29,7 @@ knitr::read_chunk("../R/05_compare_eras.R")
 
 The original code first fitted the era models with every patient, with a comment that this was done by request, and then kept only patients with four rows and fitted them again. Both are kept here, as a named list of two data frames, so every later step runs on each in a loop. The printed table counts patients by number of rows: two (a RUSH-era visit only) or four (both eras).
 
-**Decision pending:** which of the two samples produced the P values the article reports for the era comparison is decision issue D1, drafted in the pull request that added this page.
+**Decision pending:** which of the two samples produced the P values the article reports for the era comparison is decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2).
 
 ```{r}
 #| label: define-era-samples
@@ -44,7 +44,7 @@ The original code first fitted the era models with every patient, with a comment
 - `rush_era`: the difference between the periods before each era's visit;
 - `post_visit:rush_era`: how many times larger the odds ratio for the RUSH-era visit was. This is the P value the article reports for each outcome's era comparison.
 
-A patient with a RUSH-era visit only has a constant `rush_era`, so the era main effect cancels from their stratum. Their two rows inform the change around the RUSH-era visit, which in this model is the *sum* `post_visit` + `post_visit:rush_era`. On their own they cannot separate the two coefficients, but pooled with the both-era patients they pull that sum toward their own change, and so move the estimated interaction and its standard error. That is why the two samples can give different era P values, the question decision issue D1 asks which the article used.
+A patient with a RUSH-era visit only has a constant `rush_era`, so the era main effect cancels from their stratum. Their two rows inform the change around the RUSH-era visit, which in this model is the *sum* `post_visit` + `post_visit:rush_era`. On their own they cannot separate the two coefficients, but pooled with the both-era patients they pull that sum toward their own change, and so move the estimated interaction and its standard error. That is why the two samples can give different era P values, the question decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2) asks which the article used.
 
 ```{r}
 #| label: fit-era-models

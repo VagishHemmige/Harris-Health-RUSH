@@ -49,7 +49,7 @@ For each outcome, the proportion before and after the visit, compared with McNem
 
 **Specified in:** [§8.2 Overall change](analysis-plan.qmd#82-overall-change), [§8.3 Conditional logistic regression](analysis-plan.qmd#83-conditional-logistic-regression).
 
-**Decision pending:** the original code ran McNemar's test for engagement and retention but not for viral suppression, while the article's Methods describe it for all three. Whether the R version adds it for viral suppression is decision issue D2, drafted in the pull request that added this page; this note will link the issue once it is filed.
+**Decision pending:** the original code ran McNemar's test for engagement and retention but not for viral suppression, while the article's Methods describe it for all three. Whether the R version adds it for viral suppression is decision issue [#3](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/3).
 
 ## Did the change differ between groups?
 
@@ -59,7 +59,7 @@ The reference category for each is the first in the original code's order, which
 
 **Specified in:** [§8.4 Differences by patient characteristics](analysis-plan.qmd#84-differences-by-patient-characteristics), [§8.5 Multivariable models](analysis-plan.qmd#85-multivariable-models).
 
-**Current code:** the four race groups are made from Stata's numeric codes for the recorded race values, as in the original code, because the recorded values themselves are not documented outside the data. Which value each code stands for is still to be checked against the data by an authorized analyst (issue V1, drafted in the pull request that added this page); the code prints the table needed for that check.
+**Current code:** the four race groups are made from Stata's numeric codes for the recorded race values, as in the original code, because the recorded values themselves are not documented outside the data. Which value each code stands for is still to be checked against the data by an authorized analyst (issue [#4](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/4)); the code prints the table needed for that check.
 
 ## Comparing the RUSH era with the era before it
 
@@ -69,7 +69,7 @@ Using the same patients in both eras controls for who they are. It does not cont
 
 **Specified in:** [§6 Comparator](analysis-plan.qmd#6-comparator), [§8.6 Comparison with the pre-RUSH era](analysis-plan.qmd#86-comparison-with-the-pre-rush-era).
 
-**Decision pending:** the original code fitted the era comparison twice, once with every patient (2,068; those with a RUSH-era visit only inform the RUSH-era change, and through it the era comparison, but cannot separate its parts) and once with only the patients who had a visit in both eras. The article does not say which produced its P values. This is decision issue D1, drafted in the pull request that added this page; this note will link the issue once it is filed.
+**Decision pending:** the original code fitted the era comparison twice, once with every patient (2,068; those with a RUSH-era visit only inform the RUSH-era change, and through it the era comparison, but cannot separate its parts) and once with only the patients who had a visit in both eras. The article does not say which produced its P values. This is decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2).
 
 ## Random-intercept models
 

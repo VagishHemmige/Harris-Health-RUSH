@@ -74,7 +74,7 @@ One record per patient and window: the before and after values of each outcome f
 
 The proportion of patients with each outcome before and after the index visit, compared with McNemar's test for paired proportions [@mcnemar1947; @flash2015rush]. The original code ran McNemar's test for engagement and retention only, with the comment that it was there to confirm the conditional logistic regression (section 8.3) gives the same results. The article's Methods describe McNemar's test for all three outcomes; the code does not record where the viral suppression P value came from.
 
-**Open:** whether the R version should add McNemar's test for viral suppression, as the article's Methods describe, or keep the original code's set (decision issue D2, drafted in the pull request that adds this plan; this note links the issue once it is filed).
+**Open:** whether the R version should add McNemar's test for viral suppression, as the article's Methods describe, or keep the original code's set (decision issue [#3](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/3)).
 
 ### 8.3 Conditional logistic regression
 
@@ -108,7 +108,7 @@ The original code also fitted, for sex, age group and race in four groups, the s
 
 The original code fitted every era model twice: first with every patient, including those with a RUSH-era visit only (its comment says this was done "by request"), and then with only the patients with a visit in both eras.
 
-**Open:** which of the two samples produced the P values the article reports for the era comparison (decision issue D1, drafted in the pull request that adds this plan; this note links the issue once it is filed).
+**Open:** which of the two samples produced the P values the article reports for the era comparison (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
 
 ### 8.7 Missing data
 

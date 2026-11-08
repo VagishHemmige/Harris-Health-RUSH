@@ -55,7 +55,7 @@ This page is a map from each reported result to the step of the code that comput
 
 The Discussion gives the post-visit suppression rate as 33.4%, where the Results give 34.0%. Both are quoted as the article has them; the code computes one number, which the first run on the study data will show.
 
-**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue D1, drafted in the pull request that added this page).
+**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
 
 ## References
 

@@ -69,7 +69,7 @@ vl_not_suppressed_value <- "Not Suppressed"
 # original code for each sheet; R/02_build_long_data.R reproduces encode()'s
 # numbering and prints the code-to-value table so an authorized person can
 # check them. Still to check against the data: the recorded value behind
-# each code (issue V1, drafted in the pull request that adds this file).
+# each code (issue #4).
 race_group_levels <- c("Black", "Hispanic", "White", "Asian/Other/Unknown")
 race_group_codes_study <- list(
   Black = 2,
