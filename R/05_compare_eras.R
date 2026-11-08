@@ -16,8 +16,11 @@
 # The original code fitted every era model twice (analysis-plan.md 8.6):
 # first "by request" with every patient, including those with a RUSH-era
 # visit only, and then with the patients who had four rows, a visit in each
-# era. A RUSH-era-only patient's two rows inform the RUSH-era change but not
-# the comparison with the earlier era.
+# era. A RUSH-era-only patient's two rows inform the RUSH-era change, the
+# sum of the post_visit and post_visit:rush_era coefficients; they cannot
+# separate the two, but pooled with both-era patients they move the
+# estimate of the interaction and its standard error, which is why the two
+# samples can give different era P values.
 era_samples <- list(
   all_patients = both_eras_long,
   both_eras = both_eras_long |>

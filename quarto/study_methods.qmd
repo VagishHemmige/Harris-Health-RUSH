@@ -45,7 +45,7 @@ About four in ten patients had no Harris Health viral load in a given window (th
 
 ## The overall change
 
-For each outcome, the proportion before and after the visit, compared with McNemar's test, and the conditional odds ratio for after against before from a conditional logistic regression with one stratum per patient. For matched pairs the two say the same thing: the odds ratio is the ratio of patients who improved to patients who got worse, and the test is McNemar's.
+For each outcome, the proportion before and after the visit, compared with McNemar's test, and the conditional odds ratio for after against before from a conditional logistic regression with one stratum per patient. For matched pairs the odds ratio is the ratio of patients who improved to patients who got worse, and the model's score test is McNemar's chi-squared test. The P value the code reports from the model is a Wald P value, which tests the same hypothesis but need not equal McNemar's (in the example on [Methodological background](methodological_background.qmd#conditional-logistic-regression), 7.7 against 9.0 on one degree of freedom).
 
 **Specified in:** [§8.2 Overall change](analysis-plan.qmd#82-overall-change), [§8.3 Conditional logistic regression](analysis-plan.qmd#83-conditional-logistic-regression).
 
@@ -69,7 +69,7 @@ Using the same patients in both eras controls for who they are. It does not cont
 
 **Specified in:** [§6 Comparator](analysis-plan.qmd#6-comparator), [§8.6 Comparison with the pre-RUSH era](analysis-plan.qmd#86-comparison-with-the-pre-rush-era).
 
-**Decision pending:** the original code fitted the era comparison twice, once with every patient (2,068, of whom only those with a pre-RUSH visit inform the era term) and once with only the patients who had a visit in both eras. The article does not say which produced its P values. This is decision issue D1, drafted in the pull request that added this page; this note will link the issue once it is filed.
+**Decision pending:** the original code fitted the era comparison twice, once with every patient (2,068; those with a RUSH-era visit only inform the RUSH-era change, and through it the era comparison, but cannot separate its parts) and once with only the patients who had a visit in both eras. The article does not say which produced its P values. This is decision issue D1, drafted in the pull request that added this page; this note will link the issue once it is filed.
 
 ## Random-intercept models
 

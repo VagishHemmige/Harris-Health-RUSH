@@ -33,6 +33,15 @@ Stops with a message naming the missing columns, and never any values, if a work
 #| eval: false
 ```
 
+## Check for repeated patients
+
+Stops if a patient number appears more than once in an input that should have one row per patient. Stata's `merge 1:1` and `reshape …, i(PatientNumber)` made this check as a side effect; `full_join()` checks only the rows it matches and `pivot_longer()` checks nothing, so the import calls this on each sheet. The message gives only the number of repeated patients.
+
+```{r}
+#| label: check-unique-patients
+#| eval: false
+```
+
 ## Number categories as Stata's encode did
 
 Stata's `encode` turns text into numbered categories in alphabetical order, treating empty text as missing; the first becomes the base level in models. To fit the same models with the same reference categories, R needs factors whose levels are in the same order. `sort(method = "radix")` sorts in byte order, as Stata does, regardless of the computer's language settings; R's ordinary sort can place capitals and accented letters differently. The codes are then `as.integer()` of the factor.
@@ -80,7 +89,7 @@ Two binary versions of the viral load result ([analysis plan §7](analysis-plan.
 
 ## McNemar's test
 
-The paired test of [Methodological background](methodological_background.qmd#mcnemars-test). It returns the four kinds of pair, the proportions before and after, the uncorrected chi-squared statistic and its P value, and the exact P value from a binomial test on the discordant pairs, which is what Stata's `mcc` reports. Writing the statistic out makes it visible that only the discordant pairs matter.
+The paired test of [Methodological background](methodological_background.qmd#mcnemars-test). It returns the four kinds of pair, the proportions before and after, the uncorrected chi-squared statistic and its P value, and the exact P value from a binomial test on the discordant pairs, which is what Stata's `mcc` reports. Writing the statistic out makes it visible that only the discordant pairs matter. With no discordant pairs, or no complete pairs, there is no test; the function returns missing statistics with `n_discordant` and `n_pairs`, which say which case it is, instead of stopping the whole pipeline.
 
 ```{r}
 #| label: paired-mcnemar
@@ -102,7 +111,7 @@ The model behind most results ([Methodological background](methodological_backgr
 
 In the RUSH-era models the terms leave out the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's `clogit()` would return its coefficient as `NA`. Leaving it out gives the same model and the same coefficients. The era models keep it, because there a characteristic can change between a patient's two visits ([5. Comparison with the pre-RUSH era](05_compare_eras.qmd#does-the-pattern-differ-by-characteristic)).
 
-The model is fitted to the rows that have every variable it uses, with categories absent from those rows dropped. Stata picks a factor's base level from the estimation sample, so if the first category had no rows (no tested patients in it, for example), Stata's base would be the next one; dropping empty levels makes R do the same, rather than label one category's effect with another's name.
+The estimation sample is built as Stata's `clogit` builds it: rows that have every variable the model uses, then only patients whose outcome differs between their rows. A patient with the same outcome in every row, or with one row (a viral load in one window only), adds nothing to the conditional likelihood; Stata drops them with a note about "all positive or all negative outcomes". Categories left with no such patients are then dropped too, so the reference category is the first one that carries information. Without that step, if the first category had only uninformative patients, `clogit()` would silently drop another category's interaction instead and the effects would be labelled with the wrong categories. The categories that had patients before the step are kept with the model, so the next functions can report the dropped ones as not estimable rather than leave them out.
 
 ```{r}
 #| label: fit-conditional-logit
@@ -140,7 +149,7 @@ The names R gives interaction coefficients, built from the factor's levels: for 
 
 For a model with `post_visit` and its interaction with a characteristic, the odds ratio for the visit in each category of the characteristic ([Methodological background](methodological_background.qmd#does-the-change-differ-between-groups-interactions)): the `post_visit` coefficient alone for the reference category, and `post_visit` plus that category's interaction coefficient for each other. These are the original code's `lincom` commands, done for every category. The synthetic test fits a separate model in each age group and checks that it gives the same odds ratios.
 
-The categories come from the model itself (`model$xlevels`), so they are exactly those the model used. If a category's interaction coefficient could not be estimated, its odds ratio is missing; Stata's `lincom` would treat the omitted coefficient as zero and report the reference category's effect under that category's name.
+The categories come from the model itself (`model$xlevels`), so they are exactly those the model used. Categories that had patients but none whose outcome changed were dropped before fitting; they are added back as rows with `estimable = FALSE` and missing values, so the table always lists every category with data. If a category's interaction coefficient could not be estimated, its odds ratio is missing; Stata's `lincom` would treat the omitted coefficient as zero and report the reference category's effect under that category's name.
 
 ```{r}
 #| label: effect-by-level

@@ -17,6 +17,25 @@ check_columns <- function(data, expected, source_name) {
   invisible(data)
 }
 
+## ---- check-unique-patients
+# Stop if a patient number appears more than once in a one-row-per-patient
+# input. Stata's "merge 1:1" and "reshape ..., i(PatientNumber)" stopped on
+# duplicates; full_join() and pivot_longer() do not check every row, and a
+# duplicated row would change a patient's stratum and the four-row era
+# rule. The message gives the number of duplicated patients, never which.
+check_unique_patients <- function(data, id_column, source_name) {
+  n_duplicated <- data |>
+    count(.data[[id_column]]) |>
+    filter(n > 1) |>
+    nrow()
+  if (n_duplicated > 0) {
+    stop(str_glue(
+      "{source_name}: {n_duplicated} patient number(s) appear more than once."
+    ))
+  }
+  invisible(data)
+}
+
 ## ---- encode-like-stata
 # Stata's encode turns a text variable into numbered categories, numbering
 # the distinct values in alphabetical (byte) order, with empty text as
@@ -112,7 +131,10 @@ add_viral_load_outcomes <- function(cohort_long, suppressed, not_suppressed) {
 # McNemar's test for one binary outcome measured before and after the visit
 # on the same patients, as Stata's mcc reports it: the four paired counts,
 # the uncorrected chi-squared test, and the exact test (a binomial test on
-# the discordant pairs). Patients missing either value are left out.
+# the discordant pairs). Patients missing either value are left out. With
+# no complete pairs, or no discordant pairs, there is no test: the
+# statistics are missing and n_pairs and n_discordant say why, so the
+# pipeline carries on to the other outcomes.
 paired_mcnemar <- function(cohort_wide, before, after) {
   pairs <- cohort_wide |>
     filter(!is.na(.data[[before]]), !is.na(.data[[after]]))
@@ -120,18 +142,24 @@ paired_mcnemar <- function(cohort_wide, before, after) {
     count(before = .data[[before]], after = .data[[after]])
   n_after_only <- sum(pairs[[before]] == 0 & pairs[[after]] == 1)
   n_before_only <- sum(pairs[[before]] == 1 & pairs[[after]] == 0)
-  chi_squared <- (n_after_only - n_before_only)^2 /
-    (n_after_only + n_before_only)
+  n_discordant <- n_after_only + n_before_only
+  chi_squared <- NA_real_
+  p_value <- NA_real_
+  p_value_exact <- NA_real_
+  if (n_discordant > 0) {
+    chi_squared <- (n_after_only - n_before_only)^2 / n_discordant
+    p_value <- pchisq(chi_squared, df = 1, lower.tail = FALSE)
+    p_value_exact <- binom.test(n_after_only, n_discordant)$p.value
+  }
   list(
     counts = counts,
-    proportion_before = mean(pairs[[before]]),
-    proportion_after = mean(pairs[[after]]),
+    n_pairs = nrow(pairs),
+    n_discordant = n_discordant,
+    proportion_before = if (nrow(pairs) > 0) mean(pairs[[before]]) else NA_real_,
+    proportion_after = if (nrow(pairs) > 0) mean(pairs[[after]]) else NA_real_,
     chi_squared = chi_squared,
-    p_value = pchisq(chi_squared, df = 1, lower.tail = FALSE),
-    p_value_exact = binom.test(
-      n_after_only,
-      n_after_only + n_before_only
-    )$p.value
+    p_value = p_value,
+    p_value_exact = p_value_exact
   )
 }
 
@@ -155,18 +183,35 @@ crosstab_row_percent <- function(cohort_long, predictor, outcome) {
 # main effect within a patient, so Stata drops it; the RUSH-era models do
 # not write it (a term written anyway comes back as NA). method = "exact"
 # uses the exact conditional likelihood, as Stata does.
-# The model is fitted to the rows with every variable it uses, with factor
-# levels absent from those rows dropped, so the reference category is the
-# first one present, as Stata chooses its base level from the estimation
-# sample.
+# The estimation sample is built as Stata's clogit builds it: rows with
+# every variable the model uses, then only patients whose outcome differs
+# between their rows, because a patient whose outcome is the same in every
+# row (or who has one row) adds nothing to the conditional likelihood and
+# Stata drops them ("all positive or all negative outcomes"). Categories
+# left with no such patients are then dropped, so the reference category is
+# the first one that carries information; the categories present before
+# that step are kept in the model as levels_with_data, so
+# effect_by_level() can report the dropped ones as not estimable.
 fit_conditional_logit <- function(data, outcome, terms) {
   model_formula <- as.formula(
     str_glue("{outcome} ~ {terms} + strata(patient_number)")
   )
-  estimation_rows <- data |>
+  complete_rows <- data |>
     drop_na(all_of(all.vars(model_formula))) |>
     droplevels()
-  clogit(model_formula, data = estimation_rows, method = "exact")
+  informative_rows <- complete_rows |>
+    group_by(patient_number) |>
+    filter(n_distinct(.data[[outcome]]) > 1) |>
+    ungroup() |>
+    droplevels()
+  model <- clogit(model_formula, data = informative_rows, method = "exact")
+  model$levels_with_data <- list()
+  for (variable in all.vars(model_formula)) {
+    if (is.factor(complete_rows[[variable]])) {
+      model$levels_with_data[[variable]] <- levels(complete_rows[[variable]])
+    }
+  }
+  model
 }
 
 ## ---- model-coefficients
@@ -222,7 +267,10 @@ interaction_terms <- function(term, modifier, modifier_levels) {
 # characteristic, from a model with post_visit and its interaction with that
 # characteristic. For the reference level it is the post_visit coefficient;
 # for each other level it adds that level's interaction coefficient, as the
-# original code's lincom commands did.
+# original code's lincom commands did. A category that has patients but
+# none whose outcome changed was dropped before fitting
+# (fit_conditional_logit()); it is listed with estimable = FALSE and missing
+# values, rather than left out silently.
 effect_by_level <- function(model, modifier, level = 0.95) {
   modifier_levels <- model$xlevels[[modifier]]
   results <- list()
@@ -233,7 +281,19 @@ effect_by_level <- function(model, modifier, level = 0.95) {
     }
     results[[modifier_levels[i]]] <- combine_coefficients(model, terms, level)
   }
-  bind_rows(results, .id = "level")
+  levels_with_data <- model$levels_with_data[[modifier]]
+  if (is.null(levels_with_data)) {
+    levels_with_data <- modifier_levels
+  }
+  bind_rows(results, .id = "level") |>
+    mutate(estimable = !is.na(odds_ratio)) |>
+    right_join(tibble(level = levels_with_data), by = "level") |>
+    mutate(
+      estimable = coalesce(estimable, FALSE),
+      level = factor(level, levels = levels_with_data)
+    ) |>
+    arrange(level) |>
+    mutate(level = as.character(level))
 }
 
 ## ---- wald-test

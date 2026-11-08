@@ -22,6 +22,7 @@ years_since_dx <- read_excel(
   guess_max = excel_guess_rows
 ) |>
   check_columns(years_since_dx_columns, years_since_dx_file) |>
+  check_unique_patients("PatientNumber", years_since_dx_file) |>
   transmute(
     PatientNumber,
     years_since_dx = Years_between_DX_and_Index_Visit,
@@ -37,13 +38,15 @@ study_raw <- read_excel(
   sheet = study_cohort_sheet,
   guess_max = excel_guess_rows
 ) |>
-  check_columns(cohort_columns, rush_data_file)
+  check_columns(cohort_columns, rush_data_file) |>
+  check_unique_patients("PatientNumber", rush_data_file)
 
 ## ---- merge-years-since-diagnosis
 # The original code merged one to one on PatientNumber and kept every row,
 # matched or not ("merge 1:1", then "tab _merge"). full_join() keeps every
-# row in the same way; relationship = "one-to-one" stops if a patient
-# appears twice in either file. The count of matched and unmatched patients
+# row in the same way. Each file was checked above for repeated patient
+# numbers, as Stata's 1:1 requires; relationship = "one-to-one" repeats the
+# check for matched rows. The count of matched and unmatched patients
 # is printed for the authorized analyst, as "tab _merge" showed it.
 study_merged <- study_raw |>
   mutate(in_cohort_sheet = TRUE) |>
@@ -89,6 +92,7 @@ control_wide <- read_excel(
   guess_max = excel_guess_rows
 ) |>
   check_columns(control_columns, str_glue("{rush_data_file}, {control_cohort_sheet}")) |>
+  check_unique_patients("PatientNumber", str_glue("{rush_data_file}, {control_cohort_sheet}")) |>
   clean_cohort(place_columns)
 
 for (variable in c("race", "gender", "age_group")) {

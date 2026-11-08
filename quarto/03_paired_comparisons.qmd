@@ -27,7 +27,7 @@ knitr::read_chunk("../R/03_paired_comparisons.R")
 
 ## McNemar's test
 
-For engagement and retention, McNemar's test on each patient's pair of values ([Methodological background](methodological_background.qmd#mcnemars-test)), with the proportions before and after. It uses the wide data, one row per patient, because a pair is one row there. The original code ran it to confirm that the conditional logistic regression in the next script gives the same answer; for matched pairs it should, because the model's score test is McNemar's test.
+For engagement and retention, McNemar's test on each patient's pair of values ([Methodological background](methodological_background.qmd#mcnemars-test)), with the proportions before and after. It uses the wide data, one row per patient, because a pair is one row there. The original code ran it to confirm that the conditional logistic regression in the next script gives the same answer; for matched pairs the model's score test is McNemar's chi-squared test, while the model's reported Wald P value tests the same hypothesis and is close but not identical. If no pair is discordant there is nothing to test: the statistics are missing and `n_discordant` is 0, and the script carries on.
 
 **Decision pending:** the original code did not run McNemar's test for viral suppression, though the article's Methods describe it for all three outcomes. Whether to add it is decision issue D2, drafted in the pull request that added this page.
 

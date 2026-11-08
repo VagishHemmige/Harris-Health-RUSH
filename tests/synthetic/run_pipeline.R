@@ -95,6 +95,64 @@ checks$mcnemar_matches_stats <- isTRUE(all.equal(
   unname(own_mcnemar$statistic)
 ))
 
+# 7. A category with no informative patients (only concordant pairs, or
+# only one row each) is dropped before fitting and reported as not
+# estimable; the reference becomes the first informative category. Invented
+# pairs: A (first level) one (0,0) pair; B three (0,1) and one (1,0), odds
+# ratio 3; C two of each, odds ratio 1; D single rows only.
+make_pairs <- function(group, before, after, first_id) {
+  ids <- first_id + seq_along(before) - 1
+  tibble(
+    patient_number = rep(ids, each = 2),
+    group = group,
+    post_visit = rep(c(0L, 1L), times = length(before)),
+    y = as.vector(rbind(before, after))
+  )
+}
+uninformative <- bind_rows(
+  make_pairs("A", 0, 0, 1),
+  make_pairs("B", c(0, 0, 0, 1), c(1, 1, 1, 0), 10),
+  make_pairs("C", c(0, 0, 1, 1), c(1, 1, 0, 0), 20),
+  tibble(patient_number = 30:31, group = "D", post_visit = c(0L, 1L), y = c(0, 1))
+) |>
+  mutate(group = factor(group, levels = c("A", "B", "C", "D")))
+uninformative_effects <- fit_conditional_logit(
+  uninformative, "y", "post_visit + post_visit:group"
+) |>
+  effect_by_level("group")
+checks$uninformative_reference_category <- isTRUE(all.equal(
+  uninformative_effects$level, c("A", "B", "C", "D")
+)) &&
+  isTRUE(all.equal(uninformative_effects$estimable, c(FALSE, TRUE, TRUE, FALSE))) &&
+  isTRUE(all.equal(uninformative_effects$odds_ratio[2:3], c(3, 1), tolerance = 1e-6))
+
+# 8. A repeated patient number stops the import: in the control sheet, and
+# in the study sheet for a patient absent from the years workbook (which
+# the join's relationship check alone would not catch).
+stops <- function(expr) inherits(try(expr, silent = TRUE), "try-error")
+duplicate_controls <- control_wide |>
+  rename(PatientNumber = patient_number) |>
+  slice(c(1, 1, 2))
+unmatched_duplicate <- tibble(PatientNumber = c(99999, 99999, 1))
+checks$duplicate_patients_stop <- stops(
+  check_unique_patients(duplicate_controls, "PatientNumber", "controls")
+) && stops(
+  check_unique_patients(unmatched_duplicate, "PatientNumber", "study")
+) && !stops(
+  check_unique_patients(tibble(PatientNumber = 1:3), "PatientNumber", "ok")
+)
+
+# 9. McNemar's test with no discordant pairs, or no complete pairs, returns
+# missing statistics instead of stopping the pipeline.
+concordant <- tibble(before = c(0, 1, 1), after = c(0, 1, 1))
+no_pairs <- tibble(before = c(NA, 1), after = c(0, NA))
+concordant_result <- paired_mcnemar(concordant, "before", "after")
+no_pairs_result <- paired_mcnemar(no_pairs, "before", "after")
+checks$mcnemar_without_discordant_pairs <-
+  concordant_result$n_discordant == 0 && is.na(concordant_result$p_value) &&
+  is.na(concordant_result$p_value_exact) &&
+  no_pairs_result$n_pairs == 0 && is.na(no_pairs_result$chi_squared)
+
 results <- tibble(check = names(checks), passed = unlist(checks))
 print(results, n = Inf)
 if (!all(results$passed)) {

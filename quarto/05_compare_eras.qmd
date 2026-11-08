@@ -44,7 +44,7 @@ The original code first fitted the era models with every patient, with a comment
 - `rush_era`: the difference between the periods before each era's visit;
 - `post_visit:rush_era`: how many times larger the odds ratio for the RUSH-era visit was. This is the P value the article reports for each outcome's era comparison.
 
-A patient with a RUSH-era visit only has a constant `rush_era`, so they inform the change around the RUSH-era visit but not the other two terms.
+A patient with a RUSH-era visit only has a constant `rush_era`, so the era main effect cancels from their stratum. Their two rows inform the change around the RUSH-era visit, which in this model is the *sum* `post_visit` + `post_visit:rush_era`. On their own they cannot separate the two coefficients, but pooled with the both-era patients they pull that sum toward their own change, and so move the estimated interaction and its standard error. That is why the two samples can give different era P values, the question decision issue D1 asks which the article used.
 
 ```{r}
 #| label: fit-era-models
