@@ -1,0 +1,46 @@
+---
+title: "3. Paired comparisons"
+format: html
+---
+
+This script compares each outcome before and after the index visit in the RUSH-era cohort without a model: McNemar's test overall, and counts and percentages within each characteristic. It produces `mcnemar_results` and `crosstabs`, the raw numbers behind the proportions the article reports.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/03_paired_comparisons.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/03_paired_comparisons.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/03_paired_comparisons.R")
+```
+
+## McNemar's test
+
+For engagement and retention, McNemar's test on each patient's pair of values ([Methodological background](methodological_background.qmd#mcnemars-test)), with the proportions before and after. It uses the wide data, one row per patient, because a pair is one row there. The original code ran it to confirm that the conditional logistic regression in the next script gives the same answer; for matched pairs it should, because the model's score test is McNemar's test.
+
+**Decision pending:** the original code did not run McNemar's test for viral suppression, though the article's Methods describe it for all three outcomes. Whether to add it is decision issue D2, drafted in the pull request that added this page.
+
+```{r}
+#| label: mcnemar-tests
+#| eval: false
+```
+
+## Crosstabs by characteristic
+
+For every outcome and every characteristic, the counts and row percentages after the visit and before it, keeping missing values: the original code's nested loop of `tab … if Intervention==1, row missing`. These are the percentages within subgroups that the article quotes, such as engagement among patients aged 16 to 24 ([Published results](published_results.qmd#engagement-in-care)). The result is a nested list, `crosstabs[[outcome]][[characteristic]]$after`, so any one table can be pulled out by name.
+
+```{r}
+#| label: crosstabs-by-characteristic
+#| eval: false
+```

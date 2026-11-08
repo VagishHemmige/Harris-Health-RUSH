@@ -1,0 +1,84 @@
+---
+title: "4. RUSH-era models"
+format: html
+---
+
+This script fits the conditional logistic regressions for the RUSH-era cohort: the effect of the visit on each outcome, whether it differs by each patient characteristic, and the multivariable models. Every model has one stratum per patient, so each patient is compared only with themself.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/04_fit_rush_era_models.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/04_fit_rush_era_models.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/04_fit_rush_era_models.R")
+```
+
+## The effect of the visit
+
+One model per outcome, with `post_visit` as the only term: the original code's first four `clogit` commands. The odds ratio for `post_visit` compares the odds of the outcome after the visit with before it, within patients. With two records per patient it equals the number of patients who improved divided by the number who got worse, which the synthetic test checks ([Methodological background](methodological_background.qmd#conditional-logistic-regression)).
+
+For viral suppression with missing results excluded, a patient tested in only one window has a single record in their stratum and contributes nothing, so this model rests on patients tested both times.
+
+```{r}
+#| label: fit-visit-models
+#| eval: false
+```
+
+## Subgroup models
+
+For each characteristic and outcome, `post_visit` plus its interaction with the characteristic ([analysis plan §8.4](analysis-plan.qmd#84-differences-by-patient-characteristics)). The models are stored as `subgroup_models[[characteristic]][[outcome]]`. The one model the original code could not fit is skipped by looking it up in the table on [Setup](setup.qmd#models-the-original-code-could-not-fit), so the list of skipped models lives in one place.
+
+`.data$outcome` and `.env$outcome` tell `filter()` which `outcome` is the table's column and which is the loop's variable, which share a name.
+
+```{r}
+#| label: fit-subgroup-models
+#| eval: false
+```
+
+## Does the effect differ?
+
+For each model, the joint Wald test that every interaction coefficient is zero: is the change around the visit the same in every category? This is the original code's `testparm`, and the P value the article gives when it says the improvement did, or did not, differ by a characteristic. [Methodological background](methodological_background.qmd#does-the-change-differ-between-groups-interactions) explains why this is a different question from whether each category improved.
+
+```{r}
+#| label: test-subgroup-interactions
+#| eval: false
+```
+
+## The effect within each category
+
+The odds ratio for the visit in each category, from `effect_by_level()`: the original code's `lincom` commands. A category can show a clear improvement while the test above shows no evidence that categories differ, or the reverse; the article reports both kinds of result.
+
+```{r}
+#| label: estimate-subgroup-effects
+#| eval: false
+```
+
+## Years since diagnosis and age together
+
+Patients diagnosed long ago tend to be older, so a difference by years since diagnosis might be a difference by age, or the reverse. One model with both interactions, and a test and within-category odds ratios for each, shows whether each difference remains once the other is allowed for. Each characteristic's odds ratios here are for its categories with the other at its reference category.
+
+```{r}
+#| label: fit-combined-models
+#| eval: false
+```
+
+## Multivariable models
+
+`post_visit` with its interactions with year, sex, age group and race, in one model, for three outcomes: once with the African American indicator and once with race as recorded ([analysis plan §8.5](analysis-plan.qmd#85-multivariable-models)). The original code did not fit them for viral suppression with missing results excluded. They are tabulated as odds ratios for every coefficient, as Stata printed them.
+
+```{r}
+#| label: fit-multivariable-models
+#| eval: false
+```

@@ -1,0 +1,67 @@
+---
+title: "Differences from the original code"
+format: html
+---
+
+The original analysis is the Stata file of 15 January 2015, shown on [Original Stata code](original_stata.qmd). This page lists every way the R version differs from it. Most are translations: the same step written the way R does it. A few change what is computed; each is marked, and none changes a published estimate unless the data are as described. Whether a difference changes a number can only be confirmed by running both versions on the study data, which has not yet been done.
+
+## What is the same
+
+The R version reads the same workbooks and sheets, numbers the categories the same way, uses the same reference categories, fits the same conditional logistic regressions to the same records with the same exact conditional likelihood, tests the same interaction terms, skips the same models the original could not fit, and restricts the era comparison by the same rule. [Methodological background](methodological_background.qmd#from-stata-to-r) has a table of the Stata commands and their R equivalents.
+
+## Translations: the same computation
+
+| Original Stata code | R version | Why |
+|---|---|---|
+| `cd` to a folder on the analyst's computer | The folder named by `RUSH_DATA_DIR` in `.Renviron` | No absolute paths in the repository (`AGENTS.md`) |
+| `log using "RUSH ….log"` | Output printed to the console; no log file | Logs hold results from the study data and are never committed |
+| Five intermediate `.dta` files saved | Objects kept in the session | The scripts write no files from the data |
+| Variables `Intervention`, `RUSHEra`, `NewRace`, `AfricanAmerican`, `ViralLoad`, `ViralLoadMissEqFail` | `post_visit`, `rush_era`, `race_group`, `african_american`, `vl_suppressed`, `vl_suppressed_missing_fail` | `Intervention` is the period before or after the visit, not the program, so the R name says so; the rest follow R's naming style |
+| `encode` | `encode_like_stata()`: a factor with levels in alphabetical (byte) order | Gives the same codes and reference levels |
+| `reshape long …, j(Intervention)` | `pivot_longer()` in `reshape_to_long()` | |
+| `i.Intervention##i.Gender` in `clogit` | `post_visit + post_visit:gender` | Stata drops the main effect of a characteristic that is constant within a patient; R's formula leaves it out instead. The estimated coefficients are the same |
+| `lincom 1.Intervention + 1.Intervention#2.Gender, or` | `effect_by_level()` | Sum of coefficients with its variance; checked on synthetic data against a model fitted within each category |
+| `testparm Intervention#Gender` | `wald_test()` | Joint Wald test; checked against survival's own Wald test |
+| `mcc` | `paired_mcnemar()` | Uncorrected chi-squared and exact test, as `mcc` reports; checked against `mcnemar.test()` |
+| `tab x y if Intervention==1, row missing` loops | `crosstabs[[outcome]][[characteristic]]` | Same counts and row percentages, as data frames |
+| Models fitted in the order of the .do file | Models grouped by type, each set in a loop | Order does not affect any estimate |
+
+## Differences in what is reported
+
+- **Within-category odds ratios and interaction tests for every characteristic.** The original code ran `testparm` and `lincom` for most characteristics, but for sex only `lincom` (with one interaction term, that term's own P value is the test), and for race as recorded neither. The R version computes both for every characteristic. This only adds output.
+- **Multivariable models** are tabulated as odds ratios for every coefficient, as Stata's `or` option showed them.
+- **Unused variables are not made.** The original code created `HIV_tested_During_Visit` (always 1) and encoded `IndexTest_Place` before dropping it; neither was used in any analysis.
+
+## Differences that could change a number
+
+- **Sex and age group in the stacked eras.** The original code encoded each sheet separately and then appended them, so the stacked data carried the study sheet's numeric codes for sex and age group, with its labels. If the two sheets had the same set of recorded values, the codes agree and the results are the same. If a value was absent from one sheet, the codes after it would shift and a category would be mislabelled. The R version stacks the recorded text instead, so this cannot happen. Whether the sheets' value sets match is part of the first run on the study data.
+- **Random-intercept models.** Stata's `xtlogit` and R's `glmer()` both integrate over the random intercept by adaptive Gauss–Hermite quadrature with 12 points, but with different optimizers. Their estimates should agree closely, not exactly.
+
+## Kept as in the original, and still to check
+
+These are not changed, because changing them would depart from the published analysis; each is recorded so it can be checked.
+
+- **Race groups from numeric codes.** The original code built the four race groups, and the African American indicator, from `encode`'s numeric codes, with a different list of codes for each sheet, because each sheet's values were numbered separately. The R version does the same, with the code lists in `R/setup.R`, and prints the table of code, recorded value and group so it can be checked (issue V1, drafted in the pull request that added this page).
+- **Unmatched patients in the merge.** The original code merged the years-since-diagnosis workbook one to one and kept every row, printing how many matched. A patient in only one file stays in the data with the other file's columns missing. The R version does the same and prints the same counts.
+
+### The era-comparison sample
+
+The original code fitted the era comparison twice, with every patient and with only the patients who had a visit in both eras. The R version fits both.
+
+**Decision pending:** which of the two samples produced the P values the article reports (decision issue D1, drafted in the pull request that added this page).
+
+### McNemar's test for viral suppression
+
+The original code ran McNemar's test for engagement and retention only. The R version does the same.
+
+**Decision pending:** whether to add it for viral suppression, as the article's Methods describe (decision issue D2, drafted in the pull request that added this page).
+
+## Not ported
+
+- **The article's Table 1** descriptive statistics (mean age, for example) were not computed by the Stata code; the article says SPSS 21 was also used [@flash2015rush]. They are not part of this port.
+- **Building the cohort and the outcomes** from the laboratory, medical record and Ryan White data happened before the Stata analysis and is not in either version.
+
+## References
+
+::: {#refs}
+:::

@@ -1,0 +1,164 @@
+---
+title: "Functions"
+format: html
+---
+
+This script defines the helper functions the analysis scripts use. Each takes its inputs as arguments and reads nothing else. The ones that turn a model into a reported number are checked on synthetic data by `tests/synthetic/run_pipeline.R` against results known from theory.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/functions.R")
+```
+
+## Check columns
+
+Stops with a message naming the missing columns, and never any values, if a workbook lacks a column the code needs. Used by [1. Import data](01_import_data.qmd).
+
+```{r}
+#| label: check-columns
+#| eval: false
+```
+
+## Number categories as Stata's encode did
+
+Stata's `encode` turns text into numbered categories in alphabetical order, treating empty text as missing; the first becomes the base level in models. To fit the same models with the same reference categories, R needs factors whose levels are in the same order. `sort(method = "radix")` sorts in byte order, as Stata does, regardless of the computer's language settings; R's ordinary sort can place capitals and accented letters differently. The codes are then `as.integer()` of the factor.
+
+```{r}
+#| label: encode-like-stata
+#| eval: false
+```
+
+## Clean a cohort
+
+What both workbook sheets need before they can be reshaped: drop the unused `_Place` columns; give the outcome columns names ending in `_0` (before the visit) and `_1` (after it), as the original code renamed them for Stata's `reshape`; number race, sex and age group as `encode` did, keeping race's numeric code for the race groups; and make the year of the visit a category, as Stata's `i.IndexTestYear` treats it, with 2009 as the reference. The year is renamed only where present, because the control sheet need not have it.
+
+```{r}
+#| label: clean-cohort
+#| eval: false
+```
+
+## Group race codes
+
+Turns race codes into the four race groups from a list of codes per group (the lists are in [Setup](setup.qmd#categories)). A loop over the groups is clearer here than a long `case_when()`, and a code in no group stays missing, as in the original code.
+
+```{r}
+#| label: group-race-codes
+#| eval: false
+```
+
+## Reshape to one row per period
+
+From one row per patient, with each outcome in a `_0` and a `_1` column, to two rows per patient, with `post_visit` 0 for the period before the visit and 1 for after. `names_pattern` splits each column name into the outcome and the period; `.value` makes the outcome part a column name. This is Stata's `reshape long …, i(PatientNumber) j(Intervention)`.
+
+```{r}
+#| label: reshape-to-long
+#| eval: false
+```
+
+## Viral load outcomes
+
+Two binary versions of the viral load result ([analysis plan §7](analysis-plan.qmd#7-outcomes)): `vl_suppressed` is missing when the result is, and `vl_suppressed_missing_fail` counts a missing result as not suppressed. `coalesce()` replaces the missing values with 0, as the original code's `replace … if … == .` did.
+
+```{r}
+#| label: add-viral-load-outcomes
+#| eval: false
+```
+
+## McNemar's test
+
+The paired test of [Methodological background](methodological_background.qmd#mcnemars-test). It returns the four kinds of pair, the proportions before and after, the uncorrected chi-squared statistic and its P value, and the exact P value from a binomial test on the discordant pairs, which is what Stata's `mcc` reports. Writing the statistic out makes it visible that only the discordant pairs matter.
+
+```{r}
+#| label: paired-mcnemar
+#| eval: false
+```
+
+## Crosstabs with row percentages
+
+For one characteristic and one outcome, the number of patients in each combination, with missing values kept, and the percentage within each category of the characteristic: Stata's `tab predictor outcome, row missing`. The percentages are of all patients in the category, missing outcomes included, so for viral suppression with missing excluded they differ from the proportion among those tested.
+
+```{r}
+#| label: crosstab-row-percent
+#| eval: false
+```
+
+## Conditional logistic regression
+
+The model behind most results ([Methodological background](methodological_background.qmd#conditional-logistic-regression)). `strata(patient_number)` makes each patient a stratum, the R version of Stata's `group(PatientNumber)`, and `method = "exact"` asks for the exact conditional likelihood, which is what Stata's `clogit` computes. The terms are passed as text so the scripts can build many models in loops.
+
+The terms never include the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's `clogit()` would return its coefficient as `NA`. Leaving it out gives the same model and the same coefficients.
+
+```{r}
+#| label: fit-conditional-logit
+#| eval: false
+```
+
+## Model coefficients
+
+The coefficients and their covariance matrix, from either kind of model the analysis fits: `coef()` for `clogit()`, and `fixef()` for `glmer()`, whose `coef()` would give a separate set per patient.
+
+```{r}
+#| label: model-coefficients
+#| eval: false
+```
+
+## Combine coefficients
+
+The odds ratio, confidence interval and P value for a *sum* of coefficients, which is what Stata's `lincom …, or` reports. The variance of a sum is the sum of every variance and covariance among its terms, which is the sum of every cell of the covariance matrix restricted to those terms; that is the one line of matrix algebra. If a coefficient could not be estimated, it returns missing values rather than an answer from part of the sum.
+
+```{r}
+#| label: combine-coefficients
+#| eval: false
+```
+
+## Interaction terms
+
+The names R gives interaction coefficients, built from the factor's levels: for a term `post_visit` and the factor `gender` with levels Female and Male, `post_visit:genderMale`. Building them exactly, rather than matching names that start with `post_visit:race`, matters here because `race` and `race_group` share a prefix.
+
+```{r}
+#| label: interaction-terms
+#| eval: false
+```
+
+## The visit's effect within each category
+
+For a model with `post_visit` and its interaction with a characteristic, the odds ratio for the visit in each category of the characteristic ([Methodological background](methodological_background.qmd#does-the-change-differ-between-groups-interactions)): the `post_visit` coefficient alone for the reference category, and `post_visit` plus that category's interaction coefficient for each other. These are the original code's `lincom` commands, done for every category. The synthetic test fits a separate model in each age group and checks that it gives the same odds ratios.
+
+The categories come from the model itself (`model$xlevels`), so they are exactly those the model used.
+
+```{r}
+#| label: effect-by-level
+#| eval: false
+```
+
+## Joint Wald test
+
+The test that a set of coefficients are all zero, `b' V⁻¹ b` compared with a chi-squared distribution with as many degrees of freedom as coefficients: Stata's `testparm`. A coefficient that could not be estimated is left out, as Stata leaves it out. If none can be estimated the test is missing, with zero degrees of freedom; the synthetic test fails if that happens to any interaction test, which would also catch a misspelled coefficient name.
+
+```{r}
+#| label: wald-test
+#| eval: false
+```
+
+## Odds ratio table
+
+Every coefficient of a model as an odds ratio with its confidence interval and P value, the table Stata prints with the `or` option. It uses `combine_coefficients()` with one term at a time, so its intervals and P values are computed exactly as the within-category ones are.
+
+```{r}
+#| label: tidy-odds-ratios
+#| eval: false
+```

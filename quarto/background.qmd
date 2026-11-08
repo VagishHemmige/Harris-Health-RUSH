@@ -1,0 +1,39 @@
+---
+title: "Clinical background"
+format: html
+---
+
+## Routine opt-out HIV testing
+
+In 2006 the CDC recommended that HIV screening be offered to patients in all health-care settings, including emergency departments, after the patient is told the test will be done unless they decline: *opt-out* screening, with no separate written consent and no required prevention counseling [@branson2006cdc]. The aim was to find people with undiagnosed HIV earlier and link them to care. Emergency departments are a natural setting, because many people who rarely see a primary care clinician still come to them, and because blood is often drawn for other reasons anyway, so an HIV test can be added to it.
+
+## The HIV care continuum
+
+Diagnosis is only the first step. A person with HIV benefits, and stops transmitting the virus to sexual partners, only if they are linked to HIV care, stay in care, take antiretroviral therapy and reach a suppressed viral load. Each step loses people. The RUSH article cites national estimates that about one in five people aware of their HIV had not been linked to care, and that only about half of those linked were retained [@flash2015rush]. People who fall out of care are hard to find: they are, by definition, no longer coming to the clinic.
+
+## Why previously diagnosed patients matter
+
+A routine testing program in the emergency department tests everyone who does not decline, so it tests again many people who already know they have HIV, including some who do not mention it and some who have dropped out of care. Retesting them is usually seen as waste. The RUSH investigators asked the opposite question: if the program is paired with staff whose job is to link every positive patient to care, is retesting a previously diagnosed patient an opportunity to bring them back? [@flash2015rush]
+
+## The RUSH program
+
+Harris Health System is the publicly funded health system of Harris County, Texas; most of its patients have no other coverage. It started the Routine Universal Screening for HIV (RUSH) program in 2008, following the CDC recommendations, adding an HIV test for every patient 16 or older having blood drawn or an IV placed unless they opted out. The program began in the Ben Taub General Hospital emergency department and reached the Lyndon B. Johnson General Hospital emergency department in 2009 [@flash2015rush].
+
+The key ingredient for previously diagnosed patients is the **service linkage worker**. Based in each emergency department, they contact every patient who tests positive (the next business day for tests done at night or at weekends), deliver results, and help with what keeps people from care: eligibility paperwork for Harris Health and Ryan White services, the AIDS Drug Assistance Program, transport, and appointments. A patient stays on their caseload until they have seen an HIV provider, and is then handed to a service linkage worker at the HIV clinic, who helps with retention. Before RUSH, HIV testing in these departments was at the treating provider's discretion, and patients were referred to HIV care passively, with a phone number [@flash2015rush].
+
+Outpatient HIV care in the system is given mainly at Thomas Street Health Center, the oldest free-standing HIV clinic in the United States, and two satellite clinics. Some patients receive care at other Ryan White funded clinics in Houston, which is why the study also used the Houston area's shared Ryan White visit database [@flash2015rush].
+
+## The three outcomes
+
+The study measured three steps of the care continuum, each before and after the emergency department visit [@flash2015rush]:
+
+- **Engagement in care:** an HIV primary care visit within 6 months. For a newly diagnosed person this would be called linkage; for people diagnosed earlier the article calls it engagement.
+- **Retention in care:** two HIV primary care visits at least 3 months apart within 12 months, the HRSA measure.
+- **Viral suppression:** a viral load below 200 copies/mL within 12 months.
+
+How each is measured, and why the viral load windows are shifted by 10 days, is on [Study design and methods](study_methods.qmd).
+
+## References
+
+::: {#refs}
+:::

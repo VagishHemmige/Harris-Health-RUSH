@@ -1,0 +1,110 @@
+---
+title: "Methodological background"
+format: html
+---
+
+This page explains, in general terms, the methods a before-and-after study of a binary outcome rests on. Nothing here is specific to this study; what this study chose is on [Study design and methods](study_methods.qmd). The numbers in the examples are invented.
+
+## Paired binary data
+
+When the same people are measured twice, before and after some event, each person gives a **pair** of answers. For a yes-or-no outcome there are four kinds of pair:
+
+|                    | After: yes | After: no |
+|--------------------|-----------:|----------:|
+| **Before: yes**    | *a*        | *b*       |
+| **Before: no**     | *c*        | *d*       |
+
+The proportion with the outcome before is (*a* + *b*)/*n*, and after is (*a* + *c*)/*n*. Their difference is (*c* − *b*)/*n*: the cells *a* and *d*, people whose answer did not change, cancel. All the information about change is in the **discordant pairs**, *b* (got worse) and *c* (got better).
+
+The two measurements are not independent. A person in care before a visit is more likely to be in care after it than a person who was not, whatever the visit did. Treating the before and after groups as two separate samples, for example with a chi-squared test on a 2 × 2 table of period by outcome, ignores this correlation and gives wrong standard errors. Paired methods use each person as their own control.
+
+**Example.** Of 100 people, 30 had the outcome both times (*a*), 5 lost it (*b*), 20 gained it (*c*) and 45 never had it (*d*). The proportion rose from 35% to 50%. Only the 25 discordant pairs say anything about change, and 20 of the 25 changed for the better.
+
+## McNemar's test
+
+McNemar's test asks whether the two kinds of discordant pair are equally common, which is the same as asking whether the before and after proportions are equal [@mcnemar1947]. If change in either direction were equally likely, each discordant pair would be a coin toss, and *c* would follow a binomial distribution with *n* = *b* + *c* and probability 0.5.
+
+- **Chi-squared version:** (*c* − *b*)² / (*b* + *c*), compared with a chi-squared distribution with one degree of freedom. In the example, (20 − 5)² / 25 = 9.0, P = 0.003.
+- **Exact version:** the binomial probability of a split as uneven as 20 to 5 or more, in either direction, from 25 tosses: P = 0.004. It is preferred when *b* + *c* is small.
+
+Stata's `mcc` command reports both. In R, `mcnemar.test(table, correct = FALSE)` gives the chi-squared version (without the continuity correction, as Stata's), and `binom.test(c, b + c)` the exact one.
+
+McNemar's test gives a P value but no model: it cannot adjust for anything or ask whether the change differs between groups. Conditional logistic regression does both.
+
+## Conditional logistic regression
+
+Ordinary logistic regression of the outcome on a period indicator, with every observation treated as independent, has the same flaw as the two-sample chi-squared test. One fix would be to add a separate intercept for every person, so that each person's baseline tendency is allowed for. But with two observations per person that adds as many parameters as there are people, and the estimates are badly biased.
+
+**Conditional logistic regression** removes the person-specific intercepts instead of estimating them. Within each person, or each **stratum**, it uses only the probability of the observed pattern of outcomes *given how many* of that person's observations had the outcome. That conditional probability does not depend on the person's intercept, so the intercepts drop out of the likelihood entirely. What remains depends only on terms that **change within a person**.
+
+Three consequences matter in practice:
+
+- **Concordant pairs carry no information.** A person who had the outcome both times, or neither time, has only one possible pattern given their total, so they contribute nothing. Software keeps them in the data but they do not affect the estimates.
+- **For matched pairs, the odds ratio is *c*/*b*.** With one binary period term, the conditional maximum-likelihood odds ratio for "after" against "before" is the ratio of the discordant pairs: 20/5 = 4.0 in the example. Its score test is McNemar's chi-squared test. This is why a paired study can report McNemar's test and a conditional odds ratio side by side, and why they agree.
+- **Characteristics that do not change within a person cannot have a main effect.** Sex, race or age group at a visit is the same in both of a person's observations, so its effect is absorbed into the person's intercept and removed with it. Stata drops such terms with a note; in R they come back as `NA`, or are better left out of the formula. This is not a limitation: it is the price of controlling for *every* stable characteristic, measured or not.
+
+With more than two observations per stratum and several of them having the outcome, the exact conditional likelihood sums over every way the outcomes could have been arranged, which takes more computation. Both Stata's `clogit` and R's `survival::clogit(method = "exact")` compute it exactly [@therneau_survival].
+
+## Does the change differ between groups? Interactions
+
+A characteristic that is the same before and after cannot have a main effect, but it can **modify** the effect of the period. The model includes the period term and the period's interaction with the characteristic:
+
+- the **period coefficient** is the log odds ratio for after against before in the reference category;
+- each **interaction coefficient** is how much larger or smaller that log odds ratio is in another category.
+
+Two quantities follow.
+
+**The effect within each category.** The log odds ratio in a non-reference category is the period coefficient *plus* that category's interaction coefficient. Its standard error comes from the variances of the two coefficients and their covariance: Var(β₁ + β₂) = Var(β₁) + Var(β₂) + 2 Cov(β₁, β₂). Stata's `lincom 1.period + 1.period#2.group` computes this. Fitting the model separately within each category gives the same odds ratio, which makes a useful check.
+
+**Whether the effect differs at all.** A joint test that every interaction coefficient is zero: a Wald test, with as many degrees of freedom as there are interaction coefficients. This is Stata's `testparm`. Its P value answers "is the change the same in every category?", not "did this category change?". A characteristic can have one category whose change is clearly significant and another whose change is not, while the interaction test shows no evidence that the changes differ; the categories' own P values partly reflect how many people are in each.
+
+When two characteristics are correlated, say age and years since diagnosis, an interaction with one may stand in for the other. Putting both interactions in one model shows whether each remains once the other is allowed for.
+
+## Comparing the change in two periods
+
+Suppose the same people were measured before and after an event in two different eras, and the question is whether the change was larger in the later era. Stacking all four observations per person, with one stratum per person, the model has:
+
+- a **period** term: the change around the event in the reference era;
+- an **era** term: the difference between the two eras' "before" measurements, within a person;
+- their **interaction**: how much larger the change around the event was in the other era, on the log-odds scale. Its exponent is a ratio of odds ratios.
+
+This is a difference-in-differences on the log-odds scale, done within people. People measured in only one era still contribute to that era's period effect but cannot inform the era term. Whether to keep them is a design choice: keeping them uses more data for one of the two changes, while restricting to people measured in both eras compares like with like.
+
+Interacting every one of these terms with a characteristic (a three-way interaction) asks whether any part of the pattern differs between groups. With small groups such models often fail to converge: some combination of era, period and category has no discordant pairs, and its coefficient runs off to infinity.
+
+## Fixed or random person effects
+
+Conditional logistic regression treats each person's intercept as a fixed nuisance and conditions it away. A **random-intercept** logistic model instead assumes the intercepts come from a normal distribution and estimates its variance [@bates2015lme4]. Compared with the conditional model, the random-intercept model:
+
+- also uses differences *between* people, so it can estimate effects of characteristics that do not change, and is usually more precise;
+- assumes the person effect is unrelated to the terms in the model; if people with a weaker baseline were more likely to be in one era, for instance, its estimates are biased where the conditional model's are not;
+- gives odds ratios with a similar, person-specific, interpretation, so the two can be compared directly.
+
+When the two give similar answers, the comparison is reassuring; when they differ, the conditional model is the safer of the two. Stata's `xtlogit` and R's `lme4::glmer()` fit the random-intercept model by adaptive Gauss–Hermite quadrature.
+
+## Missing outcomes
+
+When an outcome can be missing, for example a laboratory result that was never drawn, two simple choices give different answers:
+
+- **Missing as failure:** count a missing result as the bad outcome. Every person stays in the analysis, but if missing results become less common after the event (because people re-entered care and were tested), the change is partly a change in testing.
+- **Missing as missing:** drop the observation. In a paired analysis a person missing one of the two measurements then drops out altogether, and the comparison rests on those tested both times.
+
+Reporting both shows how much the answer depends on the choice.
+
+## From Stata to R
+
+| Stata | R | Note |
+|---|---|---|
+| `mcc after before` | `mcnemar.test(table, correct = FALSE)`; `binom.test()` | Chi-squared and exact versions |
+| `encode text, generate(code)` | `factor(text, levels = sort(unique(text), method = "radix"))` | Codes in alphabetical order; the first is the reference |
+| `reshape long y, i(id) j(period)` | `tidyr::pivot_longer()` | One row per person and period |
+| `clogit y x, group(id) or` | `survival::clogit(y ~ x + strata(id))` | `exp(coef())` for odds ratios |
+| `i.period##i.group` | `period + period:group` | Leave out `group`'s main effect: it is constant within a stratum |
+| `lincom 1.period + 1.period#2.group, or` | sum of coefficients with `vcov()` | Odds ratio within a category |
+| `testparm period#group` | Wald test of the interaction coefficients | Joint test, df = number of coefficients |
+| `xtset id` then `xtlogit y x, or` | `lme4::glmer(y ~ x + (1 \| id), family = binomial, nAGQ = 12)` | Random intercept, 12 quadrature points |
+
+## References
+
+::: {#refs}
+:::

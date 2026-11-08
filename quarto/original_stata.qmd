@@ -1,0 +1,52 @@
+---
+title: "Original Stata code (2015)"
+format: html
+---
+
+The analysis as it was run for the article: one Stata .do file, dated 15 January 2015, written by Vagish Hemmige. It is kept unchanged as the record of what was done, apart from two changes listed in its header: the `cd` command's folder on the analyst's computer is removed, and the line endings are Unix. The R scripts are the version this site explains; every way they differ from this file is on [Differences from the original code](differences.qmd).
+
+::: {.Rcode title="Source code"}
+The file is available at:
+
+-   [`stata/RUSH_analysis_2015-01-15.do`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/stata/RUSH_analysis_2015-01-15.do)
+
+It is shown below as text; nothing on this page runs it.
+:::
+
+## Where each part went
+
+The .do file runs top to bottom in one session. Its parts, named by the comments that open them, map onto the R scripts as follows.
+
+| Part of the .do file (opening comment) | R script |
+|---|---|
+| "First, we set up our file"; "Now we start logging the analysis" | [`R/setup.R`](setup.qmd), [`R/main.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/main.R) |
+| "We first import, clean, and then save … the 'Years since diagnosis' data" | [1. Import data](01_import_data.qmd) |
+| "We first import data from the main file … and merge"; "Now we clean variables …"; "We do the appropriate tabs …" | [1. Import data](01_import_data.qmd) |
+| "We now rename variables in preparation of converting to long format" | [1. Import data](01_import_data.qmd) (`clean_cohort()`) |
+| "We perform McNemer's test …" | [3. Paired comparisons](03_paired_comparisons.qmd) |
+| "Now we reshape the dataset to long"; viral load variables; `AfricanAmerican`; `NewRace` | [2. Build long data](02_build_long_data.qmd) |
+| "First, we set loops to run the crosstabs" | [3. Paired comparisons](03_paired_comparisons.qmd) |
+| "This set of regressions tests the efficacy …" | [4. RUSH-era models](04_fit_rush_era_models.qmd), visit models |
+| Interactions with year, years since diagnosis, gender, age, race, NewRace, AfricanAmerican | [4. RUSH-era models](04_fit_rush_era_models.qmd), subgroup models |
+| "… YearsSinceDiagnosisCategorical and age in the same regression" | [4. RUSH-era models](04_fit_rush_era_models.qmd), combined models |
+| "Now we put it all together into a final regression model …" | [4. RUSH-era models](04_fit_rush_era_models.qmd), multivariable models |
+| "Now we compare with the control era …" (preparing the controls) | [1. Import data](01_import_data.qmd) and [2. Build long data](02_build_long_data.qmd) |
+| "First, we merge the two datasets and sort" | [2. Build long data](02_build_long_data.qmd), stacking the eras |
+| "We run fixed effects regression by request including all patients …" and its interactions and random-effects models | [5. Comparison with the pre-RUSH era](05_compare_eras.qmd), sample `all_patients` |
+| "Now, we count the number of observations for each patient and only keep if they have a Pre-Rush Control" and what follows | [5. Comparison with the pre-RUSH era](05_compare_eras.qmd), sample `both_eras` |
+
+## The code
+
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+# Reads the .do file as text and shows it as a Stata code block. It runs
+# nothing and reads no data.
+stata_code <- readLines(
+  "../stata/RUSH_analysis_2015-01-15.do",
+  warn = FALSE,
+  encoding = "UTF-8"
+)
+cat("```stata", stata_code, "```", sep = "\n")
+```

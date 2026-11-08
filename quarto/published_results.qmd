@@ -1,0 +1,63 @@
+---
+title: "Published results and the code behind them"
+format: html
+---
+
+::: {.Results title="Where these numbers come from"}
+Every number on this page is quoted from the published article [@flash2015rush], with its place there. None was produced by the code in this repository, which has not been run on the study data. The article's tables and figures are not reproduced; read them in the [article](https://doi.org/10.1097/QAI.0000000000000578) (open access in [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)).
+:::
+
+This page is a map from each reported result to the step of the code that computes it, so that a reader can see what each number is and an authorized analyst can check the R version against the article.
+
+## The cohort
+
+| Result (article, Results, first two paragraphs) | Computed by |
+|---|---|
+| 202,767 HIV tests; 3,613 confirmed positive; 2,958 positives in 2,188 previously diagnosed people; 2,687 at least a year after diagnosis; 2,068 patients | Before the analysis, when the workbooks were built; not in the code |
+| 65% male; 68% Black, 17% Hispanic, 13% White non-Hispanic | Counts printed by [`describe-study-cohort`](01_import_data.qmd#describe-the-study-cohort) |
+| Mean age 43 ± 10 years | Not in the code: the workbook has age groups only (Table 1 was prepared separately) |
+| Median 9 years since diagnosis; 63% diagnosed 1 to 10 years before | [`describe-study-cohort`](01_import_data.qmd#describe-the-study-cohort) (summary of `years_since_dx` and counts by group) |
+| 672 patients with a pre-RUSH visit | Rows in `control_wide`; [`define-era-samples`](05_compare_eras.qmd#two-samples) prints patients by number of rows |
+
+## Engagement in care
+
+| Result (article, Results, "engaged in care" paragraph) | Computed by |
+|---|---|
+| 41.3% before and 58.8% after the visit, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test) (proportions and P); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) (odds ratio) |
+| Ages 16 to 24: 27% before, 56% after, P < 0.001 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic) (percentages); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) (P within the age group) |
+| No substantial difference by sex, race, year or years since diagnosis | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ) |
+| Pre-RUSH era: a significant improvement around the visit, P = 0.017 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit` term |
+| The RUSH-era improvement was larger, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit:rush_era` term |
+| Discussion: engagement rose from 46% to 51% around the pre-RUSH visit | Not computed as proportions in the code; the crosstabs are for the RUSH-era cohort only |
+
+## Retention in care
+
+| Result (article, Results, "Retention in care" paragraph) | Computed by |
+|---|---|
+| 32.6% before and 47.1% after, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) |
+| Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) |
+| No change among the 29 people of other race or ethnicity | The same, for `race_group` |
+| Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years) | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ); [`fit-combined-models`](04_fit_rush_era_models.qmd#years-since-diagnosis-and-age-together) |
+| The RUSH-era visit was significantly more likely to improve retention, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
+
+## Viral suppression
+
+| Result (article, Results, "Viral load" paragraph) | Computed by |
+|---|---|
+| Viral loads available for 1,220 patients (59%) before and 1,166 (56%) after | Counts of non-missing `vl_suppressed`, in the crosstabs (missing values are kept) |
+| 22.8% before and 34.0% after, missing as failure, P < 0.001 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic) (percentages); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit), `vl_suppressed_missing_fail` |
+| Men 21% to 33%, women 26% to 36%, each P < 0.001; no difference by sex, P = 0.685 | [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) and [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ), for `gender` |
+| No difference between race and ethnicity groups, P = 0.46; Black 22% to 34%, Hispanic 28% to 41% (each P < 0.001), White 21% to 29% (P = 0.015) | The same, for `race_group` |
+| Ages 25 to 34: 9% to 28%, P < 0.001 | The same, for `age_group` |
+| Rates before and after rose each year, but the change did not vary by year | Crosstabs and interaction test for `index_test_year` |
+| Little effect in people diagnosed at least 16 years before | The same, for `years_since_dx_group` |
+| Larger improvement in the RUSH era, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
+
+The Discussion gives the post-visit suppression rate as 33.4%, where the Results give 34.0%. Both are quoted as the article has them; the code computes one number, which the first run on the study data will show.
+
+**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue D1, drafted in the pull request that added this page).
+
+## References
+
+::: {#refs}
+:::

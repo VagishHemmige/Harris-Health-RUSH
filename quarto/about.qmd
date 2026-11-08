@@ -1,0 +1,51 @@
+---
+title: "About"
+format: html
+---
+
+## The study
+
+Flash CA, Pasalar S, Hemmige V, Davila JA, Hallmark CJ, McNeese M, Miertschin N, Ruggerio MC, Giordano TP. Benefits of a routine opt-out HIV testing and linkage to care program for previously diagnosed patients in publicly funded emergency departments in Houston, TX. *Journal of Acquired Immune Deficiency Syndromes*. 2015;69 Suppl 1:S8–S15 [@flash2015rush].
+
+Vagish Hemmige wrote the original Stata analysis and maintains this repository. Scientific decisions for this repository are made by Vagish Hemmige.
+
+## This repository
+
+This repository rebuilds the published analysis from a single Stata .do file into labelled R scripts run in order by `R/main.R`, as a teaching resource, and keeps the original .do file beside them with only a local folder path removed. The de-identified patient data are Harris Health System data and are not in the repository; the code finds them through the `RUSH_DATA_DIR` setting on the computer of an authorized analyst. The R code has been run only on synthetic data.
+
+Contributions follow the rules in [`AGENTS.md`](agents.qmd); open decisions and known issues are tracked in [Issues](https://github.com/VagishHemmige/Harris-Health-RUSH/issues).
+
+## How this website was created
+
+The site is built with [Quarto](https://quarto.org) from the analysis scripts themselves. Each code page imports the labelled sections of its script from `R/` and shows them with an explanation; the site never runs the analysis, so it is built without the study data.
+
+The repository was set up with the R Analysis Workflow plugin for AI coding assistants, written by Vagish Hemmige, following the layout of [COVID-infection-control](https://github.com/VagishHemmige/COVID-infection-control). An AI assistant (Claude) translated the Stata code to R and drafted the documentation under the rules in `AGENTS.md`: it works only with code, documentation and synthetic data, never with the study data, and every change is reviewed and approved by Vagish Hemmige before it is merged.
+
+Four documents describe the project:
+
+-   [**Analysis plan**](analysis-plan.qmd): *what the analysis does, and why.* The published methods, following STROBE and RECORD.
+-   [**Architecture**](architecture.qmd): *how the code does it.* The scripts, the order they run in, what each needs and produces, and how data flow between them.
+-   [**AGENTS.md**](agents.qmd): *how people and AI assistants work on the project.*
+-   [**Repository blueprint**](repository-blueprint.qmd): *the layout every project of this kind starts from.*
+
+## The pages
+
+-   [**Home**](../index.qmd): the study in brief, what the site does, and its status.
+-   [**Clinical background**](background.qmd): opt-out testing, the HIV care continuum, and the RUSH program.
+-   [**Methodological background**](methodological_background.qmd): paired binary data, McNemar's test, conditional logistic regression, interactions, comparing two eras, fixed and random person effects, and Stata-to-R equivalents.
+-   [**Study design and methods**](study_methods.qmd): what this study chose and why, in plain language.
+-   [**Differences from the original code**](differences.qmd): every way the R version differs from the Stata file.
+-   [**Setup**](setup.qmd) and [**Functions**](functions.qmd): packages, constants and helper functions.
+-   [**1. Import data**](01_import_data.qmd): reading the workbooks and numbering the categories.
+-   [**2. Build long data**](02_build_long_data.qmd): two rows per patient, viral load outcomes, race groups, and the stacked eras.
+-   [**3. Paired comparisons**](03_paired_comparisons.qmd): McNemar's tests and crosstabs.
+-   [**4. RUSH-era models**](04_fit_rush_era_models.qmd): conditional logistic regression for the visit, by subgroup, and multivariable.
+-   [**5. Comparison with the pre-RUSH era**](05_compare_eras.qmd): the era models, their subgroup versions and the random-intercept models.
+-   [**Original Stata code (2015)**](original_stata.qmd): the .do file the article's results came from.
+-   [**Published results and the code behind them**](published_results.qmd): each number the article reports, and the step of the code that computes it.
+-   [**Analysis plan**](analysis-plan.qmd), [**Architecture**](architecture.qmd), [**AGENTS.md**](agents.qmd) and [**Repository blueprint**](repository-blueprint.qmd): the project documents.
+
+## References
+
+::: {#refs}
+:::
