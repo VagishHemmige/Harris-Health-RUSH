@@ -1,0 +1,48 @@
+# R, RStudio and Positron
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.httr-oauth
+.DS_Store
+
+# Quarto. docs/ is the local render; GitHub Actions renders the site and
+# publishes it to the gh-pages branch (.github/workflows/publish.yml)
+/docs/
+/.quarto/
+**/*.quarto_ipynb
+/_freeze/
+
+# Credentials
+.Renviron
+.env
+*.pem
+*.key
+
+# Data files. The de-identified RUSH workbooks live outside the repository,
+# in the folder named by RUSH_DATA_DIR; this is a safety net, not access
+# control.
+/data-raw/
+/data/
+*.csv
+*.xlsx
+*.xls
+*.rds
+*.rda
+*.dta
+*.sav
+*.parquet
+
+# Stata logs and results files hold output from the study data. The
+# original .do file (stata/) is code and is tracked; its 2015 log is not.
+*.log
+*.smcl
+*.ster
+
+# Outputs from the study data. The scripts write none to the repository; the
+# results on the site are the published article's, quoted with their place
+# in the article.
+/figures/
+/tables/
+
+# Approved synthetic files: add narrow exceptions here, never a whole format.
