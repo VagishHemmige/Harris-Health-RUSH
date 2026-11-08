@@ -18,7 +18,8 @@ if (data_dir == "" || !dir.exists(data_dir)) {
 # the five listed in setup.R becomes missing, as in the original code.
 years_since_dx <- read_excel(
   file.path(data_dir, years_since_dx_file),
-  sheet = study_cohort_sheet
+  sheet = study_cohort_sheet,
+  guess_max = excel_guess_rows
 ) |>
   check_columns(years_since_dx_columns, years_since_dx_file) |>
   transmute(
@@ -33,7 +34,8 @@ years_since_dx <- read_excel(
 # after it
 study_raw <- read_excel(
   file.path(data_dir, rush_data_file),
-  sheet = study_cohort_sheet
+  sheet = study_cohort_sheet,
+  guess_max = excel_guess_rows
 ) |>
   check_columns(cohort_columns, rush_data_file)
 
@@ -83,7 +85,8 @@ print(quantile(
 # same PatientNumber.
 control_wide <- read_excel(
   file.path(data_dir, rush_data_file),
-  sheet = control_cohort_sheet
+  sheet = control_cohort_sheet,
+  guess_max = excel_guess_rows
 ) |>
   check_columns(control_columns, str_glue("{rush_data_file}, {control_cohort_sheet}")) |>
   clean_cohort(place_columns)

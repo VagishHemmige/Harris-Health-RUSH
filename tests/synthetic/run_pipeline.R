@@ -65,6 +65,20 @@ interaction_dfs <- c(
 )
 checks$interaction_terms_found <- all(interaction_dfs > 0)
 
+# 4b. The era subgroup models equal Stata's full factorial
+# i.Intervention##i.RUSHEra##i.Age. In the synthetic data age group is drawn
+# separately for each era, so it changes within many patients and its main
+# effect must be estimated, not dropped.
+full_factorial <- clogit(
+  engaged_in_care ~ post_visit * rush_era * age_group + strata(patient_number),
+  data = era_samples$both_eras,
+  method = "exact"
+)
+from_script <- era_subgroup_models$both_eras$age_group$engaged_in_care
+checks$era_subgroup_model_is_full_factorial <- isTRUE(all.equal(
+  coef(from_script), coef(full_factorial), tolerance = 1e-6
+)) && !anyNA(coef(from_script)[str_c("age_group", levels(era_samples$both_eras$age_group)[-1])])
+
 # 5. The restricted era sample has four rows for every patient.
 checks$both_eras_four_rows <- era_samples$both_eras |>
   count(patient_number) |>

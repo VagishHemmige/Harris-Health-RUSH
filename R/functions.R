@@ -152,14 +152,21 @@ crosstab_row_percent <- function(cohort_long, predictor, outcome) {
 # equivalent of Stata's "clogit outcome ..., group(PatientNumber)". The
 # right-hand side lists only terms that vary within a patient: a
 # characteristic that is the same before and after the visit cannot have a
-# main effect within a patient, so Stata drops it and it is not written
-# here. method = "exact" uses the exact conditional likelihood, as Stata
-# does.
+# main effect within a patient, so Stata drops it; the RUSH-era models do
+# not write it (a term written anyway comes back as NA). method = "exact"
+# uses the exact conditional likelihood, as Stata does.
+# The model is fitted to the rows with every variable it uses, with factor
+# levels absent from those rows dropped, so the reference category is the
+# first one present, as Stata chooses its base level from the estimation
+# sample.
 fit_conditional_logit <- function(data, outcome, terms) {
   model_formula <- as.formula(
     str_glue("{outcome} ~ {terms} + strata(patient_number)")
   )
-  clogit(model_formula, data = data, method = "exact")
+  estimation_rows <- data |>
+    drop_na(all_of(all.vars(model_formula))) |>
+    droplevels()
+  clogit(model_formula, data = estimation_rows, method = "exact")
 }
 
 ## ---- model-coefficients

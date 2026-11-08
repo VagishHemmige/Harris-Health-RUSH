@@ -37,7 +37,7 @@ flowchart TD
 
 ## Key mechanisms
 
-- **Within-patient models.** Every conditional model goes through `fit_conditional_logit()`, which adds `strata(patient_number)` and uses the exact conditional likelihood. Characteristics constant within a patient appear only in interactions with `post_visit` (and, in `05`, `rush_era`), never as main effects.
+- **Within-patient models.** Every conditional model goes through `fit_conditional_logit()`, which adds `strata(patient_number)` and uses the exact conditional likelihood. In `04`, characteristics appear only in interactions with `post_visit`; in `05` the subgroup models are the full factorial `post_visit * rush_era * characteristic`, since a characteristic can differ between a patient's eras. `fit_conditional_logit()` fits to complete rows with empty factor levels dropped, so reference levels follow the estimation sample, as in Stata.
 - **Stata's category numbering.** `encode_like_stata()` orders factor levels by byte order, so reference levels match the original code's `encode`. `clean_cohort()` applies it to race, sex and age group in both sheets.
 - **Race groups from codes, per sheet.** `group_race_codes()` maps `race_code` to `race_group` with `race_group_codes_study` or `race_group_codes_control` (`setup.R`); `02` prints the code-to-value table. The stacked data use `race_group`, sex and age group as text-labelled factors, never codes.
 - **Reported quantities.** `effect_by_level()` (Stata's `lincom`) and `wald_test()` (Stata's `testparm`) work from `model_coefficients()`, which handles both `clogit()` and `glmer()` models. Interaction coefficient names come from `interaction_terms()`, built from `model$xlevels`, so they match exactly.
@@ -57,7 +57,7 @@ Each definitive script has a page in `quarto/` that imports its labelled section
 
 ## Tests
 
-`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the restricted era sample has four rows per patient; and `paired_mcnemar()` equals `mcnemar.test()`. `.github/workflows/test-pipeline.yml` runs it on every pull request.
+`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; and `paired_mcnemar()` equals `mcnemar.test()`. `.github/workflows/test-pipeline.yml` runs it on every pull request.
 
 ## Code references
 

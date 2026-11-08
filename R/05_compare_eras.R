@@ -54,9 +54,12 @@ for (sample in names(era_samples)) {
 # the era model interacted with it, Stata's
 # "i.Intervention##i.RUSHEra##i.<characteristic>", and one joint Wald test
 # of all the interaction terms, as the original code's testparm. The
-# characteristic's own main effect cannot be estimated within a patient and
-# is not written. Models the original code could not fit with every patient
-# are skipped there (R/setup.R).
+# characteristic's own main effect is kept: each era's rows take the
+# characteristic from that era's sheet, so age group, for example, can
+# differ between a patient's pre-RUSH and RUSH-era rows, and then the main
+# effect is estimable. Where it is constant within every patient, clogit()
+# returns it as NA, as Stata omits it. Models the original code could not
+# fit with every patient are skipped there (R/setup.R).
 era_subgroup_models <- list()
 era_subgroup_tests <- list()
 for (sample in names(era_samples)) {
@@ -70,10 +73,7 @@ for (sample in names(era_samples)) {
       model <- fit_conditional_logit(
         era_samples[[sample]],
         outcome,
-        str_glue(
-          "post_visit * rush_era + ",
-          "(post_visit + rush_era + post_visit:rush_era):{subgroup}"
-        )
+        str_glue("post_visit * rush_era * {subgroup}")
       )
       era_subgroup_models[[sample]][[subgroup]][[outcome]] <- model
       subgroup_levels <- model$xlevels[[subgroup]]

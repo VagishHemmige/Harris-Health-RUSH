@@ -18,6 +18,11 @@ years_since_dx_file <- str_glue("Deidentified Years_After_DX {analysis_date}.xls
 rush_data_file <- str_glue("Deidentified RUSH data {analysis_date}.xlsx")
 study_cohort_sheet <- "Study Cohort"
 control_cohort_sheet <- "Controls"
+# read_excel() guesses each column's type from its first 1,000 rows by
+# default; a text column that is empty there (a viral load result, say)
+# could be read as logical and lose its later values. Guessing from every
+# row, as Stata's import excel types the whole column, avoids that.
+excel_guess_rows <- 1e6
 
 ## ---- define-expected-columns
 # The column names the Stata file reads, exactly as written there (note

@@ -19,7 +19,7 @@ The R version reads the same workbooks and sheets, numbers the categories the sa
 | Variables `Intervention`, `RUSHEra`, `NewRace`, `AfricanAmerican`, `ViralLoad`, `ViralLoadMissEqFail` | `post_visit`, `rush_era`, `race_group`, `african_american`, `vl_suppressed`, `vl_suppressed_missing_fail` | `Intervention` is the period before or after the visit, not the program, so the R name says so; the rest follow R's naming style |
 | `encode` | `encode_like_stata()`: a factor with levels in alphabetical (byte) order | Gives the same codes and reference levels |
 | `reshape long …, j(Intervention)` | `pivot_longer()` in `reshape_to_long()` | |
-| `i.Intervention##i.Gender` in `clogit` | `post_visit + post_visit:gender` | Stata drops the main effect of a characteristic that is constant within a patient; R's formula leaves it out instead. The estimated coefficients are the same |
+| `i.Intervention##i.Gender` in the RUSH-era `clogit` models | `post_visit + post_visit:gender` | Stata drops the main effect of a characteristic that is constant within a patient; R's formula leaves it out instead. The estimated coefficients are the same. The era models keep the main effect, as Stata does (`post_visit * rush_era * gender`), because there it can vary within a patient |
 | `lincom 1.Intervention + 1.Intervention#2.Gender, or` | `effect_by_level()` | Sum of coefficients with its variance; checked on synthetic data against a model fitted within each category |
 | `testparm Intervention#Gender` | `wald_test()` | Joint Wald test; checked against survival's own Wald test |
 | `mcc` | `paired_mcnemar()` | Uncorrected chi-squared and exact test, as `mcc` reports; checked against `mcnemar.test()` |
@@ -30,11 +30,14 @@ The R version reads the same workbooks and sheets, numbers the categories the sa
 
 - **Within-category odds ratios and interaction tests for every characteristic.** The original code ran `testparm` and `lincom` for most characteristics, but for sex only `lincom` (with one interaction term, that term's own P value is the test), and for race as recorded neither. The R version computes both for every characteristic. This only adds output.
 - **Multivariable models** are tabulated as odds ratios for every coefficient, as Stata's `or` option showed them.
+- **Printed checks.** R's `quantile()` and Stata's `summarize, detail` define percentiles slightly differently; R's `count()` shows a row for missing values where Stata's `tab` without `missing` hides it. `paired_mcnemar()` does not print the matched-pairs odds ratio that `mcc` prints (the conditional logistic regression gives it), and the random-intercept tables do not show `xtlogit`'s intercept variance or its test that the variance is zero. None of these affects an estimate.
 - **Unused variables are not made.** The original code created `HIV_tested_During_Visit` (always 1) and encoded `IndexTest_Place` before dropping it; neither was used in any analysis.
 
 ## Differences that could change a number
 
 - **Sex and age group in the stacked eras.** The original code encoded each sheet separately and then appended them, so the stacked data carried the study sheet's numeric codes for sex and age group, with its labels. If the two sheets had the same set of recorded values, the codes agree and the results are the same. If a value was absent from one sheet, the codes after it would shift and a category would be mislabelled. The R version stacks the recorded text instead, so this cannot happen. Whether the sheets' value sets match is part of the first run on the study data.
+- **An omitted coefficient in a within-category odds ratio.** If an interaction coefficient cannot be estimated, `effect_by_level()` reports that category's odds ratio as missing. Stata's `lincom` treats an omitted coefficient as zero and reports the reference category's odds ratio for it. R's answer is the honest one; it changes only categories for which Stata's number was not an estimate.
+- **Excel column types.** `read_excel()` is told to guess each column's type from every row, as Stata's `import excel` types the whole column. With R's default of 1,000 rows, a viral load column empty in its first rows could have lost its later values.
 - **Random-intercept models.** Stata's `xtlogit` and R's `glmer()` both integrate over the random intercept by adaptive Gauss–Hermite quadrature with 12 points, but with different optimizers. Their estimates should agree closely, not exactly.
 
 ## Kept as in the original, and still to check
@@ -42,6 +45,7 @@ The R version reads the same workbooks and sheets, numbers the categories the sa
 These are not changed, because changing them would depart from the published analysis; each is recorded so it can be checked.
 
 - **Race groups from numeric codes.** The original code built the four race groups, and the African American indicator, from `encode`'s numeric codes, with a different list of codes for each sheet, because each sheet's values were numbered separately. The R version does the same, with the code lists in `R/setup.R`, and prints the table of code, recorded value and group so it can be checked (issue V1, drafted in the pull request that added this page).
+- **The African American indicator when race is missing.** Stata's `generate AfricanAmerican=(Race==2)` is 0 for a patient with no recorded race, so those patients count as not African American in the African American models and the first set of multivariable models, while the race-group and race models leave them out. The R version reproduces this. It means the two multivariable versions can rest on slightly different samples.
 - **Unmatched patients in the merge.** The original code merged the years-since-diagnosis workbook one to one and kept every row, printing how many matched. A patient in only one file stays in the data with the other file's columns missing. The R version does the same and prints the same counts.
 
 ### The era-comparison sample

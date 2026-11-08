@@ -100,7 +100,9 @@ For one characteristic and one outcome, the number of patients in each combinati
 
 The model behind most results ([Methodological background](methodological_background.qmd#conditional-logistic-regression)). `strata(patient_number)` makes each patient a stratum, the R version of Stata's `group(PatientNumber)`, and `method = "exact"` asks for the exact conditional likelihood, which is what Stata's `clogit` computes. The terms are passed as text so the scripts can build many models in loops.
 
-The terms never include the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's `clogit()` would return its coefficient as `NA`. Leaving it out gives the same model and the same coefficients.
+In the RUSH-era models the terms leave out the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's `clogit()` would return its coefficient as `NA`. Leaving it out gives the same model and the same coefficients. The era models keep it, because there a characteristic can change between a patient's two visits ([5. Comparison with the pre-RUSH era](05_compare_eras.qmd#does-the-pattern-differ-by-characteristic)).
+
+The model is fitted to the rows that have every variable it uses, with categories absent from those rows dropped. Stata picks a factor's base level from the estimation sample, so if the first category had no rows (no tested patients in it, for example), Stata's base would be the next one; dropping empty levels makes R do the same, rather than label one category's effect with another's name.
 
 ```{r}
 #| label: fit-conditional-logit
@@ -138,7 +140,7 @@ The names R gives interaction coefficients, built from the factor's levels: for 
 
 For a model with `post_visit` and its interaction with a characteristic, the odds ratio for the visit in each category of the characteristic ([Methodological background](methodological_background.qmd#does-the-change-differ-between-groups-interactions)): the `post_visit` coefficient alone for the reference category, and `post_visit` plus that category's interaction coefficient for each other. These are the original code's `lincom` commands, done for every category. The synthetic test fits a separate model in each age group and checks that it gives the same odds ratios.
 
-The categories come from the model itself (`model$xlevels`), so they are exactly those the model used.
+The categories come from the model itself (`model$xlevels`), so they are exactly those the model used. If a category's interaction coefficient could not be estimated, its odds ratio is missing; Stata's `lincom` would treat the omitted coefficient as zero and report the reference category's effect under that category's name.
 
 ```{r}
 #| label: effect-by-level

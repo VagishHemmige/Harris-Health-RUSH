@@ -17,14 +17,17 @@ study_long <- study_wide |>
 
 ## ---- group-race-study
 # The original code's AfricanAmerican indicator and four race groups, from
-# encode()'s race codes in the study sheet (R/setup.R). The table that
+# encode()'s race codes in the study sheet (R/setup.R). Stata's
+# "generate AfricanAmerican=(Race==2)" is 0, not missing, when race is
+# missing, so coalesce() makes a missing race "No" here too; the race
+# groups stay missing. The table that
 # follows shows which recorded value each code stands for, so an
 # authorized analyst can check the grouping, as the original code's
 # "tab NewRace Race" did.
 study_long <- study_long |>
   mutate(
     african_american = factor(
-      if_else(race_code == african_american_code, "Yes", "No"),
+      if_else(coalesce(race_code == african_american_code, FALSE), "Yes", "No"),
       levels = c("No", "Yes")
     ),
     race_group = group_race_codes(race_code, race_group_codes_study),
@@ -46,7 +49,7 @@ control_long <- control_wide |>
 control_long <- control_long |>
   mutate(
     african_american = factor(
-      if_else(race_code == african_american_code, "Yes", "No"),
+      if_else(coalesce(race_code == african_american_code, FALSE), "Yes", "No"),
       levels = c("No", "Yes")
     ),
     race_group = group_race_codes(race_code, race_group_codes_control),

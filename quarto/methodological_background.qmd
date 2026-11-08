@@ -99,7 +99,7 @@ Reporting both shows how much the answer depends on the choice.
 | `encode text, generate(code)` | `factor(text, levels = sort(unique(text), method = "radix"))` | Codes in alphabetical order; the first is the reference |
 | `reshape long y, i(id) j(period)` | `tidyr::pivot_longer()` | One row per person and period |
 | `clogit y x, group(id) or` | `survival::clogit(y ~ x + strata(id))` | `exp(coef())` for odds ratios |
-| `i.period##i.group` | `period + period:group` | Leave out `group`'s main effect: it is constant within a stratum |
+| `i.period##i.group` | `period + period:group` | Leave out `group`'s main effect when it is constant within every stratum; keep it (`period * group`) if it can change |
 | `lincom 1.period + 1.period#2.group, or` | sum of coefficients with `vcov()` | Odds ratio within a category |
 | `testparm period#group` | Wald test of the interaction coefficients | Joint test, df = number of coefficients |
 | `xtset id` then `xtlogit y x, or` | `lme4::glmer(y ~ x + (1 \| id), family = binomial, nAGQ = 12)` | Random intercept, 12 quadrature points |

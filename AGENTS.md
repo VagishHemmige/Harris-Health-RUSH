@@ -101,7 +101,7 @@ The site documents the code. It does not run the analysis.
 ## Coding conventions
 
 - **Pre and post.** `post_visit` is 0 for the period before the index visit and 1 for the period after it, whatever the outcome's window (analysis-plan.md section 7); `rush_era` is 1 for the RUSH-era visit and 0 for the pre-RUSH visit.
-- **Conditional logistic regression** is `survival::clogit()` through `fit_conditional_logit()`, with one stratum per patient and the exact conditional likelihood. A characteristic that does not change within a patient enters only through its interactions with `post_visit` (and `rush_era`), never as a main effect.
+- **Conditional logistic regression** is `survival::clogit()` through `fit_conditional_logit()`, with one stratum per patient and the exact conditional likelihood. In the RUSH-era models a characteristic, which cannot change within a patient there, enters only through its interactions with `post_visit`. The era models use the full factorial (`post_visit * rush_era * characteristic`), because a characteristic taken from each era's sheet can differ between a patient's visits.
 - **Category order and reference levels** match the original code: text categories are numbered as Stata's `encode` numbered them (`encode_like_stata()`), so the first level is Stata's base level. Do not reorder levels in the models without a decision issue.
 - **Race codes.** The two workbook sheets number race values separately. Race groups are made from each sheet's own codes, and only the groups, never the codes, are used once the eras are stacked.
 - **Reported quantities** (odds ratios within a category, joint interaction tests) come from the named functions in `R/functions.R`, which are checked on synthetic data.
