@@ -63,10 +63,12 @@
 /* Long links, DOIs and inline code may break anywhere rather than widen the
    page past a phone's screen. */
 main a,
-main p code,
-main li code,
+main code:not(pre code),
 .references .csl-entry {
   overflow-wrap: anywhere;
+}
+main code:not(pre code) {
+  white-space: pre-wrap;
 }
 
 /* Markdown tables scroll inside their own box instead of widening the page.
@@ -158,9 +160,26 @@ main table:not(.gt_table) {
   h1, h2, h3, h4 {
     break-after: avoid;
   }
-  table,
   figure,
   .teaching-figure {
+    break-inside: avoid;
+  }
+  /* Tables 1 to 4 fit the page width in print: cells wrap, nothing is
+     sticky or scrolled, and the type is a little smaller. */
+  div:has(> .gt_table) {
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  .gt_table {
+    width: 100% !important;
+    font-size: 9pt !important;
+  }
+  .gt_table td,
+  .gt_table th {
+    white-space: normal;
+    position: static !important;
+  }
+  .gt_table tr {
     break-inside: avoid;
   }
   .teaching-figure img {
