@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 694" width="680" height="694" role="img" aria-labelledby="forest_table_2-title forest_table_2-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="forest_table_2-title">Engagement in care: odds ratio for the visit within each category (Table 2)</title>
+<desc id="forest_table_2-desc">Forest plot of the article's Table 2 on a log scale from 0.1 to 50; 1 means no change. Each row is a category's odds ratio with its 95% confidence interval. Sex Female: 4.72 (3.30–6.77); Sex Male: 3.38 (2.69–4.24); Race Black: 4.41 (3.47–5.60); Race Hispanic: 2.88 (1.85–4.51); Race White: 2.18 (1.32–3.61); Race Other: 5.00 (0.58–42.8); Age group 16–24: 9.33 (2.84–30.7); Age group 25–34: 5.95 (3.70–9.55); Age group 35–44: 3.53 (2.52–4.96); Age group 45–54: 3.53 (2.52–4.96); Age group 55+: 1.87 (1.13–3.10); Year of visit 2009: 2.86 (2.02–4.05); Year of visit 2010: 3.41 (2.39–4.87); Year of visit 2011: 4.52 (2.98–6.86); Year of visit 2012: 5.04 (3.22–7.89); Years since diagnosis 1–5: 5.19 (3.55–7.57); Years since diagnosis 6–10: 3.77 (2.60–5.47); Years since diagnosis 11–15: 3.19 (2.20–4.64); Years since diagnosis 16–20: 2.65 (1.52–4.62); Years since diagnosis 21+: 3.00 (1.56–5.77); Total Total: 3.74 (3.09–4.53)</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="16.0" y="26.0" font-size="15" fill="#1f1f1e" text-anchor="start" font-weight="600">Engagement in care: odds ratio after vs before, within each category</text>
+<text x="16.0" y="44.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">Log scale. Right of 1: more patients improved than got worse. P at each heading: does the effect differ between categories?</text>
+<line x1="250.0" y1="54.0" x2="250.0" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="250.0" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">0.1</text>
+<line x1="295.3" y1="54.0" x2="295.3" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="295.3" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">0.2</text>
+<line x1="355.1" y1="54.0" x2="355.1" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="355.1" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">0.5</text>
+<line x1="400.4" y1="54.0" x2="400.4" y2="630.0" stroke="#7a7974" stroke-width="1.5"/>
+<text x="400.4" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">1</text>
+<line x1="445.7" y1="54.0" x2="445.7" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="445.7" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">2</text>
+<line x1="505.6" y1="54.0" x2="505.6" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="505.6" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">5</text>
+<line x1="550.9" y1="54.0" x2="550.9" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="550.9" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">10</text>
+<line x1="596.1" y1="54.0" x2="596.1" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="596.1" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">20</text>
+<line x1="656.0" y1="54.0" x2="656.0" y2="630.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="656.0" y="646.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">50</text>
+<text x="16.0" y="72.0" font-size="12" fill="#1f1f1e" text-anchor="start" font-weight="600">Sex  (across groups P = 0.122)</text>
+<text x="28.0" y="94.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Female</text>
+<text x="240.0" y="94.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 729</text>
+<line x1="478.4" y1="90.0" x2="525.4" y2="90.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="501.8" cy="90.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Female: 4.72 (3.30–6.77)</title></circle>
+<text x="28.0" y="116.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Male</text>
+<text x="240.0" y="116.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 1339</text>
+<line x1="465.1" y1="112.0" x2="494.8" y2="112.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="480.0" cy="112.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Male: 3.38 (2.69–4.24)</title></circle>
+<text x="16.0" y="138.0" font-size="12" fill="#1f1f1e" text-anchor="start" font-weight="600">Race  (across groups P = 0.0561)</text>
+<text x="28.0" y="160.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Black</text>
+<text x="240.0" y="160.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 1403</text>
+<line x1="481.7" y1="156.0" x2="513.0" y2="156.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="497.4" cy="156.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Black: 4.41 (3.47–5.60)</title></circle>
+<text x="28.0" y="182.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Hispanic</text>
+<text x="240.0" y="182.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 354</text>
+<line x1="440.6" y1="178.0" x2="498.8" y2="178.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="469.5" cy="178.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Hispanic: 2.88 (1.85–4.51)</title></circle>
+<text x="28.0" y="204.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">White</text>
+<text x="240.0" y="204.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 276</text>
+<line x1="418.6" y1="200.0" x2="484.3" y2="200.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="451.3" cy="200.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>White: 2.18 (1.32–3.61)</title></circle>
+<text x="28.0" y="226.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">Other</text>
+<text x="240.0" y="226.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 35</text>
+<line x1="364.8" y1="222.0" x2="645.8" y2="222.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="505.6" cy="222.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Other: 5.00 (0.58–42.8)</title></circle>
+<text x="16.0" y="248.0" font-size="12" fill="#1f1f1e" text-anchor="start" font-weight="600">Age group  (across groups P = 0.0102)</text>
+<text x="28.0" y="270.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">16–24</text>
+<text x="240.0" y="270.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 86</text>
+<line x1="468.6" y1="266.0" x2="624.1" y2="266.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="546.3" cy="266.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>16–24: 9.33 (2.84–30.7)</title></circle>
+<text x="28.0" y="292.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">25–34</text>
+<text x="240.0" y="292.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 401</text>
+<line x1="485.9" y1="288.0" x2="547.8" y2="288.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="516.9" cy="288.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>25–34: 5.95 (3.70–9.55)</title></circle>
+<text x="28.0" y="314.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">35–44</text>
+<text x="240.0" y="314.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 661</text>
+<line x1="460.8" y1="310.0" x2="505.0" y2="310.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="482.8" cy="310.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>35–44: 3.53 (2.52–4.96)</title></circle>
+<text x="28.0" y="336.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">45–54</text>
+<text x="240.0" y="336.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 656</text>
+<line x1="460.8" y1="332.0" x2="505.0" y2="332.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="482.8" cy="332.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>45–54: 3.53 (2.52–4.96)</title></circle>
+<text x="28.0" y="358.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">55+</text>
+<text x="240.0" y="358.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 264</text>
+<line x1="408.4" y1="354.0" x2="474.3" y2="354.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="441.3" cy="354.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>55+: 1.87 (1.13–3.10)</title></circle>
+<text x="16.0" y="380.0" font-size="12" fill="#1f1f1e" text-anchor="start" font-weight="600">Year of visit  (across groups P = 0.1693)</text>
+<text x="28.0" y="402.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">2009</text>
+<text x="240.0" y="402.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 600</text>
+<line x1="446.4" y1="398.0" x2="491.8" y2="398.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="469.1" cy="398.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>2009: 2.86 (2.02–4.05)</title></circle>
+<text x="28.0" y="424.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">2010</text>
+<text x="240.0" y="424.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 602</text>
+<line x1="457.3" y1="420.0" x2="503.9" y2="420.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="480.6" cy="420.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>2010: 3.41 (2.39–4.87)</title></circle>
+<text x="28.0" y="446.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">2011</text>
+<text x="240.0" y="446.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 440</text>
+<line x1="471.8" y1="442.0" x2="526.2" y2="442.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="499.0" cy="442.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>2011: 4.52 (2.98–6.86)</title></circle>
+<text x="28.0" y="468.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">2012</text>
+<text x="240.0" y="468.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 426</text>
+<line x1="476.8" y1="464.0" x2="535.4" y2="464.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="506.1" cy="464.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>2012: 5.04 (3.22–7.89)</title></circle>
+<text x="16.0" y="490.0" font-size="12" fill="#1f1f1e" text-anchor="start" font-weight="600">Years since diagnosis  (across groups P = 0.2448)</text>
+<text x="28.0" y="512.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">1–5</text>
+<text x="240.0" y="512.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 627</text>
+<line x1="483.2" y1="508.0" x2="532.7" y2="508.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="508.0" cy="508.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>1–5: 5.19 (3.55–7.57)</title></circle>
+<text x="28.0" y="534.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">6–10</text>
+<text x="240.0" y="534.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 516</text>
+<line x1="462.9" y1="530.0" x2="511.4" y2="530.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="487.1" cy="530.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>6–10: 3.77 (2.60–5.47)</title></circle>
+<text x="28.0" y="556.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">11–15</text>
+<text x="240.0" y="556.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 484</text>
+<line x1="451.9" y1="552.0" x2="500.7" y2="552.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="476.2" cy="552.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>11–15: 3.19 (2.20–4.64)</title></circle>
+<text x="28.0" y="578.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">16–20</text>
+<text x="240.0" y="578.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 274</text>
+<line x1="427.8" y1="574.0" x2="500.4" y2="574.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="464.1" cy="574.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>16–20: 2.65 (1.52–4.62)</title></circle>
+<text x="28.0" y="600.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">21+</text>
+<text x="240.0" y="600.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 167</text>
+<line x1="429.5" y1="596.0" x2="514.9" y2="596.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="472.2" cy="596.0" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>21+: 3.00 (1.56–5.77)</title></circle>
+<text x="16.0" y="622.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="600">Total</text>
+<text x="240.0" y="622.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">n = 2068</text>
+<line x1="474.1" y1="618.0" x2="499.1" y2="618.0" stroke="#2a78d6" stroke-width="2"/>
+<circle cx="486.6" cy="618.0" r="6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Total: 3.74 (3.09–4.53)</title></circle>
+<text x="16.0" y="682.0" font-size="11" fill="#7a7974" text-anchor="start" font-weight="normal">Values as printed in the article's Table 2. Wald intervals from conditional logistic regression.</text>
+</svg>

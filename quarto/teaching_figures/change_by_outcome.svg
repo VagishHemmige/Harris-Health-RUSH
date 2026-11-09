@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" width="680" height="270" role="img" aria-labelledby="f4-title f4-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="f4-title">All three outcomes were more common after the visit than before</title>
+<desc id="f4-desc">Percentage of the 2,068 patients with each outcome before and after the RUSH-era visit, from the article. Engaged in care: 41.3% before, 58.8% after, up 17.5 percentage points. Retained in care: 32.6% to 47.1%, up 14.5 points. Virally suppressed, with missing viral loads counted as not suppressed: 22.8% to 34.0%, up 11.2 points.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="16.0" y="26.0" font-size="15" fill="#1f1f1e" text-anchor="start" font-weight="600">Patients with each outcome, before and after the visit (% of 2,068)</text>
+<circle cx="20.0" cy="48.0" r="6" fill="#9fbfe8" stroke="#ffffff" stroke-width="2"></circle>
+<text x="32.0" y="52.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">before</text>
+<circle cx="96.0" cy="48.0" r="6" fill="#2a78d6" stroke="#ffffff" stroke-width="2"></circle>
+<text x="108.0" y="52.0" font-size="12" fill="#52514e" text-anchor="start" font-weight="normal">after</text>
+<line x1="190.0" y1="70.0" x2="190.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="190.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">0%</text>
+<line x1="250.0" y1="70.0" x2="250.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="250.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">10%</text>
+<line x1="310.0" y1="70.0" x2="310.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="310.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">20%</text>
+<line x1="370.0" y1="70.0" x2="370.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="370.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">30%</text>
+<line x1="430.0" y1="70.0" x2="430.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="430.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">40%</text>
+<line x1="490.0" y1="70.0" x2="490.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="490.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">50%</text>
+<line x1="550.0" y1="70.0" x2="550.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="550.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">60%</text>
+<line x1="610.0" y1="70.0" x2="610.0" y2="222.0" stroke="#d9d8d3" stroke-width="1"/>
+<text x="610.0" y="240.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">70%</text>
+<text x="16.0" y="100.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Engaged in care</text>
+<line x1="437.8" y1="96.0" x2="542.8" y2="96.0" stroke="#7a7974" stroke-width="2"/>
+<circle cx="437.8" cy="96.0" r="7" fill="#9fbfe8" stroke="#ffffff" stroke-width="2"><title>Engaged in care before: 41.3%</title></circle>
+<circle cx="542.8" cy="96.0" r="7" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Engaged in care after: 58.8%</title></circle>
+<text x="425.8" y="100.0" font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">41.3%</text>
+<text x="554.8" y="100.0" font-size="11" fill="#1f1f1e" text-anchor="start" font-weight="normal">58.8%  +17.5 pts</text>
+<text x="16.0" y="150.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Retained in care</text>
+<line x1="385.6" y1="146.0" x2="472.6" y2="146.0" stroke="#7a7974" stroke-width="2"/>
+<circle cx="385.6" cy="146.0" r="7" fill="#9fbfe8" stroke="#ffffff" stroke-width="2"><title>Retained in care before: 32.6%</title></circle>
+<circle cx="472.6" cy="146.0" r="7" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Retained in care after: 47.1%</title></circle>
+<text x="373.6" y="150.0" font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">32.6%</text>
+<text x="484.6" y="150.0" font-size="11" fill="#1f1f1e" text-anchor="start" font-weight="normal">47.1%  +14.5 pts</text>
+<text x="16.0" y="200.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Virally suppressed</text>
+<line x1="326.8" y1="196.0" x2="394.0" y2="196.0" stroke="#7a7974" stroke-width="2"/>
+<circle cx="326.8" cy="196.0" r="7" fill="#9fbfe8" stroke="#ffffff" stroke-width="2"><title>Virally suppressed before: 22.8%</title></circle>
+<circle cx="394.0" cy="196.0" r="7" fill="#2a78d6" stroke="#ffffff" stroke-width="2"><title>Virally suppressed after: 34.0%</title></circle>
+<text x="314.8" y="200.0" font-size="11" fill="#52514e" text-anchor="end" font-weight="normal">22.8%</text>
+<text x="406.0" y="200.0" font-size="11" fill="#1f1f1e" text-anchor="start" font-weight="normal">34.0%  +11.2 pts</text>
+<text x="16.0" y="262.0" font-size="11" fill="#7a7974" text-anchor="start" font-weight="normal">Viral suppression counts a missing viral load as not suppressed.</text>
+</svg>
