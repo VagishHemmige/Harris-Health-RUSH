@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite the published article."
+title: "RUSH: re-linkage to HIV care after routine emergency department testing: Stata to R"
+type: software
+authors:
+  - family-names: Hemmige
+    given-names: Vagish
+    orcid: "https://orcid.org/0009-0006-6346-1826"
+license: MIT
+repository-code: "https://github.com/VagishHemmige/Harris-Health-RUSH"
+url: "https://vagishhemmige.github.io/Harris-Health-RUSH/"
+preferred-citation:
+  type: article
+  title: "Benefits of a routine opt-out HIV testing and linkage to care program for previously diagnosed patients in publicly funded emergency departments in Houston, TX"
+  authors:
+    - family-names: "Flash"
+      given-names: "Charlene A."
+    - family-names: "Pasalar"
+      given-names: "Siavash"
+    - family-names: "Hemmige"
+      given-names: "Vagish"
+      orcid: "https://orcid.org/0009-0006-6346-1826"
+    - family-names: "Davila"
+      given-names: "Jessica A."
+    - family-names: "Hallmark"
+      given-names: "Camden J."
+    - family-names: "McNeese"
+      given-names: "Marlene"
+    - family-names: "Miertschin"
+      given-names: "Nancy"
+    - family-names: "Ruggerio"
+      given-names: "Michael C."
+    - family-names: "Giordano"
+      given-names: "Thomas P."
+  journal: "Journal of Acquired Immune Deficiency Syndromes"
+  year: 2015
+  volume: 69
+  issue: "Suppl 1"
+  start: "S8"
+  end: "S15"
+  doi: "10.1097/QAI.0000000000000578"
