@@ -82,9 +82,13 @@ main table:not(.gt_table) {
 /* gtsummary tables (Tables 1 to 4): the odds-ratio cell keeps its interval
    on one line, the row labels stay in view while the table scrolls, and a
    note says the table scrolls on a narrow screen. */
-.gt_table td,
-.gt_table th {
+/* Cells stay on one line; column headings may wrap so the table fits a
+   desktop page. */
+.gt_table td {
   white-space: nowrap;
+}
+.gt_table th {
+  white-space: normal;
 }
 .gt_table td.gt_row:first-child,
 .gt_table th:first-child {
