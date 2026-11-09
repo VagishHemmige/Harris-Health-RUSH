@@ -154,7 +154,37 @@ checks$mcnemar_without_discordant_pairs <-
   is.na(concordant_result$p_value_exact) &&
   no_pairs_result$n_pairs == 0 && is.na(no_pairs_result$chi_squared)
 
-# 10. The four tables were built and saved.
+# 10. Tables 2 to 4 take their interval and P value from the model, which
+# for paired data are the Wald ones known from theory: the log of the
+# ratio of discordant pairs, plus or minus 1.96 times the square root of
+# 1/b + 1/c. The Total row shows exactly that interval.
+n_better <- sum(pairs$engaged_in_care_0 == 0 & pairs$engaged_in_care_1 == 1)
+n_worse <- sum(pairs$engaged_in_care_0 == 1 & pairs$engaged_in_care_1 == 0)
+wald_se <- sqrt(1 / n_better + 1 / n_worse)
+total_effect <- visit_effects |>
+  filter(outcome == "engaged_in_care", term == "post_visit")
+checks$visit_interval_is_wald <- isTRUE(all.equal(
+  c(total_effect$conf_low, total_effect$conf_high),
+  exp(log(n_better / n_worse) + c(-1, 1) * qnorm(0.975) * wald_se),
+  tolerance = 1e-6
+))
+total_row <- outcome_table_rows$engaged_in_care |>
+  filter(row_label == "Total")
+checks$table_total_uses_model_interval <- total_row$odds_ratio == str_glue(
+  "{style_ratio(total_effect$odds_ratio)} ",
+  "({style_ratio(total_effect$conf_low)}–{style_ratio(total_effect$conf_high)})"
+)
+
+# 11. A category in which no patient got worse prints an infinite odds
+# ratio with no P value, as the article's Table 4 does, whatever very large
+# number the model returns for it.
+separated_counts <- count_pairs(tibble(before = c(0, 0, 1), after = c(1, 1, 1)))
+huge_effect <- tibble(odds_ratio = 1e9, conf_low = 0, conf_high = Inf, p_value = 0.998)
+separated_row <- format_change(separated_counts, huge_effect)
+checks$separated_category_prints_infinity <-
+  separated_row$odds_ratio == "∞" && separated_row$p_value == "-"
+
+# 12. The four tables were built and saved.
 checks$tables_saved <- all(file.exists(file.path(
   tables_dir, str_glue("table_{1:4}.html")
 ))) && all(map_lgl(published_style_tables, \(x) inherits(x, "gtsummary")))

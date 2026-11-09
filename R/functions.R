@@ -350,7 +350,7 @@ tidy_odds_ratios <- function(model, level = 0.95) {
 ## ---- pair-outcome
 # One row per patient with an outcome's value before (before) and after
 # (after) the visit, and the patient's characteristics, from the long data:
-# the layout paired_mcnemar() needs for a subgroup. The characteristics are
+# the layout count_pairs() needs for a subgroup. The characteristics are
 # the same in both of a patient's rows.
 pair_outcome <- function(cohort_long, outcome, characteristics) {
   cohort_long |>
@@ -389,28 +389,60 @@ count_categories <- function(patients, characteristic, printed_labels) {
     select(row_label, n, pct)
 }
 
-## ---- format-change
-# For Tables 2 to 4: one row of text from a paired_mcnemar() result, the
-# columns format_outcome_table() expects. An odds ratio with no worsened
-# pairs is infinite and printed as the article prints it; with no
-# discordant pairs at all there is none, and the cell is empty.
-format_change <- function(result) {
-  odds_ratio_text <- str_glue(
-    "{style_ratio(result$odds_ratio)} ",
-    "({style_ratio(result$conf_low)}–{style_ratio(result$conf_high)})"
+## ---- count-pairs
+# For Tables 2 to 4: from one row per patient with before and after (as
+# pair_outcome() makes it), the patients with both values, the number with
+# the outcome in each period, and the two kinds of discordant pair: worse
+# (1 before, 0 after) and better (0 before, 1 after). Patients missing
+# either value are left out, as they are from the models.
+count_pairs <- function(pairs) {
+  complete <- pairs |>
+    filter(!is.na(before), !is.na(after))
+  list(
+    n_pairs = nrow(complete),
+    n_before = sum(complete$before),
+    n_after = sum(complete$after),
+    n_worse = sum(complete$before == 1 & complete$after == 0),
+    n_better = sum(complete$before == 0 & complete$after == 1)
   )
+}
+
+## ---- format-change
+# For Tables 2 to 4: one row of text, the columns format_outcome_table()
+# expects, from count_pairs() and the odds ratio for the visit from the
+# conditional logistic regression (one row of effect_by_level() or
+# tidy_odds_ratios()). The interval and P value are the model's Wald ones,
+# as the article prints them (decision in issue #5).
+# A category in which no patient got worse has an infinite odds ratio: the
+# model's estimate there is only a very large number with no usable
+# interval or P value, so the row prints "∞" and "-", as the article's
+# Table 4 does. No patient got better: "0" and "-". No discordant pairs, or
+# no estimate (a model not fitted): the cells are empty.
+format_change <- function(counts, effect) {
+  has_estimate <- nrow(effect) == 1 && !is.na(effect$odds_ratio)
+  odds_ratio_text <- ""
+  p_value_text <- ""
+  if (counts$n_worse > 0 && counts$n_better > 0 && has_estimate) {
+    odds_ratio_text <- as.character(str_glue(
+      "{style_ratio(effect$odds_ratio)} ",
+      "({style_ratio(effect$conf_low)}–{style_ratio(effect$conf_high)})"
+    ))
+    p_value_text <- coalesce(style_pvalue(effect$p_value, digits = 3), "")
+  } else if (counts$n_worse == 0 && counts$n_better > 0) {
+    odds_ratio_text <- "∞"
+    p_value_text <- "-"
+  } else if (counts$n_better == 0 && counts$n_worse > 0) {
+    odds_ratio_text <- "0"
+    p_value_text <- "-"
+  }
   tibble(
-    n = as.character(result$n_pairs),
-    before_n = as.character(result$n_before),
-    before_pct = style_percent(result$n_before / result$n_pairs, suffix = "%"),
-    after_n = as.character(result$n_after),
-    after_pct = style_percent(result$n_after / result$n_pairs, suffix = "%"),
-    odds_ratio = case_when(
-      is.na(result$odds_ratio) ~ "",
-      is.infinite(result$odds_ratio) ~ "∞",
-      .default = as.character(odds_ratio_text)
-    ),
-    p_value = coalesce(style_pvalue(result$p_value, digits = 3), "")
+    n = as.character(counts$n_pairs),
+    before_n = as.character(counts$n_before),
+    before_pct = style_percent(counts$n_before / counts$n_pairs, suffix = "%"),
+    after_n = as.character(counts$n_after),
+    after_pct = style_percent(counts$n_after / counts$n_pairs, suffix = "%"),
+    odds_ratio = odds_ratio_text,
+    p_value = p_value_text
   )
 }
 
@@ -457,7 +489,7 @@ format_outcome_table <- function(rows, outcome_header) {
       before_pct = "**%**",
       after_n = "**#**",
       after_pct = "**%**",
-      odds_ratio = "**McNemar OR (95% CI)**",
+      odds_ratio = "**OR after vs before (95% CI)**",
       p_value = "**P**",
       chi_squared = "**χ²**",
       chi_p = "**P**"
