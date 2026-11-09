@@ -4,7 +4,8 @@
 # folder holding "Deidentified RUSH data 1-15-2015.xlsx" and
 # "Deidentified Years_After_DX 1-15-2015.xlsx", and restart R.
 # The scripts print the checks the original Stata log showed and leave their
-# results as objects in the session; they write no files.
+# results as objects in the session. The only files written are HTML copies
+# of Tables 1 to 4 in tables/, which is gitignored.
 
 source("R/setup.R")
 source("R/functions.R")
@@ -13,3 +14,4 @@ source("R/02_build_long_data.R")     # two rows per patient; viral load and race
 source("R/03_paired_comparisons.R")  # McNemar's tests and crosstabs
 source("R/04_fit_rush_era_models.R") # conditional logistic regression, RUSH era
 source("R/05_compare_eras.R")        # RUSH era against the pre-RUSH era
+source("R/tables.R")                 # Tables 1 to 4 with gtsummary, to tables/

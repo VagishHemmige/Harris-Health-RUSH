@@ -1,0 +1,75 @@
+---
+title: "Tables"
+format: html
+---
+
+This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values ([Published results](published_results.qmd#the-published-tables)), laid out by the same functions; the script itself writes HTML copies to `tables/`, which is never committed.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/tables.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/tables.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/tables.R")
+```
+
+## One row per patient
+
+The long data have two rows per patient; a table of patients needs one. Selecting the patient number and the characteristics, which are the same in both of a patient's rows, and keeping distinct rows gives one row per patient in each cohort.
+
+```{r}
+#| label: define-patient-characteristics
+#| eval: false
+```
+
+## Table 1 counts {#count-table-1}
+
+For each characteristic, the number and column percentage of patients in each category, in each cohort, by `count_categories()`, then the two cohorts side by side. The article's Table 1 pairs each RUSH-era year with the pre-RUSH year in the same position (2009 with 2004), so the years are joined by position rather than by value. The control sheet holds no years since diagnosis, so those cells stay empty; the article's Table 1 has them from a source this code does not have ([Differences](differences.qmd#added-the-articles-tables)).
+
+The rows are text, already formatted, because `format_table_1()` lays out text: that is what lets the same function show the article's printed values on the website.
+
+```{r}
+#| label: count-table-1
+#| eval: false
+```
+
+## Tables 2 to 4 rows
+
+For each outcome (engagement, retention, and viral suppression with missing as not suppressed) and each category of each characteristic: the patients with both values, the number and percentage with the outcome before and after the visit, McNemar's matched-pairs odds ratio with its exact interval, and the McNemar P value, all from `paired_mcnemar()` on that category's patients ([Methodological background](methodological_background.qmd#mcnemars-test)). Within one category the matched-pairs odds ratio equals the conditional logistic regression's odds ratio for that category, so these rows agree with the within-category effects of [4. RUSH-era models](04_fit_rush_era_models.qmd#the-effect-within-each-category).
+
+The test across categories, the article's χ² column, is the interaction test from the same script, shown once per characteristic. The article's χ² values fit tests with one fewer degree of freedom than categories, which this test has; whether it is the exact statistic the article used is part of [#5](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/5).
+
+```{r}
+#| label: compute-outcome-table-rows
+#| eval: false
+```
+
+## Build the tables
+
+`format_table_1()` and `format_outcome_table()` turn the rows into gtsummary tables in the article's layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.
+
+```{r}
+#| label: build-tables
+#| eval: false
+```
+
+## Save the tables
+
+An HTML copy of each table for the authorized analyst, in `tables/`. The folder is gitignored, because tables made from the study data are not released.
+
+```{r}
+#| label: save-tables
+#| eval: false
+```

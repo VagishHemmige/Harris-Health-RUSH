@@ -22,7 +22,7 @@ knitr::read_chunk("../R/setup.R")
 
 ## Packages
 
-Four packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. The original code needed no packages: everything was built into Stata.
+Five packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **gtsummary** lays out the article's four tables ([Tables](tables.qmd)). The original code needed no packages: everything was built into Stata.
 
 ```{r}
 #| label: load-packages
@@ -95,6 +95,15 @@ Three models are commented out in the original code, each with a note that the f
 
 ```{r}
 #| label: define-estimation-constants
+#| eval: false
+```
+
+## Table constants
+
+What Tables 1 to 4 need: the characteristics in the article's row order with the headings it prints, the three outcomes of Tables 2 to 4 and the table each goes in, the printed labels where they differ from the recorded categories, and the folder for the HTML copies. Years since diagnosis start at "1–5" because the cohort excluded patients diagnosed less than a year before the visit.
+
+```{r}
+#| label: define-table-constants
 #| eval: false
 ```
 

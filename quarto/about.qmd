@@ -41,8 +41,9 @@ Four documents describe the project:
 -   [**3. Paired comparisons**](03_paired_comparisons.qmd): McNemar's tests and crosstabs.
 -   [**4. RUSH-era models**](04_fit_rush_era_models.qmd): conditional logistic regression for the visit, by subgroup, and multivariable.
 -   [**5. Comparison with the pre-RUSH era**](05_compare_eras.qmd): the era models, their subgroup versions and the random-intercept models.
+-   [**Tables**](tables.qmd): the article's Tables 1 to 4 built from the data with gtsummary.
 -   [**Original Stata code (2015)**](original_stata.qmd): the .do file the article's results came from.
--   [**Published results and the code behind them**](published_results.qmd): each number the article reports, and the step of the code that computes it.
+-   [**Published results and the code behind them**](published_results.qmd): each number the article reports, the step of the code that computes it, and the article's four tables with their printed values.
 -   [**Analysis plan**](analysis-plan.qmd), [**Architecture**](architecture.qmd), [**AGENTS.md**](agents.qmd) and [**Repository blueprint**](repository-blueprint.qmd): the project documents.
 
 ## References

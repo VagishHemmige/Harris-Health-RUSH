@@ -80,6 +80,12 @@ website:
                 text: 5. Comparison with the pre-RUSH era
                 icon: laptop
 
+          - section: Tables and figures
+            contents:
+              - href: quarto/tables.qmd
+                text: Tables
+                icon: laptop
+
           - section: Original code
             contents:
               - href: quarto/original_stata.qmd

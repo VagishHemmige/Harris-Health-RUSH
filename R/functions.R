@@ -146,10 +146,21 @@ paired_mcnemar <- function(cohort_wide, before, after) {
   chi_squared <- NA_real_
   p_value <- NA_real_
   p_value_exact <- NA_real_
+  odds_ratio <- NA_real_
+  conf_low <- NA_real_
+  conf_high <- NA_real_
   if (n_discordant > 0) {
     chi_squared <- (n_after_only - n_before_only)^2 / n_discordant
     p_value <- pchisq(chi_squared, df = 1, lower.tail = FALSE)
-    p_value_exact <- binom.test(n_after_only, n_discordant)$p.value
+    exact <- binom.test(n_after_only, n_discordant)
+    p_value_exact <- exact$p.value
+    # The matched-pairs odds ratio, after-only over before-only pairs, with
+    # the exact interval mcc reports: the binomial interval for the share of
+    # discordant pairs that improved, p, turned into odds p / (1 - p). It is
+    # infinite when no pair got worse, as the article's Table 4 footnotes.
+    odds_ratio <- n_after_only / n_before_only
+    conf_low <- exact$conf.int[1] / (1 - exact$conf.int[1])
+    conf_high <- exact$conf.int[2] / (1 - exact$conf.int[2])
   }
   list(
     counts = counts,
@@ -157,6 +168,11 @@ paired_mcnemar <- function(cohort_wide, before, after) {
     n_discordant = n_discordant,
     proportion_before = if (nrow(pairs) > 0) mean(pairs[[before]]) else NA_real_,
     proportion_after = if (nrow(pairs) > 0) mean(pairs[[after]]) else NA_real_,
+    n_before = sum(pairs[[before]]),
+    n_after = sum(pairs[[after]]),
+    odds_ratio = odds_ratio,
+    conf_low = conf_low,
+    conf_high = conf_high,
     chi_squared = chi_squared,
     p_value = p_value,
     p_value_exact = p_value_exact
@@ -329,4 +345,163 @@ tidy_odds_ratios <- function(model, level = 0.95) {
     results[[term]] <- combine_coefficients(model, term, level)
   }
   bind_rows(results, .id = "term")
+}
+
+## ---- pair-outcome
+# One row per patient with an outcome's value before (before) and after
+# (after) the visit, and the patient's characteristics, from the long data:
+# the layout paired_mcnemar() needs for a subgroup. The characteristics are
+# the same in both of a patient's rows.
+pair_outcome <- function(cohort_long, outcome, characteristics) {
+  cohort_long |>
+    select(patient_number, all_of(characteristics), post_visit, all_of(outcome)) |>
+    pivot_wider(
+      names_from = post_visit,
+      values_from = all_of(outcome),
+      names_prefix = "period_"
+    ) |>
+    rename(before = period_0, after = period_1)
+}
+
+## ---- relabel-levels
+# Category labels as the article's tables print them, from a named vector
+# of recorded level = printed label; levels not named keep their own label
+relabel_levels <- function(levels, printed_labels) {
+  coalesce(unname(printed_labels[levels]), levels)
+}
+
+## ---- count-categories
+# For Table 1: the number and column percentage of patients in each
+# category of one characteristic, labelled as the article prints them.
+# A characteristic the cohort does not have gives no rows, so its cells
+# stay empty rather than being counted as unknown.
+count_categories <- function(patients, characteristic, printed_labels) {
+  if (!characteristic %in% names(patients)) {
+    return(tibble(row_label = character(), n = integer(), pct = character()))
+  }
+  patients |>
+    count(level = .data[[characteristic]]) |>
+    filter(!is.na(level)) |>
+    mutate(
+      row_label = relabel_levels(as.character(level), printed_labels),
+      pct = style_percent(n / nrow(patients), suffix = "%")
+    ) |>
+    select(row_label, n, pct)
+}
+
+## ---- format-change
+# For Tables 2 to 4: one row of text from a paired_mcnemar() result, the
+# columns format_outcome_table() expects. An odds ratio with no worsened
+# pairs is infinite and printed as the article prints it; with no
+# discordant pairs at all there is none, and the cell is empty.
+format_change <- function(result) {
+  odds_ratio_text <- str_glue(
+    "{style_ratio(result$odds_ratio)} ",
+    "({style_ratio(result$conf_low)}–{style_ratio(result$conf_high)})"
+  )
+  tibble(
+    n = as.character(result$n_pairs),
+    before_n = as.character(result$n_before),
+    before_pct = style_percent(result$n_before / result$n_pairs, suffix = "%"),
+    after_n = as.character(result$n_after),
+    after_pct = style_percent(result$n_after / result$n_pairs, suffix = "%"),
+    odds_ratio = case_when(
+      is.na(result$odds_ratio) ~ "",
+      is.infinite(result$odds_ratio) ~ "∞",
+      .default = as.character(odds_ratio_text)
+    ),
+    p_value = coalesce(style_pvalue(result$p_value, digits = 3), "")
+  )
+}
+
+## ---- format-table-1
+# Table 1 as a gtsummary table from one row per category: columns group,
+# row_label, study_n, study_pct, control_n, control_pct, all already
+# formatted as text. Used both for the table computed from the data
+# (R/tables.R) and for the published values shown on the website, so the
+# two look the same. A heading row is added for each group.
+format_table_1 <- function(rows, study_header, control_header) {
+  rows |>
+    add_group_headings() |>
+    as_gtsummary() |>
+    modify_header(
+      label = "",
+      study_n = "**N**",
+      study_pct = "**%**",
+      control_n = "**N**",
+      control_pct = "**%**"
+    ) |>
+    modify_spanning_header(
+      c(study_n, study_pct) ~ study_header,
+      c(control_n, control_pct) ~ control_header
+    ) |>
+    modify_column_hide(c(group, row_type)) |>
+    modify_indent(columns = label, rows = row_type == "level") |>
+    modify_bold(columns = label, rows = row_type == "heading")
+}
+
+## ---- format-outcome-table
+# Tables 2 to 4 as a gtsummary table from one row per category: columns
+# group, row_label, n, before_n, before_pct, after_n, after_pct, odds_ratio
+# (with its interval), p_value, chi_squared and chi_p, all already
+# formatted as text. The test across groups is shown on each group's
+# heading row. Used for both the computed and the published tables.
+format_outcome_table <- function(rows, outcome_header) {
+  rows |>
+    add_group_headings(move_to_heading = c("chi_squared", "chi_p")) |>
+    as_gtsummary() |>
+    modify_header(
+      label = "",
+      n = "**n**",
+      before_n = "**#**",
+      before_pct = "**%**",
+      after_n = "**#**",
+      after_pct = "**%**",
+      odds_ratio = "**McNemar OR (95% CI)**",
+      p_value = "**P**",
+      chi_squared = "**χ²**",
+      chi_p = "**P**"
+    ) |>
+    modify_spanning_header(
+      c(before_n, before_pct) ~ "**Before**",
+      c(after_n, after_pct) ~ "**After**",
+      c(odds_ratio, p_value) ~ "**Change within group**",
+      c(chi_squared, chi_p) ~ "**Difference across groups**"
+    ) |>
+    modify_spanning_header(
+      c(before_n, before_pct, after_n, after_pct) ~ outcome_header,
+      level = 2
+    ) |>
+    modify_column_hide(c(group, row_type)) |>
+    modify_indent(columns = label, rows = row_type == "level") |>
+    modify_bold(columns = label, rows = row_type == "heading")
+}
+
+## ---- add-group-headings
+# Insert a heading row before each group's categories (Sex, Race, ...), and
+# rename row_label to label, the column gtsummary shows first. Columns named
+# in move_to_heading (the test across groups) move from the group's first
+# row to its heading. The Total row is a group of one and gets no heading.
+add_group_headings <- function(rows, move_to_heading = character()) {
+  rows <- rows |>
+    mutate(group = factor(group, levels = unique(group)), row_type = "level")
+  headings <- rows |>
+    group_by(group) |>
+    slice(1) |>
+    ungroup() |>
+    filter(group != "Total") |>
+    mutate(
+      row_label = as.character(group),
+      row_type = "heading",
+      across(-c(group, row_label, row_type, all_of(move_to_heading)), \(x) "")
+    )
+  rows <- rows |>
+    mutate(across(all_of(move_to_heading), \(x) if_else(group == "Total", x, "")))
+  bind_rows(headings, rows) |>
+    mutate(heading_first = row_type != "heading") |>
+    arrange(group, heading_first) |>
+    select(-heading_first) |>
+    mutate(group = as.character(group), across(everything(), \(x) coalesce(x, ""))) |>
+    rename(label = row_label) |>
+    relocate(label)
 }

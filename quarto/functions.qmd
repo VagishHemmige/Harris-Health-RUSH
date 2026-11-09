@@ -173,3 +173,66 @@ Every coefficient of a model as an odds ratio with its confidence interval and P
 #| label: tidy-odds-ratios
 #| eval: false
 ```
+
+## Pair an outcome
+
+One row per patient with the outcome's value before and after the visit, made from the long data with `pivot_wider()`, plus the patient's characteristics: the layout `paired_mcnemar()` needs when it is run within each category for Tables 2 to 4.
+
+```{r}
+#| label: pair-outcome
+#| eval: false
+```
+
+## Printed labels
+
+The article prints some categories differently from how they are recorded ("1–5" for "<=5" years since diagnosis, "Other" for the fourth race group). A named vector maps recorded to printed; anything not named keeps its own label.
+
+```{r}
+#| label: relabel-levels
+#| eval: false
+```
+
+## Count categories
+
+For Table 1: each category's number of patients and column percentage, with printed labels. A cohort that lacks the characteristic altogether gives no rows, so its cells stay empty rather than appearing as a column of unknowns.
+
+```{r}
+#| label: count-categories
+#| eval: false
+```
+
+## Format a row of Tables 2 to 4
+
+Turns one `paired_mcnemar()` result into the text cells of a row. gtsummary's `style_percent()`, `style_ratio()` and `style_pvalue()` do the rounding. An odds ratio with no worsened pairs is infinite and printed "∞", as the article's Table 4 prints it; with no discordant pairs there is no odds ratio and the cell is empty.
+
+```{r}
+#| label: format-change
+#| eval: false
+```
+
+## Lay out Table 1
+
+From rows of text to a gtsummary table: `as_gtsummary()` makes a table from a data frame, `modify_header()` and `modify_spanning_header()` set the column headings, and `modify_indent()` and `modify_bold()` style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on [Published results](published_results.qmd#the-published-tables).
+
+```{r}
+#| label: format-table-1
+#| eval: false
+```
+
+## Lay out Tables 2 to 4
+
+The same approach, with two levels of spanning headers: the outcome over Before and After, and Before, After, the change within the group and the difference across groups over their columns.
+
+```{r}
+#| label: format-outcome-table
+#| eval: false
+```
+
+## Add group headings
+
+Inserts a heading row (Sex, Race and so on) before each characteristic's categories, as the article's tables have, and moves the test across groups onto that heading row, so it sits with the characteristic it tests. The Total row is not given a heading.
+
+```{r}
+#| label: add-group-headings
+#| eval: false
+```

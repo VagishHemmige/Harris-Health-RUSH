@@ -120,7 +120,7 @@ No adjustment for multiple comparisons. P < 0.05 is significant.
 
 ### 8.9 Software
 
-The published analysis used Stata 12 and SPSS 21 [@flash2015rush]; the Stata code is in `stata/`. The descriptive statistics in the article's Table 1 (mean age, for example) are not computed by the Stata code and are not part of this port. The R version uses `survival::clogit()` [@therneau_survival] and `lme4::glmer()` [@bates2015lme4].
+The published analysis used Stata 12 and SPSS 21 [@flash2015rush]; the Stata code is in `stata/`. The article's Tables 1 to 4 are not made by the Stata code; the R version builds them (`R/tables.R`, with gtsummary): Table 1 as counts and percentages by cohort, and Tables 2 to 4 as, for each subgroup, the numbers before and after, McNemar's matched-pairs odds ratio with its exact interval and P value, and the interaction test of section 8.4 across the subgroup's categories. Mean age is not computed: the workbooks hold age groups only. The R version uses `survival::clogit()` [@therneau_survival] and `lme4::glmer()` [@bates2015lme4].
 
 ## 9. Sensitivity analyses
 

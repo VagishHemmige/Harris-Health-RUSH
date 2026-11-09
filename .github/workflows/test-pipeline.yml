@@ -32,7 +32,8 @@ jobs:
         with:
           use-public-rspm: true
 
-      # The packages R/setup.R attaches, plus writexl for the synthetic files.
+      # The packages R/setup.R attaches, plus writexl for the synthetic files
+      # and gt for saving the tables.
       # Quarto is not installed: this job renders nothing.
       - name: Install the R packages the analysis uses
         uses: r-lib/actions/setup-r-dependencies@v2
@@ -44,6 +45,8 @@ jobs:
             any::writexl
             any::survival
             any::lme4
+            any::gtsummary
+            any::gt
 
       - name: Run the analysis on synthetic data
         run: Rscript tests/synthetic/run_pipeline.R

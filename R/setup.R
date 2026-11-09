@@ -8,6 +8,7 @@ library(tidyverse)  # dplyr, tidyr, stringr, purrr
 library(readxl)     # the de-identified Excel workbooks
 library(survival)   # clogit(): conditional logistic regression
 library(lme4)       # glmer(): random-effects logistic regression
+library(gtsummary)  # Tables 1 to 4 (R/tables.R)
 
 ## ---- define-data-files
 # The original analysis was dated 15 January 2015; the workbook names carry
@@ -139,3 +140,38 @@ quadrature_points <- 12
 # Patients with both a RUSH-era and a pre-RUSH visit have four rows in the
 # long data: before and after each visit
 rows_per_patient_both_eras <- 4
+
+## ---- define-table-constants
+# Tables 1 to 4 (R/tables.R): the characteristics, in the article's row
+# order, with their headings; the three outcomes of Tables 2 to 4; and the
+# category labels the article prints where they differ from the recorded
+# ones. Years since diagnosis start at 1 because the cohort excluded
+# patients diagnosed less than a year before the visit.
+table_characteristics <- c(
+  gender = "Sex",
+  race_group = "Race",
+  age_group = "Age group",
+  index_test_year = "Year of visit",
+  years_since_dx_group = "Years since diagnosis"
+)
+table_outcomes <- c(
+  engaged_in_care = "**Engagement in care**",
+  retained_in_care = "**Retention in care**",
+  vl_suppressed_missing_fail = "**Virologic suppression**"
+)
+table_numbers <- c(
+  engaged_in_care = "table_2",
+  retained_in_care = "table_3",
+  vl_suppressed_missing_fail = "table_4"
+)
+table_level_labels <- list(
+  gender = character(),
+  race_group = c(`Asian/Other/Unknown` = "Other"),
+  age_group = character(),
+  index_test_year = character(),
+  years_since_dx_group = c(
+    `<=5` = "1–5", `6-10` = "6–10", `11-15` = "11–15", `16-20` = "16–20",
+    `>20` = "21+"
+  )
+)
+tables_dir <- "tables"

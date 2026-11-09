@@ -4,6 +4,7 @@
 # Needs, beyond the packages in R/setup.R: writexl.
 
 synthetic_dir <- file.path(tempdir(), "rush-synthetic")
+# The tables go to tables/ in the project, which is gitignored
 dir.create(synthetic_dir, showWarnings = FALSE)
 
 source("R/setup.R")
@@ -152,6 +153,11 @@ checks$mcnemar_without_discordant_pairs <-
   concordant_result$n_discordant == 0 && is.na(concordant_result$p_value) &&
   is.na(concordant_result$p_value_exact) &&
   no_pairs_result$n_pairs == 0 && is.na(no_pairs_result$chi_squared)
+
+# 10. The four tables were built and saved.
+checks$tables_saved <- all(file.exists(file.path(
+  tables_dir, str_glue("table_{1:4}.html")
+))) && all(map_lgl(published_style_tables, \(x) inherits(x, "gtsummary")))
 
 results <- tibble(check = names(checks), passed = unlist(checks))
 print(results, n = Inf)

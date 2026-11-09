@@ -4,7 +4,7 @@ The current implementation: scripts, data flow, and the objects passed between t
 
 ## Running order
 
-`R/main.R` sources the scripts in this order. Each script runs in the global environment and leaves the objects listed for later scripts. No script writes a file.
+`R/main.R` sources the scripts in this order. Each script runs in the global environment and leaves the objects listed for later scripts. The only files written are the HTML tables in `tables/`.
 
 | Order | Script | Needs | Produces | Data |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ The current implementation: scripts, data flow, and the objects passed between t
 | 5 | `R/03_paired_comparisons.R` | 1 to 4 | `mcnemar_results`, `crosstabs` | Results from study data |
 | 6 | `R/04_fit_rush_era_models.R` | 1 to 4 | `visit_models`, `visit_effects`; `subgroup_models`, `subgroup_tests`, `subgroup_effects`; `combined_models`, `combined_tests`, `combined_effects`; `multivariable_models`, `multivariable_effects` | Results from study data |
 | 7 | `R/05_compare_eras.R` | 1 to 4 | `era_samples`; `era_models`, `era_effects`; `era_subgroup_models`, `era_subgroup_tests`; `random_effects_models`, `random_effects_effects` | Results from study data |
+| 8 | `R/tables.R` | 1, 2, 4, 6 | `table_1_rows`, `outcome_table_rows`; `published_style_tables` (four gtsummary tables); HTML copies in `tables/` | Outputs, gitignored |
 
 ## Data flow
 
@@ -33,6 +34,9 @@ flowchart TD
   SL --> P
   SL --> R["04_fit_rush_era_models.R<br/>visit, subgroup, combined and multivariable models"]
   BE --> E["05_compare_eras.R<br/>era models in two samples, random-intercept models"]
+  SL --> T["tables.R<br/>Tables 1 to 4 (gtsummary)"]
+  R --> T
+  PV["quarto/published/*.csv<br/>values printed in the article"] --> S["published_results.qmd<br/>the same table functions"]
 ```
 
 ## Key mechanisms
@@ -44,12 +48,13 @@ flowchart TD
 - **Results in nested named lists.** Repeated fits are for-loops over names into lists indexed `[[characteristic]][[outcome]]`, or `[[sample]][[outcome]]` in `05`.
 - **Skipped models in one place.** `skipped_rush_subgroup_models` and `skipped_era_subgroup_models_all` (`setup.R`) list the models the original code could not fit; `04` and `05` skip them by lookup.
 - **Two era samples.** `era_samples` holds `all_patients` and `both_eras` (patients with `rows_per_patient_both_eras` rows); every model in `05` loops over both.
+- **One layout for computed and published tables.** `format_table_1()` and `format_outcome_table()` take rows of text, so `R/tables.R` (from the data) and the published-results page (from the article's printed values in `quarto/published/`) produce tables with the same layout.
 - **Inputs are checked.** `01` stops if `RUSH_DATA_DIR` is unset or a workbook lacks an expected column; the message names columns only. `check_unique_patients()` stops the import if a patient number repeats in any sheet.
 
 ## Dependencies outside this repository
 
 - **The study data**, in the folder named by `RUSH_DATA_DIR`: the two de-identified workbooks. Neither is in the repository; their columns have not been checked against the code.
-- **Packages** attached in `setup.R`: tidyverse, readxl, survival and lme4. The synthetic test also needs writexl.
+- **Packages** attached in `setup.R`: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl.
 
 ## Website
 
@@ -57,18 +62,19 @@ Each definitive script has a page in `quarto/` that imports its labelled section
 
 ## Tests
 
-`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; `paired_mcnemar()` equals `mcnemar.test()`; and, on small invented data, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, and that McNemar's test without discordant pairs returns missing values. `.github/workflows/test-pipeline.yml` runs it on every pull request.
+`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; `paired_mcnemar()` equals `mcnemar.test()`; and, on small invented data, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar's test without discordant pairs returns missing values; and that the four tables are built and saved. `.github/workflows/test-pipeline.yml` runs it on every pull request.
 
 ## Code references
 
 | Script | Labelled sections | Key symbols |
 |---|---|---|
-| `R/setup.R` | `load-packages`, `define-data-files`, `define-expected-columns`, `define-categories`, `define-outcomes`, `define-subgroups`, `define-skipped-models`, `define-estimation-constants` | `data_dir`, `cohort_columns`, `control_columns`, `place_columns`, `years_since_dx_levels`, `race_group_codes_study`, `race_group_codes_control`, `outcomes`, `subgroups_rush`, `subgroups_era`, `quadrature_points`, `rows_per_patient_both_eras` |
-| `R/functions.R` | `check-columns`, `check-unique-patients`, `encode-like-stata`, `clean-cohort`, `group-race-codes`, `reshape-to-long`, `add-viral-load-outcomes`, `paired-mcnemar`, `crosstab-row-percent`, `fit-conditional-logit`, `model-coefficients`, `combine-coefficients`, `interaction-terms`, `effect-by-level`, `wald-test`, `tidy-odds-ratios` | `encode_like_stata()`, `clean_cohort()`, `fit_conditional_logit()`, `effect_by_level()`, `wald_test()` |
+| `R/setup.R` | `load-packages`, `define-data-files`, `define-expected-columns`, `define-categories`, `define-outcomes`, `define-subgroups`, `define-skipped-models`, `define-estimation-constants`, `define-table-constants` | `data_dir`, `cohort_columns`, `control_columns`, `place_columns`, `years_since_dx_levels`, `race_group_codes_study`, `race_group_codes_control`, `outcomes`, `subgroups_rush`, `subgroups_era`, `quadrature_points`, `rows_per_patient_both_eras` |
+| `R/functions.R` | `check-columns`, `check-unique-patients`, `encode-like-stata`, `clean-cohort`, `group-race-codes`, `reshape-to-long`, `add-viral-load-outcomes`, `paired-mcnemar`, `crosstab-row-percent`, `fit-conditional-logit`, `model-coefficients`, `combine-coefficients`, `interaction-terms`, `effect-by-level`, `wald-test`, `tidy-odds-ratios`, `pair-outcome`, `relabel-levels`, `count-categories`, `format-change`, `format-table-1`, `format-outcome-table`, `add-group-headings` | `encode_like_stata()`, `clean_cohort()`, `fit_conditional_logit()`, `effect_by_level()`, `wald_test()` |
 | `R/01_import_data.R` | `check-data-folder`, `read-years-since-diagnosis`, `read-study-cohort`, `merge-years-since-diagnosis`, `clean-study-cohort`, `describe-study-cohort`, `read-control-cohort` | `study_wide`, `control_wide` |
 | `R/02_build_long_data.R` | `reshape-study-cohort`, `group-race-study`, `reshape-control-cohort`, `group-race-control`, `stack-eras` | `study_long`, `control_long`, `both_eras_long` |
 | `R/03_paired_comparisons.R` | `mcnemar-tests`, `crosstabs-by-characteristic` | `mcnemar_results`, `crosstabs` |
 | `R/04_fit_rush_era_models.R` | `fit-visit-models`, `fit-subgroup-models`, `test-subgroup-interactions`, `estimate-subgroup-effects`, `fit-combined-models`, `fit-multivariable-models` | `visit_models`, `subgroup_tests`, `subgroup_effects`, `multivariable_models` |
+| `R/tables.R` | `define-patient-characteristics`, `count-table-1`, `compute-outcome-table-rows`, `build-tables`, `save-tables` | `table_1_rows`, `outcome_table_rows`, `published_style_tables` |
 | `R/05_compare_eras.R` | `define-era-samples`, `fit-era-models`, `fit-era-subgroup-models`, `fit-random-effects-models` | `era_samples`, `era_models`, `era_subgroup_tests`, `random_effects_models` |
 
 ## Glossary
