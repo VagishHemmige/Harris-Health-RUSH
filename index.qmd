@@ -5,9 +5,25 @@ format: html
 
 ## The study
 
-Most people who test positive in a busy emergency department's routine HIV testing program already know they have HIV. In Houston's Routine Universal Screening for HIV (RUSH) program, about three in four positives were previously diagnosed. Many of them are out of care, so the visit is a chance to bring them back. Flash and colleagues asked whether it does: among 2,068 previously diagnosed patients tested in the Ben Taub and Lyndon B. Johnson emergency departments between 2009 and 2012, they compared each patient's engagement in care, retention in care and viral suppression in the months before the visit with the same outcomes in the months after it, and compared that change with the change around an earlier visit by 672 of the same patients, before RUSH and its service linkage workers existed [@flash2015rush].
+Most people who test positive in a busy emergency department's routine HIV testing program already know they have HIV. In Houston's Routine Universal Screening for HIV (RUSH) program, about three in four people who tested positive had been diagnosed before: of 3,613 positive results in the study's two emergency departments in 2009 to 2012, 655 were new diagnoses and 2,958 were in 2,188 previously diagnosed people [@flash2015rush]. Many of them are out of care: in this study, 59% had no HIV care visit in the six months before the emergency department visit. The visit is a chance to bring them back. Flash and colleagues asked whether patients were more often in care after it: among 2,068 previously diagnosed patients tested in the Ben Taub and Lyndon B. Johnson emergency departments between 2009 and 2012, they compared each patient's engagement in care, retention in care and viral suppression in the months before the visit with the same outcomes in the months after it, and compared that change with the change around an earlier visit by 672 of the same patients, before RUSH and its service linkage workers existed [@flash2015rush].
 
-All three outcomes improved after the visit: engagement from 41.3% to 58.8%, retention from 32.6% to 47.1%, and viral suppression from 22.8% to 34.0%, each with P < 0.001 (abstract), and each improvement was larger than around the pre-RUSH visit [@flash2015rush]. [Clinical background](quarto/background.qmd) explains the program and why previously diagnosed patients matter.
+[Clinical background](quarto/background.qmd) explains the program and why previously diagnosed patients matter.
+
+## What was found
+
+All three outcomes were more common after the visit than before, each with P < 0.001 [@flash2015rush, abstract]:
+
+- **Engaged in care** (an HIV care visit in 6 months): 41.3% before, 58.8% after, 17.5 percentage points more.
+- **Retained in care** (two visits at least 3 months apart in 12 months): 32.6% to 47.1%, 14.5 points more.
+- **Virally suppressed** (a viral load below 200 copies/mL in 12 months): 22.8% to 34.0%, 11.2 points more. A patient with no viral load drawn at Harris Health counts as not suppressed.
+
+::: {.teaching-figure}
+![Before and after the visit, for each outcome. Percentages of the 2,068 patients, from the article's abstract [@flash2015rush]. The odds ratios, with their intervals and the results by subgroup, are on [Published results](quarto/published_results.qmd#the-published-tables).](quarto/teaching_figures/change_by_outcome.svg){fig-alt="Dot plot of the percentage of 2,068 patients with each outcome before and after the visit. Engaged in care: 41.3% before, 58.8% after, up 17.5 points. Retained in care: 32.6% to 47.1%, up 14.5 points. Virally suppressed: 22.8% to 34.0%, up 11.2 points."}
+:::
+
+The article reports each change as an odds ratio, 3.74 for engagement (its Table 2). For a paired comparison the odds ratio compares the patients who improved with the patients who got worse; it is not a ratio of the two percentages, and 3.74 does not mean patients were nearly four times as likely to be in care. [Methodological background](quarto/methodological_background.qmd#paired-binary-data) shows why. Each improvement was also larger than around the pre-RUSH visit [@flash2015rush].
+
+**What the study can and cannot say.** It compares each patient with themself, and with the change around a visit before RUSH, not with patients randomly left without the program. Some of the improvement might have followed any emergency department visit: the illness that brings a patient in can also bring them back to care, and patients are often tested at a low point, from which some recover anyway. Care outside Harris Health and the Ryan White clinics is not seen. The authors themselves write that the observational data and historical controls preclude strong statements about causation [@flash2015rush, Discussion]. The differences between groups, by age and by years since diagnosis, come from about 15 tests with no adjustment for multiple testing, so they are best read as leads for further study [@wang2007subgroups].
 
 ## What this site does
 

@@ -9,11 +9,11 @@ In 2006 the CDC recommended that HIV screening be offered to patients in all hea
 
 ## The HIV care continuum
 
-Diagnosis is only the first step. A person with HIV benefits, and stops transmitting the virus to sexual partners, only if they are linked to HIV care, stay in care, take antiretroviral therapy and reach a suppressed viral load. Each step loses people. The RUSH article cites national estimates that about one in five people aware of their HIV had not been linked to care, and that only about half of those linked were retained [@flash2015rush]. People who fall out of care are hard to find: they are, by definition, no longer coming to the clinic.
+Diagnosis is only the first step. A person with HIV gets the full benefit of treatment once they are linked to HIV care, stay in care, take antiretroviral therapy and reach a suppressed viral load, and a person whose viral load stays suppressed does not transmit HIV to sexual partners [@cohen2016hptn052; @rodger2016partner; @rodger2019partner2]. Each step loses people. The RUSH article cites national estimates that about one in five people aware of their HIV had not been linked to care, and that only about half of those linked were retained [@flash2015rush]. The national reports of the time put it differently: in 2011, one in five people *newly* diagnosed had not been linked within three months [@bradley2014vitalsigns], and of everyone aware of their HIV, about 77% had been linked and 51% remained in care [@cdc2011vitalsigns]. People who fall out of care are hard to find: they are, by definition, no longer coming to the clinic.
 
 ## Why previously diagnosed patients matter
 
-A routine testing program in the emergency department tests everyone who does not decline, so it tests again many people who already know they have HIV, including some who do not mention it and some who have dropped out of care. Retesting them is usually seen as waste. The RUSH investigators asked the opposite question: if the program is paired with staff whose job is to link every positive patient to care, is retesting a previously diagnosed patient an opportunity to bring them back? [@flash2015rush]
+A routine testing program in the emergency department tests everyone who does not decline, so it tests again many people who already know they have HIV, including some who do not mention it and some who have dropped out of care. Programs often count these retests as low-yield, because they find no new diagnosis. The RUSH investigators asked the opposite question: if the program is paired with staff whose job is to link every positive patient to care, is retesting a previously diagnosed patient an opportunity to bring them back? [@flash2015rush]
 
 ## The RUSH program
 

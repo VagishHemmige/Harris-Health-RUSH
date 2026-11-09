@@ -37,7 +37,7 @@ This page is a map from each reported result to the step of the code that comput
 |---|---|
 | 32.6% before and 47.1% after, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) |
 | Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) |
-| No change among the 29 people of other race or ethnicity | The same, for `race_group` |
+| No change among the 29 people of other race or ethnicity (as printed; the article's Tables 1 to 4 give 35) | The same, for `race_group` |
 | Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years) | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ); [`fit-combined-models`](04_fit_rush_era_models.qmd#years-since-diagnosis-and-age-together) |
 | The RUSH-era visit was significantly more likely to improve retention, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
 
@@ -100,6 +100,8 @@ format_table_1(
 
 Source: the article's Table 1. As printed, the study cohort's "21+" years-since-diagnosis row reads 167 (13%), although 167 of 2,068 is 8%; and 367 of 672 controls in 2007 reads 54%, where the quotient rounds to 55%.
 
+**Reading Tables 2 to 4.** *n* is the patients with both values, and # and % the patients with the outcome before and after the visit. The odds ratio compares the patients whose outcome improved with those whose outcome got worse, from the conditional logistic regression (a Wald 95% interval). It is not a ratio of the two percentages. *P within group* tests the change in that category; *P across groups* tests whether the change differs between the categories, without adjustment for the number of tests [@wang2007subgroups]. On a narrow screen the tables scroll sideways. Under each table, a forest plot shows the same odds ratios.
+
 ### Table 2. Engagement in care before and after a RUSH-era emergency department visit
 
 ```{r}
@@ -109,6 +111,10 @@ format_outcome_table(published_rows("Table 2"), "**Engagement in care**")
 ```
 
 Source: the article's Table 2. As printed, the 35–44 and 45–54 rows have the same odds ratio and interval, 3.53 (2.52–4.96).
+
+::: {.teaching-figure}
+![Table 2's odds ratios, drawn from the printed values. Each dot is a category's odds ratio and the line its 95% interval, on a log scale; 1 means no change.](teaching_figures/forest_table_2.svg){fig-alt="Forest plot of the odds ratio for engagement after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total, 3.74 (3.09 to 4.53). All intervals except Other race, which runs from 0.58 to 42.8, lie above 1. The values are those of Table 2 above."}
+:::
 
 ### Table 3. Retention in care before and after a RUSH-era emergency department visit
 
@@ -120,6 +126,10 @@ format_outcome_table(published_rows("Table 3"), "**Retention in care**")
 
 Source: the article's Table 3. Its total before the visit, 679 of 2,068, is 32.8%; the Results text gives 32.6%.
 
+::: {.teaching-figure}
+![Table 3's odds ratios, drawn from the printed values, as for Table 2.](teaching_figures/forest_table_3.svg){fig-alt="Forest plot of the odds ratio for retention after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total. Most intervals lie above 1; those for ages 55 and over, Other race and 16 or more years since diagnosis include 1. The values are those of Table 3 above."}
+:::
+
 ### Table 4. Virologic suppression before and after a RUSH-era emergency department visit
 
 ```{r}
@@ -129,6 +139,10 @@ format_outcome_table(published_rows("Table 4"), "**Virologic suppression**")
 ```
 
 Source: the article's Table 4, with missing viral loads counted as not suppressed. The odds ratio for "Other" is infinite (∞\*) because no patient in that group went from suppressed to unsuppressed (the article's footnote). As printed, the Female and Male rows before the visit add to 472, against a total of 471.
+
+::: {.teaching-figure}
+![Table 4's odds ratios, drawn from the printed values, as for Table 2. The Other row's odds ratio is infinite, so it has no dot.](teaching_figures/forest_table_4.svg){fig-alt="Forest plot of the odds ratio for viral suppression after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total. For Other race the odds ratio is infinite because no patient got worse. Intervals for ages 16 to 24 and 55 and over, and for 16 or more years since diagnosis, include 1. The values are those of Table 4 above."}
+:::
 
 ## References
 

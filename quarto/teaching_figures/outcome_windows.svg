@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300" role="img" aria-labelledby="f2-title f2-desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<title id="f2-title">The before and after windows for each outcome</title>
+<desc id="f2-desc">A timeline from 12 months before to 12 months after the emergency department visit. Engagement: a visit in the 6 months before, compared with the 6 months after. Retention: two visits at least 3 months apart in the 12 months before, compared with the 12 months after. Viral suppression: a viral load below 200 copies per mL in 12 months before and 12 months after, with the dividing line moved 10 days after the visit, because a viral load drawn in those days reflects treatment before the visit.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="16.0" y="26.0" font-size="15" fill="#1f1f1e" text-anchor="start" font-weight="600">Each outcome compares a window before the visit with the same window after</text>
+<text x="16.0" y="66.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Engagement</text>
+<text x="16.0" y="83.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">any HIV care visit</text>
+<rect x="276.5" y="54.0" width="125.5" height="22.0" rx="4" fill="#9fbfe8" stroke="none"/>
+<rect x="404.0" y="54.0" width="125.5" height="22.0" rx="4" fill="#2a78d6" stroke="none"/>
+<text x="339.8" y="69.0" font-size="11" fill="#1f1f1e" text-anchor="middle" font-weight="normal">before</text>
+<text x="466.2" y="69.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal">after</text>
+<text x="16.0" y="128.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Retention</text>
+<text x="16.0" y="145.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">2 visits ≥ 3 months apart</text>
+<rect x="150.0" y="116.0" width="252.0" height="22.0" rx="4" fill="#9fbfe8" stroke="none"/>
+<rect x="404.0" y="116.0" width="252.0" height="22.0" rx="4" fill="#2a78d6" stroke="none"/>
+<text x="276.5" y="131.0" font-size="11" fill="#1f1f1e" text-anchor="middle" font-weight="normal">before</text>
+<text x="529.5" y="131.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal">after</text>
+<text x="16.0" y="190.0" font-size="13" fill="#1f1f1e" text-anchor="start" font-weight="600">Viral suppression</text>
+<text x="16.0" y="207.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">a viral load &lt; 200 copies/mL</text>
+<rect x="157.0" y="178.0" width="252.0" height="22.0" rx="4" fill="#9fbfe8" stroke="none"/>
+<rect x="411.0" y="178.0" width="252.0" height="22.0" rx="4" fill="#2a78d6" stroke="none"/>
+<text x="283.5" y="193.0" font-size="11" fill="#1f1f1e" text-anchor="middle" font-weight="normal">before</text>
+<text x="536.5" y="193.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="normal">after</text>
+<text x="416.0" y="218.0" font-size="11" fill="#52514e" text-anchor="start" font-weight="normal">after-window starts on day 11</text>
+<line x1="403.0" y1="40.0" x2="403.0" y2="252.0" stroke="#1f1f1e" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="403.0" y="286.0" font-size="12" fill="#1f1f1e" text-anchor="middle" font-weight="600">Emergency department visit</text>
+<line x1="150.0" y1="252.0" x2="656.0" y2="252.0" stroke="#7a7974" stroke-width="1"/>
+<line x1="150.0" y1="252.0" x2="150.0" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="150.0" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">-12</text>
+<line x1="213.2" y1="252.0" x2="213.2" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="213.2" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">-9</text>
+<line x1="276.5" y1="252.0" x2="276.5" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="276.5" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">-6</text>
+<line x1="339.8" y1="252.0" x2="339.8" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="339.8" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">-3</text>
+<line x1="403.0" y1="252.0" x2="403.0" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="403.0" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">0</text>
+<line x1="466.2" y1="252.0" x2="466.2" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="466.2" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">+3</text>
+<line x1="529.5" y1="252.0" x2="529.5" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="529.5" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">+6</text>
+<line x1="592.8" y1="252.0" x2="592.8" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="592.8" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">+9</text>
+<line x1="656.0" y1="252.0" x2="656.0" y2="257.0" stroke="#7a7974" stroke-width="1"/>
+<text x="656.0" y="270.0" font-size="11" fill="#52514e" text-anchor="middle" font-weight="normal">+12</text>
+<text x="656.0" y="246.0" font-size="11" fill="#7a7974" text-anchor="end" font-weight="normal">months</text>
+</svg>
