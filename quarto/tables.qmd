@@ -29,6 +29,8 @@ knitr::read_chunk("../R/tables.R")
 
 The long data have two rows per patient; a table of patients needs one. Selecting the patient number and the characteristics, which are the same in both of a patient's rows, and keeping distinct rows gives one row per patient in each cohort.
 
+The control sheet has no years since diagnosis. The controls are the same patients as the study cohort, with the same patient numbers, so their group is joined from the study cohort. The years workbook holds years from diagnosis to the RUSH-era index visit, so that is the value the controls' column shows.
+
 ```{r}
 #| label: define-patient-characteristics
 #| eval: false
@@ -36,7 +38,7 @@ The long data have two rows per patient; a table of patients needs one. Selectin
 
 ## Table 1 counts {#count-table-1}
 
-For each characteristic, the number and column percentage of patients in each category, in each cohort, by `count_categories()`, then the two cohorts side by side. The article's Table 1 pairs each RUSH-era year with the pre-RUSH year in the same position (2009 with 2004), so the years are joined by position rather than by value. The control sheet holds no years since diagnosis, so those cells stay empty; the article's Table 1 has them from a source this code does not have ([Differences](differences.qmd#added-the-articles-tables)).
+For each characteristic, the number and column percentage of patients in each category, in each cohort, by `count_categories()`, then the two cohorts side by side. The article's Table 1 pairs each RUSH-era year with the pre-RUSH year in the same position (2009 with 2004), so the years are joined by position rather than by value. The controls' years since diagnosis are those joined in the previous step.
 
 The rows are text, already formatted, because `format_table_1()` lays out text: that is what lets the same function show the article's printed values on the website.
 

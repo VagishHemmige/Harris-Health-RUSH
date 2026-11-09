@@ -18,14 +18,23 @@
 study_patients <- study_long |>
   select(patient_number, any_of(names(table_characteristics))) |>
   distinct()
+# The controls are the same patients as the study cohort, with the same
+# patient numbers, so their years since diagnosis come from the years
+# workbook through the study cohort. That workbook holds years from
+# diagnosis to the RUSH-era index visit, so this is the value used.
 control_patients <- control_long |>
   select(patient_number, any_of(names(table_characteristics))) |>
-  distinct()
+  distinct() |>
+  left_join(
+    study_patients |> select(patient_number, years_since_dx_group),
+    by = "patient_number",
+    relationship = "one-to-one"
+  )
 
 ## ---- count-table-1
 # Counts and column percentages for each category of each characteristic,
-# in each cohort (Table 1). The control sheet carries no years since
-# diagnosis, and need not carry the visit year, so those cells stay empty.
+# in each cohort (Table 1). The control sheet need not carry the visit
+# year; if it does not, those cells stay empty.
 # Visit years are paired by position in each era (2009 with 2004, and so
 # on), as the article's Table 1 pairs them.
 table_1_rows <- list()
