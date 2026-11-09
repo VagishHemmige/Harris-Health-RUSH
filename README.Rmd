@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Status](https://img.shields.io/badge/status-teaching_resource-yellow)](#)
 [![Methods](https://img.shields.io/badge/methods-published_2015-blue)](#)
-[![Not for Citation](https://img.shields.io/badge/use-not_for_citation-lightgrey)](#)
+[![Published](https://img.shields.io/badge/published-J_Acquir_Immune_Defic_Syndr_2015-green)](https://doi.org/10.1097/QAI.0000000000000578)
+[![Data](https://img.shields.io/badge/data-synthetic_only-lightgrey)](#)
+[![License](https://img.shields.io/badge/license-MIT_%2B_CC_BY_4.0-lightgrey)](LICENSE.md)
 <!-- badges: end -->
 
 # RUSH: re-linkage to HIV care after routine emergency department testing
@@ -41,5 +43,9 @@ https://vagishhemmige.github.io/Harris-Health-RUSH/
 Requires authorized access to the de-identified workbooks, which are not in this repository. Set `RUSH_DATA_DIR` in `.Renviron` to the folder that holds them, restart R, and run `R/main.R` from the project root. Needs the packages attached in `R/setup.R`.
 
 To run the code on synthetic data instead: `Rscript tests/synthetic/run_pipeline.R` (also needs writexl).
+
+## License and citation
+
+Code under the MIT License; written content under CC BY 4.0 (see [`LICENSE.md`](LICENSE.md)). If you use this material, please cite the article above; GitHub's "Cite this repository" button gives the reference from [`CITATION.cff`](CITATION.cff).
 
 <!-- Results: add only when the figures and tables are cleared for public release. -->
