@@ -131,17 +131,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -151,6 +140,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -357,6 +357,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -393,6 +400,27 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -644,7 +672,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <li><strong>Table 1</strong> counts each cohort’s patients by sex, race group, visit year (paired by position across eras), age group and years since diagnosis. The control sheet holds no years since diagnosis; the controls are the same patients, so their groups are taken from the years workbook by patient number. That workbook gives years to the RUSH-era index visit, so the controls’ column uses that value. The Stata code never uses years since diagnosis for the controls; the article’s control column, which may be years to the pre-RUSH visit, probably came from the SPSS work the article mentions, so the two columns need not match.</li>
 <li><strong>Tables 2 to 4</strong> show, for each subgroup, the patients with both values, the number with the outcome before and after, the odds ratio for the visit with its Wald interval and Wald P value from the conditional logistic regression (the within-category effects of <a href="../quarto/04_fit_rush_era_models.html#the-effect-within-each-category">4. RUSH-era models</a>, as the original code’s <code>lincom</code>, and for the Total row the model without interactions), and, once per characteristic, the interaction test of <a href="../quarto/04_fit_rush_era_models.html#does-the-effect-differ">4. RUSH-era models</a>. Each interval the article prints matches the Wald interval worked out from its row, so these are the article’s statistics (decision issue <a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/5">#5</a>). The article’s column heading, “McNemar OR”, names the odds ratio, which for paired data equals the ratio of discordant pairs; the tables here head it “OR after vs before”. The article’s χ² values fit tests with one fewer degree of freedom than categories, as the interaction test has.</li>
 </ul>
-<p>The site shows the four tables with the article’s own printed values, run through the same formatting functions (<a href="../quarto/published_results.html#the-published-tables">Published results</a>).</p>
+<p>The site shows the four tables with the article’s own printed values, run through the same formatting functions (<a href="../quarto/published_results.html">Published results</a> and its three outcome pages).</p>
 </section>
 <section id="not-ported" class="level2">
 <h2 class="anchored" data-anchor-id="not-ported">Not ported</h2>
@@ -1202,7 +1230,7 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Table 1** counts each cohort's patients by sex, race group, visit year (paired by position across eras), age group and years since diagnosis. The control sheet holds no years since diagnosis; the controls are the same patients, so their groups are taken from the years workbook by patient number. That workbook gives years to the RUSH-era index visit, so the controls' column uses that value. The Stata code never uses years since diagnosis for the controls; the article's control column, which may be years to the pre-RUSH visit, probably came from the SPSS work the article mentions, so the two columns need not match.</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tables 2 to 4** show, for each subgroup, the patients with both values, the number with the outcome before and after, the odds ratio for the visit with its Wald interval and Wald P value from the conditional logistic regression (the within-category effects of <span class="co">[</span><span class="ot">4. RUSH-era models</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-within-each-category)</span>, as the original code's <span class="in">`lincom`</span>, and for the Total row the model without interactions), and, once per characteristic, the interaction test of <span class="co">[</span><span class="ot">4. RUSH-era models</span><span class="co">](04_fit_rush_era_models.qmd#does-the-effect-differ)</span>. Each interval the article prints matches the Wald interval worked out from its row, so these are the article's statistics (decision issue <span class="co">[</span><span class="ot">#5</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/5)</span>). The article's column heading, "McNemar OR", names the odds ratio, which for paired data equals the ratio of discordant pairs; the tables here head it "OR after vs before". The article's χ² values fit tests with one fewer degree of freedom than categories, as the interaction test has.</span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>The site shows the four tables with the article's own printed values, run through the same formatting functions (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd#the-published-tables)</span>).</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>The site shows the four tables with the article's own printed values, run through the same formatting functions (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> and its three outcome pages).</span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Not ported</span></span>
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>

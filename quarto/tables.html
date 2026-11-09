@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../quarto/original_stata.html" rel="next">
+<link href="../quarto/teaching_figures.html" rel="next">
 <link href="../quarto/05_compare_eras.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -338,6 +338,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -374,6 +381,27 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -470,7 +498,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </header>
 
 
-<p>This script builds the article’s four tables from the data with gtsummary: Table 1, the two cohorts’ characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article’s printed values (<a href="../quarto/published_results.html#the-published-tables">Published results</a>), laid out by the same functions; the script itself writes HTML copies to <code>tables/</code>, which is never committed.</p>
+<p>This script builds the article’s four tables from the data with gtsummary: Table 1, the two cohorts’ characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article’s printed values (<a href="../quarto/published_results.html">Published results</a> and its pages for <a href="../quarto/published_engagement.html">engagement</a>, <a href="../quarto/published_retention.html">retention</a> and <a href="../quarto/published_suppression.html">viral suppression</a>), laid out by the same functions; the script itself writes HTML copies to <code>tables/</code>, which is never committed.</p>
 <div class="callout callout-style-default callout-Rcode callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1140,8 +1168,8 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../quarto/original_stata.html" class="pagination-link" aria-label="Original Stata code (2015)">
-        <span class="nav-page-text">Original Stata code (2015)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../quarto/teaching_figures.html" class="pagination-link" aria-label="Teaching figures">
+        <span class="nav-page-text">Teaching figures</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1150,7 +1178,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd#the-published-tables)</span>), laid out by the same functions; the script itself writes HTML copies to <span class="in">`tables/`</span>, which is never committed.</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> and its pages for <span class="co">[</span><span class="ot">engagement</span><span class="co">](published_engagement.qmd)</span>, <span class="co">[</span><span class="ot">retention</span><span class="co">](published_retention.qmd)</span> and <span class="co">[</span><span class="ot">viral suppression</span><span class="co">](published_suppression.qmd)</span>), laid out by the same functions; the script itself writes HTML copies to <span class="in">`tables/`</span>, which is never committed.</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>::: {.Rcode title="Source code"}</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>The full R script is available at:</span>

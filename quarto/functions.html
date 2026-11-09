@@ -338,6 +338,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -374,6 +381,27 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -1106,7 +1134,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="lay-out-table-1" class="level2">
 <h2 class="anchored" data-anchor-id="lay-out-table-1">Lay out Table 1</h2>
-<p>From rows of text to a gtsummary table: <code>as_gtsummary()</code> makes a table from a data frame, <code>modify_header()</code> and <code>modify_spanning_header()</code> set the column headings, and <code>modify_indent()</code> and <code>modify_bold()</code> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article’s printed values on <a href="../quarto/published_results.html#the-published-tables">Published results</a>.</p>
+<p>From rows of text to a gtsummary table: <code>as_gtsummary()</code> makes a table from a data frame, <code>modify_header()</code> and <code>modify_spanning_header()</code> set the column headings, and <code>modify_indent()</code> and <code>modify_bold()</code> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article’s printed values on the <a href="../quarto/published_results.html">Published results</a> pages.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1909,7 +1937,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Table 1</span></span>
 <span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>From rows of text to a gtsummary table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd#the-published-tables)</span>.</span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>From rows of text to a gtsummary table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> pages.</span>
 <span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-table-1</span></span>

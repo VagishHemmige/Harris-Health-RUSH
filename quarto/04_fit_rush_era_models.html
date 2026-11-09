@@ -112,6 +112,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -132,17 +143,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
   background-image: none;
 }
 </style>
@@ -338,6 +338,13 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -374,6 +381,27 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -440,6 +468,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   <li><a href="#the-effect-within-each-category" id="toc-the-effect-within-each-category" class="nav-link" data-scroll-target="#the-effect-within-each-category">The effect within each category</a></li>
   <li><a href="#years-since-diagnosis-and-age-together" id="toc-years-since-diagnosis-and-age-together" class="nav-link" data-scroll-target="#years-since-diagnosis-and-age-together">Years since diagnosis and age together</a></li>
   <li><a href="#multivariable-models" id="toc-multivariable-models" class="nav-link" data-scroll-target="#multivariable-models">Multivariable models</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more">Learn more</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/04_fit_rush_era_models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -930,6 +959,15 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 </div>
 </div>
 </div>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn more</h2>
+<p>Free teaching material on the topics of this page, outside this site.</p>
+<ul>
+<li><a href="https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html">Conditional logistic regression for matched case-control data</a>, Ramzi W. Nahhas, <em>Introduction to Regression Methods for Public Health Using R</em>, section 6.20 (free online): <code>survival::clogit()</code> with one stratum per matched set, in R.</li>
+<li><a href="https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/">Logistic Regression with Stata, chapter 6: conditional logistic regression</a>, UCLA Statistical Methods and Data Analytics: worked <code>clogit</code> examples with 1:1 and 1:2 matching, the command the original code used.</li>
+<li><a href="https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/">Deciphering interactions in logistic regression</a>, UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.</li>
+</ul>
 
 
 <!-- -->
@@ -1527,6 +1565,14 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <span id="cb17-149"><a href="#cb17-149" aria-hidden="true" tabindex="-1"></a><span class="fu">show_stata</span>(<span class="fu">c</span>(<span class="st">"multivariable"</span>))</span>
 <span id="cb17-150"><a href="#cb17-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb17-151"><a href="#cb17-151" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb17-152"><a href="#cb17-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-153"><a href="#cb17-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learn more</span></span>
+<span id="cb17-154"><a href="#cb17-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-155"><a href="#cb17-155" aria-hidden="true" tabindex="-1"></a>Free teaching material on the topics of this page, outside this site.</span>
+<span id="cb17-156"><a href="#cb17-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-157"><a href="#cb17-157" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Conditional logistic regression for matched case-control data</span><span class="co">](https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html)</span>, Ramzi W. Nahhas, *Introduction to Regression Methods for Public Health Using R*, section 6.20 (free online): <span class="in">`survival::clogit()`</span> with one stratum per matched set, in R.</span>
+<span id="cb17-158"><a href="#cb17-158" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Logistic Regression with Stata, chapter 6: conditional logistic regression</span><span class="co">](https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/)</span>, UCLA Statistical Methods and Data Analytics: worked <span class="in">`clogit`</span> examples with 1:1 and 1:2 matching, the command the original code used.</span>
+<span id="cb17-159"><a href="#cb17-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Deciphering interactions in logistic regression</span><span class="co">](https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/)</span>, UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

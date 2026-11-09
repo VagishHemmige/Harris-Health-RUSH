@@ -130,17 +130,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -150,6 +139,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -356,6 +356,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -392,6 +399,27 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -526,7 +554,8 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <li><a href="../quarto/05_compare_eras.html"><strong>5. Comparison with the pre-RUSH era</strong></a>: the era models, their subgroup versions and the random-intercept models.</li>
 <li><a href="../quarto/tables.html"><strong>Tables</strong></a>: the article’s Tables 1 to 4 built from the data with gtsummary.</li>
 <li><a href="../quarto/original_stata.html"><strong>Original Stata code (2015)</strong></a>: the .do file the article’s results came from.</li>
-<li><a href="../quarto/published_results.html"><strong>Published results and the code behind them</strong></a>: each number the article reports, the step of the code that computes it, and the article’s four tables with their printed values.</li>
+<li><a href="../quarto/teaching_figures.html"><strong>Teaching figures</strong></a>: the ggplot2 code that draws the site’s figures from the article’s printed values and an invented example.</li>
+<li><a href="../quarto/published_results.html"><strong>Published results and the code behind them</strong></a>, with one page each for <a href="../quarto/published_engagement.html">engagement</a>, <a href="../quarto/published_retention.html">retention</a> and <a href="../quarto/published_suppression.html">viral suppression</a>: each number the article reports, the step of the code that computes it, and the article’s four tables with their printed values and forest plots.</li>
 <li><a href="../quarto/analysis-plan.html"><strong>Analysis plan</strong></a>, <a href="../quarto/architecture.html"><strong>Architecture</strong></a>, <a href="../quarto/agents.html"><strong>AGENTS.md</strong></a> and <a href="../quarto/repository-blueprint.html"><strong>Repository blueprint</strong></a>: the project documents.</li>
 </ul>
 </section>
@@ -1049,13 +1078,14 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**5. Comparison with the pre-RUSH era**</span><span class="co">](05_compare_eras.qmd)</span>: the era models, their subgroup versions and the random-intercept models.</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Tables**</span><span class="co">](tables.qmd)</span>: the article's Tables 1 to 4 built from the data with gtsummary.</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Original Stata code (2015)**</span><span class="co">](original_stata.qmd)</span>: the .do file the article's results came from.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Published results and the code behind them**</span><span class="co">](published_results.qmd)</span>: each number the article reports, the step of the code that computes it, and the article's four tables with their printed values.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Analysis plan**</span><span class="co">](analysis-plan.qmd)</span>, <span class="co">[</span><span class="ot">**Architecture**</span><span class="co">](architecture.qmd)</span>, <span class="co">[</span><span class="ot">**AGENTS.md**</span><span class="co">](agents.qmd)</span> and <span class="co">[</span><span class="ot">**Repository blueprint**</span><span class="co">](repository-blueprint.qmd)</span>: the project documents.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Teaching figures**</span><span class="co">](teaching_figures.qmd)</span>: the ggplot2 code that draws the site's figures from the article's printed values and an invented example.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Published results and the code behind them**</span><span class="co">](published_results.qmd)</span>, with one page each for <span class="co">[</span><span class="ot">engagement</span><span class="co">](published_engagement.qmd)</span>, <span class="co">[</span><span class="ot">retention</span><span class="co">](published_retention.qmd)</span> and <span class="co">[</span><span class="ot">viral suppression</span><span class="co">](published_suppression.qmd)</span>: each number the article reports, the step of the code that computes it, and the article's four tables with their printed values and forest plots.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Analysis plan**</span><span class="co">](analysis-plan.qmd)</span>, <span class="co">[</span><span class="ot">**Architecture**</span><span class="co">](architecture.qmd)</span>, <span class="co">[</span><span class="ot">**AGENTS.md**</span><span class="co">](agents.qmd)</span> and <span class="co">[</span><span class="ot">**Repository blueprint**</span><span class="co">](repository-blueprint.qmd)</span>: the project documents.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

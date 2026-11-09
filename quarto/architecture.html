@@ -115,17 +115,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -146,6 +135,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -341,6 +341,13 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -377,6 +384,27 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -595,7 +623,8 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <li><strong>Results in nested named lists.</strong> Repeated fits are for-loops over names into lists indexed <code>[[characteristic]][[outcome]]</code>, or <code>[[sample]][[outcome]]</code> in <code>05</code>.</li>
 <li><strong>Skipped models in one place.</strong> <code>skipped_rush_subgroup_models</code> and <code>skipped_era_subgroup_models_all</code> (<code>setup.R</code>) list the models the original code could not fit; <code>04</code> and <code>05</code> skip them by lookup.</li>
 <li><strong>Two era samples.</strong> <code>era_samples</code> holds <code>all_patients</code> and <code>both_eras</code> (patients with <code>rows_per_patient_both_eras</code> rows); every model in <code>05</code> loops over both.</li>
-<li><strong>One layout for computed and published tables.</strong> <code>format_table_1()</code> and <code>format_outcome_table()</code> take rows of text, so <code>R/tables.R</code> (from the data) and the published-results page (from the article’s printed values in <code>quarto/published/</code>) produce tables with the same layout.</li>
+<li><strong>One layout for computed and published tables.</strong> <code>format_table_1()</code> and <code>format_outcome_table()</code> take rows of text, so <code>R/tables.R</code> (from the data) and the published-results pages (from the article’s printed values in <code>quarto/published/</code>, read by <code>quarto/_published_values.R</code>) produce tables with the same layout.</li>
+<li><strong>Teaching figures apart from the analysis.</strong> <code>R/teaching_figures.R</code> sources <code>setup.R</code> and <code>functions.R</code> itself, as <code>main.R</code> does, and draws the site’s figures with ggplot2 from the published-values CSV and the constants in <code>define-teaching-figure-constants</code>; <code>main.R</code> never sources it, and it reads no study data. It writes SVG files with svglite to <code>quarto/teaching_figures/</code>, which are committed; the site shows them and <code>quarto/teaching_figures.qmd</code> shows its code.</li>
 <li><strong>Inputs are checked.</strong> <code>01</code> stops if <code>RUSH_DATA_DIR</code> is unset or a workbook lacks an expected column; the message names columns only. <code>check_unique_patients()</code> stops the import if a patient number repeats in any sheet.</li>
 </ul>
 </section>
@@ -603,7 +632,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h2 class="anchored" data-anchor-id="dependencies-outside-this-repository">Dependencies outside this repository</h2>
 <ul>
 <li><strong>The study data</strong>, in the folder named by <code>RUSH_DATA_DIR</code>: the two de-identified workbooks. Neither is in the repository; their columns have not been checked against the code.</li>
-<li><strong>Packages</strong> attached in <code>setup.R</code>: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl.</li>
+<li><strong>Packages</strong> attached in <code>setup.R</code>: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl, and <code>R/teaching_figures.R</code> needs svglite.</li>
 </ul>
 </section>
 <section id="website" class="level2">
@@ -612,7 +641,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </section>
 <section id="tests" class="level2">
 <h2 class="anchored" data-anchor-id="tests">Tests</h2>
-<p><code>tests/synthetic/build_synthetic_data.R</code> writes random workbooks with the expected sheets, columns and value formats. <code>tests/synthetic/run_pipeline.R</code> runs <code>R/main.R</code> on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; <code>effect_by_level()</code> equals a model fitted within each age group; <code>wald_test()</code> equals survival’s Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; <code>paired_mcnemar()</code> equals <code>mcnemar.test()</code>; the interval for the visit is the Wald interval of the discordant pairs and the Total row of Table 2 shows it; and, on small invented data, that a category in which no patient got worse prints “∞” and “-”, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar’s test without discordant pairs returns missing values; and that the four tables are built and saved. <code>.github/workflows/test-pipeline.yml</code> runs it on every pull request.</p>
+<p><code>tests/synthetic/build_synthetic_data.R</code> writes random workbooks with the expected sheets, columns and value formats. <code>tests/synthetic/run_pipeline.R</code> runs <code>R/main.R</code> on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; <code>effect_by_level()</code> equals a model fitted within each age group; <code>wald_test()</code> equals survival’s Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; <code>paired_mcnemar()</code> equals <code>mcnemar.test()</code>; the interval for the visit is the Wald interval of the discordant pairs and the Total row of Table 2 shows it; and, on small invented data, that a category in which no patient got worse prints “∞” and “-”, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar’s test without discordant pairs returns missing values; that the four tables are built and saved; and that <code>R/teaching_figures.R</code> runs and writes its six figures. <code>.github/workflows/test-pipeline.yml</code> runs it on every pull request.</p>
 </section>
 <section id="code-references" class="level2">
 <h2 class="anchored" data-anchor-id="code-references">Code references</h2>
@@ -632,12 +661,12 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <tbody>
 <tr class="odd">
 <td><code>R/setup.R</code></td>
-<td><code>load-packages</code>, <code>define-data-files</code>, <code>define-expected-columns</code>, <code>define-categories</code>, <code>define-outcomes</code>, <code>define-subgroups</code>, <code>define-skipped-models</code>, <code>define-estimation-constants</code>, <code>define-table-constants</code></td>
+<td><code>load-packages</code>, <code>define-data-files</code>, <code>define-expected-columns</code>, <code>define-categories</code>, <code>define-outcomes</code>, <code>define-subgroups</code>, <code>define-skipped-models</code>, <code>define-estimation-constants</code>, <code>define-table-constants</code>, <code>define-teaching-figure-constants</code></td>
 <td><code>data_dir</code>, <code>cohort_columns</code>, <code>control_columns</code>, <code>place_columns</code>, <code>years_since_dx_levels</code>, <code>race_group_codes_study</code>, <code>race_group_codes_control</code>, <code>outcomes</code>, <code>subgroups_rush</code>, <code>subgroups_era</code>, <code>quadrature_points</code>, <code>rows_per_patient_both_eras</code></td>
 </tr>
 <tr class="even">
 <td><code>R/functions.R</code></td>
-<td><code>check-columns</code>, <code>check-unique-patients</code>, <code>encode-like-stata</code>, <code>clean-cohort</code>, <code>group-race-codes</code>, <code>reshape-to-long</code>, <code>add-viral-load-outcomes</code>, <code>paired-mcnemar</code>, <code>crosstab-row-percent</code>, <code>fit-conditional-logit</code>, <code>model-coefficients</code>, <code>combine-coefficients</code>, <code>interaction-terms</code>, <code>effect-by-level</code>, <code>wald-test</code>, <code>tidy-odds-ratios</code>, <code>pair-outcome</code>, <code>count-pairs</code>, <code>relabel-levels</code>, <code>count-categories</code>, <code>format-change</code>, <code>format-table-1</code>, <code>format-outcome-table</code>, <code>add-group-headings</code></td>
+<td><code>check-columns</code>, <code>check-unique-patients</code>, <code>encode-like-stata</code>, <code>clean-cohort</code>, <code>group-race-codes</code>, <code>reshape-to-long</code>, <code>add-viral-load-outcomes</code>, <code>paired-mcnemar</code>, <code>crosstab-row-percent</code>, <code>fit-conditional-logit</code>, <code>model-coefficients</code>, <code>combine-coefficients</code>, <code>interaction-terms</code>, <code>effect-by-level</code>, <code>wald-test</code>, <code>tidy-odds-ratios</code>, <code>pair-outcome</code>, <code>count-pairs</code>, <code>relabel-levels</code>, <code>count-categories</code>, <code>format-change</code>, <code>format-table-1</code>, <code>format-outcome-table</code>, <code>add-group-headings</code>, <code>parse-odds-ratio-text</code></td>
 <td><code>encode_like_stata()</code>, <code>clean_cohort()</code>, <code>fit_conditional_logit()</code>, <code>effect_by_level()</code>, <code>wald_test()</code></td>
 </tr>
 <tr class="odd">
@@ -669,6 +698,11 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <td><code>R/05_compare_eras.R</code></td>
 <td><code>define-era-samples</code>, <code>fit-era-models</code>, <code>fit-era-subgroup-models</code>, <code>fit-random-effects-models</code></td>
 <td><code>era_samples</code>, <code>era_models</code>, <code>era_subgroup_tests</code>, <code>random_effects_models</code></td>
+</tr>
+<tr class="odd">
+<td><code>R/teaching_figures.R</code> (not run by <code>main.R</code>)</td>
+<td><code>figure-theme</code>, <code>figure-change-by-outcome</code>, <code>figure-forest-plots</code>, <code>figure-discordant-pairs</code>, <code>figure-outcome-windows</code></td>
+<td><code>theme_teaching()</code>, <code>save_teaching_figure()</code>, <code>draw_forest_plot()</code></td>
 </tr>
 </tbody>
 </table>

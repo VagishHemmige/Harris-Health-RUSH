@@ -130,17 +130,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -150,6 +139,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -356,6 +356,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -392,6 +399,27 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <a href="./quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -506,7 +534,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="quarto/teaching_figures/change_by_outcome.svg" class="img-fluid figure-img" alt="Dot plot of the percentage of 2,068 patients with each outcome before and after the visit. Engaged in care: 41.3% before, 58.8% after, up 17.5 points. Retained in care: 32.6% to 47.1%, up 14.5 points. Virally suppressed: 22.8% to 34.0%, up 11.2 points."></p>
-<figcaption>Before and after the visit, for each outcome. Percentages of the 2,068 patients, from the article’s abstract <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>. The odds ratios, with their intervals and the results by subgroup, are on <a href="./quarto/published_results.html#the-published-tables">Published results</a>.</figcaption>
+<figcaption>Before and after the visit, for each outcome. Percentages of the 2,068 patients, from the article’s abstract <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>. The odds ratios, with their intervals and the results by subgroup, are on the <a href="./quarto/published_results.html">Published results</a> pages. Drawn by <a href="./quarto/teaching_figures.html#change-by-outcome"><code>R/teaching_figures.R</code></a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -1029,7 +1057,7 @@ Wang, Rui, Stephen W Lagakos, James H Ware, David J Hunter, and Jeffrey M Drazen
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Virally suppressed** (a viral load below 200 copies/mL in 12 months): 22.8% to 34.0%, 11.2 points more. A patient with no viral load drawn at Harris Health counts as not suppressed.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>::: {.teaching-figure}</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Before and after the visit, for each outcome. Percentages of the 2,068 patients, from the article's abstract [@flash2015rush]. The odds ratios, with their intervals and the results by subgroup, are on [Published results](quarto/published_results.qmd#the-published-tables).</span><span class="co">](quarto/teaching_figures/change_by_outcome.svg)</span>{fig-alt="Dot plot of the percentage of 2,068 patients with each outcome before and after the visit. Engaged in care: 41.3% before, 58.8% after, up 17.5 points. Retained in care: 32.6% to 47.1%, up 14.5 points. Virally suppressed: 22.8% to 34.0%, up 11.2 points."}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">Before and after the visit, for each outcome. Percentages of the 2,068 patients, from the article's abstract [@flash2015rush]. The odds ratios, with their intervals and the results by subgroup, are on the [Published results](quarto/published_results.qmd) pages. Drawn by [`R/teaching_figures.R`](quarto/teaching_figures.qmd#change-by-outcome).</span><span class="co">](quarto/teaching_figures/change_by_outcome.svg)</span>{fig-alt="Dot plot of the percentage of 2,068 patients with each outcome before and after the visit. Engaged in care: 41.3% before, 58.8% after, up 17.5 points. Retained in care: 32.6% to 47.1%, up 14.5 points. Virally suppressed: 22.8% to 34.0%, up 11.2 points."}</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>The article reports each change as an odds ratio, 3.74 for engagement (its Table 2). For a paired comparison the odds ratio compares the patients who improved with the patients who got worse; it is not a ratio of the two percentages, and 3.74 does not mean patients were nearly four times as likely to be in care. <span class="co">[</span><span class="ot">Methodological background</span><span class="co">](quarto/methodological_background.qmd#paired-binary-data)</span> shows why. Each improvement was also larger than around the pre-RUSH visit <span class="co">[</span><span class="ot">@flash2015rush</span><span class="co">]</span>.</span>

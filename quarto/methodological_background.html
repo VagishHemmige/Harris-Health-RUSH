@@ -131,17 +131,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -151,6 +140,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 div.callout-Rcode.callout {
@@ -357,6 +357,13 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -393,6 +400,27 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -461,6 +489,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   <li><a href="#fixed-or-random-person-effects" id="toc-fixed-or-random-person-effects" class="nav-link" data-scroll-target="#fixed-or-random-person-effects">Fixed or random person effects</a></li>
   <li><a href="#missing-outcomes" id="toc-missing-outcomes" class="nav-link" data-scroll-target="#missing-outcomes">Missing outcomes</a></li>
   <li><a href="#from-stata-to-r" id="toc-from-stata-to-r" class="nav-link" data-scroll-target="#from-stata-to-r">From Stata to R</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more">Learn more</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/methodological_background.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -525,7 +554,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="teaching_figures/discordant_pairs.svg" class="img-fluid figure-img" alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."></p>
-<figcaption>The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician’s questions: how many without the outcome gained it, and how many with it lost it.</figcaption>
+<figcaption>The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician’s questions: how many without the outcome gained it, and how many with it lost it. Drawn by <a href="../quarto/teaching_figures.html#discordant-pairs"><code>R/teaching_figures.R</code></a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -652,6 +681,20 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </tr>
 </tbody>
 </table>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn more</h2>
+<p>Free teaching material on the topics of this page, outside this site.</p>
+<ul>
+<li><a href="https://www.sjsu.edu/faculty/gerstman/EpiInfo/bin-paired.htm">Binary outcome, matched pairs</a>, San José State University (EpiInfo teaching pages): the 2 × 2 table of pairs, concordant and discordant pairs, and McNemar’s test. It labels the cells for a matched case-control study, so its odds ratio is written b/c where this site writes c/b.</li>
+<li><a href="https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html">Conditional logistic regression for matched case-control data</a>, Ramzi W. Nahhas, <em>Introduction to Regression Methods for Public Health Using R</em>, section 6.20 (free online): <code>survival::clogit()</code> with one stratum per matched set, in R.</li>
+<li><a href="https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/">Logistic Regression with Stata, chapter 6: conditional logistic regression</a>, UCLA Statistical Methods and Data Analytics: worked <code>clogit</code> examples with 1:1 and 1:2 matching, the command the original code used.</li>
+<li><a href="https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/">Deciphering interactions in logistic regression</a>, UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.</li>
+<li><a href="https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation">Difference-in-difference estimation</a>, Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.</li>
+<li><a href="https://stats.oarc.ucla.edu/r/dae/mixed-effects-logistic-regression/">Mixed effects logistic regression: R data analysis examples</a>, UCLA Statistical Methods and Data Analytics: <code>lme4::glmer()</code> with a random intercept, and adaptive quadrature (<code>nAGQ</code>).</li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330">Regression towards the mean</a> and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039">Some examples of regression towards the mean</a>, J. Martin Bland and Douglas G. Altman, <em>BMJ</em> Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.</li>
+<li><a href="https://fsolt.org/blog/posts/switch-to-r">How to switch your workflow from Stata to R, one bit at a time</a>, Frederick Solt (2018): a gradual route for Stata users, calling R from Stata and Stata from R while the move happens.</li>
+</ul>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -1162,7 +1205,7 @@ Therneau, Terry M. n.d. <em>A Package for Survival Analysis in <span>R</span></e
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Example.** Of 100 people, 30 had the outcome both times (*a*), 5 lost it (*b*), 20 gained it (*c*) and 45 never had it (*d*). The proportion rose from 35% to 50%. Only the 25 discordant pairs say anything about change, and 20 of the 25 changed for the better.</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>::: {.teaching-figure}</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="al">![The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician's questions: how many without the outcome gained it, and how many with it lost it.](teaching_figures/discordant_pairs.svg)</span>{fig-alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician's questions: how many without the outcome gained it, and how many with it lost it. Drawn by [`R/teaching_figures.R`](teaching_figures.qmd#discordant-pairs).</span><span class="co">](teaching_figures/discordant_pairs.svg)</span>{fig-alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."}</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## McNemar's test</span></span>
@@ -1249,10 +1292,23 @@ Therneau, Terry M. n.d. <em>A Package for Survival Analysis in <span>R</span></e
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`testparm period#group`</span> <span class="pp">|</span> Wald test of the interaction coefficients <span class="pp">|</span> Joint test, df = number of coefficients <span class="pp">|</span></span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`xtset id`</span> then <span class="in">`xtlogit y x, or`</span> <span class="pp">|</span> <span class="in">`lme4::glmer(y ~ x + (1 \| id), family = binomial, nAGQ = 12)`</span> <span class="pp">|</span> Random intercept, 12 quadrature points <span class="pp">|</span></span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learn more</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>Free teaching material on the topics of this page, outside this site.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Binary outcome, matched pairs</span><span class="co">](https://www.sjsu.edu/faculty/gerstman/EpiInfo/bin-paired.htm)</span>, San José State University (EpiInfo teaching pages): the 2 × 2 table of pairs, concordant and discordant pairs, and McNemar's test. It labels the cells for a matched case-control study, so its odds ratio is written b/c where this site writes c/b.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Conditional logistic regression for matched case-control data</span><span class="co">](https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html)</span>, Ramzi W. Nahhas, *Introduction to Regression Methods for Public Health Using R*, section 6.20 (free online): <span class="in">`survival::clogit()`</span> with one stratum per matched set, in R.</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Logistic Regression with Stata, chapter 6: conditional logistic regression</span><span class="co">](https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/)</span>, UCLA Statistical Methods and Data Analytics: worked <span class="in">`clogit`</span> examples with 1:1 and 1:2 matching, the command the original code used.</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Deciphering interactions in logistic regression</span><span class="co">](https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/)</span>, UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Difference-in-difference estimation</span><span class="co">](https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation)</span>, Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Mixed effects logistic regression: R data analysis examples</span><span class="co">](https://stats.oarc.ucla.edu/r/dae/mixed-effects-logistic-regression/)</span>, UCLA Statistical Methods and Data Analytics: <span class="in">`lme4::glmer()`</span> with a random intercept, and adaptive quadrature (<span class="in">`nAGQ`</span>).</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Regression towards the mean</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330)</span> and <span class="co">[</span><span class="ot">Some examples of regression towards the mean</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039)</span>, J. Martin Bland and Douglas G. Altman, *BMJ* Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">How to switch your workflow from Stata to R, one bit at a time</span><span class="co">](https://fsolt.org/blog/posts/switch-to-r)</span>, Frederick Solt (2018): a gradual route for Stata users, calling R from Stata and Stata from R while the move happens.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -357,6 +357,13 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/teaching_figures.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Teaching figures</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -393,6 +400,27 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
 </i> 
  <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_engagement.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Engagement in care (Table 2)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_retention.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Retention in care (Table 3)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_suppression.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Viral suppression (Table 4)</span></a>
   </div>
 </li>
       </ul>
@@ -461,6 +489,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   <li><a href="#did-the-change-differ-between-groups" id="toc-did-the-change-differ-between-groups" class="nav-link" data-scroll-target="#did-the-change-differ-between-groups">Did the change differ between groups?</a></li>
   <li><a href="#comparing-the-rush-era-with-the-era-before-it" id="toc-comparing-the-rush-era-with-the-era-before-it" class="nav-link" data-scroll-target="#comparing-the-rush-era-with-the-era-before-it">Comparing the RUSH era with the era before it</a></li>
   <li><a href="#random-intercept-models" id="toc-random-intercept-models" class="nav-link" data-scroll-target="#random-intercept-models">Random-intercept models</a></li>
+  <li><a href="#learn-more" id="toc-learn-more" class="nav-link" data-scroll-target="#learn-more">Learn more</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/study_methods.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -536,7 +565,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="teaching_figures/outcome_windows.svg" class="img-fluid figure-img" alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."></p>
-<figcaption>The windows before and after the visit for each outcome. Viral suppression’s dividing line is 10 days after the visit; the shift is drawn to scale.</figcaption>
+<figcaption>The windows before and after the visit for each outcome. Viral suppression’s dividing line is 10 days after the visit; the shift is drawn to scale. Drawn by <a href="../quarto/teaching_figures.html#outcome-windows"><code>R/teaching_figures.R</code></a>.</figcaption>
 </figure>
 </div>
 </div>
@@ -576,6 +605,15 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <h2 class="anchored" data-anchor-id="random-intercept-models">Random-intercept models</h2>
 <p>For comparison, the original code also fitted the era model with a random intercept per patient instead of strata. It uses differences between patients too, and so rests on a stronger assumption (see <a href="../quarto/methodological_background.html#fixed-or-random-person-effects">Methodological background</a>). It is a sensitivity analysis; the article reports the conditional model.</p>
 <p><strong>Specified in:</strong> <a href="../quarto/analysis-plan.html#86-comparison-with-the-pre-rush-era">§8.6</a>, <a href="../quarto/analysis-plan.html#9-sensitivity-analyses">§9 Sensitivity analyses</a>.</p>
+</section>
+<section id="learn-more" class="level2">
+<h2 class="anchored" data-anchor-id="learn-more">Learn more</h2>
+<p>Free teaching material on the topics of this page, outside this site.</p>
+<ul>
+<li><a href="https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation">Difference-in-difference estimation</a>, Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.</li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330">Regression towards the mean</a> and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039">Some examples of regression towards the mean</a>, J. Martin Bland and Douglas G. Altman, <em>BMJ</em> Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.</li>
+<li><a href="https://ryanwhite.hrsa.gov/sites/default/files/ryanwhite/about-program/hab-core-performance-measures.pdf">Core Performance Measures</a>, HRSA HIV/AIDS Bureau (PDF, updated October 2025): today’s Ryan White definitions. They count the <em>last</em> viral load in a calendar year, among patients with a visit, and retention as two encounters at least 90 days apart, so they differ from this study’s windows around the visit.</li>
+</ul>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -1093,7 +1131,7 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Viral suppression:** 12 months, shifted by 10 days. A viral load drawn in the days after the visit reflects treatment before it, so it belongs to the "before" window; the "after" window starts on day 11.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>::: {.teaching-figure}</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="al">![The windows before and after the visit for each outcome. Viral suppression's dividing line is 10 days after the visit; the shift is drawn to scale.](teaching_figures/outcome_windows.svg)</span>{fig-alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."}</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>!<span class="co">[</span><span class="ot">The windows before and after the visit for each outcome. Viral suppression's dividing line is 10 days after the visit; the shift is drawn to scale. Drawn by [`R/teaching_figures.R`](teaching_figures.qmd#outcome-windows).</span><span class="co">](teaching_figures/outcome_windows.svg)</span>{fig-alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."}</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Visits count if they are in the Harris Health record or in the Houston area's Ryan White visit database. Viral loads are only seen if drawn at Harris Health.</span>
@@ -1140,10 +1178,18 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>**Specified in:** <span class="co">[</span><span class="ot">§8.6</span><span class="co">](analysis-plan.qmd#86-comparison-with-the-pre-rush-era)</span>, <span class="co">[</span><span class="ot">§9 Sensitivity analyses</span><span class="co">](analysis-plan.qmd#9-sensitivity-analyses)</span>.</span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learn more</span></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>Free teaching material on the topics of this page, outside this site.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Difference-in-difference estimation</span><span class="co">](https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation)</span>, Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Regression towards the mean</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330)</span> and <span class="co">[</span><span class="ot">Some examples of regression towards the mean</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039)</span>, J. Martin Bland and Douglas G. Altman, *BMJ* Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Core Performance Measures</span><span class="co">](https://ryanwhite.hrsa.gov/sites/default/files/ryanwhite/about-program/hab-core-performance-measures.pdf)</span>, HRSA HIV/AIDS Bureau (PDF, updated October 2025): today's Ryan White definitions. They count the *last* viral load in a calendar year, among patients with a visit, and retention as two encounters at least 90 days apart, so they differ from this study's windows around the visit.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
