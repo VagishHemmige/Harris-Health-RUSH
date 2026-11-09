@@ -1,0 +1,83 @@
+---
+title: "Study design and methods"
+format: html
+---
+
+This page explains, in plain language and without code, what this study chose and why. The general background it relies on is on [Methodological background](methodological_background.qmd). The formal specification is the [analysis plan](analysis-plan.qmd); each section below ends by linking the part of the plan that governs it. Three kinds of note mark where the description stands:
+
+- **Specified in:** the section of the analysis plan that defines the method.
+- **Current code:** where the code does not yet do what the plan says, or something about it is still to be checked, what it does now.
+- **Decision pending:** a choice the plan has not yet made, linked to its decision issue. A paragraph that starts with **Decision pending:** is highlighted in yellow automatically.
+
+## The question and the design in brief
+
+Does an HIV test in an emergency department with routine testing and service linkage help a person who already knows they have HIV get back into care? The study answers it by comparing each patient with themself: their engagement, retention and viral suppression in the months before an emergency department visit against the same outcomes in the months after it. A second comparison, around an earlier visit by some of the same patients before the program existed, asks whether the change around a RUSH-era visit is larger than the change around any emergency department visit [@flash2015rush].
+
+The before-and-after comparison within patients removes every stable difference between patients: sex, race, how long they have had HIV, and everything unmeasured that stays the same across the two windows. It does not remove what changes over time for everyone, such as treatment guidelines; the comparison with the pre-RUSH era addresses part of that.
+
+**Specified in:** [§1 Objective](analysis-plan.qmd#1-objective), [§2 Design](analysis-plan.qmd#2-design).
+
+## Who is in the study
+
+The RUSH-era cohort is every previously diagnosed patient who tested positive in either emergency department between 2009 and 2012, at a visit at least a year after their original diagnosis, taking the first such visit per patient: 2,068 patients [@flash2015rush]. The one-year rule keeps out people diagnosed so recently that they could not yet have been engaged, retained or suppressed in the "before" window, whose improvement would reflect the natural course of a new diagnosis rather than the visit.
+
+The cohort was built before the analysis, from laboratory, surveillance, medical record and Ryan White visit data. The scripts here start from the de-identified workbooks, one row per patient, and apply no further exclusion.
+
+**Specified in:** [§3 Data source](analysis-plan.qmd#3-data-source), [§4 Study population](analysis-plan.qmd#4-study-population).
+
+## The windows before and after the visit
+
+Each outcome has its own window, the same length before and after the visit [@flash2015rush]:
+
+- **Engagement:** 6 months. The authors chose 6 rather than 3 months because 3 months seemed too short a window for the period before the visit.
+- **Retention:** 12 months, with two visits at least 3 months apart.
+- **Viral suppression:** 12 months, shifted by 10 days. A viral load drawn in the days after the visit reflects treatment before it, so it belongs to the "before" window; the "after" window starts on day 11.
+
+Visits count if they are in the Harris Health record or in the Houston area's Ryan White visit database. Viral loads are only seen if drawn at Harris Health.
+
+**Specified in:** [§7 Outcomes](analysis-plan.qmd#7-outcomes).
+
+## Missing viral loads
+
+About four in ten patients had no Harris Health viral load in a given window (the article reports results for 59% before and 56% after the visit, Results). The primary analysis counts a missing viral load as not suppressed; the secondary analysis leaves it missing, so only patients with a result in both windows inform that comparison. Counting missing as failure biases suppression downward in both windows; its effect on the change depends on whether testing itself became more common after the visit (see [Methodological background](methodological_background.qmd#missing-outcomes)).
+
+**Specified in:** [§7 Outcomes](analysis-plan.qmd#7-outcomes), [§9 Sensitivity analyses](analysis-plan.qmd#9-sensitivity-analyses).
+
+## The overall change
+
+For each outcome, the proportion before and after the visit, compared with McNemar's test, and the conditional odds ratio for after against before from a conditional logistic regression with one stratum per patient. For matched pairs the odds ratio is the ratio of patients who improved to patients who got worse, and the model's score test is McNemar's chi-squared test. The P value the code reports from the model is a Wald P value, which tests the same hypothesis but need not equal McNemar's (in the example on [Methodological background](methodological_background.qmd#conditional-logistic-regression), 7.7 against 9.0 on one degree of freedom).
+
+**Specified in:** [§8.2 Overall change](analysis-plan.qmd#82-overall-change), [§8.3 Conditional logistic regression](analysis-plan.qmd#83-conditional-logistic-regression).
+
+**Decision pending:** the original code ran McNemar's test for engagement and retention but not for viral suppression, while the article's Methods describe it for all three. Whether the R version adds it for viral suppression is decision issue [#3](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/3).
+
+## Did the change differ between groups?
+
+For sex, race and ethnicity, age group, year of the visit and years since diagnosis, the conditional model includes the interaction of the period with the characteristic. For each, the code reports the joint test that the change is the same in every category, and the odds ratio for the visit within each category. Race and ethnicity is used in four groups (Black, Hispanic, White and other), as the article reports it; the original code also tried race as recorded and an African American indicator. Age and years since diagnosis are correlated, so the original code also put both in one model.
+
+The reference category for each is the first in the original code's order, which is why the R code numbers categories the way Stata's `encode` did.
+
+**Specified in:** [§8.4 Differences by patient characteristics](analysis-plan.qmd#84-differences-by-patient-characteristics), [§8.5 Multivariable models](analysis-plan.qmd#85-multivariable-models).
+
+**Current code:** the four race groups are made from Stata's numeric codes for the recorded race values, as in the original code, because the recorded values themselves are not documented outside the data. Which value each code stands for is still to be checked against the data by an authorized analyst (issue [#4](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/4)); the code prints the table needed for that check.
+
+## Comparing the RUSH era with the era before it
+
+672 of the patients had a qualifying emergency department visit in the four years before RUSH (the article's example is 2004 to 2007), at least a year after diagnosis, with follow-up ending before the RUSH era; for each, the visit nearest their RUSH-era visit was used [@flash2015rush]. Before RUSH there was no routine testing and no service linkage worker; referral was a phone number. Stacking both eras, each patient has up to four records, and the conditional model's interaction of period and era asks whether the change around the RUSH-era visit was larger.
+
+Using the same patients in both eras controls for who they are. It does not control for what changed between the eras for everyone: treatment guidelines, newer antiretrovirals, attention to retention, and the patients' own longer time since diagnosis.
+
+**Specified in:** [§6 Comparator](analysis-plan.qmd#6-comparator), [§8.6 Comparison with the pre-RUSH era](analysis-plan.qmd#86-comparison-with-the-pre-rush-era).
+
+**Decision pending:** the original code fitted the era comparison twice, once with every patient (2,068; those with a RUSH-era visit only inform the RUSH-era change, and through it the era comparison, but cannot separate its parts) and once with only the patients who had a visit in both eras. The article does not say which produced its P values. This is decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2).
+
+## Random-intercept models
+
+For comparison, the original code also fitted the era model with a random intercept per patient instead of strata. It uses differences between patients too, and so rests on a stronger assumption (see [Methodological background](methodological_background.qmd#fixed-or-random-person-effects)). It is a sensitivity analysis; the article reports the conditional model.
+
+**Specified in:** [§8.6](analysis-plan.qmd#86-comparison-with-the-pre-rush-era), [§9 Sensitivity analyses](analysis-plan.qmd#9-sensitivity-analyses).
+
+## References
+
+::: {#refs}
+:::

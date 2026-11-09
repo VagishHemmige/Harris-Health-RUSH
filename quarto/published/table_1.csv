@@ -1,0 +1,22 @@
+group,row_label,study_n,study_pct,control_n,control_pct
+Sex,Female,729,35%,276,41%
+Sex,Male,1339,65%,396,59%
+Race/ethnicity,Black non-Hispanic,1403,68%,522,78%
+Race/ethnicity,Hispanic,354,17%,85,13%
+Race/ethnicity,White non-Hispanic,276,13%,63,9%
+Race/ethnicity,Other,35,2%,2,0%
+Year of visit,2009 (2004 for Control),600,29%,58,9%
+Year of visit,2010 (2005 for Control),602,29%,107,16%
+Year of visit,2011 (2006 for Control),440,21%,140,21%
+Year of visit,2012 (2007 for Control),426,21%,367,54%
+Age group,16–24,86,4%,31,5%
+Age group,25–34,401,19%,137,20%
+Age group,35–44,661,32%,261,39%
+Age group,45–54,656,32%,190,28%
+Age group,55+,264,13%,53,8%
+Years since diagnosis,1–5,627,30%,186,28%
+Years since diagnosis,6–10,516,25%,221,33%
+Years since diagnosis,11–15,484,23%,165,25%
+Years since diagnosis,16–20,274,13%,76,11%
+Years since diagnosis,21+,167,13%,24,4%
+Total,Total,2068,,672,

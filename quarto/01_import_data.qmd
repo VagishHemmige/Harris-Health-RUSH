@@ -1,0 +1,91 @@
+---
+title: "1. Import data"
+format: html
+---
+
+This script reads the two workbooks, adds years since diagnosis to the RUSH-era cohort, and makes the text categories into factors numbered as the original code numbered them. It produces `study_wide` and `control_wide`, one row per patient, for [2. Build long data](02_build_long_data.qmd) and [3. Paired comparisons](03_paired_comparisons.qmd).
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/01_import_data.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/01_import_data.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/01_import_data.R")
+```
+
+## Check the data folder
+
+Stop at once, with a message saying what to set, if `RUSH_DATA_DIR` is missing or does not point to a folder. Without this the first `read_excel()` would fail with a less helpful message about a file path.
+
+```{r}
+#| label: check-data-folder
+#| eval: false
+```
+
+## Read years since diagnosis
+
+The second workbook has one row per patient in the RUSH-era cohort: the number of years from HIV diagnosis to the index visit, and the same in five groups. `factor()` with the levels from [Setup](setup.qmd#categories) puts the groups in order and turns any text not among them into a missing value, which is what the original code's five `replace … if Category == …` lines did.
+
+```{r}
+#| label: read-years-since-diagnosis
+#| eval: false
+```
+
+## Read the study cohort
+
+The "Study Cohort" sheet of the main workbook: one row per previously diagnosed patient with a RUSH-era index visit ([analysis plan §4](analysis-plan.qmd#4-study-population)), with sex, race, age group, the year of the visit and each outcome before and after it. The column check runs before anything else uses the data.
+
+```{r}
+#| label: read-study-cohort
+#| eval: false
+```
+
+## Merge years since diagnosis
+
+Join the two by patient number. The original code used `merge 1:1`, which keeps every row of both files, matched or not, and then tabulated how many matched (`tab _merge`). `full_join()` keeps every row the same way. Before the join, `check_unique_patients()` stops if a patient number appears twice in either file, as Stata's `1:1` does; `relationship = "one-to-one"` alone would check only the matched rows, so a repeated patient missing from the other file would get through. The control sheet gets the same check, standing in for the check Stata's `reshape …, i(PatientNumber)` made: a repeated row would add rows to the patient's stratum and break the four-row rule for the era comparison. The two marker columns exist only to count matched and unmatched patients, which is printed for the analyst and not saved.
+
+Keeping unmatched patients is the original code's choice; a patient with no years-since-diagnosis value simply drops out of the models that use it.
+
+```{r}
+#| label: merge-years-since-diagnosis
+#| eval: false
+```
+
+## Clean the study cohort
+
+Apply the cleaning both sheets share, `clean_cohort()` on [Functions](functions.qmd#clean-a-cohort): drop the place columns, number the categories as Stata's `encode` did, and rename the outcomes for reshaping.
+
+```{r}
+#| label: clean-study-cohort
+#| eval: false
+```
+
+## Describe the study cohort
+
+The original code tabulated race, sex, age group, year and years since diagnosis, and summarized years since diagnosis in detail, with the comment that this was to confirm the results matched the manuscript. The same counts and the same percentiles that Stata's `summarize, detail` shows are printed here for the analyst. They are the numbers behind the cohort description on [Published results](published_results.qmd#the-cohort).
+
+```{r}
+#| label: describe-study-cohort
+#| eval: false
+```
+
+## Read the control cohort
+
+The "Controls" sheet: one row per patient with a qualifying pre-RUSH visit ([analysis plan §6](analysis-plan.qmd#6-comparator)), the same patients and patient numbers as in the study cohort, with the same columns except that the visit year is not needed. It gets the same cleaning, so its sex and age group are factors too. Its race codes are numbered from its own values, which is why the race groups in the next script use a separate list for this sheet.
+
+```{r}
+#| label: read-control-cohort
+#| eval: false
+```

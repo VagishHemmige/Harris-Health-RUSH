@@ -1,0 +1,29 @@
+---
+title: "RUSH: re-linkage to HIV care after routine testing in the emergency department"
+format: html
+---
+
+## The study
+
+Most people who test positive in a busy emergency department's routine HIV testing program already know they have HIV. In Houston's Routine Universal Screening for HIV (RUSH) program, about three in four positives were previously diagnosed. Many of them are out of care, so the visit is a chance to bring them back. Flash and colleagues asked whether it does: among 2,068 previously diagnosed patients tested in the Ben Taub and Lyndon B. Johnson emergency departments between 2009 and 2012, they compared each patient's engagement in care, retention in care and viral suppression in the months before the visit with the same outcomes in the months after it, and compared that change with the change around an earlier visit by 672 of the same patients, before RUSH and its service linkage workers existed [@flash2015rush].
+
+All three outcomes improved after the visit: engagement from 41.3% to 58.8%, retention from 32.6% to 47.1%, and viral suppression from 22.8% to 34.0%, each with P < 0.001 (abstract), and each improvement was larger than around the pre-RUSH visit [@flash2015rush]. [Clinical background](quarto/background.qmd) explains the program and why previously diagnosed patients matter.
+
+## What this site does
+
+This site is a teaching resource. It uses the published study to show how a paired before-and-after analysis is built: McNemar's test, conditional logistic regression with one stratum per patient, interactions to see whether an effect differs between groups, and a comparison of two eras. The original analysis was one Stata .do file of January 2015. Here it is rebuilt in R as labelled scripts, each page explaining what a section of the code does and why, and the [original Stata code](quarto/original_stata.qmd) is shown alongside for comparison.
+
+The code is shown, not run. The de-identified patient data are Harris Health System data and are not in this repository, so no result on this site comes from running the code. The study's results are those published in the article, quoted with their place there on [Published results](quarto/published_results.qmd). The R code has been run only on synthetic data, to check that it runs and that its helper functions give the answers known from theory.
+
+## Methods
+
+[Methodological background](quarto/methodological_background.qmd) explains the methods in general terms; [Study design and methods](quarto/study_methods.qmd) explains what this study chose. Every difference between the R version and the Stata original is listed on [Differences from the original code](quarto/differences.qmd). The authoritative specification is the [analysis plan](quarto/analysis-plan.qmd), which records the published methods. Reporting follows STROBE and RECORD [@vonelm2007strobe; @benchimol2015record].
+
+## Status
+
+The scripts are written and run on synthetic data; they have not yet been run on the study data, so their results have not been compared with the article. Two questions about which analysis produced a published number are open and are marked in yellow where they apply.
+
+## References
+
+::: {#refs}
+:::

@@ -1,0 +1,113 @@
+---
+title: "Setup"
+format: html
+---
+
+This script attaches the packages and defines the constants every other script uses. Nothing in it reads data.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+## Packages
+
+Five packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **gtsummary** lays out the article's four tables ([Tables](tables.qmd)). The original code needed no packages: everything was built into Stata.
+
+```{r}
+#| label: load-packages
+#| eval: false
+```
+
+## Data files
+
+The workbooks are found only through the `RUSH_DATA_DIR` setting, which an authorized analyst puts in their own `.Renviron`; the repository holds no path to them. The original code had a global, `$DateOfAnalysis`, holding the date in the file names, and set Stata's working directory to a folder on the analyst's computer. Here the date is a constant and the folder is the setting.
+
+```{r}
+#| label: define-data-files
+#| eval: false
+```
+
+## Expected columns
+
+The columns the original code reads, spelled exactly as it spells them, including its inconsistency: `EngageInCare_Before` but `EngagedInCare_After`. [1. Import data](01_import_data.qmd) stops if any is missing, so a renamed column fails loudly instead of silently producing an empty variable. Their meaning comes from the article's Methods ([analysis plan §7](analysis-plan.qmd#7-outcomes)); there is no data dictionary, and a name alone is never taken as a definition.
+
+The original code never reads the year of the visit from the control sheet, so the control sheet is not required to have it. The `_Place` columns record where each visit or test happened; the original code dropped them unused, and so does this version.
+
+```{r}
+#| label: define-expected-columns
+#| eval: false
+```
+
+## Categories
+
+**Years since diagnosis** comes as text groups, and the original code turned them into numbered categories in this order, "5 or fewer" first, so that group is the reference. **Viral load** comes as the text "Suppressed" or "Not Suppressed"; anything else, including an empty cell, is missing.
+
+**Race** needs the longest comment. The original code turned the recorded race text into numbers with Stata's `encode`, which numbers distinct values alphabetically, and then grouped the *numbers*, not the text: in the study sheet codes 4 and 7 are White, 1, 5 and 6 are Asian, other or unknown. Because each sheet was encoded separately, and the control sheet has fewer distinct values, the same code means different things in the two sheets, so each sheet has its own list. The lists are copied from the original code. What text each number stands for is not documented outside the data, so it is still to be checked; [2. Build long data](02_build_long_data.qmd) prints the table needed for the check.
+
+[Study design and methods](study_methods.qmd#did-the-change-differ-between-groups) explains why race is used in four groups.
+
+```{r}
+#| label: define-categories
+#| eval: false
+```
+
+## Outcomes
+
+The four outcome variables, in the order the original code fitted them, with labels for output. The two viral load outcomes are the same measurement with missing results handled two ways: counted as not suppressed (the primary analysis) or left missing ([analysis plan §7](analysis-plan.qmd#7-outcomes)).
+
+```{r}
+#| label: define-outcomes
+#| eval: false
+```
+
+## Subgroups
+
+The characteristics whose interaction with the visit the original code tested: in the RUSH-era cohort, all seven; in the era comparison, sex, age group and the four race groups. Year of the visit is not used in the era comparison, as the original code's comment explains: the two eras' years cannot overlap.
+
+```{r}
+#| label: define-subgroups
+#| eval: false
+```
+
+## Models the original code could not fit
+
+Three models are commented out in the original code, each with a note that the fit failed: race as recorded with viral suppression (missing excluded), and, in the era comparison with every patient, the race groups with viral suppression (missing as failure) and with retention. A conditional logistic regression fails like this when some combination of categories has no patients whose outcome changed, so a coefficient has no finite estimate. The R version skips the same three, so it fits the same set of models; the lists are tables so a reader can see them at a glance.
+
+```{r}
+#| label: define-skipped-models
+#| eval: false
+```
+
+## Estimation constants
+
+95% confidence intervals; 12 quadrature points for the random-intercept models, Stata's default for `xtlogit`; and four, the number of rows a patient with a visit in both eras has once the data are long (before and after each visit), which defines the restricted era sample.
+
+```{r}
+#| label: define-estimation-constants
+#| eval: false
+```
+
+## Table constants
+
+What Tables 1 to 4 need: the characteristics in the article's row order with the headings it prints, the three outcomes of Tables 2 to 4 and the table each goes in, the printed labels where they differ from the recorded categories, and the folder for the HTML copies. Years since diagnosis start at "1–5" because the cohort excluded patients diagnosed less than a year before the visit.
+
+```{r}
+#| label: define-table-constants
+#| eval: false
+```
+
+## References
+
+::: {#refs}
+:::

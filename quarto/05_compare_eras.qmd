@@ -1,0 +1,77 @@
+---
+title: "5. Comparison with the pre-RUSH era"
+format: html
+---
+
+This script asks whether the change around a RUSH-era visit was larger than the change around a pre-RUSH visit by the same patients. It fits every model to two samples, every patient and only the patients with a visit in both eras, as the original code did.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/05_compare_eras.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/05_compare_eras.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)
+-   [`R/functions.R`](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/05_compare_eras.R")
+```
+
+## Two samples
+
+The original code first fitted the era models with every patient, with a comment that this was done by request, and then kept only patients with four rows and fitted them again. Both are kept here, as a named list of two data frames, so every later step runs on each in a loop. The printed table counts patients by number of rows: two (a RUSH-era visit only) or four (both eras).
+
+**Decision pending:** which of the two samples produced the P values the article reports for the era comparison is decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2).
+
+```{r}
+#| label: define-era-samples
+#| eval: false
+```
+
+## The era model
+
+`post_visit * rush_era`, which R expands to `post_visit + rush_era + post_visit:rush_era`, within patient strata ([Methodological background](methodological_background.qmd#comparing-the-change-in-two-periods)):
+
+- `post_visit`: the change around a pre-RUSH visit (the article's P = 0.017 for engagement);
+- `rush_era`: the difference between the periods before each era's visit;
+- `post_visit:rush_era`: how many times larger the odds ratio for the RUSH-era visit was. This is the P value the article reports for each outcome's era comparison.
+
+A patient with a RUSH-era visit only has a constant `rush_era`, so the era main effect cancels from their stratum. Their two rows inform the change around the RUSH-era visit, which in this model is the *sum* `post_visit` + `post_visit:rush_era`. On their own they cannot separate the two coefficients, but pooled with the both-era patients they pull that sum toward their own change, and so move the estimated interaction and its standard error. That is why the two samples can give different era P values, the question decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2) asks which the article used.
+
+```{r}
+#| label: fit-era-models
+#| eval: false
+```
+
+## Does the pattern differ by characteristic?
+
+Every term of the era model interacted with the characteristic: `post_visit * rush_era * gender` adds `post_visit:genderMale`, `rush_era:genderMale` and `post_visit:rush_era:genderMale` to the era model, as Stata's `i.Intervention##i.RUSHEra##i.Gender` does. Unlike the RUSH-era models, the characteristic's own main effect is kept. Each era's rows take sex, age group and race from that era's sheet, and age group in particular is the age at that era's visit, years apart, so it can change within a patient; then its main effect is estimable, and leaving it out would fit a different model. Where a characteristic is the same in all of every patient's rows, `clogit()` returns its main effect as `NA` and Stata omits it, with the same result. The joint Wald test of all these interaction terms asks whether any part of the pattern differs by the characteristic, which is what the original code's `testparm` lists tested. The original code itself called these models complicated and included them for completeness.
+
+Two models could not be fitted with every patient and are skipped there; with patients from both eras the original code fitted all of them, and so does this version.
+
+```{r}
+#| label: fit-era-subgroup-models
+#| eval: false
+```
+
+## Random-intercept models
+
+For comparison, the era model with a random intercept per patient, `(1 | patient_number)`, in place of the strata: R's version of Stata's `xtset PatientNumber` and `xtlogit`. `nAGQ = 12` asks for adaptive Gauss–Hermite quadrature with 12 points, Stata's default. Unlike the conditional model it also uses differences between patients, and assumes the patient effect is unrelated to the visit and the era ([Methodological background](methodological_background.qmd#fixed-or-random-person-effects)). Similar answers from the two kinds of model are reassuring; the article reports the conditional one.
+
+```{r}
+#| label: fit-random-effects-models
+#| eval: false
+```
+
+## References
+
+::: {#refs}
+:::

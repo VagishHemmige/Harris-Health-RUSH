@@ -39,10 +39,14 @@
 *.smcl
 *.ster
 
-# Outputs from the study data. The scripts write none to the repository; the
-# results on the site are the published article's, quoted with their place
-# in the article.
+# Outputs from the study data: R/tables.R writes Tables 1 to 4 to tables/.
+# The tables on the site are built from the article's printed values
+# (quarto/published/), not from these.
 /figures/
 /tables/
 
-# Approved synthetic files: add narrow exceptions here, never a whole format.
+# Approved files: add narrow exceptions here, never a whole format.
+# The values printed in the article's Tables 1 to 4, typed in from the
+# article (public), which the website formats for display.
+!/quarto/published/table_1.csv
+!/quarto/published/tables_2_to_4.csv

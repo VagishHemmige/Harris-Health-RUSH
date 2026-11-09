@@ -1,0 +1,83 @@
+# Renders the website and publishes it to the gh-pages branch, which GitHub
+# Pages serves. Runs on every push to main, or by hand from the Actions tab.
+# On a pull request it only renders, as a check that every page still builds.
+# Based on the publish.yml in COVID-infection-control.
+#
+# The pages run R only for the hidden knitr::read_chunk() imports, the
+# Architecture and original-code pages' readers of their files, and the
+# published-results page's tables of the article's printed values. They never run analysis code
+# (AGENTS.md, "Quarto website"), and this machine has no study data. A failed
+# render publishes nothing, so the last good site stays live.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+name: Publish website
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          # Pinned so a new Quarto release can't change the site unseen; the
+          # same version as COVID-infection-control. To move to a
+          # newer version, change this line in a pull request.
+          version: 1.10.18
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      # What the pages run: knitr and rmarkdown for the R chunks, and, for the
+      # published tables (quarto/published_results.qmd), the packages the
+      # table functions in R/functions.R use
+      - name: Install the R packages the pages use
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::knitr
+            any::rmarkdown
+            any::dplyr
+            any::tidyr
+            any::stringr
+            any::readr
+            any::gtsummary
+            any::gt
+
+      - name: Render (pull requests only)
+        if: github.event_name == 'pull_request'
+        uses: quarto-dev/quarto-actions/render@v2
+
+      # The rendered pull-request site, for review before merging; it holds
+      # only what the published site would (no study data)
+      - name: Keep the rendered site for review (pull requests only)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-site
+          path: docs/
+          retention-days: 7
+
+      - name: Render and publish to GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
