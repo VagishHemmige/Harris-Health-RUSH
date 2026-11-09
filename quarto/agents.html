@@ -112,15 +112,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
 }
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
 }
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -134,15 +134,15 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   content: '📊';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
 }
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
 }
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 </style>
@@ -651,7 +651,7 @@ edit that file, not this page. Its first heading is the page title.
 <p>The original Stata code page is R code (it is code). The differences page is study design and methods. The published results page is results, and its notice says the numbers are quoted from the article, not produced by this code.</p></li>
 <li><p><strong>Published tables</strong> are shown as tables rebuilt from the values the article prints: the values are typed into <code>quarto/published/table_1.csv</code> and <code>tables_2_to_4.csv</code>, exactly as printed, and formatted by the same functions <code>R/tables.R</code> uses on the data. Each table cites its place in the article and says it is not output of this code. Values that look inconsistent are kept as printed and noted, never corrected. The journal’s own typeset tables and Figure 1 are not copied; they need the publisher’s permission (RightsLink), after which the page notice states it.</p></li>
 <li><p><strong>Provisional content.</strong> <code>quarto/_pending.lua</code> highlights in yellow every paragraph that starts with <strong>Decision pending:</strong>, every paragraph of the plan’s page that contains the plan’s <strong>Open:</strong> marker, and any <code>[text]{.pending}</code>, and adds a ⏳ <code>Pending</code> callout to pages that have a mark. Mark only what an open decision could change, link its decision issue, and remove the mark when the decision is settled.</p></li>
-<li><p><strong>Never evaluate analysis code in the site.</strong> The only chunks that run are the hidden <code>read_chunk()</code> imports, the Architecture page’s reader of <code>ARCHITECTURE.md</code>, the original-code page’s reader of the <code>.do</code> file, which reads that file as text, and the published-results page’s chunks, which read the two published-values CSVs and format them with the table functions in <code>R/functions.R</code>. None reads study data or fits a model.</p></li>
+<li><p><strong>Never evaluate analysis code in the site.</strong> The only chunks that run are the hidden <code>read_chunk()</code> imports, the Architecture page’s reader of <code>ARCHITECTURE.md</code>, the readers of the <code>.do</code> file (<code>quarto/_stata_sections.R</code>, used by the original-code page and the folded “Original Stata code” boxes on the script pages), which read that file as text, and the published-results page’s chunks, which read the two published-values CSVs and format them with the table functions in <code>R/functions.R</code>. None reads study data or fits a model.</p></li>
 <li><p>The site renders to <code>docs/</code>, which is not committed. <code>.github/workflows/publish.yml</code> renders it on every pull request as a check and, on each push to <code>main</code>, publishes it to the <code>gh-pages</code> branch, which GitHub Pages serves. When you add a script, add its page and sidebar entry in the same pull request.</p></li>
 <li><p><strong>Prose must match the code.</strong> If a change alters what a section does, update its explanation in the same pull request.</p></li>
 </ul>
