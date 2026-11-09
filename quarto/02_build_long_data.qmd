@@ -5,6 +5,10 @@ format: html
 
 This script makes each cohort into one row per patient and period, adds the viral load outcomes and the race groups, and stacks the two eras. It produces `study_long` for [3. Paired comparisons](03_paired_comparisons.qmd) and [4. RUSH-era models](04_fit_rush_era_models.qmd), and `both_eras_long` for [5. Comparison with the pre-RUSH era](05_compare_eras.qmd).
 
+::: {.teaching-figure}
+![What this script does to one invented patient: the wide row becomes one row per period, and a patient with visits in both eras ends up with four rows.](teaching_figures/data_shapes.svg){fig-alt="Three small tables for an invented patient P1. Wide: one row with engagement before 0 and after 1. Long: two rows, period 0 and period 1. Both eras: four rows, for era 0 and era 1, each with period 0 and 1. The patient is the stratum in every model."}
+:::
+
 ::: {.Rcode title="Source code"}
 The full R script is available at:
 
