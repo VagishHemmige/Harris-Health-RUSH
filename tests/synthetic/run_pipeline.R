@@ -189,6 +189,18 @@ checks$tables_saved <- all(file.exists(file.path(
   tables_dir, str_glue("table_{1:4}.html")
 ))) && all(map_lgl(published_style_tables, \(x) inherits(x, "gtsummary")))
 
+# 13. The teaching-figure script runs on its own, as it is run by hand, and
+# writes its six figures. It reads only the published-values file and
+# constants, never the synthetic or study data.
+figure_files <- file.path(teaching_figures_dir, c(
+  "change_by_outcome.svg", "discordant_pairs.svg", "outcome_windows.svg",
+  str_glue("forest_table_{2:4}.svg")
+))
+figure_start <- Sys.time()
+source("R/teaching_figures.R", local = new.env())
+checks$teaching_figures_drawn <- all(file.exists(figure_files)) &&
+  all(file.mtime(figure_files) >= figure_start - 1)
+
 results <- tibble(check = names(checks), passed = unlist(checks))
 print(results, n = Inf)
 if (!all(results$passed)) {

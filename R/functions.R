@@ -537,3 +537,16 @@ add_group_headings <- function(rows, move_to_heading = character()) {
     rename(label = row_label) |>
     relocate(label)
 }
+
+## ---- parse-odds-ratio-text
+# The article prints each odds ratio as text, "3.74 (3.09–4.53)". This turns
+# that text into three numbers; an infinite or missing odds ratio ("∞*",
+# "-", "") gives NA for all three.
+parse_odds_ratio_text <- function(text) {
+  parts <- str_match(text, "^([0-9.]+) \\(([0-9.]+)\\D+([0-9.]+)\\)$")
+  tibble(
+    odds_ratio = as.numeric(parts[, 2]),
+    conf_low = as.numeric(parts[, 3]),
+    conf_high = as.numeric(parts[, 4])
+  )
+}

@@ -175,3 +175,38 @@ table_level_labels <- list(
   )
 )
 tables_dir <- "tables"
+
+## ---- define-teaching-figure-constants
+# The site's teaching figures (R/teaching_figures.R). They are drawn from
+# the values the article prints, typed into the published-values file, and
+# from the invented example of the Methodological background page; never
+# from the study data. The SVG files are committed for the site to show.
+teaching_figures_dir <- "quarto/teaching_figures"
+published_outcome_tables_file <- "quarto/published/tables_2_to_4.csv"
+# The abstract's percentages of the 2,068 patients with each outcome
+# before and after the visit, with the article's table for each outcome
+published_outcome_percentages <- tribble(
+  ~outcome,             ~table,    ~before, ~after,
+  "Engaged in care",    "Table 2", 41.3,    58.8,
+  "Retained in care",   "Table 3", 32.6,    47.1,
+  "Virally suppressed", "Table 4", 22.8,    34.0
+)
+# The invented example of 100 people (Methodological background): a had the
+# outcome both times, b lost it, c gained it, d never had it
+example_pairs <- c(a = 30, b = 5, c = 20, d = 45)
+# The before and after windows of each outcome, in months from the visit
+# (analysis-plan.md section 7); viral suppression's split is day 10
+outcome_windows <- tribble(
+  ~outcome,             ~definition,                      ~start,       ~split, ~end,
+  "Engagement",         "any HIV care visit",             -6,           0,      6,
+  "Retention",          "2 visits at least 3 months apart", -12,        0,      12,
+  "Viral suppression",  "a viral load < 200 copies/mL",   -12 + 10 / 30, 10 / 30, 12 + 10 / 30
+)
+# Colours: before and after are two steps of one blue; worse and better are
+# orange and blue (checked for colour-blind separation)
+figure_colours <- c(
+  before = "#9fbfe8", after = "#2a78d6",
+  worse = "#eb6834", better = "#2a78d6",
+  neither = "#ecebe6", ink = "#1f1f1e", muted = "#6f6e69"
+)
+figure_width_in <- 7.5
