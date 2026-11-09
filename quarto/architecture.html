@@ -115,15 +115,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
 }
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
 }
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 div.callout-Rcode.callout {
@@ -137,15 +137,15 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   content: '💻';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
+div.callout-Results.callout {
+  border-left-color: #198754;
 }
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
 }
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -612,7 +612,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </section>
 <section id="tests" class="level2">
 <h2 class="anchored" data-anchor-id="tests">Tests</h2>
-<p><code>tests/synthetic/build_synthetic_data.R</code> writes random workbooks with the expected sheets, columns and value formats. <code>tests/synthetic/run_pipeline.R</code> runs <code>R/main.R</code> on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; <code>effect_by_level()</code> equals a model fitted within each age group; <code>wald_test()</code> equals survival’s Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; <code>paired_mcnemar()</code> equals <code>mcnemar.test()</code>; and, on small invented data, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar’s test without discordant pairs returns missing values; and that the four tables are built and saved. <code>.github/workflows/test-pipeline.yml</code> runs it on every pull request.</p>
+<p><code>tests/synthetic/build_synthetic_data.R</code> writes random workbooks with the expected sheets, columns and value formats. <code>tests/synthetic/run_pipeline.R</code> runs <code>R/main.R</code> on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; <code>effect_by_level()</code> equals a model fitted within each age group; <code>wald_test()</code> equals survival’s Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; <code>paired_mcnemar()</code> equals <code>mcnemar.test()</code>; the interval for the visit is the Wald interval of the discordant pairs and the Total row of Table 2 shows it; and, on small invented data, that a category in which no patient got worse prints “∞” and “-”, that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar’s test without discordant pairs returns missing values; and that the four tables are built and saved. <code>.github/workflows/test-pipeline.yml</code> runs it on every pull request.</p>
 </section>
 <section id="code-references" class="level2">
 <h2 class="anchored" data-anchor-id="code-references">Code references</h2>
@@ -637,7 +637,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </tr>
 <tr class="even">
 <td><code>R/functions.R</code></td>
-<td><code>check-columns</code>, <code>check-unique-patients</code>, <code>encode-like-stata</code>, <code>clean-cohort</code>, <code>group-race-codes</code>, <code>reshape-to-long</code>, <code>add-viral-load-outcomes</code>, <code>paired-mcnemar</code>, <code>crosstab-row-percent</code>, <code>fit-conditional-logit</code>, <code>model-coefficients</code>, <code>combine-coefficients</code>, <code>interaction-terms</code>, <code>effect-by-level</code>, <code>wald-test</code>, <code>tidy-odds-ratios</code>, <code>pair-outcome</code>, <code>relabel-levels</code>, <code>count-categories</code>, <code>format-change</code>, <code>format-table-1</code>, <code>format-outcome-table</code>, <code>add-group-headings</code></td>
+<td><code>check-columns</code>, <code>check-unique-patients</code>, <code>encode-like-stata</code>, <code>clean-cohort</code>, <code>group-race-codes</code>, <code>reshape-to-long</code>, <code>add-viral-load-outcomes</code>, <code>paired-mcnemar</code>, <code>crosstab-row-percent</code>, <code>fit-conditional-logit</code>, <code>model-coefficients</code>, <code>combine-coefficients</code>, <code>interaction-terms</code>, <code>effect-by-level</code>, <code>wald-test</code>, <code>tidy-odds-ratios</code>, <code>pair-outcome</code>, <code>count-pairs</code>, <code>relabel-levels</code>, <code>count-categories</code>, <code>format-change</code>, <code>format-table-1</code>, <code>format-outcome-table</code>, <code>add-group-headings</code></td>
 <td><code>encode_like_stata()</code>, <code>clean_cohort()</code>, <code>fit_conditional_logit()</code>, <code>effect_by_level()</code>, <code>wald_test()</code></td>
 </tr>
 <tr class="odd">

@@ -123,17 +123,6 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   content: '⏳';
   background-image: none;
 }
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -143,6 +132,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 </style>
@@ -453,6 +453,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   <li><a href="#pair-an-outcome" id="toc-pair-an-outcome" class="nav-link" data-scroll-target="#pair-an-outcome">Pair an outcome</a></li>
   <li><a href="#printed-labels" id="toc-printed-labels" class="nav-link" data-scroll-target="#printed-labels">Printed labels</a></li>
   <li><a href="#count-categories" id="toc-count-categories" class="nav-link" data-scroll-target="#count-categories">Count categories</a></li>
+  <li><a href="#count-pairs" id="toc-count-pairs" class="nav-link" data-scroll-target="#count-pairs">Count pairs</a></li>
   <li><a href="#format-a-row-of-tables-2-to-4" id="toc-format-a-row-of-tables-2-to-4" class="nav-link" data-scroll-target="#format-a-row-of-tables-2-to-4">Format a row of Tables 2 to 4</a></li>
   <li><a href="#lay-out-table-1" id="toc-lay-out-table-1" class="nav-link" data-scroll-target="#lay-out-table-1">Lay out Table 1</a></li>
   <li><a href="#lay-out-tables-2-to-4" id="toc-lay-out-tables-2-to-4" class="nav-link" data-scroll-target="#lay-out-tables-2-to-4">Lay out Tables 2 to 4</a></li>
@@ -971,13 +972,13 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="pair-an-outcome" class="level2">
 <h2 class="anchored" data-anchor-id="pair-an-outcome">Pair an outcome</h2>
-<p>One row per patient with the outcome’s value before and after the visit, made from the long data with <code>pivot_wider()</code>, plus the patient’s characteristics: the layout <code>paired_mcnemar()</code> needs when it is run within each category for Tables 2 to 4.</p>
+<p>One row per patient with the outcome’s value before and after the visit, made from the long data with <code>pivot_wider()</code>, plus the patient’s characteristics: the layout <code>count_pairs()</code> needs when it counts each category for Tables 2 to 4.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One row per patient with an outcome's value before (before) and after</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (after) the visit, and the patient's characteristics, from the long data:</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the layout paired_mcnemar() needs for a subgroup. The characteristics are</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the layout count_pairs() needs for a subgroup. The characteristics are</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the same in both of a patient's rows.</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>pair_outcome <span class="ot">&lt;-</span> <span class="cf">function</span>(cohort_long, outcome, characteristics) {</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  cohort_long <span class="sc">|&gt;</span></span>
@@ -1032,35 +1033,74 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </details>
 </div>
 </section>
-<section id="format-a-row-of-tables-2-to-4" class="level2">
-<h2 class="anchored" data-anchor-id="format-a-row-of-tables-2-to-4">Format a row of Tables 2 to 4</h2>
-<p>Turns one <code>paired_mcnemar()</code> result into the text cells of a row. gtsummary’s <code>style_percent()</code>, <code>style_ratio()</code> and <code>style_pvalue()</code> do the rounding. An odds ratio with no worsened pairs is infinite and printed “∞”, as the article’s Table 4 prints it; with no discordant pairs there is no odds ratio and the cell is empty.</p>
+<section id="count-pairs" class="level2">
+<h2 class="anchored" data-anchor-id="count-pairs">Count pairs</h2>
+<p>For Tables 2 to 4: the patients with both values, the number with the outcome before and after, and the two kinds of discordant pair, worse and better. Patients missing either value are left out, as they are from the models.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Tables 2 to 4: one row of text from a paired_mcnemar() result, the</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># columns format_outcome_table() expects. An odds ratio with no worsened</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pairs is infinite and printed as the article prints it; with no</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># discordant pairs at all there is none, and the cell is empty.</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>format_change <span class="ot">&lt;-</span> <span class="cf">function</span>(result) {</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  odds_ratio_text <span class="ot">&lt;-</span> <span class="fu">str_glue</span>(</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"{style_ratio(result$odds_ratio)} "</span>,</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"({style_ratio(result$conf_low)}–{style_ratio(result$conf_high)})"</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">as.character</span>(result<span class="sc">$</span>n_pairs),</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">before_n =</span> <span class="fu">as.character</span>(result<span class="sc">$</span>n_before),</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">before_pct =</span> <span class="fu">style_percent</span>(result<span class="sc">$</span>n_before <span class="sc">/</span> result<span class="sc">$</span>n_pairs, <span class="at">suffix =</span> <span class="st">"%"</span>),</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">after_n =</span> <span class="fu">as.character</span>(result<span class="sc">$</span>n_after),</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">after_pct =</span> <span class="fu">style_percent</span>(result<span class="sc">$</span>n_after <span class="sc">/</span> result<span class="sc">$</span>n_pairs, <span class="at">suffix =</span> <span class="st">"%"</span>),</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">odds_ratio =</span> <span class="fu">case_when</span>(</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">is.na</span>(result<span class="sc">$</span>odds_ratio) <span class="sc">~</span> <span class="st">""</span>,</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">is.infinite</span>(result<span class="sc">$</span>odds_ratio) <span class="sc">~</span> <span class="st">"∞"</span>,</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">.default =</span> <span class="fu">as.character</span>(odds_ratio_text)</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">coalesce</span>(<span class="fu">style_pvalue</span>(result<span class="sc">$</span>p_value, <span class="at">digits =</span> <span class="dv">3</span>), <span class="st">""</span>)</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Tables 2 to 4: from one row per patient with before and after (as</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pair_outcome() makes it), the patients with both values, the number with</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the outcome in each period, and the two kinds of discordant pair: worse</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (1 before, 0 after) and better (0 before, 1 after). Patients missing</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># either value are left out, as they are from the models.</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>count_pairs <span class="ot">&lt;-</span> <span class="cf">function</span>(pairs) {</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  complete <span class="ot">&lt;-</span> pairs <span class="sc">|&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(before), <span class="sc">!</span><span class="fu">is.na</span>(after))</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_pairs =</span> <span class="fu">nrow</span>(complete),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_before =</span> <span class="fu">sum</span>(complete<span class="sc">$</span>before),</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_after =</span> <span class="fu">sum</span>(complete<span class="sc">$</span>after),</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_worse =</span> <span class="fu">sum</span>(complete<span class="sc">$</span>before <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> complete<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">0</span>),</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_better =</span> <span class="fu">sum</span>(complete<span class="sc">$</span>before <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> complete<span class="sc">$</span>after <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="format-a-row-of-tables-2-to-4" class="level2">
+<h2 class="anchored" data-anchor-id="format-a-row-of-tables-2-to-4">Format a row of Tables 2 to 4</h2>
+<p>Turns the counts and the model’s odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary’s <code>style_percent()</code>, <code>style_ratio()</code> and <code>style_pvalue()</code> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints “∞” and “-”, as the article’s Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide R Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For Tables 2 to 4: one row of text, the columns format_outcome_table()</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># expects, from count_pairs() and the odds ratio for the visit from the</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># conditional logistic regression (one row of effect_by_level() or</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy_odds_ratios()). The interval and P value are the model's Wald ones,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># as the article prints them (decision in issue #5).</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A category in which no patient got worse has an infinite odds ratio: the</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># model's estimate there is only a very large number with no usable</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># interval or P value, so the row prints "∞" and "-", as the article's</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Table 4 does. No patient got better: "0" and "-". No discordant pairs, or</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># no estimate (a model not fitted): the cells are empty.</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>format_change <span class="ot">&lt;-</span> <span class="cf">function</span>(counts, effect) {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  has_estimate <span class="ot">&lt;-</span> <span class="fu">nrow</span>(effect) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(effect<span class="sc">$</span>odds_ratio)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  odds_ratio_text <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  p_value_text <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (counts<span class="sc">$</span>n_worse <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> counts<span class="sc">$</span>n_better <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> has_estimate) {</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    odds_ratio_text <span class="ot">&lt;-</span> <span class="fu">as.character</span>(<span class="fu">str_glue</span>(</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"{style_ratio(effect$odds_ratio)} "</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">"({style_ratio(effect$conf_low)}–{style_ratio(effect$conf_high)})"</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    p_value_text <span class="ot">&lt;-</span> <span class="fu">coalesce</span>(<span class="fu">style_pvalue</span>(effect<span class="sc">$</span>p_value, <span class="at">digits =</span> <span class="dv">3</span>), <span class="st">""</span>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (counts<span class="sc">$</span>n_worse <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> counts<span class="sc">$</span>n_better <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    odds_ratio_text <span class="ot">&lt;-</span> <span class="st">"∞"</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    p_value_text <span class="ot">&lt;-</span> <span class="st">"-"</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (counts<span class="sc">$</span>n_better <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> counts<span class="sc">$</span>n_worse <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    odds_ratio_text <span class="ot">&lt;-</span> <span class="st">"0"</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    p_value_text <span class="ot">&lt;-</span> <span class="st">"-"</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">as.character</span>(counts<span class="sc">$</span>n_pairs),</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">before_n =</span> <span class="fu">as.character</span>(counts<span class="sc">$</span>n_before),</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">before_pct =</span> <span class="fu">style_percent</span>(counts<span class="sc">$</span>n_before <span class="sc">/</span> counts<span class="sc">$</span>n_pairs, <span class="at">suffix =</span> <span class="st">"%"</span>),</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">after_n =</span> <span class="fu">as.character</span>(counts<span class="sc">$</span>n_after),</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">after_pct =</span> <span class="fu">style_percent</span>(counts<span class="sc">$</span>n_after <span class="sc">/</span> counts<span class="sc">$</span>n_pairs, <span class="at">suffix =</span> <span class="st">"%"</span>),</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">odds_ratio =</span> odds_ratio_text,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> p_value_text</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1070,30 +1110,30 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table 1 as a gtsummary table from one row per category: columns group,</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># row_label, study_n, study_pct, control_n, control_pct, all already</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># formatted as text. Used both for the table computed from the data</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (R/tables.R) and for the published values shown on the website, so the</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># two look the same. A heading row is added for each group.</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>format_table_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, study_header, control_header) {</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  rows <span class="sc">|&gt;</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_group_headings</span>() <span class="sc">|&gt;</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_gtsummary</span>() <span class="sc">|&gt;</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_header</span>(</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="st">""</span>,</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">study_n =</span> <span class="st">"**N**"</span>,</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">study_pct =</span> <span class="st">"**%**"</span>,</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">control_n =</span> <span class="st">"**N**"</span>,</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">control_pct =</span> <span class="st">"**%**"</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(study_n, study_pct) <span class="sc">~</span> study_header,</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(control_n, control_pct) <span class="sc">~</span> control_header</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_column_hide</span>(<span class="fu">c</span>(group, row_type)) <span class="sc">|&gt;</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_indent</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"level"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_bold</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"heading"</span>)</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table 1 as a gtsummary table from one row per category: columns group,</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># row_label, study_n, study_pct, control_n, control_pct, all already</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># formatted as text. Used both for the table computed from the data</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (R/tables.R) and for the published values shown on the website, so the</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># two look the same. A heading row is added for each group.</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>format_table_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, study_header, control_header) {</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  rows <span class="sc">|&gt;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_group_headings</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_gtsummary</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_header</span>(</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="st">""</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">study_n =</span> <span class="st">"**N**"</span>,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">study_pct =</span> <span class="st">"**%**"</span>,</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">control_n =</span> <span class="st">"**N**"</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">control_pct =</span> <span class="st">"**%**"</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(study_n, study_pct) <span class="sc">~</span> study_header,</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(control_n, control_pct) <span class="sc">~</span> control_header</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_column_hide</span>(<span class="fu">c</span>(group, row_type)) <span class="sc">|&gt;</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_indent</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"level"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_bold</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"heading"</span>)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1103,41 +1143,41 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tables 2 to 4 as a gtsummary table from one row per category: columns</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group, row_label, n, before_n, before_pct, after_n, after_pct, odds_ratio</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (with its interval), p_value, chi_squared and chi_p, all already</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># formatted as text. The test across groups is shown on each group's</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># heading row. Used for both the computed and the published tables.</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>format_outcome_table <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, outcome_header) {</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  rows <span class="sc">|&gt;</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_group_headings</span>(<span class="at">move_to_heading =</span> <span class="fu">c</span>(<span class="st">"chi_squared"</span>, <span class="st">"chi_p"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_gtsummary</span>() <span class="sc">|&gt;</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_header</span>(</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="st">""</span>,</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">n =</span> <span class="st">"**n**"</span>,</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">before_n =</span> <span class="st">"**#**"</span>,</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">before_pct =</span> <span class="st">"**%**"</span>,</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">after_n =</span> <span class="st">"**#**"</span>,</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">after_pct =</span> <span class="st">"**%**"</span>,</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">odds_ratio =</span> <span class="st">"**McNemar OR (95% CI)**"</span>,</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">p_value =</span> <span class="st">"**P**"</span>,</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">chi_squared =</span> <span class="st">"**χ²**"</span>,</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">chi_p =</span> <span class="st">"**P**"</span></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(before_n, before_pct) <span class="sc">~</span> <span class="st">"**Before**"</span>,</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(after_n, after_pct) <span class="sc">~</span> <span class="st">"**After**"</span>,</span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(odds_ratio, p_value) <span class="sc">~</span> <span class="st">"**Change within group**"</span>,</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(chi_squared, chi_p) <span class="sc">~</span> <span class="st">"**Difference across groups**"</span></span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(before_n, before_pct, after_n, after_pct) <span class="sc">~</span> outcome_header,</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">level =</span> <span class="dv">2</span></span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_column_hide</span>(<span class="fu">c</span>(group, row_type)) <span class="sc">|&gt;</span></span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_indent</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"level"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_bold</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"heading"</span>)</span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tables 2 to 4 as a gtsummary table from one row per category: columns</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># group, row_label, n, before_n, before_pct, after_n, after_pct, odds_ratio</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (with its interval), p_value, chi_squared and chi_p, all already</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># formatted as text. The test across groups is shown on each group's</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># heading row. Used for both the computed and the published tables.</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>format_outcome_table <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, outcome_header) {</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  rows <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add_group_headings</span>(<span class="at">move_to_heading =</span> <span class="fu">c</span>(<span class="st">"chi_squared"</span>, <span class="st">"chi_p"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_gtsummary</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_header</span>(</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="st">""</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">n =</span> <span class="st">"**n**"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">before_n =</span> <span class="st">"**#**"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">before_pct =</span> <span class="st">"**%**"</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">after_n =</span> <span class="st">"**#**"</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">after_pct =</span> <span class="st">"**%**"</span>,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">odds_ratio =</span> <span class="st">"**OR after vs before (95% CI)**"</span>,</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">p_value =</span> <span class="st">"**P**"</span>,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">chi_squared =</span> <span class="st">"**χ²**"</span>,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">chi_p =</span> <span class="st">"**P**"</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(before_n, before_pct) <span class="sc">~</span> <span class="st">"**Before**"</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(after_n, after_pct) <span class="sc">~</span> <span class="st">"**After**"</span>,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(odds_ratio, p_value) <span class="sc">~</span> <span class="st">"**Change within group**"</span>,</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(chi_squared, chi_p) <span class="sc">~</span> <span class="st">"**Difference across groups**"</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_spanning_header</span>(</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(before_n, before_pct, after_n, after_pct) <span class="sc">~</span> outcome_header,</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">level =</span> <span class="dv">2</span></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_column_hide</span>(<span class="fu">c</span>(group, row_type)) <span class="sc">|&gt;</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_indent</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"level"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">modify_bold</span>(<span class="at">columns =</span> label, <span class="at">rows =</span> row_type <span class="sc">==</span> <span class="st">"heading"</span>)</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1147,33 +1187,33 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a heading row before each group's categories (Sex, Race, ...), and</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename row_label to label, the column gtsummary shows first. Columns named</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in move_to_heading (the test across groups) move from the group's first</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># row to its heading. The Total row is a group of one and gets no heading.</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>add_group_headings <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, <span class="at">move_to_heading =</span> <span class="fu">character</span>()) {</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">factor</span>(group, <span class="at">levels =</span> <span class="fu">unique</span>(group)), <span class="at">row_type =</span> <span class="st">"level"</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  headings <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(group <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">row_label =</span> <span class="fu">as.character</span>(group),</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">row_type =</span> <span class="st">"heading"</span>,</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(group, row_label, row_type, <span class="fu">all_of</span>(move_to_heading)), \(x) <span class="st">""</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(move_to_heading), \(x) <span class="fu">if_else</span>(group <span class="sc">==</span> <span class="st">"Total"</span>, x, <span class="st">""</span>)))</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(headings, rows) <span class="sc">|&gt;</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">heading_first =</span> row_type <span class="sc">!=</span> <span class="st">"heading"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(group, heading_first) <span class="sc">|&gt;</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>heading_first) <span class="sc">|&gt;</span></span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">as.character</span>(group), <span class="fu">across</span>(<span class="fu">everything</span>(), \(x) <span class="fu">coalesce</span>(x, <span class="st">""</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">label =</span> row_label) <span class="sc">|&gt;</span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">relocate</span>(label)</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insert a heading row before each group's categories (Sex, Race, ...), and</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rename row_label to label, the column gtsummary shows first. Columns named</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in move_to_heading (the test across groups) move from the group's first</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># row to its heading. The Total row is a group of one and gets no heading.</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>add_group_headings <span class="ot">&lt;-</span> <span class="cf">function</span>(rows, <span class="at">move_to_heading =</span> <span class="fu">character</span>()) {</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">factor</span>(group, <span class="at">levels =</span> <span class="fu">unique</span>(group)), <span class="at">row_type =</span> <span class="st">"level"</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  headings <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(group <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">row_label =</span> <span class="fu">as.character</span>(group),</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">row_type =</span> <span class="st">"heading"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(group, row_label, row_type, <span class="fu">all_of</span>(move_to_heading)), \(x) <span class="st">""</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> rows <span class="sc">|&gt;</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(move_to_heading), \(x) <span class="fu">if_else</span>(group <span class="sc">==</span> <span class="st">"Total"</span>, x, <span class="st">""</span>)))</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(headings, rows) <span class="sc">|&gt;</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">heading_first =</span> row_type <span class="sc">!=</span> <span class="st">"heading"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(group, heading_first) <span class="sc">|&gt;</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>heading_first) <span class="sc">|&gt;</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">as.character</span>(group), <span class="fu">across</span>(<span class="fu">everything</span>(), \(x) <span class="fu">coalesce</span>(x, <span class="st">""</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">label =</span> row_label) <span class="sc">|&gt;</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">relocate</span>(label)</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 
@@ -1646,244 +1686,253 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Functions"</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>This script defines the helper functions the analysis scripts use. Each takes its inputs as arguments and reads nothing else. The ones that turn a model into a reported number are checked on synthetic data by <span class="in">`tests/synthetic/run_pipeline.R`</span> against results known from theory.</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>::: {.Rcode title="Source code"}</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>The full R script is available at:</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`R/functions.R`</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>This R script file is itself reliant on the following helper files:</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`R/setup.R`</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>The code sections below are imported directly from that script when this page is rendered.</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">read_chunk</span>(<span class="st">"../R/functions.R"</span>)</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Check columns</span></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>Stops with a message naming the missing columns, and never any values, if a workbook lacks a column the code needs. Used by <span class="co">[</span><span class="ot">1. Import data</span><span class="co">](01_import_data.qmd)</span>.</span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: check-columns</span></span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Check for repeated patients</span></span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>Stops if a patient number appears more than once in an input that should have one row per patient. Stata's <span class="in">`merge 1:1`</span> and <span class="in">`reshape …, i(PatientNumber)`</span> made this check as a side effect; <span class="in">`full_join()`</span> checks only the rows it matches and <span class="in">`pivot_longer()`</span> checks nothing, so the import calls this on each sheet. The message gives only the number of repeated patients.</span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: check-unique-patients</span></span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Number categories as Stata's encode did</span></span>
-<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a>Stata's <span class="in">`encode`</span> turns text into numbered categories in alphabetical order, treating empty text as missing; the first becomes the base level in models. To fit the same models with the same reference categories, R needs factors whose levels are in the same order. <span class="in">`sort(method = "radix")`</span> sorts in byte order, as Stata does, regardless of the computer's language settings; R's ordinary sort can place capitals and accented letters differently. The codes are then <span class="in">`as.integer()`</span> of the factor.</span>
-<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: encode-like-stata</span></span>
-<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean a cohort</span></span>
-<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>What both workbook sheets need before they can be reshaped: drop the unused <span class="in">`_Place`</span> columns; give the outcome columns names ending in <span class="in">`_0`</span> (before the visit) and <span class="in">`_1`</span> (after it), as the original code renamed them for Stata's <span class="in">`reshape`</span>; number race, sex and age group as <span class="in">`encode`</span> did, keeping race's numeric code for the race groups; and make the year of the visit a category, as Stata's <span class="in">`i.IndexTestYear`</span> treats it, with 2009 as the reference. The year is renamed only where present, because the control sheet need not have it.</span>
-<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-68"><a href="#cb24-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-69"><a href="#cb24-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: clean-cohort</span></span>
-<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Group race codes</span></span>
-<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a>Turns race codes into the four race groups from a list of codes per group (the lists are in <span class="co">[</span><span class="ot">Setup</span><span class="co">](setup.qmd#categories)</span>). A loop over the groups is clearer here than a long <span class="in">`case_when()`</span>, and a code in no group stays missing, as in the original code.</span>
-<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-80"><a href="#cb24-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: group-race-codes</span></span>
-<span id="cb24-81"><a href="#cb24-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshape to one row per period</span></span>
-<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>From one row per patient, with each outcome in a <span class="in">`_0`</span> and a <span class="in">`_1`</span> column, to two rows per patient, with <span class="in">`post_visit`</span> 0 for the period before the visit and 1 for after. <span class="in">`names_pattern`</span> splits each column name into the outcome and the period; <span class="in">`.value`</span> makes the outcome part a column name. This is Stata's <span class="in">`reshape long …, i(PatientNumber) j(Intervention)`</span>.</span>
-<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-91"><a href="#cb24-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: reshape-to-long</span></span>
-<span id="cb24-92"><a href="#cb24-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viral load outcomes</span></span>
-<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a>Two binary versions of the viral load result (<span class="co">[</span><span class="ot">analysis plan §7</span><span class="co">](analysis-plan.qmd#7-outcomes)</span>): <span class="in">`vl_suppressed`</span> is missing when the result is, and <span class="in">`vl_suppressed_missing_fail`</span> counts a missing result as not suppressed. <span class="in">`coalesce()`</span> replaces the missing values with 0, as the original code's <span class="in">`replace … if … == .`</span> did.</span>
-<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-101"><a href="#cb24-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-102"><a href="#cb24-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-viral-load-outcomes</span></span>
-<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## McNemar's test</span></span>
-<span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a>The paired test of <span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#mcnemars-test)</span>. It returns the four kinds of pair, the proportions before and after, the uncorrected chi-squared statistic and its P value, and the exact P value from a binomial test on the discordant pairs, which is what Stata's <span class="in">`mcc`</span> reports. Writing the statistic out makes it visible that only the discordant pairs matter. With no discordant pairs, or no complete pairs, there is no test; the function returns missing statistics with <span class="in">`n_discordant`</span> and <span class="in">`n_pairs`</span>, which say which case it is, instead of stopping the whole pipeline.</span>
-<span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-112"><a href="#cb24-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: paired-mcnemar</span></span>
-<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Crosstabs with row percentages</span></span>
-<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a>For one characteristic and one outcome, the number of patients in each combination, with missing values kept, and the percentage within each category of the characteristic: Stata's <span class="in">`tab predictor outcome, row missing`</span>. The percentages are of all patients in the category, missing outcomes included, so for viral suppression with missing excluded they differ from the proportion among those tested.</span>
-<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: crosstab-row-percent</span></span>
-<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conditional logistic regression</span></span>
-<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a>The model behind most results (<span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#conditional-logistic-regression)</span>). <span class="in">`strata(patient_number)`</span> makes each patient a stratum, the R version of Stata's <span class="in">`group(PatientNumber)`</span>, and <span class="in">`method = "exact"`</span> asks for the exact conditional likelihood, which is what Stata's <span class="in">`clogit`</span> computes. The terms are passed as text so the scripts can build many models in loops.</span>
-<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a>In the RUSH-era models the terms leave out the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's <span class="in">`clogit()`</span> would return its coefficient as <span class="in">`NA`</span>. Leaving it out gives the same model and the same coefficients. The era models keep it, because there a characteristic can change between a patient's two visits (<span class="co">[</span><span class="ot">5. Comparison with the pre-RUSH era</span><span class="co">](05_compare_eras.qmd#does-the-pattern-differ-by-characteristic)</span>).</span>
-<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a>The estimation sample is built as Stata's <span class="in">`clogit`</span> builds it: rows that have every variable the model uses, then only patients whose outcome differs between their rows. A patient with the same outcome in every row, or with one row (a viral load in one window only), adds nothing to the conditional likelihood; Stata drops them with a note about "all positive or all negative outcomes". Categories left with no such patients are then dropped too, so the reference category is the first one that carries information. Without that step, if the first category had only uninformative patients, <span class="in">`clogit()`</span> would silently drop another category's interaction instead and the effects would be labelled with the wrong categories. The categories that had patients before the step are kept with the model, so the next functions can report the dropped ones as not estimable rather than leave them out.</span>
-<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-138"><a href="#cb24-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fit-conditional-logit</span></span>
-<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model coefficients</span></span>
-<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>The coefficients and their covariance matrix, from either kind of model the analysis fits: <span class="in">`coef()`</span> for <span class="in">`clogit()`</span>, and <span class="in">`fixef()`</span> for <span class="in">`glmer()`</span>, whose <span class="in">`coef()`</span> would give a separate set per patient.</span>
-<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-149"><a href="#cb24-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: model-coefficients</span></span>
-<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Combine coefficients</span></span>
-<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a>The odds ratio, confidence interval and P value for a *sum* of coefficients, which is what Stata's <span class="in">`lincom …, or`</span> reports. The variance of a sum is the sum of every variance and covariance among its terms, which is the sum of every cell of the covariance matrix restricted to those terms; that is the one line of matrix algebra. If a coefficient could not be estimated, it returns missing values rather than an answer from part of the sum.</span>
-<span id="cb24-157"><a href="#cb24-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: combine-coefficients</span></span>
-<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interaction terms</span></span>
-<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a>The names R gives interaction coefficients, built from the factor's levels: for a term <span class="in">`post_visit`</span> and the factor <span class="in">`gender`</span> with levels Female and Male, <span class="in">`post_visit:genderMale`</span>. Building them exactly, rather than matching names that start with <span class="in">`post_visit:race`</span>, matters here because <span class="in">`race`</span> and <span class="in">`race_group`</span> share a prefix.</span>
-<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-171"><a href="#cb24-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: interaction-terms</span></span>
-<span id="cb24-173"><a href="#cb24-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## The visit's effect within each category</span></span>
-<span id="cb24-177"><a href="#cb24-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-178"><a href="#cb24-178" aria-hidden="true" tabindex="-1"></a>For a model with <span class="in">`post_visit`</span> and its interaction with a characteristic, the odds ratio for the visit in each category of the characteristic (<span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#does-the-change-differ-between-groups-interactions)</span>): the <span class="in">`post_visit`</span> coefficient alone for the reference category, and <span class="in">`post_visit`</span> plus that category's interaction coefficient for each other. These are the original code's <span class="in">`lincom`</span> commands, done for every category. The synthetic test fits a separate model in each age group and checks that it gives the same odds ratios.</span>
-<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>The categories come from the model itself (<span class="in">`model$xlevels`</span>), so they are exactly those the model used. Categories that had patients but none whose outcome changed were dropped before fitting; they are added back as rows with <span class="in">`estimable = FALSE`</span> and missing values, so the table always lists every category with data. If a category's interaction coefficient could not be estimated, its odds ratio is missing; Stata's <span class="in">`lincom`</span> would treat the omitted coefficient as zero and report the reference category's effect under that category's name.</span>
-<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: effect-by-level</span></span>
-<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joint Wald test</span></span>
-<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a>The test that a set of coefficients are all zero, <span class="in">`b' V⁻¹ b`</span> compared with a chi-squared distribution with as many degrees of freedom as coefficients: Stata's <span class="in">`testparm`</span>. A coefficient that could not be estimated is left out, as Stata leaves it out. If none can be estimated the test is missing, with zero degrees of freedom; the synthetic test fails if that happens to any interaction test, which would also catch a misspelled coefficient name.</span>
-<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-195"><a href="#cb24-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-196"><a href="#cb24-196" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: wald-test</span></span>
-<span id="cb24-197"><a href="#cb24-197" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-198"><a href="#cb24-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-199"><a href="#cb24-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-200"><a href="#cb24-200" aria-hidden="true" tabindex="-1"></a><span class="fu">## Odds ratio table</span></span>
-<span id="cb24-201"><a href="#cb24-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-202"><a href="#cb24-202" aria-hidden="true" tabindex="-1"></a>Every coefficient of a model as an odds ratio with its confidence interval and P value, the table Stata prints with the <span class="in">`or`</span> option. It uses <span class="in">`combine_coefficients()`</span> with one term at a time, so its intervals and P values are computed exactly as the within-category ones are.</span>
-<span id="cb24-203"><a href="#cb24-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-206"><a href="#cb24-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-207"><a href="#cb24-207" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tidy-odds-ratios</span></span>
-<span id="cb24-208"><a href="#cb24-208" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-209"><a href="#cb24-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-210"><a href="#cb24-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-211"><a href="#cb24-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pair an outcome</span></span>
-<span id="cb24-212"><a href="#cb24-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-213"><a href="#cb24-213" aria-hidden="true" tabindex="-1"></a>One row per patient with the outcome's value before and after the visit, made from the long data with <span class="in">`pivot_wider()`</span>, plus the patient's characteristics: the layout <span class="in">`paired_mcnemar()`</span> needs when it is run within each category for Tables 2 to 4.</span>
-<span id="cb24-214"><a href="#cb24-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-217"><a href="#cb24-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-218"><a href="#cb24-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pair-outcome</span></span>
-<span id="cb24-219"><a href="#cb24-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-220"><a href="#cb24-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-221"><a href="#cb24-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-222"><a href="#cb24-222" aria-hidden="true" tabindex="-1"></a><span class="fu">## Printed labels</span></span>
-<span id="cb24-223"><a href="#cb24-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-224"><a href="#cb24-224" aria-hidden="true" tabindex="-1"></a>The article prints some categories differently from how they are recorded ("1–5" for "&lt;=5" years since diagnosis, "Other" for the fourth race group). A named vector maps recorded to printed; anything not named keeps its own label.</span>
-<span id="cb24-225"><a href="#cb24-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-228"><a href="#cb24-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-229"><a href="#cb24-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: relabel-levels</span></span>
-<span id="cb24-230"><a href="#cb24-230" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-231"><a href="#cb24-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-232"><a href="#cb24-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-233"><a href="#cb24-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Count categories</span></span>
-<span id="cb24-234"><a href="#cb24-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-235"><a href="#cb24-235" aria-hidden="true" tabindex="-1"></a>For Table 1: each category's number of patients and column percentage, with printed labels. A cohort that lacks the characteristic altogether gives no rows, so its cells stay empty rather than appearing as a column of unknowns.</span>
-<span id="cb24-236"><a href="#cb24-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-239"><a href="#cb24-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-240"><a href="#cb24-240" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: count-categories</span></span>
-<span id="cb24-241"><a href="#cb24-241" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-242"><a href="#cb24-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-243"><a href="#cb24-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-244"><a href="#cb24-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Format a row of Tables 2 to 4</span></span>
-<span id="cb24-245"><a href="#cb24-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-246"><a href="#cb24-246" aria-hidden="true" tabindex="-1"></a>Turns one <span class="in">`paired_mcnemar()`</span> result into the text cells of a row. gtsummary's <span class="in">`style_percent()`</span>, <span class="in">`style_ratio()`</span> and <span class="in">`style_pvalue()`</span> do the rounding. An odds ratio with no worsened pairs is infinite and printed "∞", as the article's Table 4 prints it; with no discordant pairs there is no odds ratio and the cell is empty.</span>
-<span id="cb24-247"><a href="#cb24-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-250"><a href="#cb24-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-251"><a href="#cb24-251" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-change</span></span>
-<span id="cb24-252"><a href="#cb24-252" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-253"><a href="#cb24-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-254"><a href="#cb24-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-255"><a href="#cb24-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Table 1</span></span>
-<span id="cb24-256"><a href="#cb24-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-257"><a href="#cb24-257" aria-hidden="true" tabindex="-1"></a>From rows of text to a gtsummary table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd#the-published-tables)</span>.</span>
-<span id="cb24-258"><a href="#cb24-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-261"><a href="#cb24-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-262"><a href="#cb24-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-table-1</span></span>
-<span id="cb24-263"><a href="#cb24-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Tables 2 to 4</span></span>
-<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a>The same approach, with two levels of spanning headers: the outcome over Before and After, and Before, After, the change within the group and the difference across groups over their columns.</span>
-<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-outcome-table</span></span>
-<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-275"><a href="#cb24-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-276"><a href="#cb24-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-277"><a href="#cb24-277" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add group headings</span></span>
-<span id="cb24-278"><a href="#cb24-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-279"><a href="#cb24-279" aria-hidden="true" tabindex="-1"></a>Inserts a heading row (Sex, Race and so on) before each characteristic's categories, as the article's tables have, and moves the test across groups onto that heading row, so it sits with the characteristic it tests. The Total row is not given a heading.</span>
-<span id="cb24-280"><a href="#cb24-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-283"><a href="#cb24-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-284"><a href="#cb24-284" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-group-headings</span></span>
-<span id="cb24-285"><a href="#cb24-285" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb24-286"><a href="#cb24-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Functions"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>This script defines the helper functions the analysis scripts use. Each takes its inputs as arguments and reads nothing else. The ones that turn a model into a reported number are checked on synthetic data by <span class="in">`tests/synthetic/run_pipeline.R`</span> against results known from theory.</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>::: {.Rcode title="Source code"}</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>The full R script is available at:</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`R/functions.R`</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/functions.R)</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>This R script file is itself reliant on the following helper files:</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`R/setup.R`</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/blob/main/R/setup.R)</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>The code sections below are imported directly from that script when this page is rendered.</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| cache: false</span></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">read_chunk</span>(<span class="st">"../R/functions.R"</span>)</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Check columns</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>Stops with a message naming the missing columns, and never any values, if a workbook lacks a column the code needs. Used by <span class="co">[</span><span class="ot">1. Import data</span><span class="co">](01_import_data.qmd)</span>.</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: check-columns</span></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Check for repeated patients</span></span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>Stops if a patient number appears more than once in an input that should have one row per patient. Stata's <span class="in">`merge 1:1`</span> and <span class="in">`reshape …, i(PatientNumber)`</span> made this check as a side effect; <span class="in">`full_join()`</span> checks only the rows it matches and <span class="in">`pivot_longer()`</span> checks nothing, so the import calls this on each sheet. The message gives only the number of repeated patients.</span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: check-unique-patients</span></span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Number categories as Stata's encode did</span></span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>Stata's <span class="in">`encode`</span> turns text into numbered categories in alphabetical order, treating empty text as missing; the first becomes the base level in models. To fit the same models with the same reference categories, R needs factors whose levels are in the same order. <span class="in">`sort(method = "radix")`</span> sorts in byte order, as Stata does, regardless of the computer's language settings; R's ordinary sort can place capitals and accented letters differently. The codes are then <span class="in">`as.integer()`</span> of the factor.</span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: encode-like-stata</span></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean a cohort</span></span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a>What both workbook sheets need before they can be reshaped: drop the unused <span class="in">`_Place`</span> columns; give the outcome columns names ending in <span class="in">`_0`</span> (before the visit) and <span class="in">`_1`</span> (after it), as the original code renamed them for Stata's <span class="in">`reshape`</span>; number race, sex and age group as <span class="in">`encode`</span> did, keeping race's numeric code for the race groups; and make the year of the visit a category, as Stata's <span class="in">`i.IndexTestYear`</span> treats it, with 2009 as the reference. The year is renamed only where present, because the control sheet need not have it.</span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-68"><a href="#cb25-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-69"><a href="#cb25-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: clean-cohort</span></span>
+<span id="cb25-70"><a href="#cb25-70" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-71"><a href="#cb25-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-72"><a href="#cb25-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-73"><a href="#cb25-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Group race codes</span></span>
+<span id="cb25-74"><a href="#cb25-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-75"><a href="#cb25-75" aria-hidden="true" tabindex="-1"></a>Turns race codes into the four race groups from a list of codes per group (the lists are in <span class="co">[</span><span class="ot">Setup</span><span class="co">](setup.qmd#categories)</span>). A loop over the groups is clearer here than a long <span class="in">`case_when()`</span>, and a code in no group stays missing, as in the original code.</span>
+<span id="cb25-76"><a href="#cb25-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-79"><a href="#cb25-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-80"><a href="#cb25-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: group-race-codes</span></span>
+<span id="cb25-81"><a href="#cb25-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-82"><a href="#cb25-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-83"><a href="#cb25-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-84"><a href="#cb25-84" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshape to one row per period</span></span>
+<span id="cb25-85"><a href="#cb25-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-86"><a href="#cb25-86" aria-hidden="true" tabindex="-1"></a>From one row per patient, with each outcome in a <span class="in">`_0`</span> and a <span class="in">`_1`</span> column, to two rows per patient, with <span class="in">`post_visit`</span> 0 for the period before the visit and 1 for after. <span class="in">`names_pattern`</span> splits each column name into the outcome and the period; <span class="in">`.value`</span> makes the outcome part a column name. This is Stata's <span class="in">`reshape long …, i(PatientNumber) j(Intervention)`</span>.</span>
+<span id="cb25-87"><a href="#cb25-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-90"><a href="#cb25-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-91"><a href="#cb25-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: reshape-to-long</span></span>
+<span id="cb25-92"><a href="#cb25-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-93"><a href="#cb25-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-94"><a href="#cb25-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-95"><a href="#cb25-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viral load outcomes</span></span>
+<span id="cb25-96"><a href="#cb25-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-97"><a href="#cb25-97" aria-hidden="true" tabindex="-1"></a>Two binary versions of the viral load result (<span class="co">[</span><span class="ot">analysis plan §7</span><span class="co">](analysis-plan.qmd#7-outcomes)</span>): <span class="in">`vl_suppressed`</span> is missing when the result is, and <span class="in">`vl_suppressed_missing_fail`</span> counts a missing result as not suppressed. <span class="in">`coalesce()`</span> replaces the missing values with 0, as the original code's <span class="in">`replace … if … == .`</span> did.</span>
+<span id="cb25-98"><a href="#cb25-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-101"><a href="#cb25-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-102"><a href="#cb25-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-viral-load-outcomes</span></span>
+<span id="cb25-103"><a href="#cb25-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-104"><a href="#cb25-104" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-105"><a href="#cb25-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-106"><a href="#cb25-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## McNemar's test</span></span>
+<span id="cb25-107"><a href="#cb25-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-108"><a href="#cb25-108" aria-hidden="true" tabindex="-1"></a>The paired test of <span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#mcnemars-test)</span>. It returns the four kinds of pair, the proportions before and after, the uncorrected chi-squared statistic and its P value, and the exact P value from a binomial test on the discordant pairs, which is what Stata's <span class="in">`mcc`</span> reports. Writing the statistic out makes it visible that only the discordant pairs matter. With no discordant pairs, or no complete pairs, there is no test; the function returns missing statistics with <span class="in">`n_discordant`</span> and <span class="in">`n_pairs`</span>, which say which case it is, instead of stopping the whole pipeline.</span>
+<span id="cb25-109"><a href="#cb25-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-112"><a href="#cb25-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-113"><a href="#cb25-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: paired-mcnemar</span></span>
+<span id="cb25-114"><a href="#cb25-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-115"><a href="#cb25-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-116"><a href="#cb25-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-117"><a href="#cb25-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Crosstabs with row percentages</span></span>
+<span id="cb25-118"><a href="#cb25-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-119"><a href="#cb25-119" aria-hidden="true" tabindex="-1"></a>For one characteristic and one outcome, the number of patients in each combination, with missing values kept, and the percentage within each category of the characteristic: Stata's <span class="in">`tab predictor outcome, row missing`</span>. The percentages are of all patients in the category, missing outcomes included, so for viral suppression with missing excluded they differ from the proportion among those tested.</span>
+<span id="cb25-120"><a href="#cb25-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-123"><a href="#cb25-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-124"><a href="#cb25-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: crosstab-row-percent</span></span>
+<span id="cb25-125"><a href="#cb25-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-126"><a href="#cb25-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-127"><a href="#cb25-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-128"><a href="#cb25-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conditional logistic regression</span></span>
+<span id="cb25-129"><a href="#cb25-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-130"><a href="#cb25-130" aria-hidden="true" tabindex="-1"></a>The model behind most results (<span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#conditional-logistic-regression)</span>). <span class="in">`strata(patient_number)`</span> makes each patient a stratum, the R version of Stata's <span class="in">`group(PatientNumber)`</span>, and <span class="in">`method = "exact"`</span> asks for the exact conditional likelihood, which is what Stata's <span class="in">`clogit`</span> computes. The terms are passed as text so the scripts can build many models in loops.</span>
+<span id="cb25-131"><a href="#cb25-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-132"><a href="#cb25-132" aria-hidden="true" tabindex="-1"></a>In the RUSH-era models the terms leave out the main effect of a characteristic that is the same in a patient's two records. Stata drops such a term automatically, with a note; R's <span class="in">`clogit()`</span> would return its coefficient as <span class="in">`NA`</span>. Leaving it out gives the same model and the same coefficients. The era models keep it, because there a characteristic can change between a patient's two visits (<span class="co">[</span><span class="ot">5. Comparison with the pre-RUSH era</span><span class="co">](05_compare_eras.qmd#does-the-pattern-differ-by-characteristic)</span>).</span>
+<span id="cb25-133"><a href="#cb25-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-134"><a href="#cb25-134" aria-hidden="true" tabindex="-1"></a>The estimation sample is built as Stata's <span class="in">`clogit`</span> builds it: rows that have every variable the model uses, then only patients whose outcome differs between their rows. A patient with the same outcome in every row, or with one row (a viral load in one window only), adds nothing to the conditional likelihood; Stata drops them with a note about "all positive or all negative outcomes". Categories left with no such patients are then dropped too, so the reference category is the first one that carries information. Without that step, if the first category had only uninformative patients, <span class="in">`clogit()`</span> would silently drop another category's interaction instead and the effects would be labelled with the wrong categories. The categories that had patients before the step are kept with the model, so the next functions can report the dropped ones as not estimable rather than leave them out.</span>
+<span id="cb25-135"><a href="#cb25-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-138"><a href="#cb25-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-139"><a href="#cb25-139" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fit-conditional-logit</span></span>
+<span id="cb25-140"><a href="#cb25-140" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-141"><a href="#cb25-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-142"><a href="#cb25-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-143"><a href="#cb25-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model coefficients</span></span>
+<span id="cb25-144"><a href="#cb25-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-145"><a href="#cb25-145" aria-hidden="true" tabindex="-1"></a>The coefficients and their covariance matrix, from either kind of model the analysis fits: <span class="in">`coef()`</span> for <span class="in">`clogit()`</span>, and <span class="in">`fixef()`</span> for <span class="in">`glmer()`</span>, whose <span class="in">`coef()`</span> would give a separate set per patient.</span>
+<span id="cb25-146"><a href="#cb25-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-149"><a href="#cb25-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-150"><a href="#cb25-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: model-coefficients</span></span>
+<span id="cb25-151"><a href="#cb25-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-152"><a href="#cb25-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-153"><a href="#cb25-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-154"><a href="#cb25-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Combine coefficients</span></span>
+<span id="cb25-155"><a href="#cb25-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-156"><a href="#cb25-156" aria-hidden="true" tabindex="-1"></a>The odds ratio, confidence interval and P value for a *sum* of coefficients, which is what Stata's <span class="in">`lincom …, or`</span> reports. The variance of a sum is the sum of every variance and covariance among its terms, which is the sum of every cell of the covariance matrix restricted to those terms; that is the one line of matrix algebra. If a coefficient could not be estimated, it returns missing values rather than an answer from part of the sum.</span>
+<span id="cb25-157"><a href="#cb25-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-160"><a href="#cb25-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-161"><a href="#cb25-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: combine-coefficients</span></span>
+<span id="cb25-162"><a href="#cb25-162" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-163"><a href="#cb25-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-164"><a href="#cb25-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-165"><a href="#cb25-165" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interaction terms</span></span>
+<span id="cb25-166"><a href="#cb25-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-167"><a href="#cb25-167" aria-hidden="true" tabindex="-1"></a>The names R gives interaction coefficients, built from the factor's levels: for a term <span class="in">`post_visit`</span> and the factor <span class="in">`gender`</span> with levels Female and Male, <span class="in">`post_visit:genderMale`</span>. Building them exactly, rather than matching names that start with <span class="in">`post_visit:race`</span>, matters here because <span class="in">`race`</span> and <span class="in">`race_group`</span> share a prefix.</span>
+<span id="cb25-168"><a href="#cb25-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-171"><a href="#cb25-171" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-172"><a href="#cb25-172" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: interaction-terms</span></span>
+<span id="cb25-173"><a href="#cb25-173" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-174"><a href="#cb25-174" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-175"><a href="#cb25-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-176"><a href="#cb25-176" aria-hidden="true" tabindex="-1"></a><span class="fu">## The visit's effect within each category</span></span>
+<span id="cb25-177"><a href="#cb25-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-178"><a href="#cb25-178" aria-hidden="true" tabindex="-1"></a>For a model with <span class="in">`post_visit`</span> and its interaction with a characteristic, the odds ratio for the visit in each category of the characteristic (<span class="co">[</span><span class="ot">Methodological background</span><span class="co">](methodological_background.qmd#does-the-change-differ-between-groups-interactions)</span>): the <span class="in">`post_visit`</span> coefficient alone for the reference category, and <span class="in">`post_visit`</span> plus that category's interaction coefficient for each other. These are the original code's <span class="in">`lincom`</span> commands, done for every category. The synthetic test fits a separate model in each age group and checks that it gives the same odds ratios.</span>
+<span id="cb25-179"><a href="#cb25-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-180"><a href="#cb25-180" aria-hidden="true" tabindex="-1"></a>The categories come from the model itself (<span class="in">`model$xlevels`</span>), so they are exactly those the model used. Categories that had patients but none whose outcome changed were dropped before fitting; they are added back as rows with <span class="in">`estimable = FALSE`</span> and missing values, so the table always lists every category with data. If a category's interaction coefficient could not be estimated, its odds ratio is missing; Stata's <span class="in">`lincom`</span> would treat the omitted coefficient as zero and report the reference category's effect under that category's name.</span>
+<span id="cb25-181"><a href="#cb25-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-184"><a href="#cb25-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-185"><a href="#cb25-185" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: effect-by-level</span></span>
+<span id="cb25-186"><a href="#cb25-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-187"><a href="#cb25-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-188"><a href="#cb25-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-189"><a href="#cb25-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joint Wald test</span></span>
+<span id="cb25-190"><a href="#cb25-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-191"><a href="#cb25-191" aria-hidden="true" tabindex="-1"></a>The test that a set of coefficients are all zero, <span class="in">`b' V⁻¹ b`</span> compared with a chi-squared distribution with as many degrees of freedom as coefficients: Stata's <span class="in">`testparm`</span>. A coefficient that could not be estimated is left out, as Stata leaves it out. If none can be estimated the test is missing, with zero degrees of freedom; the synthetic test fails if that happens to any interaction test, which would also catch a misspelled coefficient name.</span>
+<span id="cb25-192"><a href="#cb25-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-195"><a href="#cb25-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-196"><a href="#cb25-196" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: wald-test</span></span>
+<span id="cb25-197"><a href="#cb25-197" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-198"><a href="#cb25-198" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-199"><a href="#cb25-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-200"><a href="#cb25-200" aria-hidden="true" tabindex="-1"></a><span class="fu">## Odds ratio table</span></span>
+<span id="cb25-201"><a href="#cb25-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-202"><a href="#cb25-202" aria-hidden="true" tabindex="-1"></a>Every coefficient of a model as an odds ratio with its confidence interval and P value, the table Stata prints with the <span class="in">`or`</span> option. It uses <span class="in">`combine_coefficients()`</span> with one term at a time, so its intervals and P values are computed exactly as the within-category ones are.</span>
+<span id="cb25-203"><a href="#cb25-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-206"><a href="#cb25-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-207"><a href="#cb25-207" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tidy-odds-ratios</span></span>
+<span id="cb25-208"><a href="#cb25-208" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-209"><a href="#cb25-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-210"><a href="#cb25-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-211"><a href="#cb25-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pair an outcome</span></span>
+<span id="cb25-212"><a href="#cb25-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-213"><a href="#cb25-213" aria-hidden="true" tabindex="-1"></a>One row per patient with the outcome's value before and after the visit, made from the long data with <span class="in">`pivot_wider()`</span>, plus the patient's characteristics: the layout <span class="in">`count_pairs()`</span> needs when it counts each category for Tables 2 to 4.</span>
+<span id="cb25-214"><a href="#cb25-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-217"><a href="#cb25-217" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-218"><a href="#cb25-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pair-outcome</span></span>
+<span id="cb25-219"><a href="#cb25-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-220"><a href="#cb25-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-221"><a href="#cb25-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-222"><a href="#cb25-222" aria-hidden="true" tabindex="-1"></a><span class="fu">## Printed labels</span></span>
+<span id="cb25-223"><a href="#cb25-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-224"><a href="#cb25-224" aria-hidden="true" tabindex="-1"></a>The article prints some categories differently from how they are recorded ("1–5" for "&lt;=5" years since diagnosis, "Other" for the fourth race group). A named vector maps recorded to printed; anything not named keeps its own label.</span>
+<span id="cb25-225"><a href="#cb25-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-228"><a href="#cb25-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-229"><a href="#cb25-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: relabel-levels</span></span>
+<span id="cb25-230"><a href="#cb25-230" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-231"><a href="#cb25-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-232"><a href="#cb25-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-233"><a href="#cb25-233" aria-hidden="true" tabindex="-1"></a><span class="fu">## Count categories</span></span>
+<span id="cb25-234"><a href="#cb25-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-235"><a href="#cb25-235" aria-hidden="true" tabindex="-1"></a>For Table 1: each category's number of patients and column percentage, with printed labels. A cohort that lacks the characteristic altogether gives no rows, so its cells stay empty rather than appearing as a column of unknowns.</span>
+<span id="cb25-236"><a href="#cb25-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-239"><a href="#cb25-239" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-240"><a href="#cb25-240" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: count-categories</span></span>
+<span id="cb25-241"><a href="#cb25-241" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-242"><a href="#cb25-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-243"><a href="#cb25-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-244"><a href="#cb25-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## Count pairs</span></span>
+<span id="cb25-245"><a href="#cb25-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-246"><a href="#cb25-246" aria-hidden="true" tabindex="-1"></a>For Tables 2 to 4: the patients with both values, the number with the outcome before and after, and the two kinds of discordant pair, worse and better. Patients missing either value are left out, as they are from the models.</span>
+<span id="cb25-247"><a href="#cb25-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-250"><a href="#cb25-250" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-251"><a href="#cb25-251" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: count-pairs</span></span>
+<span id="cb25-252"><a href="#cb25-252" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-253"><a href="#cb25-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Format a row of Tables 2 to 4</span></span>
+<span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary's <span class="in">`style_percent()`</span>, <span class="in">`style_ratio()`</span> and <span class="in">`style_pvalue()`</span> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</span>
+<span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-change</span></span>
+<span id="cb25-263"><a href="#cb25-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-264"><a href="#cb25-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Table 1</span></span>
+<span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>From rows of text to a gtsummary table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd#the-published-tables)</span>.</span>
+<span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-table-1</span></span>
+<span id="cb25-274"><a href="#cb25-274" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-275"><a href="#cb25-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-276"><a href="#cb25-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-277"><a href="#cb25-277" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Tables 2 to 4</span></span>
+<span id="cb25-278"><a href="#cb25-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-279"><a href="#cb25-279" aria-hidden="true" tabindex="-1"></a>The same approach, with two levels of spanning headers: the outcome over Before and After, and Before, After, the change within the group and the difference across groups over their columns.</span>
+<span id="cb25-280"><a href="#cb25-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-283"><a href="#cb25-283" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-284"><a href="#cb25-284" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-outcome-table</span></span>
+<span id="cb25-285"><a href="#cb25-285" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-286"><a href="#cb25-286" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb25-287"><a href="#cb25-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-288"><a href="#cb25-288" aria-hidden="true" tabindex="-1"></a><span class="fu">## Add group headings</span></span>
+<span id="cb25-289"><a href="#cb25-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-290"><a href="#cb25-290" aria-hidden="true" tabindex="-1"></a>Inserts a heading row (Sex, Race and so on) before each characteristic's categories, as the article's tables have, and moves the test across groups onto that heading row, so it sits with the characteristic it tests. The Total row is not given a heading.</span>
+<span id="cb25-291"><a href="#cb25-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-294"><a href="#cb25-294" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-295"><a href="#cb25-295" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: add-group-headings</span></span>
+<span id="cb25-296"><a href="#cb25-296" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-297"><a href="#cb25-297" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
