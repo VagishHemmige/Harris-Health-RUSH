@@ -21,7 +21,7 @@ The two measurements are not independent. A person in care before a visit is mor
 **Example.** Of 100 people, 30 had the outcome both times (*a*), 5 lost it (*b*), 20 gained it (*c*) and 45 never had it (*d*). The proportion rose from 35% to 50%. Only the 25 discordant pairs say anything about change, and 20 of the 25 changed for the better.
 
 ::: {.teaching-figure}
-![The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician's questions: how many without the outcome gained it, and how many with it lost it.](teaching_figures/discordant_pairs.svg){fig-alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."}
+![The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician's questions: how many without the outcome gained it, and how many with it lost it. Drawn by [`R/teaching_figures.R`](teaching_figures.qmd#discordant-pairs).](teaching_figures/discordant_pairs.svg){fig-alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."}
 :::
 
 ## McNemar's test
@@ -107,6 +107,19 @@ Reporting both shows how much the answer depends on the choice.
 | `lincom 1.period + 1.period#2.group, or` | sum of coefficients with `vcov()` | Odds ratio within a category |
 | `testparm period#group` | Wald test of the interaction coefficients | Joint test, df = number of coefficients |
 | `xtset id` then `xtlogit y x, or` | `lme4::glmer(y ~ x + (1 \| id), family = binomial, nAGQ = 12)` | Random intercept, 12 quadrature points |
+
+## Learn more
+
+Free teaching material on the topics of this page, outside this site.
+
+- [Binary outcome, matched pairs](https://www.sjsu.edu/faculty/gerstman/EpiInfo/bin-paired.htm), San José State University (EpiInfo teaching pages): the 2 × 2 table of pairs, concordant and discordant pairs, and McNemar's test. It labels the cells for a matched case-control study, so its odds ratio is written b/c where this site writes c/b.
+- [Conditional logistic regression for matched case-control data](https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html), Ramzi W. Nahhas, *Introduction to Regression Methods for Public Health Using R*, section 6.20 (free online): `survival::clogit()` with one stratum per matched set, in R.
+- [Logistic Regression with Stata, chapter 6: conditional logistic regression](https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/), UCLA Statistical Methods and Data Analytics: worked `clogit` examples with 1:1 and 1:2 matching, the command the original code used.
+- [Deciphering interactions in logistic regression](https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/), UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.
+- [Difference-in-difference estimation](https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation), Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.
+- [Mixed effects logistic regression: R data analysis examples](https://stats.oarc.ucla.edu/r/dae/mixed-effects-logistic-regression/), UCLA Statistical Methods and Data Analytics: `lme4::glmer()` with a random intercept, and adaptive quadrature (`nAGQ`).
+- [Regression towards the mean](https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330) and [Some examples of regression towards the mean](https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039), J. Martin Bland and Douglas G. Altman, *BMJ* Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.
+- [How to switch your workflow from Stata to R, one bit at a time](https://fsolt.org/blog/posts/switch-to-r), Frederick Solt (2018): a gradual route for Stata users, calling R from Stata and Stata from R while the move happens.
 
 ## References
 

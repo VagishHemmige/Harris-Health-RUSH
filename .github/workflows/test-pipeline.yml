@@ -33,6 +33,7 @@ jobs:
           use-public-rspm: true
 
       # The packages R/setup.R attaches, plus writexl for the synthetic files
+      # and svglite for the teaching figures (R/teaching_figures.R)
       # and gt for saving the tables.
       # Quarto is not installed: this job renders nothing.
       - name: Install the R packages the analysis uses
@@ -43,6 +44,7 @@ jobs:
             any::tidyverse
             any::readxl
             any::writexl
+            any::svglite
             any::survival
             any::lme4
             any::gtsummary

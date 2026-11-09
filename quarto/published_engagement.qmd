@@ -1,0 +1,53 @@
+---
+title: "Published results: engagement in care"
+format: html
+---
+
+::: {.Results title="Where these numbers come from"}
+Every number on this page is quoted from the published article [@flash2015rush], with its place there. None was produced by the code in this repository, which has not been run on the study data. The table is rebuilt from the values the article prints, typed in from it, and laid out by the same functions that `R/tables.R` applies to the data; the article's own typeset tables and Figure 1 are in the [article](https://doi.org/10.1097/QAI.0000000000000578) (author manuscript in [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)).
+:::
+
+This page maps each result the article reports for engagement in care to the step of the code that computes it, then shows the article's table with its printed values. The [overview](published_results.qmd) has the cohort and Table 1; [Retention in care](published_retention.qmd) and [Viral suppression](published_suppression.qmd) have the other two outcomes.
+
+## What the article reports, and the code behind it
+
+| Result (article, Results, "engaged in care" paragraph) | Computed by |
+|---|---|
+| 41.3% before and 58.8% after the visit, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test) (proportions and P); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) (odds ratio) |
+| Ages 16 to 24: 27% before, 56% after, P < 0.001 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic) (percentages); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) (P within the age group) |
+| No substantial difference by sex, race, year or years since diagnosis | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ) |
+| Pre-RUSH era: a significant improvement around the visit, P = 0.017 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit` term |
+| The RUSH-era improvement was larger, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit:rush_era` term |
+| Discussion: engagement rose from 46% to 51% around the pre-RUSH visit | Not computed as proportions in the code; the crosstabs are for the RUSH-era cohort only |
+
+**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
+
+```{r}
+#| label: read-published-values
+#| eval: true
+#| include: false
+# Reads only the two files of values typed in from the article, and defines
+# the table functions; reads no study data and fits nothing.
+source("_published_values.R")
+```
+
+**Reading the table.** *n* is the patients with both values, and # and % the patients with the outcome before and after the visit. The odds ratio compares the patients whose outcome improved with those whose outcome got worse, from the conditional logistic regression (a Wald 95% interval). It is not a ratio of the two percentages. *P within group* tests the change in that category; *P across groups* tests whether the change differs between the categories, without adjustment for the number of tests [@wang2007subgroups]. On a narrow screen the tables scroll sideways. Below the table, a forest plot shows the same odds ratios.
+
+## Table 2. Engagement in care before and after a RUSH-era emergency department visit
+
+```{r}
+#| label: show-table-2
+#| eval: true
+format_outcome_table(published_rows("Table 2"), "**Engagement in care**")
+```
+
+Source: the article's Table 2. As printed, the 35–44 and 45–54 rows have the same odds ratio and interval, 3.53 (2.52–4.96).
+
+::: {.teaching-figure}
+![Table 2's odds ratios, drawn from the printed values by [`R/teaching_figures.R`](teaching_figures.qmd#forest-plots). Each dot is a category's odds ratio and the line its 95% interval, on a log scale; 1 means no change.](teaching_figures/forest_table_2.svg){fig-alt="Forest plot of the odds ratio for engagement after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total, 3.74 (3.09 to 4.53). All intervals except Other race, which runs from 0.58 to 42.8, lie above 1. The values are those of the table above."}
+:::
+
+## References
+
+::: {#refs}
+:::

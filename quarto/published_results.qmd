@@ -4,10 +4,14 @@ format: html
 ---
 
 ::: {.Results title="Where these numbers come from"}
-Every number on this page is quoted from the published article [@flash2015rush], with its place there. None was produced by the code in this repository, which has not been run on the study data. The four tables below are rebuilt from the values the article prints, typed in from it, and laid out by the same functions that `R/tables.R` applies to the data; the article's own typeset tables and Figure 1 are in the [article](https://doi.org/10.1097/QAI.0000000000000578) (author manuscript in [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)).
+Every number in this section is quoted from the published article [@flash2015rush], with its place there. None was produced by the code in this repository, which has not been run on the study data. The tables are rebuilt from the values the article prints, typed in from it, and laid out by the same functions that `R/tables.R` applies to the data; the article's own typeset tables and Figure 1 are in the [article](https://doi.org/10.1097/QAI.0000000000000578) (author manuscript in [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)).
 :::
 
-This page is a map from each reported result to the step of the code that computes it, so that a reader can see what each number is and an authorized analyst can check the R version against the article.
+These pages map each reported result to the step of the code that computes it, so that a reader can see what each number is and an authorized analyst can check the R version against the article. This page has the cohort and Table 1; each outcome has its own page, with the article's table and a forest plot of its odds ratios:
+
+- [Engagement in care](published_engagement.qmd): the article's Table 2
+- [Retention in care](published_retention.qmd): Table 3
+- [Viral suppression](published_suppression.qmd): Table 4
 
 ## The cohort
 
@@ -20,73 +24,16 @@ This page is a map from each reported result to the step of the code that comput
 | Median 9 years since diagnosis; 63% diagnosed 1 to 10 years before | [`describe-study-cohort`](01_import_data.qmd#describe-the-study-cohort) (summary of `years_since_dx` and counts by group) |
 | 672 patients with a pre-RUSH visit | Rows in `control_wide`; [`define-era-samples`](05_compare_eras.qmd#two-samples) prints patients by number of rows |
 
-## Engagement in care
-
-| Result (article, Results, "engaged in care" paragraph) | Computed by |
-|---|---|
-| 41.3% before and 58.8% after the visit, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test) (proportions and P); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) (odds ratio) |
-| Ages 16 to 24: 27% before, 56% after, P < 0.001 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic) (percentages); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) (P within the age group) |
-| No substantial difference by sex, race, year or years since diagnosis | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ) |
-| Pre-RUSH era: a significant improvement around the visit, P = 0.017 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit` term |
-| The RUSH-era improvement was larger, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the `post_visit:rush_era` term |
-| Discussion: engagement rose from 46% to 51% around the pre-RUSH visit | Not computed as proportions in the code; the crosstabs are for the RUSH-era cohort only |
-
-## Retention in care
-
-| Result (article, Results, "Retention in care" paragraph) | Computed by |
-|---|---|
-| 32.6% before and 47.1% after, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) |
-| Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) |
-| No change among the 29 people of other race or ethnicity (as printed; the article's Tables 1 to 4 give 35) | The same, for `race_group` |
-| Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years) | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ); [`fit-combined-models`](04_fit_rush_era_models.qmd#years-since-diagnosis-and-age-together) |
-| The RUSH-era visit was significantly more likely to improve retention, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
-
-## Viral suppression
-
-| Result (article, Results, "Viral load" paragraph) | Computed by |
-|---|---|
-| Viral loads available for 1,220 patients (59%) before and 1,166 (56%) after | Counts of non-missing `vl_suppressed`, in the crosstabs (missing values are kept) |
-| 22.8% before and 34.0% after, missing as failure, P < 0.001 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic) (percentages); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit), `vl_suppressed_missing_fail` |
-| Men 21% to 33%, women 26% to 36%, each P < 0.001; no difference by sex, P = 0.685 | [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) and [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ), for `gender` |
-| No difference between race and ethnicity groups, P = 0.46; Black 22% to 34%, Hispanic 28% to 41% (each P < 0.001), White 21% to 29% (P = 0.015) | The same, for `race_group` |
-| Ages 25 to 34: 9% to 28%, P < 0.001 | The same, for `age_group` |
-| Rates before and after rose each year, but the change did not vary by year | Crosstabs and interaction test for `index_test_year` |
-| Little effect in people diagnosed at least 16 years before | The same, for `years_since_dx_group` |
-| Larger improvement in the RUSH era, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
-
-The Discussion gives the post-visit suppression rate as 33.4%, where the Results give 34.0%. Both are quoted as the article has them; the code computes one number, which the first run on the study data will show.
-
-**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
-
-## The published tables
-
-The article's Tables 1 to 4, with the values as printed. Under each table, the code that lays it out (click to show). The same functions build these tables from the data in [`R/tables.R`](tables.qmd), so this is what that script's output looks like, filled with the published values.
-
 ```{r}
 #| label: read-published-values
 #| eval: true
 #| include: false
 # Reads only the two files of values typed in from the article, and defines
 # the table functions; reads no study data and fits nothing.
-library(dplyr)
-library(tidyr)
-library(stringr)
-library(readr)
-library(gtsummary)
-source("../R/functions.R")
-read_printed <- function(file) {
-  read_csv(file, col_types = cols(.default = col_character()), na = character())
-}
-published_table_1 <- read_printed("published/table_1.csv")
-published_tables_2_to_4 <- read_printed("published/tables_2_to_4.csv")
-published_rows <- function(table_name) {
-  published_tables_2_to_4 |>
-    filter(table == table_name) |>
-    select(-table)
-}
+source("_published_values.R")
 ```
 
-### Table 1. Characteristics of the study cohort and the control period subset
+## Table 1. Characteristics of the study cohort and the control period subset
 
 ```{r}
 #| label: show-table-1
@@ -99,50 +46,6 @@ format_table_1(
 ```
 
 Source: the article's Table 1. As printed, the study cohort's "21+" years-since-diagnosis row reads 167 (13%), although 167 of 2,068 is 8%; and 367 of 672 controls in 2007 reads 54%, where the quotient rounds to 55%.
-
-**Reading Tables 2 to 4.** *n* is the patients with both values, and # and % the patients with the outcome before and after the visit. The odds ratio compares the patients whose outcome improved with those whose outcome got worse, from the conditional logistic regression (a Wald 95% interval). It is not a ratio of the two percentages. *P within group* tests the change in that category; *P across groups* tests whether the change differs between the categories, without adjustment for the number of tests [@wang2007subgroups]. On a narrow screen the tables scroll sideways. Under each table, a forest plot shows the same odds ratios.
-
-### Table 2. Engagement in care before and after a RUSH-era emergency department visit
-
-```{r}
-#| label: show-table-2
-#| eval: true
-format_outcome_table(published_rows("Table 2"), "**Engagement in care**")
-```
-
-Source: the article's Table 2. As printed, the 35–44 and 45–54 rows have the same odds ratio and interval, 3.53 (2.52–4.96).
-
-::: {.teaching-figure}
-![Table 2's odds ratios, drawn from the printed values. Each dot is a category's odds ratio and the line its 95% interval, on a log scale; 1 means no change.](teaching_figures/forest_table_2.svg){fig-alt="Forest plot of the odds ratio for engagement after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total, 3.74 (3.09 to 4.53). All intervals except Other race, which runs from 0.58 to 42.8, lie above 1. The values are those of Table 2 above."}
-:::
-
-### Table 3. Retention in care before and after a RUSH-era emergency department visit
-
-```{r}
-#| label: show-table-3
-#| eval: true
-format_outcome_table(published_rows("Table 3"), "**Retention in care**")
-```
-
-Source: the article's Table 3. Its total before the visit, 679 of 2,068, is 32.8%; the Results text gives 32.6%.
-
-::: {.teaching-figure}
-![Table 3's odds ratios, drawn from the printed values, as for Table 2.](teaching_figures/forest_table_3.svg){fig-alt="Forest plot of the odds ratio for retention after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total. Most intervals lie above 1; those for ages 55 and over, Other race and 16 or more years since diagnosis include 1. The values are those of Table 3 above."}
-:::
-
-### Table 4. Virologic suppression before and after a RUSH-era emergency department visit
-
-```{r}
-#| label: show-table-4
-#| eval: true
-format_outcome_table(published_rows("Table 4"), "**Virologic suppression**")
-```
-
-Source: the article's Table 4, with missing viral loads counted as not suppressed. The odds ratio for "Other" is infinite (∞\*) because no patient in that group went from suppressed to unsuppressed (the article's footnote). As printed, the Female and Male rows before the visit add to 472, against a total of 471.
-
-::: {.teaching-figure}
-![Table 4's odds ratios, drawn from the printed values, as for Table 2. The Other row's odds ratio is infinite, so it has no dot.](teaching_figures/forest_table_4.svg){fig-alt="Forest plot of the odds ratio for viral suppression after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total. For Other race the odds ratio is infinite because no patient got worse. Intervals for ages 16 to 24 and 55 and over, and for 16 or more years since diagnosis, include 1. The values are those of Table 4 above."}
-:::
 
 ## References
 

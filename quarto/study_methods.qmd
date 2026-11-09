@@ -34,7 +34,7 @@ Each outcome has its own window, the same length before and after the visit [@fl
 - **Viral suppression:** 12 months, shifted by 10 days. A viral load drawn in the days after the visit reflects treatment before it, so it belongs to the "before" window; the "after" window starts on day 11.
 
 ::: {.teaching-figure}
-![The windows before and after the visit for each outcome. Viral suppression's dividing line is 10 days after the visit; the shift is drawn to scale.](teaching_figures/outcome_windows.svg){fig-alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."}
+![The windows before and after the visit for each outcome. Viral suppression's dividing line is 10 days after the visit; the shift is drawn to scale. Drawn by [`R/teaching_figures.R`](teaching_figures.qmd#outcome-windows).](teaching_figures/outcome_windows.svg){fig-alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."}
 :::
 
 Visits count if they are in the Harris Health record or in the Houston area's Ryan White visit database. Viral loads are only seen if drawn at Harris Health.
@@ -80,6 +80,14 @@ Using the same patients in both eras controls for who they are. It does not cont
 For comparison, the original code also fitted the era model with a random intercept per patient instead of strata. It uses differences between patients too, and so rests on a stronger assumption (see [Methodological background](methodological_background.qmd#fixed-or-random-person-effects)). It is a sensitivity analysis; the article reports the conditional model.
 
 **Specified in:** [§8.6](analysis-plan.qmd#86-comparison-with-the-pre-rush-era), [§9 Sensitivity analyses](analysis-plan.qmd#9-sensitivity-analyses).
+
+## Learn more
+
+Free teaching material on the topics of this page, outside this site.
+
+- [Difference-in-difference estimation](https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation), Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.
+- [Regression towards the mean](https://pmc.ncbi.nlm.nih.gov/articles/PMC2540330) and [Some examples of regression towards the mean](https://pmc.ncbi.nlm.nih.gov/articles/PMC2541039), J. Martin Bland and Douglas G. Altman, *BMJ* Statistics Notes, 1994 (free full text): why people chosen at an extreme tend to come back toward the average, with or without treatment.
+- [Core Performance Measures](https://ryanwhite.hrsa.gov/sites/default/files/ryanwhite/about-program/hab-core-performance-measures.pdf), HRSA HIV/AIDS Bureau (PDF, updated October 2025): today's Ryan White definitions. They count the *last* viral load in a calendar year, among patients with a visit, and retention as two encounters at least 90 days apart, so they differ from this study's windows around the visit.
 
 ## References
 

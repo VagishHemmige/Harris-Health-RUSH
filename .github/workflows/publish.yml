@@ -45,7 +45,7 @@ jobs:
           use-public-rspm: true
 
       # What the pages run: knitr and rmarkdown for the R chunks, and, for the
-      # published tables (quarto/published_results.qmd), the packages the
+      # published tables (quarto/published_*.qmd), the packages the
       # table functions in R/functions.R use
       - name: Install the R packages the pages use
         uses: r-lib/actions/setup-r-dependencies@v2

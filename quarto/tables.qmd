@@ -3,7 +3,7 @@ title: "Tables"
 format: html
 ---
 
-This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values ([Published results](published_results.qmd#the-published-tables)), laid out by the same functions; the script itself writes HTML copies to `tables/`, which is never committed.
+This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values ([Published results](published_results.qmd) and its pages for [engagement](published_engagement.qmd), [retention](published_retention.qmd) and [viral suppression](published_suppression.qmd)), laid out by the same functions; the script itself writes HTML copies to `tables/`, which is never committed.
 
 ::: {.Rcode title="Source code"}
 The full R script is available at:

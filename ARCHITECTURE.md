@@ -36,7 +36,8 @@ flowchart TD
   BE --> E["05_compare_eras.R<br/>era models in two samples, random-intercept models"]
   SL --> T["tables.R<br/>Tables 1 to 4 (gtsummary)"]
   R --> T
-  PV["quarto/published/*.csv<br/>values printed in the article"] --> S["published_results.qmd<br/>the same table functions"]
+  PV["quarto/published/*.csv<br/>values printed in the article"] --> S["published_*.qmd pages<br/>the same table functions"]
+  PV --> F["teaching_figures.R<br/>SVG figures in quarto/teaching_figures/<br/>(not run by main.R)"]
 ```
 
 ## Key mechanisms
@@ -48,13 +49,14 @@ flowchart TD
 - **Results in nested named lists.** Repeated fits are for-loops over names into lists indexed `[[characteristic]][[outcome]]`, or `[[sample]][[outcome]]` in `05`.
 - **Skipped models in one place.** `skipped_rush_subgroup_models` and `skipped_era_subgroup_models_all` (`setup.R`) list the models the original code could not fit; `04` and `05` skip them by lookup.
 - **Two era samples.** `era_samples` holds `all_patients` and `both_eras` (patients with `rows_per_patient_both_eras` rows); every model in `05` loops over both.
-- **One layout for computed and published tables.** `format_table_1()` and `format_outcome_table()` take rows of text, so `R/tables.R` (from the data) and the published-results page (from the article's printed values in `quarto/published/`) produce tables with the same layout.
+- **One layout for computed and published tables.** `format_table_1()` and `format_outcome_table()` take rows of text, so `R/tables.R` (from the data) and the published-results pages (from the article's printed values in `quarto/published/`, read by `quarto/_published_values.R`) produce tables with the same layout.
+- **Teaching figures apart from the analysis.** `R/teaching_figures.R` sources `setup.R` and `functions.R` itself, as `main.R` does, and draws the site's figures with ggplot2 from the published-values CSV and the constants in `define-teaching-figure-constants`; `main.R` never sources it, and it reads no study data. It writes SVG files with svglite to `quarto/teaching_figures/`, which are committed; the site shows them and `quarto/teaching_figures.qmd` shows its code.
 - **Inputs are checked.** `01` stops if `RUSH_DATA_DIR` is unset or a workbook lacks an expected column; the message names columns only. `check_unique_patients()` stops the import if a patient number repeats in any sheet.
 
 ## Dependencies outside this repository
 
 - **The study data**, in the folder named by `RUSH_DATA_DIR`: the two de-identified workbooks. Neither is in the repository; their columns have not been checked against the code.
-- **Packages** attached in `setup.R`: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl.
+- **Packages** attached in `setup.R`: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl, and `R/teaching_figures.R` needs svglite.
 
 ## Website
 
@@ -62,20 +64,21 @@ Each definitive script has a page in `quarto/` that imports its labelled section
 
 ## Tests
 
-`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; `paired_mcnemar()` equals `mcnemar.test()`; the interval for the visit is the Wald interval of the discordant pairs and the Total row of Table 2 shows it; and, on small invented data, that a category in which no patient got worse prints "∞" and "-", that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar's test without discordant pairs returns missing values; and that the four tables are built and saved. `.github/workflows/test-pipeline.yml` runs it on every pull request.
+`tests/synthetic/build_synthetic_data.R` writes random workbooks with the expected sheets, columns and value formats. `tests/synthetic/run_pipeline.R` runs `R/main.R` on them and checks that: the conditional odds ratio for paired data equals the ratio of discordant pairs; `effect_by_level()` equals a model fitted within each age group; `wald_test()` equals survival's Wald test and the squared z statistic; every interaction test found its coefficients; the era subgroup model equals the full-factorial model, with the age main effect estimated; the restricted era sample has four rows per patient; `paired_mcnemar()` equals `mcnemar.test()`; the interval for the visit is the Wald interval of the discordant pairs and the Total row of Table 2 shows it; and, on small invented data, that a category in which no patient got worse prints "∞" and "-", that a category with only uninformative patients is reported as not estimable with the others correctly labelled, that repeated patient numbers stop the import, that McNemar's test without discordant pairs returns missing values; that the four tables are built and saved; and that `R/teaching_figures.R` runs and writes its six figures. `.github/workflows/test-pipeline.yml` runs it on every pull request.
 
 ## Code references
 
 | Script | Labelled sections | Key symbols |
 |---|---|---|
-| `R/setup.R` | `load-packages`, `define-data-files`, `define-expected-columns`, `define-categories`, `define-outcomes`, `define-subgroups`, `define-skipped-models`, `define-estimation-constants`, `define-table-constants` | `data_dir`, `cohort_columns`, `control_columns`, `place_columns`, `years_since_dx_levels`, `race_group_codes_study`, `race_group_codes_control`, `outcomes`, `subgroups_rush`, `subgroups_era`, `quadrature_points`, `rows_per_patient_both_eras` |
-| `R/functions.R` | `check-columns`, `check-unique-patients`, `encode-like-stata`, `clean-cohort`, `group-race-codes`, `reshape-to-long`, `add-viral-load-outcomes`, `paired-mcnemar`, `crosstab-row-percent`, `fit-conditional-logit`, `model-coefficients`, `combine-coefficients`, `interaction-terms`, `effect-by-level`, `wald-test`, `tidy-odds-ratios`, `pair-outcome`, `count-pairs`, `relabel-levels`, `count-categories`, `format-change`, `format-table-1`, `format-outcome-table`, `add-group-headings` | `encode_like_stata()`, `clean_cohort()`, `fit_conditional_logit()`, `effect_by_level()`, `wald_test()` |
+| `R/setup.R` | `load-packages`, `define-data-files`, `define-expected-columns`, `define-categories`, `define-outcomes`, `define-subgroups`, `define-skipped-models`, `define-estimation-constants`, `define-table-constants`, `define-teaching-figure-constants` | `data_dir`, `cohort_columns`, `control_columns`, `place_columns`, `years_since_dx_levels`, `race_group_codes_study`, `race_group_codes_control`, `outcomes`, `subgroups_rush`, `subgroups_era`, `quadrature_points`, `rows_per_patient_both_eras` |
+| `R/functions.R` | `check-columns`, `check-unique-patients`, `encode-like-stata`, `clean-cohort`, `group-race-codes`, `reshape-to-long`, `add-viral-load-outcomes`, `paired-mcnemar`, `crosstab-row-percent`, `fit-conditional-logit`, `model-coefficients`, `combine-coefficients`, `interaction-terms`, `effect-by-level`, `wald-test`, `tidy-odds-ratios`, `pair-outcome`, `count-pairs`, `relabel-levels`, `count-categories`, `format-change`, `format-table-1`, `format-outcome-table`, `add-group-headings`, `parse-odds-ratio-text` | `encode_like_stata()`, `clean_cohort()`, `fit_conditional_logit()`, `effect_by_level()`, `wald_test()` |
 | `R/01_import_data.R` | `check-data-folder`, `read-years-since-diagnosis`, `read-study-cohort`, `merge-years-since-diagnosis`, `clean-study-cohort`, `describe-study-cohort`, `read-control-cohort` | `study_wide`, `control_wide` |
 | `R/02_build_long_data.R` | `reshape-study-cohort`, `group-race-study`, `reshape-control-cohort`, `group-race-control`, `stack-eras` | `study_long`, `control_long`, `both_eras_long` |
 | `R/03_paired_comparisons.R` | `mcnemar-tests`, `crosstabs-by-characteristic` | `mcnemar_results`, `crosstabs` |
 | `R/04_fit_rush_era_models.R` | `fit-visit-models`, `fit-subgroup-models`, `test-subgroup-interactions`, `estimate-subgroup-effects`, `fit-combined-models`, `fit-multivariable-models` | `visit_models`, `subgroup_tests`, `subgroup_effects`, `multivariable_models` |
 | `R/tables.R` | `define-patient-characteristics`, `count-table-1`, `compute-outcome-table-rows`, `build-tables`, `save-tables` | `table_1_rows`, `outcome_table_rows`, `published_style_tables` |
 | `R/05_compare_eras.R` | `define-era-samples`, `fit-era-models`, `fit-era-subgroup-models`, `fit-random-effects-models` | `era_samples`, `era_models`, `era_subgroup_tests`, `random_effects_models` |
+| `R/teaching_figures.R` (not run by `main.R`) | `figure-theme`, `figure-change-by-outcome`, `figure-forest-plots`, `figure-discordant-pairs`, `figure-outcome-windows` | `theme_teaching()`, `save_teaching_figure()`, `draw_forest_plot()` |
 
 ## Glossary
 

@@ -43,7 +43,8 @@ Four documents describe the project:
 -   [**5. Comparison with the pre-RUSH era**](05_compare_eras.qmd): the era models, their subgroup versions and the random-intercept models.
 -   [**Tables**](tables.qmd): the article's Tables 1 to 4 built from the data with gtsummary.
 -   [**Original Stata code (2015)**](original_stata.qmd): the .do file the article's results came from.
--   [**Published results and the code behind them**](published_results.qmd): each number the article reports, the step of the code that computes it, and the article's four tables with their printed values.
+-   [**Teaching figures**](teaching_figures.qmd): the ggplot2 code that draws the site's figures from the article's printed values and an invented example.
+-   [**Published results and the code behind them**](published_results.qmd), with one page each for [engagement](published_engagement.qmd), [retention](published_retention.qmd) and [viral suppression](published_suppression.qmd): each number the article reports, the step of the code that computes it, and the article's four tables with their printed values and forest plots.
 -   [**Analysis plan**](analysis-plan.qmd), [**Architecture**](architecture.qmd), [**AGENTS.md**](agents.qmd) and [**Repository blueprint**](repository-blueprint.qmd): the project documents.
 
 ## References

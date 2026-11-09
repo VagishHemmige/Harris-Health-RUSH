@@ -1,0 +1,52 @@
+---
+title: "Published results: retention in care"
+format: html
+---
+
+::: {.Results title="Where these numbers come from"}
+Every number on this page is quoted from the published article [@flash2015rush], with its place there. None was produced by the code in this repository, which has not been run on the study data. The table is rebuilt from the values the article prints, typed in from it, and laid out by the same functions that `R/tables.R` applies to the data; the article's own typeset tables and Figure 1 are in the [article](https://doi.org/10.1097/QAI.0000000000000578) (author manuscript in [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)).
+:::
+
+This page maps each result the article reports for retention in care to the step of the code that computes it, then shows the article's table with its printed values. The [overview](published_results.qmd) has the cohort and Table 1; [Engagement in care](published_engagement.qmd) and [Viral suppression](published_suppression.qmd) have the other two outcomes.
+
+## What the article reports, and the code behind it
+
+| Result (article, Results, "Retention in care" paragraph) | Computed by |
+|---|---|
+| 32.6% before and 47.1% after, P < 0.001 | [`mcnemar-tests`](03_paired_comparisons.qmd#mcnemars-test); [`fit-visit-models`](04_fit_rush_era_models.qmd#the-effect-of-the-visit) |
+| Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55 | [`crosstabs-by-characteristic`](03_paired_comparisons.qmd#crosstabs-by-characteristic); [`estimate-subgroup-effects`](04_fit_rush_era_models.qmd#the-effect-within-each-category) |
+| No change among the 29 people of other race or ethnicity (as printed; the article's Tables 1 to 4 give 35) | The same, for `race_group` |
+| Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years) | [`test-subgroup-interactions`](04_fit_rush_era_models.qmd#does-the-effect-differ); [`fit-combined-models`](04_fit_rush_era_models.qmd#years-since-diagnosis-and-age-together) |
+| The RUSH-era visit was significantly more likely to improve retention, P < 0.001 | [`fit-era-models`](05_compare_eras.qmd#the-era-model), the interaction term |
+
+**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue [#2](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)).
+
+```{r}
+#| label: read-published-values
+#| eval: true
+#| include: false
+# Reads only the two files of values typed in from the article, and defines
+# the table functions; reads no study data and fits nothing.
+source("_published_values.R")
+```
+
+**Reading the table.** *n* is the patients with both values, and # and % the patients with the outcome before and after the visit. The odds ratio compares the patients whose outcome improved with those whose outcome got worse, from the conditional logistic regression (a Wald 95% interval). It is not a ratio of the two percentages. *P within group* tests the change in that category; *P across groups* tests whether the change differs between the categories, without adjustment for the number of tests [@wang2007subgroups]. On a narrow screen the tables scroll sideways. Below the table, a forest plot shows the same odds ratios.
+
+## Table 3. Retention in care before and after a RUSH-era emergency department visit
+
+```{r}
+#| label: show-table-3
+#| eval: true
+format_outcome_table(published_rows("Table 3"), "**Retention in care**")
+```
+
+Source: the article's Table 3. Its total before the visit, 679 of 2,068, is 32.8%; the Results text gives 32.6%.
+
+::: {.teaching-figure}
+![Table 3's odds ratios, drawn from the printed values by [`R/teaching_figures.R`](teaching_figures.qmd#forest-plots); each dot is a category's odds ratio and the line its 95% interval, on a log scale.](teaching_figures/forest_table_3.svg){fig-alt="Forest plot of the odds ratio for retention after versus before the visit, for each category of sex, race, age group, year of visit and years since diagnosis, and the total. Most intervals lie above 1; those for ages 55 and over, Other race and 16 or more years since diagnosis include 1. The values are those of the table above."}
+:::
+
+## References
+
+::: {#refs}
+:::
