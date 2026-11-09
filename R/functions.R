@@ -490,9 +490,9 @@ format_outcome_table <- function(rows, outcome_header) {
       after_n = "**#**",
       after_pct = "**%**",
       odds_ratio = "**OR after vs before (95% CI)**",
-      p_value = "**P**",
+      p_value = "**P within group**",
       chi_squared = "**χ²**",
-      chi_p = "**P**"
+      chi_p = "**P across groups**"
     ) |>
     modify_spanning_header(
       c(before_n, before_pct) ~ "**Before**",

@@ -57,3 +57,117 @@
 .quarto-title-tools-only h1:empty {
   display: none;
 }
+
+/* ---- Narrow screens and print (review findings 8, 9, 40) ---------------- */
+
+/* Long links, DOIs and inline code may break anywhere rather than widen the
+   page past a phone's screen. */
+main a,
+main p code,
+main li code,
+.references .csl-entry {
+  overflow-wrap: anywhere;
+}
+
+/* Markdown tables scroll inside their own box instead of widening the page.
+   (Pandoc does not wrap them; display: block lets them scroll.) */
+main table:not(.gt_table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* gtsummary tables (Tables 1 to 4): the odds-ratio cell keeps its interval
+   on one line, the row labels stay in view while the table scrolls, and a
+   note says the table scrolls on a narrow screen. */
+.gt_table td,
+.gt_table th {
+  white-space: nowrap;
+}
+.gt_table td.gt_row:first-child,
+.gt_table th:first-child {
+  position: sticky;
+  left: 0;
+  background: #ffffff;
+  z-index: 1;
+}
+@media (max-width: 767.98px) {
+  div:has(> .gt_table)::before {
+    content: "Scroll sideways for the odds ratios and P values →";
+    display: block;
+    font-size: .8rem;
+    color: #6c757d;
+    margin-bottom: .25rem;
+  }
+}
+
+/* Teaching figures: full width on a wide screen; on a phone, readable size
+   inside a box that scrolls sideways, with a note saying so. */
+.teaching-figure img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+}
+@media (max-width: 767.98px) {
+  .teaching-figure {
+    overflow-x: auto;
+  }
+  .teaching-figure img {
+    width: 600px;
+    max-width: none;
+  }
+  .teaching-figure::before {
+    content: "Scroll sideways to see the whole figure →";
+    display: block;
+    font-size: .8rem;
+    color: #6c757d;
+    margin-bottom: .25rem;
+  }
+}
+
+/* Callouts: a gap between the icon and the title, and a Pending border dark
+   enough to see against white (the yellow fill still carries the cue). */
+.callout .callout-icon-container {
+  margin-right: .4rem;
+}
+.pending-note p {
+  border-left-color: #8a6d00;
+}
+
+/* Print: no code-fold labels or code menu, code wraps instead of being cut
+   off, headings stay with what follows, and tables and figures are not split
+   across pages. */
+@media print {
+  details > summary,
+  .code-tools-button,
+  .quarto-title-tools-only,
+  #quarto-sidebar,
+  #TOC,
+  .teaching-figure::before,
+  div:has(> .gt_table)::before {
+    display: none !important;
+  }
+  details[open] > *:not(summary) {
+    display: block;
+  }
+  pre,
+  pre code {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere;
+  }
+  h1, h2, h3, h4 {
+    break-after: avoid;
+  }
+  table,
+  figure,
+  .teaching-figure {
+    break-inside: avoid;
+  }
+  .teaching-figure img {
+    width: 100%;
+    max-width: 100%;
+  }
+  main table:not(.gt_table) {
+    display: table;
+  }
+}
