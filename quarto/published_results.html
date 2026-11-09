@@ -1,0 +1,4465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vagish Hemmige">
+
+<title>Published results and the code behind them – RUSH: re-linkage to HIV care after emergency department testing</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../quarto/analysis-plan.html" rel="next">
+<link href="../quarto/original_stata.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/published_results.html">Results</a></li><li class="breadcrumb-item"><a href="../quarto/published_results.html">Published results and the code behind them</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">RUSH: re-linkage to HIV care after emergency department testing</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Clinical background</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/methodological_background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Methodological background</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Study design and methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/study_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Study design and methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/differences.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Differences from the original code</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Setup and helper functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/setup.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/functions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data processing and analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/01_import_data.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">1. Import data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/02_build_long_data.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">2. Build long data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/03_paired_comparisons.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">3. Paired comparisons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/04_fit_rush_era_models.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">4. RUSH-era models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/05_compare_eras.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">5. Comparison with the pre-RUSH era</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tables and figures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/tables.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Tables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Original code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/original_stata.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Original Stata code (2015)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Results</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Project documents</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/analysis-plan.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Analysis plan</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/architecture.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Architecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/agents.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">AGENTS.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/repository-blueprint.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Repository blueprint</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-info-circle" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-cohort" id="toc-the-cohort" class="nav-link active" data-scroll-target="#the-cohort">The cohort</a></li>
+  <li><a href="#engagement-in-care" id="toc-engagement-in-care" class="nav-link" data-scroll-target="#engagement-in-care">Engagement in care</a></li>
+  <li><a href="#retention-in-care" id="toc-retention-in-care" class="nav-link" data-scroll-target="#retention-in-care">Retention in care</a></li>
+  <li><a href="#viral-suppression" id="toc-viral-suppression" class="nav-link" data-scroll-target="#viral-suppression">Viral suppression</a></li>
+  <li><a href="#the-published-tables" id="toc-the-published-tables" class="nav-link" data-scroll-target="#the-published-tables">The published tables</a>
+  <ul class="collapse">
+  <li><a href="#table-1.-characteristics-of-the-study-cohort-and-the-control-period-subset" id="toc-table-1.-characteristics-of-the-study-cohort-and-the-control-period-subset" class="nav-link" data-scroll-target="#table-1.-characteristics-of-the-study-cohort-and-the-control-period-subset">Table 1. Characteristics of the study cohort and the control period subset</a></li>
+  <li><a href="#table-2.-engagement-in-care-before-and-after-a-rush-era-emergency-department-visit" id="toc-table-2.-engagement-in-care-before-and-after-a-rush-era-emergency-department-visit" class="nav-link" data-scroll-target="#table-2.-engagement-in-care-before-and-after-a-rush-era-emergency-department-visit">Table 2. Engagement in care before and after a RUSH-era emergency department visit</a></li>
+  <li><a href="#table-3.-retention-in-care-before-and-after-a-rush-era-emergency-department-visit" id="toc-table-3.-retention-in-care-before-and-after-a-rush-era-emergency-department-visit" class="nav-link" data-scroll-target="#table-3.-retention-in-care-before-and-after-a-rush-era-emergency-department-visit">Table 3. Retention in care before and after a RUSH-era emergency department visit</a></li>
+  <li><a href="#table-4.-virologic-suppression-before-and-after-a-rush-era-emergency-department-visit" id="toc-table-4.-virologic-suppression-before-and-after-a-rush-era-emergency-department-visit" class="nav-link" data-scroll-target="#table-4.-virologic-suppression-before-and-after-a-rush-era-emergency-department-visit">Table 4. Virologic suppression before and after a RUSH-era emergency department visit</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/published_results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/published_results.html">Results</a></li><li class="breadcrumb-item"><a href="../quarto/published_results.html">Published results and the code behind them</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Published results and the code behind them</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vagish Hemmige </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-Pending callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Pending</span>Provisional
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="pending">Text highlighted like this</span> is provisional: it depends on a decision the analysis plan has not yet made.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-Results callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Results</span>Where these numbers come from
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every number on this page is quoted from the published article <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>, with its place there. None was produced by the code in this repository, which has not been run on the study data. The four tables below are rebuilt from the values the article prints, typed in from it, and laid out by the same functions that <code>R/tables.R</code> applies to the data; the article’s own typeset tables and Figure 1 are in the <a href="https://doi.org/10.1097/QAI.0000000000000578">article</a> (author manuscript in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/">PubMed Central</a>).</p>
+</div>
+</div>
+<p>This page is a map from each reported result to the step of the code that computes it, so that a reader can see what each number is and an authorized analyst can check the R version against the article.</p>
+<section id="the-cohort" class="level2">
+<h2 class="anchored" data-anchor-id="the-cohort">The cohort</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Result (article, Results, first two paragraphs)</th>
+<th>Computed by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>202,767 HIV tests; 3,613 confirmed positive; 2,958 positives in 2,188 previously diagnosed people; 2,687 at least a year after diagnosis; 2,068 patients</td>
+<td>Before the analysis, when the workbooks were built; not in the code</td>
+</tr>
+<tr class="even">
+<td>65% male; 68% Black, 17% Hispanic, 13% White non-Hispanic</td>
+<td>Counts printed by <a href="../quarto/01_import_data.html#describe-the-study-cohort"><code>describe-study-cohort</code></a></td>
+</tr>
+<tr class="odd">
+<td>Table 1 (both cohorts by sex, race, year, age group and years since diagnosis)</td>
+<td><a href="../quarto/tables.html#count-table-1">Tables</a></td>
+</tr>
+<tr class="even">
+<td>Mean age 43 ± 10 years</td>
+<td>Not in the code: the workbooks hold age groups only</td>
+</tr>
+<tr class="odd">
+<td>Median 9 years since diagnosis; 63% diagnosed 1 to 10 years before</td>
+<td><a href="../quarto/01_import_data.html#describe-the-study-cohort"><code>describe-study-cohort</code></a> (summary of <code>years_since_dx</code> and counts by group)</td>
+</tr>
+<tr class="even">
+<td>672 patients with a pre-RUSH visit</td>
+<td>Rows in <code>control_wide</code>; <a href="../quarto/05_compare_eras.html#two-samples"><code>define-era-samples</code></a> prints patients by number of rows</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="engagement-in-care" class="level2">
+<h2 class="anchored" data-anchor-id="engagement-in-care">Engagement in care</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Result (article, Results, “engaged in care” paragraph)</th>
+<th>Computed by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>41.3% before and 58.8% after the visit, P &lt; 0.001</td>
+<td><a href="../quarto/03_paired_comparisons.html#mcnemars-test"><code>mcnemar-tests</code></a> (proportions and P); <a href="../quarto/04_fit_rush_era_models.html#the-effect-of-the-visit"><code>fit-visit-models</code></a> (odds ratio)</td>
+</tr>
+<tr class="even">
+<td>Ages 16 to 24: 27% before, 56% after, P &lt; 0.001</td>
+<td><a href="../quarto/03_paired_comparisons.html#crosstabs-by-characteristic"><code>crosstabs-by-characteristic</code></a> (percentages); <a href="../quarto/04_fit_rush_era_models.html#the-effect-within-each-category"><code>estimate-subgroup-effects</code></a> (P within the age group)</td>
+</tr>
+<tr class="odd">
+<td>No substantial difference by sex, race, year or years since diagnosis</td>
+<td><a href="../quarto/04_fit_rush_era_models.html#does-the-effect-differ"><code>test-subgroup-interactions</code></a></td>
+</tr>
+<tr class="even">
+<td>Pre-RUSH era: a significant improvement around the visit, P = 0.017</td>
+<td><a href="../quarto/05_compare_eras.html#the-era-model"><code>fit-era-models</code></a>, the <code>post_visit</code> term</td>
+</tr>
+<tr class="odd">
+<td>The RUSH-era improvement was larger, P &lt; 0.001</td>
+<td><a href="../quarto/05_compare_eras.html#the-era-model"><code>fit-era-models</code></a>, the <code>post_visit:rush_era</code> term</td>
+</tr>
+<tr class="even">
+<td>Discussion: engagement rose from 46% to 51% around the pre-RUSH visit</td>
+<td>Not computed as proportions in the code; the crosstabs are for the RUSH-era cohort only</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="retention-in-care" class="level2">
+<h2 class="anchored" data-anchor-id="retention-in-care">Retention in care</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Result (article, Results, “Retention in care” paragraph)</th>
+<th>Computed by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>32.6% before and 47.1% after, P &lt; 0.001</td>
+<td><a href="../quarto/03_paired_comparisons.html#mcnemars-test"><code>mcnemar-tests</code></a>; <a href="../quarto/04_fit_rush_era_models.html#the-effect-of-the-visit"><code>fit-visit-models</code></a></td>
+</tr>
+<tr class="even">
+<td>Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55</td>
+<td><a href="../quarto/03_paired_comparisons.html#crosstabs-by-characteristic"><code>crosstabs-by-characteristic</code></a>; <a href="../quarto/04_fit_rush_era_models.html#the-effect-within-each-category"><code>estimate-subgroup-effects</code></a></td>
+</tr>
+<tr class="odd">
+<td>No change among the 29 people of other race or ethnicity</td>
+<td>The same, for <code>race_group</code></td>
+</tr>
+<tr class="even">
+<td>Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years)</td>
+<td><a href="../quarto/04_fit_rush_era_models.html#does-the-effect-differ"><code>test-subgroup-interactions</code></a>; <a href="../quarto/04_fit_rush_era_models.html#years-since-diagnosis-and-age-together"><code>fit-combined-models</code></a></td>
+</tr>
+<tr class="odd">
+<td>The RUSH-era visit was significantly more likely to improve retention, P &lt; 0.001</td>
+<td><a href="../quarto/05_compare_eras.html#the-era-model"><code>fit-era-models</code></a>, the interaction term</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="viral-suppression" class="level2">
+<h2 class="anchored" data-anchor-id="viral-suppression">Viral suppression</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Result (article, Results, “Viral load” paragraph)</th>
+<th>Computed by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Viral loads available for 1,220 patients (59%) before and 1,166 (56%) after</td>
+<td>Counts of non-missing <code>vl_suppressed</code>, in the crosstabs (missing values are kept)</td>
+</tr>
+<tr class="even">
+<td>22.8% before and 34.0% after, missing as failure, P &lt; 0.001</td>
+<td><a href="../quarto/03_paired_comparisons.html#crosstabs-by-characteristic"><code>crosstabs-by-characteristic</code></a> (percentages); <a href="../quarto/04_fit_rush_era_models.html#the-effect-of-the-visit"><code>fit-visit-models</code></a>, <code>vl_suppressed_missing_fail</code></td>
+</tr>
+<tr class="odd">
+<td>Men 21% to 33%, women 26% to 36%, each P &lt; 0.001; no difference by sex, P = 0.685</td>
+<td><a href="../quarto/04_fit_rush_era_models.html#the-effect-within-each-category"><code>estimate-subgroup-effects</code></a> and <a href="../quarto/04_fit_rush_era_models.html#does-the-effect-differ"><code>test-subgroup-interactions</code></a>, for <code>gender</code></td>
+</tr>
+<tr class="even">
+<td>No difference between race and ethnicity groups, P = 0.46; Black 22% to 34%, Hispanic 28% to 41% (each P &lt; 0.001), White 21% to 29% (P = 0.015)</td>
+<td>The same, for <code>race_group</code></td>
+</tr>
+<tr class="odd">
+<td>Ages 25 to 34: 9% to 28%, P &lt; 0.001</td>
+<td>The same, for <code>age_group</code></td>
+</tr>
+<tr class="even">
+<td>Rates before and after rose each year, but the change did not vary by year</td>
+<td>Crosstabs and interaction test for <code>index_test_year</code></td>
+</tr>
+<tr class="odd">
+<td>Little effect in people diagnosed at least 16 years before</td>
+<td>The same, for <code>years_since_dx_group</code></td>
+</tr>
+<tr class="even">
+<td>Larger improvement in the RUSH era, P &lt; 0.001</td>
+<td><a href="../quarto/05_compare_eras.html#the-era-model"><code>fit-era-models</code></a>, the interaction term</td>
+</tr>
+</tbody>
+</table>
+<p>The Discussion gives the post-visit suppression rate as 33.4%, where the Results give 34.0%. Both are quoted as the article has them; the code computes one number, which the first run on the study data will show.</p>
+<div class="pending-note">
+<p><strong>Decision pending:</strong> which of the code’s two era-comparison samples produced the article’s era P values (decision issue <a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2">#2</a>).</p>
+</div>
+</section>
+<section id="the-published-tables" class="level2">
+<h2 class="anchored" data-anchor-id="the-published-tables">The published tables</h2>
+<p>The article’s Tables 1 to 4, with the values as printed. Under each table, the code that lays it out (click to show). The same functions build these tables from the data in <a href="../quarto/tables.html"><code>R/tables.R</code></a>, so this is what that script’s output looks like, filled with the published values.</p>
+<section id="table-1.-characteristics-of-the-study-cohort-and-the-control-period-subset" class="level3">
+<h3 class="anchored" data-anchor-id="table-1.-characteristics-of-the-study-cohort-and-the-control-period-subset">Table 1. Characteristics of the study cohort and the control period subset</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide R Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format_table_1</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  published_table_1,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">study_header =</span> <span class="st">"**Study period cohort (N = 2068)**"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">control_header =</span> <span class="st">"**Control period cohort subset (N = 672)**"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="bunrfpxfsy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bunrfpxfsy table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bunrfpxfsy thead, #bunrfpxfsy tbody, #bunrfpxfsy tfoot, #bunrfpxfsy tr, #bunrfpxfsy td, #bunrfpxfsy th {
+  border-style: none;
+}
+
+#bunrfpxfsy p {
+  margin: 0;
+  padding: 0;
+}
+
+#bunrfpxfsy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bunrfpxfsy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bunrfpxfsy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bunrfpxfsy .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bunrfpxfsy .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bunrfpxfsy .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bunrfpxfsy .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bunrfpxfsy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bunrfpxfsy .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bunrfpxfsy .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bunrfpxfsy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bunrfpxfsy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bunrfpxfsy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bunrfpxfsy .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bunrfpxfsy .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bunrfpxfsy .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bunrfpxfsy .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bunrfpxfsy .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bunrfpxfsy .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bunrfpxfsy .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bunrfpxfsy .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bunrfpxfsy .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bunrfpxfsy .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bunrfpxfsy .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bunrfpxfsy .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bunrfpxfsy .gt_left {
+  text-align: left;
+}
+
+#bunrfpxfsy .gt_center {
+  text-align: center;
+}
+
+#bunrfpxfsy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bunrfpxfsy .gt_font_normal {
+  font-weight: normal;
+}
+
+#bunrfpxfsy .gt_font_bold {
+  font-weight: bold;
+}
+
+#bunrfpxfsy .gt_font_italic {
+  font-style: italic;
+}
+
+#bunrfpxfsy .gt_super {
+  font-size: 65%;
+}
+
+#bunrfpxfsy .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bunrfpxfsy .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bunrfpxfsy .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bunrfpxfsy .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bunrfpxfsy .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bunrfpxfsy .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bunrfpxfsy .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#bunrfpxfsy .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#bunrfpxfsy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th colspan="2" id="level-1;-study_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Study period cohort (N = 2068)</strong>
+</div></th>
+<th colspan="2" id="level-1;-control_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Control period cohort subset (N = 672)</strong>
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="study_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="study_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="control_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="control_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Sex</td>
+<td class="gt_row gt_center" headers="study_n"></td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n"></td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Female</td>
+<td class="gt_row gt_center" headers="study_n">729</td>
+<td class="gt_row gt_center" headers="study_pct">35%</td>
+<td class="gt_row gt_center" headers="control_n">276</td>
+<td class="gt_row gt_center" headers="control_pct">41%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Male</td>
+<td class="gt_row gt_center" headers="study_n">1339</td>
+<td class="gt_row gt_center" headers="study_pct">65%</td>
+<td class="gt_row gt_center" headers="control_n">396</td>
+<td class="gt_row gt_center" headers="control_pct">59%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race/ethnicity</td>
+<td class="gt_row gt_center" headers="study_n"></td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n"></td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black non-Hispanic</td>
+<td class="gt_row gt_center" headers="study_n">1403</td>
+<td class="gt_row gt_center" headers="study_pct">68%</td>
+<td class="gt_row gt_center" headers="control_n">522</td>
+<td class="gt_row gt_center" headers="control_pct">78%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="study_n">354</td>
+<td class="gt_row gt_center" headers="study_pct">17%</td>
+<td class="gt_row gt_center" headers="control_n">85</td>
+<td class="gt_row gt_center" headers="control_pct">13%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White non-Hispanic</td>
+<td class="gt_row gt_center" headers="study_n">276</td>
+<td class="gt_row gt_center" headers="study_pct">13%</td>
+<td class="gt_row gt_center" headers="control_n">63</td>
+<td class="gt_row gt_center" headers="control_pct">9%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="study_n">35</td>
+<td class="gt_row gt_center" headers="study_pct">2%</td>
+<td class="gt_row gt_center" headers="control_n">2</td>
+<td class="gt_row gt_center" headers="control_pct">0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Year of visit</td>
+<td class="gt_row gt_center" headers="study_n"></td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n"></td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2009 (2004 for Control)</td>
+<td class="gt_row gt_center" headers="study_n">600</td>
+<td class="gt_row gt_center" headers="study_pct">29%</td>
+<td class="gt_row gt_center" headers="control_n">58</td>
+<td class="gt_row gt_center" headers="control_pct">9%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2010 (2005 for Control)</td>
+<td class="gt_row gt_center" headers="study_n">602</td>
+<td class="gt_row gt_center" headers="study_pct">29%</td>
+<td class="gt_row gt_center" headers="control_n">107</td>
+<td class="gt_row gt_center" headers="control_pct">16%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2011 (2006 for Control)</td>
+<td class="gt_row gt_center" headers="study_n">440</td>
+<td class="gt_row gt_center" headers="study_pct">21%</td>
+<td class="gt_row gt_center" headers="control_n">140</td>
+<td class="gt_row gt_center" headers="control_pct">21%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2012 (2007 for Control)</td>
+<td class="gt_row gt_center" headers="study_n">426</td>
+<td class="gt_row gt_center" headers="study_pct">21%</td>
+<td class="gt_row gt_center" headers="control_n">367</td>
+<td class="gt_row gt_center" headers="control_pct">54%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Age group</td>
+<td class="gt_row gt_center" headers="study_n"></td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n"></td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–24</td>
+<td class="gt_row gt_center" headers="study_n">86</td>
+<td class="gt_row gt_center" headers="study_pct">4%</td>
+<td class="gt_row gt_center" headers="control_n">31</td>
+<td class="gt_row gt_center" headers="control_pct">5%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;25–34</td>
+<td class="gt_row gt_center" headers="study_n">401</td>
+<td class="gt_row gt_center" headers="study_pct">19%</td>
+<td class="gt_row gt_center" headers="control_n">137</td>
+<td class="gt_row gt_center" headers="control_pct">20%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;35–44</td>
+<td class="gt_row gt_center" headers="study_n">661</td>
+<td class="gt_row gt_center" headers="study_pct">32%</td>
+<td class="gt_row gt_center" headers="control_n">261</td>
+<td class="gt_row gt_center" headers="control_pct">39%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;45–54</td>
+<td class="gt_row gt_center" headers="study_n">656</td>
+<td class="gt_row gt_center" headers="study_pct">32%</td>
+<td class="gt_row gt_center" headers="control_n">190</td>
+<td class="gt_row gt_center" headers="control_pct">28%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;55+</td>
+<td class="gt_row gt_center" headers="study_n">264</td>
+<td class="gt_row gt_center" headers="study_pct">13%</td>
+<td class="gt_row gt_center" headers="control_n">53</td>
+<td class="gt_row gt_center" headers="control_pct">8%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Years since diagnosis</td>
+<td class="gt_row gt_center" headers="study_n"></td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n"></td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1–5</td>
+<td class="gt_row gt_center" headers="study_n">627</td>
+<td class="gt_row gt_center" headers="study_pct">30%</td>
+<td class="gt_row gt_center" headers="control_n">186</td>
+<td class="gt_row gt_center" headers="control_pct">28%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;6–10</td>
+<td class="gt_row gt_center" headers="study_n">516</td>
+<td class="gt_row gt_center" headers="study_pct">25%</td>
+<td class="gt_row gt_center" headers="control_n">221</td>
+<td class="gt_row gt_center" headers="control_pct">33%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;11–15</td>
+<td class="gt_row gt_center" headers="study_n">484</td>
+<td class="gt_row gt_center" headers="study_pct">23%</td>
+<td class="gt_row gt_center" headers="control_n">165</td>
+<td class="gt_row gt_center" headers="control_pct">25%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–20</td>
+<td class="gt_row gt_center" headers="study_n">274</td>
+<td class="gt_row gt_center" headers="study_pct">13%</td>
+<td class="gt_row gt_center" headers="control_n">76</td>
+<td class="gt_row gt_center" headers="control_pct">11%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;21+</td>
+<td class="gt_row gt_center" headers="study_n">167</td>
+<td class="gt_row gt_center" headers="study_pct">13%</td>
+<td class="gt_row gt_center" headers="control_n">24</td>
+<td class="gt_row gt_center" headers="control_pct">4%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Total</td>
+<td class="gt_row gt_center" headers="study_n">2068</td>
+<td class="gt_row gt_center" headers="study_pct"></td>
+<td class="gt_row gt_center" headers="control_n">672</td>
+<td class="gt_row gt_center" headers="control_pct"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Source: the article’s Table 1. As printed, the study cohort’s “21+” years-since-diagnosis row reads 167 (13%), although 167 of 2,068 is 8%; and 367 of 672 controls in 2007 reads 54%, where the quotient rounds to 55%.</p>
+</section>
+<section id="table-2.-engagement-in-care-before-and-after-a-rush-era-emergency-department-visit" class="level3">
+<h3 class="anchored" data-anchor-id="table-2.-engagement-in-care-before-and-after-a-rush-era-emergency-department-visit">Table 2. Engagement in care before and after a RUSH-era emergency department visit</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide R Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 2"</span>), <span class="st">"**Engagement in care**"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="xrtfqrxywg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xrtfqrxywg table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xrtfqrxywg thead, #xrtfqrxywg tbody, #xrtfqrxywg tfoot, #xrtfqrxywg tr, #xrtfqrxywg td, #xrtfqrxywg th {
+  border-style: none;
+}
+
+#xrtfqrxywg p {
+  margin: 0;
+  padding: 0;
+}
+
+#xrtfqrxywg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xrtfqrxywg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xrtfqrxywg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xrtfqrxywg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xrtfqrxywg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xrtfqrxywg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xrtfqrxywg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xrtfqrxywg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xrtfqrxywg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xrtfqrxywg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xrtfqrxywg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xrtfqrxywg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xrtfqrxywg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xrtfqrxywg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xrtfqrxywg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xrtfqrxywg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xrtfqrxywg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xrtfqrxywg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xrtfqrxywg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xrtfqrxywg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xrtfqrxywg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xrtfqrxywg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xrtfqrxywg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xrtfqrxywg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xrtfqrxywg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xrtfqrxywg .gt_left {
+  text-align: left;
+}
+
+#xrtfqrxywg .gt_center {
+  text-align: center;
+}
+
+#xrtfqrxywg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xrtfqrxywg .gt_font_normal {
+  font-weight: normal;
+}
+
+#xrtfqrxywg .gt_font_bold {
+  font-weight: bold;
+}
+
+#xrtfqrxywg .gt_font_italic {
+  font-style: italic;
+}
+
+#xrtfqrxywg .gt_super {
+  font-size: 65%;
+}
+
+#xrtfqrxywg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xrtfqrxywg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xrtfqrxywg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xrtfqrxywg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xrtfqrxywg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xrtfqrxywg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xrtfqrxywg .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xrtfqrxywg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xrtfqrxywg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="2" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+<th colspan="4" id="level-2;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Engagement in care</strong>
+</div></th>
+<th colspan="4" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+</tr>
+<tr class="gt_col_headings gt_spanner_row even">
+<th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th rowspan="2" id="n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>n</strong></th>
+<th colspan="2" id="level-1;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Before</strong>
+</div></th>
+<th colspan="2" id="level-1;-after_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>After</strong>
+</div></th>
+<th colspan="2" id="level-1;-odds_ratio" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Change within group</strong>
+</div></th>
+<th colspan="2" id="level-1;-chi_squared" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Difference across groups</strong>
+</div></th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="before_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="before_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="after_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="after_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="odds_ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>McNemar OR (95% CI)</strong></th>
+<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+<th id="chi_squared" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>χ²</strong></th>
+<th id="chi_p" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Sex</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">2.40</td>
+<td class="gt_row gt_center" headers="chi_p">0.122</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Female</td>
+<td class="gt_row gt_center" headers="n">729</td>
+<td class="gt_row gt_center" headers="before_n">304</td>
+<td class="gt_row gt_center" headers="before_pct">42%</td>
+<td class="gt_row gt_center" headers="after_n">438</td>
+<td class="gt_row gt_center" headers="after_pct">60%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.72 (3.30–6.77)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Male</td>
+<td class="gt_row gt_center" headers="n">1339</td>
+<td class="gt_row gt_center" headers="before_n">550</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">778</td>
+<td class="gt_row gt_center" headers="after_pct">58%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.38 (2.69–4.24)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">7.56</td>
+<td class="gt_row gt_center" headers="chi_p">0.0561</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="n">1403</td>
+<td class="gt_row gt_center" headers="before_n">521</td>
+<td class="gt_row gt_center" headers="before_pct">37%</td>
+<td class="gt_row gt_center" headers="after_n">804</td>
+<td class="gt_row gt_center" headers="after_pct">57%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.41 (3.47–5.60)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="n">354</td>
+<td class="gt_row gt_center" headers="before_n">208</td>
+<td class="gt_row gt_center" headers="before_pct">59%</td>
+<td class="gt_row gt_center" headers="after_n">257</td>
+<td class="gt_row gt_center" headers="after_pct">73%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.88 (1.85–4.51)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="n">276</td>
+<td class="gt_row gt_center" headers="before_n">115</td>
+<td class="gt_row gt_center" headers="before_pct">42%</td>
+<td class="gt_row gt_center" headers="after_n">141</td>
+<td class="gt_row gt_center" headers="after_pct">51%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.18 (1.32–3.61)</td>
+<td class="gt_row gt_center" headers="p_value">0.002</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="n">35</td>
+<td class="gt_row gt_center" headers="before_n">10</td>
+<td class="gt_row gt_center" headers="before_pct">29%</td>
+<td class="gt_row gt_center" headers="after_n">14</td>
+<td class="gt_row gt_center" headers="after_pct">40%</td>
+<td class="gt_row gt_center" headers="odds_ratio">5.00 (0.58–42.8)</td>
+<td class="gt_row gt_center" headers="p_value">0.142</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Age group</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">13.24</td>
+<td class="gt_row gt_center" headers="chi_p">0.0102</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–24</td>
+<td class="gt_row gt_center" headers="n">86</td>
+<td class="gt_row gt_center" headers="before_n">23</td>
+<td class="gt_row gt_center" headers="before_pct">27%</td>
+<td class="gt_row gt_center" headers="after_n">48</td>
+<td class="gt_row gt_center" headers="after_pct">56%</td>
+<td class="gt_row gt_center" headers="odds_ratio">9.33 (2.84–30.7)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;25–34</td>
+<td class="gt_row gt_center" headers="n">401</td>
+<td class="gt_row gt_center" headers="before_n">137</td>
+<td class="gt_row gt_center" headers="before_pct">34%</td>
+<td class="gt_row gt_center" headers="after_n">236</td>
+<td class="gt_row gt_center" headers="after_pct">59%</td>
+<td class="gt_row gt_center" headers="odds_ratio">5.95 (3.70–9.55)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;35–44</td>
+<td class="gt_row gt_center" headers="n">661</td>
+<td class="gt_row gt_center" headers="before_n">268</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">377</td>
+<td class="gt_row gt_center" headers="after_pct">57%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.53 (2.52–4.96)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;45–54</td>
+<td class="gt_row gt_center" headers="n">656</td>
+<td class="gt_row gt_center" headers="before_n">300</td>
+<td class="gt_row gt_center" headers="before_pct">46%</td>
+<td class="gt_row gt_center" headers="after_n">409</td>
+<td class="gt_row gt_center" headers="after_pct">62%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.53 (2.52–4.96)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;55+</td>
+<td class="gt_row gt_center" headers="n">264</td>
+<td class="gt_row gt_center" headers="before_n">126</td>
+<td class="gt_row gt_center" headers="before_pct">48%</td>
+<td class="gt_row gt_center" headers="after_n">146</td>
+<td class="gt_row gt_center" headers="after_pct">55%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.87 (1.13–3.10)</td>
+<td class="gt_row gt_center" headers="p_value">0.015</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Year of visit</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">5.03</td>
+<td class="gt_row gt_center" headers="chi_p">0.1693</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2009</td>
+<td class="gt_row gt_center" headers="n">600</td>
+<td class="gt_row gt_center" headers="before_n">273</td>
+<td class="gt_row gt_center" headers="before_pct">46%</td>
+<td class="gt_row gt_center" headers="after_n">353</td>
+<td class="gt_row gt_center" headers="after_pct">59%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.86 (2.02–4.05)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2010</td>
+<td class="gt_row gt_center" headers="n">602</td>
+<td class="gt_row gt_center" headers="before_n">246</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">340</td>
+<td class="gt_row gt_center" headers="after_pct">56%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.41 (2.39–4.87)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2011</td>
+<td class="gt_row gt_center" headers="n">440</td>
+<td class="gt_row gt_center" headers="before_n">174</td>
+<td class="gt_row gt_center" headers="before_pct">40%</td>
+<td class="gt_row gt_center" headers="after_n">269</td>
+<td class="gt_row gt_center" headers="after_pct">61%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.52 (2.98–6.86)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2012</td>
+<td class="gt_row gt_center" headers="n">426</td>
+<td class="gt_row gt_center" headers="before_n">161</td>
+<td class="gt_row gt_center" headers="before_pct">38%</td>
+<td class="gt_row gt_center" headers="after_n">254</td>
+<td class="gt_row gt_center" headers="after_pct">60%</td>
+<td class="gt_row gt_center" headers="odds_ratio">5.04 (3.22–7.89)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Years since diagnosis</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">5.44</td>
+<td class="gt_row gt_center" headers="chi_p">0.2448</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1–5</td>
+<td class="gt_row gt_center" headers="n">627</td>
+<td class="gt_row gt_center" headers="before_n">232</td>
+<td class="gt_row gt_center" headers="before_pct">37%</td>
+<td class="gt_row gt_center" headers="after_n">366</td>
+<td class="gt_row gt_center" headers="after_pct">58%</td>
+<td class="gt_row gt_center" headers="odds_ratio">5.19 (3.55–7.57)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;6–10</td>
+<td class="gt_row gt_center" headers="n">516</td>
+<td class="gt_row gt_center" headers="before_n">221</td>
+<td class="gt_row gt_center" headers="before_pct">43%</td>
+<td class="gt_row gt_center" headers="after_n">318</td>
+<td class="gt_row gt_center" headers="after_pct">62%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.77 (2.60–5.47)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;11–15</td>
+<td class="gt_row gt_center" headers="n">484</td>
+<td class="gt_row gt_center" headers="before_n">196</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">275</td>
+<td class="gt_row gt_center" headers="after_pct">57%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.19 (2.20–4.64)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–20</td>
+<td class="gt_row gt_center" headers="n">274</td>
+<td class="gt_row gt_center" headers="before_n">139</td>
+<td class="gt_row gt_center" headers="before_pct">51%</td>
+<td class="gt_row gt_center" headers="after_n">167</td>
+<td class="gt_row gt_center" headers="after_pct">61%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.65 (1.52–4.62)</td>
+<td class="gt_row gt_center" headers="p_value">0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;21+</td>
+<td class="gt_row gt_center" headers="n">167</td>
+<td class="gt_row gt_center" headers="before_n">66</td>
+<td class="gt_row gt_center" headers="before_pct">40%</td>
+<td class="gt_row gt_center" headers="after_n">90</td>
+<td class="gt_row gt_center" headers="after_pct">54%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.00 (1.56–5.77)</td>
+<td class="gt_row gt_center" headers="p_value">0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Total</td>
+<td class="gt_row gt_center" headers="n">2068</td>
+<td class="gt_row gt_center" headers="before_n">854</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">1216</td>
+<td class="gt_row gt_center" headers="after_pct">59%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.74 (3.09–4.53)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Source: the article’s Table 2. As printed, the 35–44 and 45–54 rows have the same odds ratio and interval, 3.53 (2.52–4.96).</p>
+</section>
+<section id="table-3.-retention-in-care-before-and-after-a-rush-era-emergency-department-visit" class="level3">
+<h3 class="anchored" data-anchor-id="table-3.-retention-in-care-before-and-after-a-rush-era-emergency-department-visit">Table 3. Retention in care before and after a RUSH-era emergency department visit</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide R Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 3"</span>), <span class="st">"**Retention in care**"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="wuzyqzyrib" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wuzyqzyrib table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wuzyqzyrib thead, #wuzyqzyrib tbody, #wuzyqzyrib tfoot, #wuzyqzyrib tr, #wuzyqzyrib td, #wuzyqzyrib th {
+  border-style: none;
+}
+
+#wuzyqzyrib p {
+  margin: 0;
+  padding: 0;
+}
+
+#wuzyqzyrib .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wuzyqzyrib .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wuzyqzyrib .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wuzyqzyrib .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wuzyqzyrib .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wuzyqzyrib .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wuzyqzyrib .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wuzyqzyrib .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wuzyqzyrib .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wuzyqzyrib .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wuzyqzyrib .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wuzyqzyrib .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wuzyqzyrib .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wuzyqzyrib .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wuzyqzyrib .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuzyqzyrib .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wuzyqzyrib .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wuzyqzyrib .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wuzyqzyrib .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuzyqzyrib .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wuzyqzyrib .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuzyqzyrib .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wuzyqzyrib .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuzyqzyrib .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wuzyqzyrib .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuzyqzyrib .gt_left {
+  text-align: left;
+}
+
+#wuzyqzyrib .gt_center {
+  text-align: center;
+}
+
+#wuzyqzyrib .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wuzyqzyrib .gt_font_normal {
+  font-weight: normal;
+}
+
+#wuzyqzyrib .gt_font_bold {
+  font-weight: bold;
+}
+
+#wuzyqzyrib .gt_font_italic {
+  font-style: italic;
+}
+
+#wuzyqzyrib .gt_super {
+  font-size: 65%;
+}
+
+#wuzyqzyrib .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wuzyqzyrib .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wuzyqzyrib .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wuzyqzyrib .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wuzyqzyrib .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wuzyqzyrib .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wuzyqzyrib .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wuzyqzyrib .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wuzyqzyrib div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="2" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+<th colspan="4" id="level-2;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Retention in care</strong>
+</div></th>
+<th colspan="4" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+</tr>
+<tr class="gt_col_headings gt_spanner_row even">
+<th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th rowspan="2" id="n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>n</strong></th>
+<th colspan="2" id="level-1;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Before</strong>
+</div></th>
+<th colspan="2" id="level-1;-after_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>After</strong>
+</div></th>
+<th colspan="2" id="level-1;-odds_ratio" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Change within group</strong>
+</div></th>
+<th colspan="2" id="level-1;-chi_squared" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Difference across groups</strong>
+</div></th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="before_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="before_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="after_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="after_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="odds_ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>McNemar OR (95% CI)</strong></th>
+<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+<th id="chi_squared" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>χ²</strong></th>
+<th id="chi_p" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Sex</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">2.99</td>
+<td class="gt_row gt_center" headers="chi_p">0.083</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Female</td>
+<td class="gt_row gt_center" headers="n">729</td>
+<td class="gt_row gt_center" headers="before_n">245</td>
+<td class="gt_row gt_center" headers="before_pct">34%</td>
+<td class="gt_row gt_center" headers="after_n">356</td>
+<td class="gt_row gt_center" headers="after_pct">49%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.52 (2.52–4.92)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Male</td>
+<td class="gt_row gt_center" headers="n">1339</td>
+<td class="gt_row gt_center" headers="before_n">434</td>
+<td class="gt_row gt_center" headers="before_pct">32%</td>
+<td class="gt_row gt_center" headers="after_n">623</td>
+<td class="gt_row gt_center" headers="after_pct">47%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.49 (2.03–3.06)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">6.39</td>
+<td class="gt_row gt_center" headers="chi_p">0.0940</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="n">1403</td>
+<td class="gt_row gt_center" headers="before_n">413</td>
+<td class="gt_row gt_center" headers="before_pct">29%</td>
+<td class="gt_row gt_center" headers="after_n">644</td>
+<td class="gt_row gt_center" headers="after_pct">46%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.18 (2.55–3.95)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="n">354</td>
+<td class="gt_row gt_center" headers="before_n">167</td>
+<td class="gt_row gt_center" headers="before_pct">47%</td>
+<td class="gt_row gt_center" headers="after_n">212</td>
+<td class="gt_row gt_center" headers="after_pct">60%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.36 (1.57–3.55)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="n">276</td>
+<td class="gt_row gt_center" headers="before_n">89</td>
+<td class="gt_row gt_center" headers="before_pct">33%</td>
+<td class="gt_row gt_center" headers="after_n">112</td>
+<td class="gt_row gt_center" headers="after_pct">41%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.74 (1.12–2.70)</td>
+<td class="gt_row gt_center" headers="p_value">0.014</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="n">35</td>
+<td class="gt_row gt_center" headers="before_n">10</td>
+<td class="gt_row gt_center" headers="before_pct">29%</td>
+<td class="gt_row gt_center" headers="after_n">11</td>
+<td class="gt_row gt_center" headers="after_pct">31%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.00 (0.18–22.1)</td>
+<td class="gt_row gt_center" headers="p_value">0.571</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Age group</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">20.17</td>
+<td class="gt_row gt_center" headers="chi_p">0.0005</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–24</td>
+<td class="gt_row gt_center" headers="n">86</td>
+<td class="gt_row gt_center" headers="before_n">13</td>
+<td class="gt_row gt_center" headers="before_pct">15%</td>
+<td class="gt_row gt_center" headers="after_n">32</td>
+<td class="gt_row gt_center" headers="after_pct">37%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.80 (1.83–12.6)</td>
+<td class="gt_row gt_center" headers="p_value">0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;25–34</td>
+<td class="gt_row gt_center" headers="n">401</td>
+<td class="gt_row gt_center" headers="before_n">97</td>
+<td class="gt_row gt_center" headers="before_pct">24%</td>
+<td class="gt_row gt_center" headers="after_n">180</td>
+<td class="gt_row gt_center" headers="after_pct">45%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.19 (2.73–6.43)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;35–44</td>
+<td class="gt_row gt_center" headers="n">661</td>
+<td class="gt_row gt_center" headers="before_n">207</td>
+<td class="gt_row gt_center" headers="before_pct">31%</td>
+<td class="gt_row gt_center" headers="after_n">318</td>
+<td class="gt_row gt_center" headers="after_pct">48%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.41 (2.46–4.74)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;45–54</td>
+<td class="gt_row gt_center" headers="n">656</td>
+<td class="gt_row gt_center" headers="before_n">253</td>
+<td class="gt_row gt_center" headers="before_pct">38%</td>
+<td class="gt_row gt_center" headers="after_n">334</td>
+<td class="gt_row gt_center" headers="after_pct">51%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.31 (1.71–3.11)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;55+</td>
+<td class="gt_row gt_center" headers="n">264</td>
+<td class="gt_row gt_center" headers="before_n">109</td>
+<td class="gt_row gt_center" headers="before_pct">41%</td>
+<td class="gt_row gt_center" headers="after_n">115</td>
+<td class="gt_row gt_center" headers="after_pct">44%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.19 (0.74–1.90)</td>
+<td class="gt_row gt_center" headers="p_value">0.474</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Year of visit</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">0.36</td>
+<td class="gt_row gt_center" headers="chi_p">0.9485</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2009</td>
+<td class="gt_row gt_center" headers="n">600</td>
+<td class="gt_row gt_center" headers="before_n">209</td>
+<td class="gt_row gt_center" headers="before_pct">35%</td>
+<td class="gt_row gt_center" headers="after_n">297</td>
+<td class="gt_row gt_center" headers="after_pct">50%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.62 (1.92–3.60)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2010</td>
+<td class="gt_row gt_center" headers="n">602</td>
+<td class="gt_row gt_center" headers="before_n">200</td>
+<td class="gt_row gt_center" headers="before_pct">33%</td>
+<td class="gt_row gt_center" headers="after_n">281</td>
+<td class="gt_row gt_center" headers="after_pct">47%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.76 (1.97–3.87)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2011</td>
+<td class="gt_row gt_center" headers="n">440</td>
+<td class="gt_row gt_center" headers="before_n">138</td>
+<td class="gt_row gt_center" headers="before_pct">31%</td>
+<td class="gt_row gt_center" headers="after_n">211</td>
+<td class="gt_row gt_center" headers="after_pct">48%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.03 (2.08–4.41)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2012</td>
+<td class="gt_row gt_center" headers="n">426</td>
+<td class="gt_row gt_center" headers="before_n">132</td>
+<td class="gt_row gt_center" headers="before_pct">31%</td>
+<td class="gt_row gt_center" headers="after_n">190</td>
+<td class="gt_row gt_center" headers="after_pct">45%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.66 (1.80–3.92)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Years since diagnosis</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">14.58</td>
+<td class="gt_row gt_center" headers="chi_p">0.0057</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1–5</td>
+<td class="gt_row gt_center" headers="n">627</td>
+<td class="gt_row gt_center" headers="before_n">185</td>
+<td class="gt_row gt_center" headers="before_pct">30%</td>
+<td class="gt_row gt_center" headers="after_n">301</td>
+<td class="gt_row gt_center" headers="after_pct">48%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.90 (2.76–5.52)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;6–10</td>
+<td class="gt_row gt_center" headers="n">516</td>
+<td class="gt_row gt_center" headers="before_n">172</td>
+<td class="gt_row gt_center" headers="before_pct">33%</td>
+<td class="gt_row gt_center" headers="after_n">257</td>
+<td class="gt_row gt_center" headers="after_pct">50%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.81 (2.01–3.92)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;11–15</td>
+<td class="gt_row gt_center" headers="n">484</td>
+<td class="gt_row gt_center" headers="before_n">153</td>
+<td class="gt_row gt_center" headers="before_pct">32%</td>
+<td class="gt_row gt_center" headers="after_n">225</td>
+<td class="gt_row gt_center" headers="after_pct">46%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.12 (2.12–4.59)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–20</td>
+<td class="gt_row gt_center" headers="n">274</td>
+<td class="gt_row gt_center" headers="before_n">114</td>
+<td class="gt_row gt_center" headers="before_pct">42%</td>
+<td class="gt_row gt_center" headers="after_n">130</td>
+<td class="gt_row gt_center" headers="after_pct">47%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.47 (0.95–2.27)</td>
+<td class="gt_row gt_center" headers="p_value">0.083</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;21+</td>
+<td class="gt_row gt_center" headers="n">167</td>
+<td class="gt_row gt_center" headers="before_n">55</td>
+<td class="gt_row gt_center" headers="before_pct">33%</td>
+<td class="gt_row gt_center" headers="after_n">66</td>
+<td class="gt_row gt_center" headers="after_pct">40%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.69 (0.91–3.13)</td>
+<td class="gt_row gt_center" headers="p_value">0.097</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Total</td>
+<td class="gt_row gt_center" headers="n">2068</td>
+<td class="gt_row gt_center" headers="before_n">679</td>
+<td class="gt_row gt_center" headers="before_pct">33%</td>
+<td class="gt_row gt_center" headers="after_n">979</td>
+<td class="gt_row gt_center" headers="after_pct">47%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.75 (2.31–3.28)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Source: the article’s Table 3. Its total before the visit, 679 of 2,068, is 32.8%; the Results text gives 32.6%.</p>
+</section>
+<section id="table-4.-virologic-suppression-before-and-after-a-rush-era-emergency-department-visit" class="level3">
+<h3 class="anchored" data-anchor-id="table-4.-virologic-suppression-before-and-after-a-rush-era-emergency-department-visit">Table 4. Virologic suppression before and after a RUSH-era emergency department visit</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Click to show/hide R Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 4"</span>), <span class="st">"**Virologic suppression**"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="purfgxsqbf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#purfgxsqbf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#purfgxsqbf thead, #purfgxsqbf tbody, #purfgxsqbf tfoot, #purfgxsqbf tr, #purfgxsqbf td, #purfgxsqbf th {
+  border-style: none;
+}
+
+#purfgxsqbf p {
+  margin: 0;
+  padding: 0;
+}
+
+#purfgxsqbf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#purfgxsqbf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#purfgxsqbf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#purfgxsqbf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#purfgxsqbf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#purfgxsqbf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#purfgxsqbf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#purfgxsqbf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#purfgxsqbf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#purfgxsqbf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#purfgxsqbf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#purfgxsqbf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#purfgxsqbf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#purfgxsqbf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#purfgxsqbf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#purfgxsqbf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#purfgxsqbf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#purfgxsqbf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#purfgxsqbf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#purfgxsqbf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#purfgxsqbf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#purfgxsqbf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#purfgxsqbf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#purfgxsqbf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#purfgxsqbf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#purfgxsqbf .gt_left {
+  text-align: left;
+}
+
+#purfgxsqbf .gt_center {
+  text-align: center;
+}
+
+#purfgxsqbf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#purfgxsqbf .gt_font_normal {
+  font-weight: normal;
+}
+
+#purfgxsqbf .gt_font_bold {
+  font-weight: bold;
+}
+
+#purfgxsqbf .gt_font_italic {
+  font-style: italic;
+}
+
+#purfgxsqbf .gt_super {
+  font-size: 65%;
+}
+
+#purfgxsqbf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#purfgxsqbf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#purfgxsqbf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#purfgxsqbf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#purfgxsqbf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#purfgxsqbf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#purfgxsqbf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#purfgxsqbf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#purfgxsqbf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th colspan="2" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+<th colspan="4" id="level-2;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Virologic suppression</strong>
+</div></th>
+<th colspan="4" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"></th>
+</tr>
+<tr class="gt_col_headings gt_spanner_row even">
+<th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th rowspan="2" id="n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>n</strong></th>
+<th colspan="2" id="level-1;-before_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Before</strong>
+</div></th>
+<th colspan="2" id="level-1;-after_n" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>After</strong>
+</div></th>
+<th colspan="2" id="level-1;-odds_ratio" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Change within group</strong>
+</div></th>
+<th colspan="2" id="level-1;-chi_squared" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>Difference across groups</strong>
+</div></th>
+</tr>
+<tr class="gt_col_headings header">
+<th id="before_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="before_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="after_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>#</strong></th>
+<th id="after_pct" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>%</strong></th>
+<th id="odds_ratio" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>McNemar OR (95% CI)</strong></th>
+<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+<th id="chi_squared" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>χ²</strong></th>
+<th id="chi_p" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>P</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Sex</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">0.17</td>
+<td class="gt_row gt_center" headers="chi_p">0.685</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Female</td>
+<td class="gt_row gt_center" headers="n">729</td>
+<td class="gt_row gt_center" headers="before_n">187</td>
+<td class="gt_row gt_center" headers="before_pct">26%</td>
+<td class="gt_row gt_center" headers="after_n">265</td>
+<td class="gt_row gt_center" headers="after_pct">36%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.47 (1.80–3.40)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Male</td>
+<td class="gt_row gt_center" headers="n">1339</td>
+<td class="gt_row gt_center" headers="before_n">285</td>
+<td class="gt_row gt_center" headers="before_pct">21%</td>
+<td class="gt_row gt_center" headers="after_n">439</td>
+<td class="gt_row gt_center" headers="after_pct">33%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.68 (2.11–3.41)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">2.59</td>
+<td class="gt_row gt_center" headers="chi_p">0.4600</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="n">1403</td>
+<td class="gt_row gt_center" headers="before_n">310</td>
+<td class="gt_row gt_center" headers="before_pct">22%</td>
+<td class="gt_row gt_center" headers="after_n">475</td>
+<td class="gt_row gt_center" headers="after_pct">34%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.76 (2.18–3.49)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="n">354</td>
+<td class="gt_row gt_center" headers="before_n">98</td>
+<td class="gt_row gt_center" headers="before_pct">28%</td>
+<td class="gt_row gt_center" headers="after_n">144</td>
+<td class="gt_row gt_center" headers="after_pct">41%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.84 (1.80–4.48)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="n">276</td>
+<td class="gt_row gt_center" headers="before_n">59</td>
+<td class="gt_row gt_center" headers="before_pct">21%</td>
+<td class="gt_row gt_center" headers="after_n">80</td>
+<td class="gt_row gt_center" headers="after_pct">29%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.81 (1.12–2.92)</td>
+<td class="gt_row gt_center" headers="p_value">0.015</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="n">35</td>
+<td class="gt_row gt_center" headers="before_n">4</td>
+<td class="gt_row gt_center" headers="before_pct">11%</td>
+<td class="gt_row gt_center" headers="after_n">5</td>
+<td class="gt_row gt_center" headers="after_pct">14%</td>
+<td class="gt_row gt_center" headers="odds_ratio">∞*</td>
+<td class="gt_row gt_center" headers="p_value">-</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Age group</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">23.73</td>
+<td class="gt_row gt_center" headers="chi_p">0.0001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–24</td>
+<td class="gt_row gt_center" headers="n">86</td>
+<td class="gt_row gt_center" headers="before_n">7</td>
+<td class="gt_row gt_center" headers="before_pct">8%</td>
+<td class="gt_row gt_center" headers="after_n">13</td>
+<td class="gt_row gt_center" headers="after_pct">15%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.20 (0.76–6.33)</td>
+<td class="gt_row gt_center" headers="p_value">0.144</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;25–34</td>
+<td class="gt_row gt_center" headers="n">401</td>
+<td class="gt_row gt_center" headers="before_n">37</td>
+<td class="gt_row gt_center" headers="before_pct">9%</td>
+<td class="gt_row gt_center" headers="after_n">113</td>
+<td class="gt_row gt_center" headers="after_pct">28%</td>
+<td class="gt_row gt_center" headers="odds_ratio">6.84 (3.83–12.3)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;35–44</td>
+<td class="gt_row gt_center" headers="n">661</td>
+<td class="gt_row gt_center" headers="before_n">134</td>
+<td class="gt_row gt_center" headers="before_pct">20%</td>
+<td class="gt_row gt_center" headers="after_n">204</td>
+<td class="gt_row gt_center" headers="after_pct">31%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.49 (1.77–3.49)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;45–54</td>
+<td class="gt_row gt_center" headers="n">656</td>
+<td class="gt_row gt_center" headers="before_n">189</td>
+<td class="gt_row gt_center" headers="before_pct">29%</td>
+<td class="gt_row gt_center" headers="after_n">268</td>
+<td class="gt_row gt_center" headers="after_pct">41%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.65 (1.90–3.69)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;55+</td>
+<td class="gt_row gt_center" headers="n">264</td>
+<td class="gt_row gt_center" headers="before_n">104</td>
+<td class="gt_row gt_center" headers="before_pct">39%</td>
+<td class="gt_row gt_center" headers="after_n">106</td>
+<td class="gt_row gt_center" headers="after_pct">40%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.06 (0.66–1.72)</td>
+<td class="gt_row gt_center" headers="p_value">0.806</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Year of visit</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">0.23</td>
+<td class="gt_row gt_center" headers="chi_p">0.9730</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2009</td>
+<td class="gt_row gt_center" headers="n">600</td>
+<td class="gt_row gt_center" headers="before_n">123</td>
+<td class="gt_row gt_center" headers="before_pct">21%</td>
+<td class="gt_row gt_center" headers="after_n">187</td>
+<td class="gt_row gt_center" headers="after_pct">31%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.73 (1.87–3.98)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2010</td>
+<td class="gt_row gt_center" headers="n">602</td>
+<td class="gt_row gt_center" headers="before_n">131</td>
+<td class="gt_row gt_center" headers="before_pct">22%</td>
+<td class="gt_row gt_center" headers="after_n">194</td>
+<td class="gt_row gt_center" headers="after_pct">32%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.47 (1.73–3.51)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2011</td>
+<td class="gt_row gt_center" headers="n">440</td>
+<td class="gt_row gt_center" headers="before_n">105</td>
+<td class="gt_row gt_center" headers="before_pct">24%</td>
+<td class="gt_row gt_center" headers="after_n">167</td>
+<td class="gt_row gt_center" headers="after_pct">38%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.72 (1.86–3.99)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2012</td>
+<td class="gt_row gt_center" headers="n">426</td>
+<td class="gt_row gt_center" headers="before_n">112</td>
+<td class="gt_row gt_center" headers="before_pct">26%</td>
+<td class="gt_row gt_center" headers="after_n">156</td>
+<td class="gt_row gt_center" headers="after_pct">37%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.52 (1.64–3.87)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Years since diagnosis</td>
+<td class="gt_row gt_center" headers="n"></td>
+<td class="gt_row gt_center" headers="before_n"></td>
+<td class="gt_row gt_center" headers="before_pct"></td>
+<td class="gt_row gt_center" headers="after_n"></td>
+<td class="gt_row gt_center" headers="after_pct"></td>
+<td class="gt_row gt_center" headers="odds_ratio"></td>
+<td class="gt_row gt_center" headers="p_value"></td>
+<td class="gt_row gt_center" headers="chi_squared">28.12</td>
+<td class="gt_row gt_center" headers="chi_p">&lt;0.0001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1–5</td>
+<td class="gt_row gt_center" headers="n">627</td>
+<td class="gt_row gt_center" headers="before_n">106</td>
+<td class="gt_row gt_center" headers="before_pct">17%</td>
+<td class="gt_row gt_center" headers="after_n">200</td>
+<td class="gt_row gt_center" headers="after_pct">32%</td>
+<td class="gt_row gt_center" headers="odds_ratio">4.24 (2.83–6.36)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;6–10</td>
+<td class="gt_row gt_center" headers="n">516</td>
+<td class="gt_row gt_center" headers="before_n">117</td>
+<td class="gt_row gt_center" headers="before_pct">23%</td>
+<td class="gt_row gt_center" headers="after_n">189</td>
+<td class="gt_row gt_center" headers="after_pct">37%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.00 (2.06–4.37)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;11–15</td>
+<td class="gt_row gt_center" headers="n">484</td>
+<td class="gt_row gt_center" headers="before_n">101</td>
+<td class="gt_row gt_center" headers="before_pct">21%</td>
+<td class="gt_row gt_center" headers="after_n">164</td>
+<td class="gt_row gt_center" headers="after_pct">34%</td>
+<td class="gt_row gt_center" headers="odds_ratio">3.25 (2.13–4.96)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;16–20</td>
+<td class="gt_row gt_center" headers="n">274</td>
+<td class="gt_row gt_center" headers="before_n">97</td>
+<td class="gt_row gt_center" headers="before_pct">35%</td>
+<td class="gt_row gt_center" headers="after_n">98</td>
+<td class="gt_row gt_center" headers="after_pct">36%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.03 (0.63–1.68)</td>
+<td class="gt_row gt_center" headers="p_value">0.901</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;21+</td>
+<td class="gt_row gt_center" headers="n">167</td>
+<td class="gt_row gt_center" headers="before_n">50</td>
+<td class="gt_row gt_center" headers="before_pct">30%</td>
+<td class="gt_row gt_center" headers="after_n">53</td>
+<td class="gt_row gt_center" headers="after_pct">32%</td>
+<td class="gt_row gt_center" headers="odds_ratio">1.15 (0.63–2.09)</td>
+<td class="gt_row gt_center" headers="p_value">0.648</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Total</td>
+<td class="gt_row gt_center" headers="n">2068</td>
+<td class="gt_row gt_center" headers="before_n">471</td>
+<td class="gt_row gt_center" headers="before_pct">23%</td>
+<td class="gt_row gt_center" headers="after_n">704</td>
+<td class="gt_row gt_center" headers="after_pct">34%</td>
+<td class="gt_row gt_center" headers="odds_ratio">2.61 (2.15–3.16)</td>
+<td class="gt_row gt_center" headers="p_value">&lt;0.001</td>
+<td class="gt_row gt_center" headers="chi_squared"></td>
+<td class="gt_row gt_center" headers="chi_p"></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Source: the article’s Table 4, with missing viral loads counted as not suppressed. The odds ratio for “Other” is infinite (∞*) because no patient in that group went from suppressed to unsuppressed (the article’s footnote). As printed, the Female and Male rows before the visit add to 472, against a total of 471.</p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-flash2015rush" class="csl-entry" role="listitem">
+Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefits of a Routine Opt-Out <span>HIV</span> Testing and Linkage to Care Program for Previously Diagnosed Patients in Publicly Funded Emergency Departments in <span>Houston, TX</span>.”</span> <em>Journal of Acquired Immune Deficiency Syndromes</em> 69 (Suppl 1): S8–15. <a href="https://doi.org/10.1097/QAI.0000000000000578">https://doi.org/10.1097/QAI.0000000000000578</a>.
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vagishhemmige\.github\.io\/Harris-Health-RUSH");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../quarto/original_stata.html" class="pagination-link" aria-label="Original Stata code (2015)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Original Stata code (2015)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../quarto/analysis-plan.html" class="pagination-link" aria-label="Analysis plan">
+        <span class="nav-page-text">Analysis plan</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Published results and the code behind them"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>::: {.Results title="Where these numbers come from"}</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Every number on this page is quoted from the published article <span class="co">[</span><span class="ot">@flash2015rush</span><span class="co">]</span>, with its place there. None was produced by the code in this repository, which has not been run on the study data. The four tables below are rebuilt from the values the article prints, typed in from it, and laid out by the same functions that <span class="in">`R/tables.R`</span> applies to the data; the article's own typeset tables and Figure 1 are in the <span class="co">[</span><span class="ot">article</span><span class="co">](https://doi.org/10.1097/QAI.0000000000000578)</span> (author manuscript in <span class="co">[</span><span class="ot">PubMed Central</span><span class="co">](https://pmc.ncbi.nlm.nih.gov/articles/PMC4482220/)</span>).</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>This page is a map from each reported result to the step of the code that computes it, so that a reader can see what each number is and an authorized analyst can check the R version against the article.</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## The cohort</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Result (article, Results, first two paragraphs) <span class="pp">|</span> Computed by <span class="pp">|</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 202,767 HIV tests; 3,613 confirmed positive; 2,958 positives in 2,188 previously diagnosed people; 2,687 at least a year after diagnosis; 2,068 patients <span class="pp">|</span> Before the analysis, when the workbooks were built; not in the code <span class="pp">|</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 65% male; 68% Black, 17% Hispanic, 13% White non-Hispanic <span class="pp">|</span> Counts printed by <span class="co">[</span><span class="ot">`describe-study-cohort`</span><span class="co">](01_import_data.qmd#describe-the-study-cohort)</span> <span class="pp">|</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Table 1 (both cohorts by sex, race, year, age group and years since diagnosis) <span class="pp">|</span> <span class="co">[</span><span class="ot">Tables</span><span class="co">](tables.qmd#count-table-1)</span> <span class="pp">|</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mean age 43 ± 10 years <span class="pp">|</span> Not in the code: the workbooks hold age groups only <span class="pp">|</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Median 9 years since diagnosis; 63% diagnosed 1 to 10 years before <span class="pp">|</span> <span class="co">[</span><span class="ot">`describe-study-cohort`</span><span class="co">](01_import_data.qmd#describe-the-study-cohort)</span> (summary of <span class="in">`years_since_dx`</span> and counts by group) <span class="pp">|</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 672 patients with a pre-RUSH visit <span class="pp">|</span> Rows in <span class="in">`control_wide`</span>; <span class="co">[</span><span class="ot">`define-era-samples`</span><span class="co">](05_compare_eras.qmd#two-samples)</span> prints patients by number of rows <span class="pp">|</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Engagement in care</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Result (article, Results, "engaged in care" paragraph) <span class="pp">|</span> Computed by <span class="pp">|</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 41.3% before and 58.8% after the visit, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`mcnemar-tests`</span><span class="co">](03_paired_comparisons.qmd#mcnemars-test)</span> (proportions and P); <span class="co">[</span><span class="ot">`fit-visit-models`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-of-the-visit)</span> (odds ratio) <span class="pp">|</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ages 16 to 24: 27% before, 56% after, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`crosstabs-by-characteristic`</span><span class="co">](03_paired_comparisons.qmd#crosstabs-by-characteristic)</span> (percentages); <span class="co">[</span><span class="ot">`estimate-subgroup-effects`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-within-each-category)</span> (P within the age group) <span class="pp">|</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No substantial difference by sex, race, year or years since diagnosis <span class="pp">|</span> <span class="co">[</span><span class="ot">`test-subgroup-interactions`</span><span class="co">](04_fit_rush_era_models.qmd#does-the-effect-differ)</span> <span class="pp">|</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pre-RUSH era: a significant improvement around the visit, P = 0.017 <span class="pp">|</span> <span class="co">[</span><span class="ot">`fit-era-models`</span><span class="co">](05_compare_eras.qmd#the-era-model)</span>, the <span class="in">`post_visit`</span> term <span class="pp">|</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The RUSH-era improvement was larger, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`fit-era-models`</span><span class="co">](05_compare_eras.qmd#the-era-model)</span>, the <span class="in">`post_visit:rush_era`</span> term <span class="pp">|</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Discussion: engagement rose from 46% to 51% around the pre-RUSH visit <span class="pp">|</span> Not computed as proportions in the code; the crosstabs are for the RUSH-era cohort only <span class="pp">|</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Retention in care</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Result (article, Results, "Retention in care" paragraph) <span class="pp">|</span> Computed by <span class="pp">|</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 32.6% before and 47.1% after, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`mcnemar-tests`</span><span class="co">](03_paired_comparisons.qmd#mcnemars-test)</span>; <span class="co">[</span><span class="ot">`fit-visit-models`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-of-the-visit)</span> <span class="pp">|</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ages 16 to 24: 15% to 37%; ages 25 to 34: 24% to 45%; no significant change over 55 <span class="pp">|</span> <span class="co">[</span><span class="ot">`crosstabs-by-characteristic`</span><span class="co">](03_paired_comparisons.qmd#crosstabs-by-characteristic)</span>; <span class="co">[</span><span class="ot">`estimate-subgroup-effects`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-within-each-category)</span> <span class="pp">|</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No change among the 29 people of other race or ethnicity <span class="pp">|</span> The same, for <span class="in">`race_group`</span> <span class="pp">|</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Significant differences by age, and by years since diagnosis (greater improvement with fewer than 16 years) <span class="pp">|</span> <span class="co">[</span><span class="ot">`test-subgroup-interactions`</span><span class="co">](04_fit_rush_era_models.qmd#does-the-effect-differ)</span>; <span class="co">[</span><span class="ot">`fit-combined-models`</span><span class="co">](04_fit_rush_era_models.qmd#years-since-diagnosis-and-age-together)</span> <span class="pp">|</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> The RUSH-era visit was significantly more likely to improve retention, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`fit-era-models`</span><span class="co">](05_compare_eras.qmd#the-era-model)</span>, the interaction term <span class="pp">|</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Viral suppression</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Result (article, Results, "Viral load" paragraph) <span class="pp">|</span> Computed by <span class="pp">|</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Viral loads available for 1,220 patients (59%) before and 1,166 (56%) after <span class="pp">|</span> Counts of non-missing <span class="in">`vl_suppressed`</span>, in the crosstabs (missing values are kept) <span class="pp">|</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 22.8% before and 34.0% after, missing as failure, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`crosstabs-by-characteristic`</span><span class="co">](03_paired_comparisons.qmd#crosstabs-by-characteristic)</span> (percentages); <span class="co">[</span><span class="ot">`fit-visit-models`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-of-the-visit)</span>, <span class="in">`vl_suppressed_missing_fail`</span> <span class="pp">|</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Men 21% to 33%, women 26% to 36%, each P &lt; 0.001; no difference by sex, P = 0.685 <span class="pp">|</span> <span class="co">[</span><span class="ot">`estimate-subgroup-effects`</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-within-each-category)</span> and <span class="co">[</span><span class="ot">`test-subgroup-interactions`</span><span class="co">](04_fit_rush_era_models.qmd#does-the-effect-differ)</span>, for <span class="in">`gender`</span> <span class="pp">|</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> No difference between race and ethnicity groups, P = 0.46; Black 22% to 34%, Hispanic 28% to 41% (each P &lt; 0.001), White 21% to 29% (P = 0.015) <span class="pp">|</span> The same, for <span class="in">`race_group`</span> <span class="pp">|</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Ages 25 to 34: 9% to 28%, P &lt; 0.001 <span class="pp">|</span> The same, for <span class="in">`age_group`</span> <span class="pp">|</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rates before and after rose each year, but the change did not vary by year <span class="pp">|</span> Crosstabs and interaction test for <span class="in">`index_test_year`</span> <span class="pp">|</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Little effect in people diagnosed at least 16 years before <span class="pp">|</span> The same, for <span class="in">`years_since_dx_group`</span> <span class="pp">|</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Larger improvement in the RUSH era, P &lt; 0.001 <span class="pp">|</span> <span class="co">[</span><span class="ot">`fit-era-models`</span><span class="co">](05_compare_eras.qmd#the-era-model)</span>, the interaction term <span class="pp">|</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>The Discussion gives the post-visit suppression rate as 33.4%, where the Results give 34.0%. Both are quoted as the article has them; the code computes one number, which the first run on the study data will show.</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>**Decision pending:** which of the code's two era-comparison samples produced the article's era P values (decision issue <span class="co">[</span><span class="ot">#2</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2)</span>).</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## The published tables</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>The article's Tables 1 to 4, with the values as printed. Under each table, the code that lays it out (click to show). The same functions build these tables from the data in <span class="co">[</span><span class="ot">`R/tables.R`</span><span class="co">](tables.qmd)</span>, so this is what that script's output looks like, filled with the published values.</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: read-published-values</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Reads only the two files of values typed in from the article, and defines</span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co"># the table functions; reads no study data and fits nothing.</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../R/functions.R"</span>)</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>read_printed <span class="ot">&lt;-</span> <span class="cf">function</span>(file) {</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(file, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="fu">col_character</span>()), <span class="at">na =</span> <span class="fu">character</span>())</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>published_table_1 <span class="ot">&lt;-</span> <span class="fu">read_printed</span>(<span class="st">"published/table_1.csv"</span>)</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>published_tables_2_to_4 <span class="ot">&lt;-</span> <span class="fu">read_printed</span>(<span class="st">"published/tables_2_to_4.csv"</span>)</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>published_rows <span class="ot">&lt;-</span> <span class="cf">function</span>(table_name) {</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>  published_tables_2_to_4 <span class="sc">|&gt;</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(table <span class="sc">==</span> table_name) <span class="sc">|&gt;</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>table)</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Table 1. Characteristics of the study cohort and the control period subset</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: show-table-1</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="fu">format_table_1</span>(</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>  published_table_1,</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">study_header =</span> <span class="st">"**Study period cohort (N = 2068)**"</span>,</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">control_header =</span> <span class="st">"**Control period cohort subset (N = 672)**"</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>Source: the article's Table 1. As printed, the study cohort's "21+" years-since-diagnosis row reads 167 (13%), although 167 of 2,068 is 8%; and 367 of 672 controls in 2007 reads 54%, where the quotient rounds to 55%.</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Table 2. Engagement in care before and after a RUSH-era emergency department visit</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: show-table-2</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 2"</span>), <span class="st">"**Engagement in care**"</span>)</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>Source: the article's Table 2. As printed, the 35–44 and 45–54 rows have the same odds ratio and interval, 3.53 (2.52–4.96).</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Table 3. Retention in care before and after a RUSH-era emergency department visit</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: show-table-3</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 3"</span>), <span class="st">"**Retention in care**"</span>)</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>Source: the article's Table 3. Its total before the visit, 679 of 2,068, is 32.8%; the Results text gives 32.6%.</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Table 4. Virologic suppression before and after a RUSH-era emergency department visit</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: show-table-4</span></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="fu">format_outcome_table</span>(<span class="fu">published_rows</span>(<span class="st">"Table 4"</span>), <span class="st">"**Virologic suppression**"</span>)</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>Source: the article's Table 4, with missing viral loads counted as not suppressed. The odds ratio for "Other" is infinite (∞<span class="sc">\*</span>) because no patient in that group went from suppressed to unsuppressed (the article's footnote). As printed, the Female and Male rows before the visit add to 472, against a total of 471.</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/published_results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

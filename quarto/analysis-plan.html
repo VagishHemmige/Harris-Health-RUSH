@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Vagish Hemmige">
+
+<title>Analysis plan – RUSH: re-linkage to HIV care after emergency department testing</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../quarto/architecture.html" rel="next">
+<link href="../quarto/published_results.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
+  background-image: none;
+}
+</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Project documents</a></li><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Analysis plan</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">RUSH: re-linkage to HIV care after emergency department testing</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Background</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Clinical background</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/methodological_background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Methodological background</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Study design and methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/study_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Study design and methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/differences.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Differences from the original code</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Setup and helper functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/setup.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/functions.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data processing and analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/01_import_data.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">1. Import data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/02_build_long_data.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">2. Build long data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/03_paired_comparisons.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">3. Paired comparisons</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/04_fit_rush_era_models.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">4. RUSH-era models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/05_compare_eras.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">5. Comparison with the pre-RUSH era</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tables and figures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/tables.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Tables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Original code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/original_stata.html" class="sidebar-item-text sidebar-link"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Original Stata code (2015)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Results</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/published_results.html" class="sidebar-item-text sidebar-link"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Published results and the code behind them</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Project documents</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/analysis-plan.html" class="sidebar-item-text sidebar-link active"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Analysis plan</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/architecture.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Architecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/agents.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">AGENTS.md</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/repository-blueprint.html" class="sidebar-item-text sidebar-link"><i class="bi bi-file-earmark-ruled" role="img">
+</i> 
+ <span class="menu-text">Repository blueprint</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/about.html" class="sidebar-item-text sidebar-link"><i class="bi bi-info-circle" role="img">
+</i> 
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#analysis-plan-routine-opt-out-hiv-testing-and-re-linkage-to-care-for-previously-diagnosed-patients-in-houston-emergency-departments" id="toc-analysis-plan-routine-opt-out-hiv-testing-and-re-linkage-to-care-for-previously-diagnosed-patients-in-houston-emergency-departments" class="nav-link active" data-scroll-target="#analysis-plan-routine-opt-out-hiv-testing-and-re-linkage-to-care-for-previously-diagnosed-patients-in-houston-emergency-departments">Analysis plan: Routine opt-out HIV testing and re-linkage to care for previously diagnosed patients in Houston emergency departments</a>
+  <ul class="collapse">
+  <li><a href="#scope-and-reporting-framework" id="toc-scope-and-reporting-framework" class="nav-link" data-scroll-target="#scope-and-reporting-framework">Scope and reporting framework</a></li>
+  <li><a href="#1-objective" id="toc-1-objective" class="nav-link" data-scroll-target="#1-objective">1. Objective</a></li>
+  <li><a href="#2-design" id="toc-2-design" class="nav-link" data-scroll-target="#2-design">2. Design</a></li>
+  <li><a href="#3-data-source" id="toc-3-data-source" class="nav-link" data-scroll-target="#3-data-source">3. Data source</a></li>
+  <li><a href="#4-study-population" id="toc-4-study-population" class="nav-link" data-scroll-target="#4-study-population">4. Study population</a></li>
+  <li><a href="#5-exposure-and-time-zero" id="toc-5-exposure-and-time-zero" class="nav-link" data-scroll-target="#5-exposure-and-time-zero">5. Exposure and time zero</a></li>
+  <li><a href="#6-comparator" id="toc-6-comparator" class="nav-link" data-scroll-target="#6-comparator">6. Comparator</a></li>
+  <li><a href="#7-outcomes" id="toc-7-outcomes" class="nav-link" data-scroll-target="#7-outcomes">7. Outcomes</a></li>
+  <li><a href="#8-statistical-analysis" id="toc-8-statistical-analysis" class="nav-link" data-scroll-target="#8-statistical-analysis">8. Statistical analysis</a>
+  <ul class="collapse">
+  <li><a href="#81-data-structure" id="toc-81-data-structure" class="nav-link" data-scroll-target="#81-data-structure">8.1 Data structure</a></li>
+  <li><a href="#82-overall-change" id="toc-82-overall-change" class="nav-link" data-scroll-target="#82-overall-change">8.2 Overall change</a></li>
+  <li><a href="#83-conditional-logistic-regression" id="toc-83-conditional-logistic-regression" class="nav-link" data-scroll-target="#83-conditional-logistic-regression">8.3 Conditional logistic regression</a></li>
+  <li><a href="#84-differences-by-patient-characteristics" id="toc-84-differences-by-patient-characteristics" class="nav-link" data-scroll-target="#84-differences-by-patient-characteristics">8.4 Differences by patient characteristics</a></li>
+  <li><a href="#85-multivariable-models" id="toc-85-multivariable-models" class="nav-link" data-scroll-target="#85-multivariable-models">8.5 Multivariable models</a></li>
+  <li><a href="#86-comparison-with-the-pre-rush-era" id="toc-86-comparison-with-the-pre-rush-era" class="nav-link" data-scroll-target="#86-comparison-with-the-pre-rush-era">8.6 Comparison with the pre-RUSH era</a></li>
+  <li><a href="#87-missing-data" id="toc-87-missing-data" class="nav-link" data-scroll-target="#87-missing-data">8.7 Missing data</a></li>
+  <li><a href="#88-multiplicity-and-significance" id="toc-88-multiplicity-and-significance" class="nav-link" data-scroll-target="#88-multiplicity-and-significance">8.8 Multiplicity and significance</a></li>
+  <li><a href="#89-software" id="toc-89-software" class="nav-link" data-scroll-target="#89-software">8.9 Software</a></li>
+  </ul></li>
+  <li><a href="#9-sensitivity-analyses" id="toc-9-sensitivity-analyses" class="nav-link" data-scroll-target="#9-sensitivity-analyses">9. Sensitivity analyses</a></li>
+  <li><a href="#10-disclosure-control" id="toc-10-disclosure-control" class="nav-link" data-scroll-target="#10-disclosure-control">10. Disclosure control</a></li>
+  <li><a href="#11-limitations-to-address-in-reporting" id="toc-11-limitations-to-address-in-reporting" class="nav-link" data-scroll-target="#11-limitations-to-address-in-reporting">11. Limitations to address in reporting</a></li>
+  <li><a href="#reporting-map" id="toc-reporting-map" class="nav-link" data-scroll-target="#reporting-map">Reporting map</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/analysis-plan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><div class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Project documents</a></li><li class="breadcrumb-item"><a href="../quarto/analysis-plan.html">Analysis plan</a></li></ol></nav><div class="quarto-title-tools-only"><h1></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Vagish Hemmige </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-Pending callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Pending</span>Provisional
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="pending">Text highlighted like this</span> is provisional: it depends on a decision the analysis plan has not yet made.</p>
+</div>
+</div>
+<!--
+This page only shows analysis-plan.md from the repository root, which is the one source:
+edit that file, not this page. Its first heading is the page title.
+
+The plan links its own sections GitHub's way (for example #3-design). Quarto's
+default heading IDs drop leading numbers (#design), so `from:` above
+gives this page GitHub-style IDs and those links work on both.
+-->
+<section id="analysis-plan-routine-opt-out-hiv-testing-and-re-linkage-to-care-for-previously-diagnosed-patients-in-houston-emergency-departments" class="level1">
+<h1>Analysis plan: Routine opt-out HIV testing and re-linkage to care for previously diagnosed patients in Houston emergency departments</h1>
+<p>Status: draft. The plan records the analysis as it was published <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>; it is not a plan for new analysis.</p>
+<section id="scope-and-reporting-framework" class="level2">
+<h2 class="anchored" data-anchor-id="scope-and-reporting-framework">Scope and reporting framework</h2>
+<p>This document is the authoritative specification of the study’s objectives, population, definitions and statistical methods. <code>ARCHITECTURE.md</code> documents the implementation, <code>AGENTS.md</code> the working conventions, and GitHub Issues the open decisions and implementation status. Neither file supersedes this plan.</p>
+<p>The study is a retrospective cohort study of routinely collected health data: laboratory, electronic medical record and Ryan White visit records. Reporting follows STROBE and RECORD <span class="citation" data-cites="vonelm2007strobe benchimol2015record">(<a href="#ref-vonelm2007strobe" role="doc-biblioref"><span class="nocase">Elm et al.</span> 2007</a>; <a href="#ref-benchimol2015record" role="doc-biblioref"><span class="nocase">Benchimol et al.</span> 2015</a>)</span>. The reporting map at the end links each relevant checklist item to a section of this plan. Every method below is taken from the published article <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span> or from the original Stata code of 15 January 2015 that produced its results (<code>stata/RUSH_analysis_2015-01-15.do</code>). Where the two differ, the plan says so.</p>
+</section>
+<section id="1-objective" class="level2">
+<h2 class="anchored" data-anchor-id="1-objective">1. Objective</h2>
+<p>To determine whether previously diagnosed people with HIV who were tested again in an emergency department running routine opt-out HIV testing with embedded service linkage workers, the Routine Universal Screening for HIV (RUSH) program, were more often engaged in care, retained in care and virally suppressed after the visit than before it <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>.</p>
+<ul>
+<li><strong>Primary:</strong> the change from before to after the RUSH-era index visit in each of three outcomes (section 7).</li>
+<li><strong>Secondary:</strong> whether the change differs by sex, race and ethnicity, age, year of the visit and years since diagnosis (section 8.4); and whether the change around a RUSH-era visit is larger than the change around a visit by the same patients in the pre-RUSH era (section 8.6).</li>
+<li><strong>Hypothesis</strong>, stated in the article: repeated screening by the program facilitates linkage or re-linkage to HIV care for previously diagnosed patients.</li>
+</ul>
+</section>
+<section id="2-design" class="level2">
+<h2 class="anchored" data-anchor-id="2-design">2. Design</h2>
+<p>A retrospective cohort with paired before-and-after measurement: each patient’s outcomes in a period just before an emergency department visit are compared with the same outcomes just after it, so each patient serves as their own comparison. A historical comparison of the same kind, around an earlier visit by a subset of the same patients in the era before RUSH, tests whether the RUSH-era change is larger than the change around an emergency department visit without the program <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>.</p>
+<p>The design does not identify a causal effect of the program: the article notes the observational data and historical controls, and temporal changes in treatment guidelines and attention to retention <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span> (section 11).</p>
+</section>
+<section id="3-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="3-data-source">3. Data source</h2>
+<ul>
+<li><strong>Setting:</strong> the Ben Taub General Hospital and Lyndon B. Johnson General Hospital emergency departments of Harris Health System, Houston, Texas, the county’s publicly funded health system <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>.</li>
+<li><strong>HIV test records and results:</strong> electronic laboratory databases of the RUSH program, 2009 to 2012. Positive results are matched by the City of Houston Department of Health and Human Services against local and state surveillance to identify previously diagnosed cases.</li>
+<li><strong>Demographics, visits and viral loads:</strong> the Harris Health electronic medical record. Viral loads are available only for tests done within Harris Health.</li>
+<li><strong>Visits at other Ryan White funded clinics</strong> in the Houston Eligible Metropolitan Area: the Centralized Patient Care Data Management System (CPCDMS), which records the date and place of Ryan White funded visits only.</li>
+<li><strong>Analysis files:</strong> the cohort and outcomes were assembled before the Stata analysis into two de-identified workbooks, dated 15 January 2015: <code>Deidentified RUSH data 1-15-2015.xlsx</code> (sheets “Study Cohort” and “Controls”) and <code>Deidentified Years_After_DX 1-15-2015.xlsx</code>. Each holds one row per patient, with the outcomes already derived for the periods before and after the visit. The code that built them is not part of this repository.</li>
+</ul>
+</section>
+<section id="4-study-population" class="level2">
+<h2 class="anchored" data-anchor-id="4-study-population">4. Study population</h2>
+<p>The RUSH-era study cohort, in the order the article applies the steps <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span> (Results, first paragraph; Figure 1):</p>
+<ol type="1">
+<li>HIV tests performed in the two emergency departments between 2009 and 2012 (the article reports 202,767).</li>
+<li>Confirmed positive results (3,613), of which 2,958 were in previously diagnosed people (2,188 individuals).</li>
+<li>Positive results from a visit at least one year after the person’s original HIV diagnosis (2,687 results), to limit confounding by recently diagnosed patients who may not yet have had time to be engaged, retained or suppressed.</li>
+<li>The first such visit per patient: the <strong>index visit</strong>. This gives 2,068 patients.</li>
+</ol>
+<p>Every patient in the “Study Cohort” sheet is analyzed; the scripts apply no further exclusion. The merge with the years-since-diagnosis workbook keeps every patient in either file, as the original code did.</p>
+</section>
+<section id="5-exposure-and-time-zero" class="level2">
+<h2 class="anchored" data-anchor-id="5-exposure-and-time-zero">5. Exposure and time zero</h2>
+<ul>
+<li><strong>Exposure:</strong> an emergency department visit with an HIV test under RUSH, followed by service linkage (contact by a service linkage worker, counseling, help with eligibility, transport and appointments) <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>.</li>
+<li><strong>Time zero:</strong> the index visit.</li>
+<li><strong>Covariates</strong>, each fixed at the index visit: sex; race and ethnicity; age group; calendar year of the index visit (2009 to 2012); and years from HIV diagnosis to the index visit, as a number and in five groups (5 or fewer, 6 to 10, 11 to 15, 16 to 20, more than 20). Because each is the same before and after the visit, each enters the models only through its interaction with the period (section 8.3).</li>
+</ul>
+</section>
+<section id="6-comparator" class="level2">
+<h2 class="anchored" data-anchor-id="6-comparator">6. Comparator</h2>
+<ul>
+<li><strong>Within patient:</strong> the period before the index visit (section 7).</li>
+<li><strong>Pre-RUSH era:</strong> patients in the study cohort who had an emergency department visit in a four-year period before RUSH (the article’s example is 2004 to 2007) whose follow-up would not extend into the RUSH era, and who had been diagnosed more than one year before that visit. If a patient had several, the visit nearest to the RUSH-era index visit is used. In that era HIV testing was at the provider’s discretion, no service linkage workers worked in the emergency department, and referral to HIV care was passive <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>. The article reports 672 such patients. They are a subset of the study cohort and carry the same patient number in the “Controls” sheet.</li>
+</ul>
+</section>
+<section id="7-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="7-outcomes">7. Outcomes</h2>
+<p>Each outcome is measured in a window before and a window after the visit <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span> (Methods, “Data Sources and Analysis”):</p>
+<ol type="1">
+<li><strong>Engagement in care:</strong> at least one HIV primary care visit in the 6 months before, and in the 6 months after, the visit. The article calls this “engagement” rather than “linkage” because the patients were not newly diagnosed.</li>
+<li><strong>Retention in care:</strong> the HRSA definition, two HIV primary care visits at least 3 months apart in the 12 months before, and in the 12 months after, the visit.</li>
+<li><strong>Viral suppression:</strong> an HIV viral load below 200 copies/mL at any time in the 12 months before, and the 12 months after, the visit. Because a viral load drawn within days of the visit reflects care before it, the before window runs to 10 days after the visit, and the after window from day 11 to 12 months and 10 days after it.
+<ul>
+<li><strong>Primary analysis:</strong> a patient with no viral load result in a window counts as not suppressed.</li>
+<li><strong>Secondary analysis:</strong> a patient with no result in a window is missing for that window. Only patients with a result in both windows inform the paired comparison.</li>
+</ul></li>
+</ol>
+<p>Visits count if they appear in the Harris Health record or in CPCDMS. In the workbooks each care outcome is 0 or 1 for each window, and viral load is the text “Suppressed” or “Not Suppressed”, or empty.</p>
+</section>
+<section id="8-statistical-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="8-statistical-analysis">8. Statistical analysis</h2>
+<section id="81-data-structure" class="level3">
+<h3 class="anchored" data-anchor-id="81-data-structure">8.1 Data structure</h3>
+<p>One record per patient and window: the before and after values of each outcome form a matched pair, and in the era comparison a patient with a visit in both eras contributes two pairs.</p>
+</section>
+<section id="82-overall-change" class="level3">
+<h3 class="anchored" data-anchor-id="82-overall-change">8.2 Overall change</h3>
+<p>The proportion of patients with each outcome before and after the index visit, compared with McNemar’s test for paired proportions <span class="citation" data-cites="mcnemar1947 flash2015rush">(<a href="#ref-mcnemar1947" role="doc-biblioref">McNemar 1947</a>; <a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>. The original code ran McNemar’s test for engagement and retention only, with the comment that it was there to confirm the conditional logistic regression (section 8.3) gives the same results. The article’s Methods describe McNemar’s test for all three outcomes; the code does not record where the viral suppression P value came from.</p>
+<div class="pending-note">
+<p><strong>Open:</strong> whether the R version should add McNemar’s test for viral suppression, as the article’s Methods describe, or keep the original code’s set (decision issue <a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/3">#3</a>).</p>
+</div>
+</section>
+<section id="83-conditional-logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="83-conditional-logistic-regression">8.3 Conditional logistic regression</h3>
+<p>Each outcome is modelled with conditional logistic regression, with one stratum per patient, the outcome as the dependent variable and an indicator for the period after the visit (<code>post_visit</code>) as the main term <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>. Conditioning on the patient removes every characteristic that does not change between the two windows. The exponentiated <code>post_visit</code> coefficient is the conditional odds ratio for the outcome after the visit compared with before it. The exact conditional likelihood is used, as Stata’s <code>clogit</code> uses.</p>
+</section>
+<section id="84-differences-by-patient-characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="84-differences-by-patient-characteristics">8.4 Differences by patient characteristics</h3>
+<p>For each characteristic in section 5, and each outcome, a conditional logistic regression with <code>post_visit</code> and its interaction with the characteristic <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>:</p>
+<ul>
+<li><strong>Test of difference:</strong> a joint Wald test that every interaction coefficient is zero (Stata’s <code>testparm</code>).</li>
+<li><strong>Effect within each category:</strong> the odds ratio for <code>post_visit</code> in each category, from the sum of the <code>post_visit</code> coefficient and that category’s interaction coefficient (Stata’s <code>lincom</code>).</li>
+<li><strong>Race and ethnicity</strong> in four groups: Black, Hispanic, White, and other (the original code labels it “Asian/Other/Unknown”); the article’s Methods name the groups White non-Hispanic, Black non-Hispanic, Hispanic and other. The original code also tested race as recorded, and an African American indicator.</li>
+<li><strong>Years since diagnosis and age together:</strong> one model with both interactions, to see whether a difference by years since diagnosis remains once age is allowed for (original code).</li>
+<li><strong>Not fitted:</strong> the interaction of race as recorded with viral suppression (missing excluded), which the original code could not fit.</li>
+</ul>
+<p>The reference category is the first in the original code’s order: the earliest year (2009); 5 or fewer years since diagnosis; and, for sex, age group and race, the first value in alphabetical order of the recorded text (Stata’s <code>encode</code> numbering).</p>
+</section>
+<section id="85-multivariable-models" class="level3">
+<h3 class="anchored" data-anchor-id="85-multivariable-models">8.5 Multivariable models</h3>
+<p>For engagement, retention and viral suppression (missing as not suppressed), a conditional logistic regression with <code>post_visit</code> and its interactions with year of visit, sex, age group and the African American indicator; and the same with race as recorded in place of the indicator (original code). The abstract’s “multivariate conditional logistic regression” refers to these models; the article does not tabulate them.</p>
+</section>
+<section id="86-comparison-with-the-pre-rush-era" class="level3">
+<h3 class="anchored" data-anchor-id="86-comparison-with-the-pre-rush-era">8.6 Comparison with the pre-RUSH era</h3>
+<p>The two cohorts are stacked: up to four records per patient (before and after each era’s visit). A conditional logistic regression with one stratum per patient includes <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>:</p>
+<ul>
+<li><code>post_visit</code>: the change around a pre-RUSH visit;</li>
+<li><code>rush_era</code>: the difference between the periods before each era’s visit;</li>
+<li><code>post_visit × rush_era</code>: whether the change around the visit differs between the eras, as a ratio of odds ratios. Its P value is the one the article reports for each outcome.</li>
+</ul>
+<p>The original code also fitted, for sex, age group and race in four groups, the same model with every term interacted with the characteristic, testing all the interaction terms jointly; and, for comparison, a random-intercept logistic model in place of the strata (Stata’s <code>xtlogit</code>, adaptive quadrature with 12 points) <span class="citation" data-cites="bates2015lme4">(<a href="#ref-bates2015lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>. Year of visit is not used: it cannot overlap between eras. With every patient, two three-way models could not be fitted (race groups with viral suppression, missing as not suppressed; race groups with retention) and are not fitted.</p>
+<p>The original code fitted every era model twice: first with every patient, including those with a RUSH-era visit only (its comment says this was done “by request”), and then with only the patients with a visit in both eras.</p>
+<div class="pending-note">
+<p><strong>Open:</strong> which of the two samples produced the P values the article reports for the era comparison (decision issue <a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/2">#2</a>).</p>
+</div>
+</section>
+<section id="87-missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="87-missing-data">8.7 Missing data</h3>
+<p>Missing viral load results are handled as in section 7.3. The care outcomes are used as recorded in the workbook; a patient missing one in a window drops out of the comparisons of that outcome. Patients missing a characteristic are left out of the models that use it.</p>
+</section>
+<section id="88-multiplicity-and-significance" class="level3">
+<h3 class="anchored" data-anchor-id="88-multiplicity-and-significance">8.8 Multiplicity and significance</h3>
+<p>No adjustment for multiple comparisons. P &lt; 0.05 is significant.</p>
+</section>
+<section id="89-software" class="level3">
+<h3 class="anchored" data-anchor-id="89-software">8.9 Software</h3>
+<p>The published analysis used Stata 12 and SPSS 21 <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>; the Stata code is in <code>stata/</code>. The article’s Tables 1 to 4 are not made by the Stata code; the R version builds them (<code>R/tables.R</code>, with gtsummary): Table 1 as counts and percentages by cohort, and Tables 2 to 4 as, for each subgroup, the numbers before and after, McNemar’s matched-pairs odds ratio with its exact interval and P value, and the interaction test of section 8.4 across the subgroup’s categories. Mean age is not computed: the workbooks hold age groups only. The R version uses <code>survival::clogit()</code> <span class="citation" data-cites="therneau_survival">(<a href="#ref-therneau_survival" role="doc-biblioref">Therneau, n.d.</a>)</span> and <code>lme4::glmer()</code> <span class="citation" data-cites="bates2015lme4">(<a href="#ref-bates2015lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>.</p>
+</section>
+</section>
+<section id="9-sensitivity-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="9-sensitivity-analyses">9. Sensitivity analyses</h2>
+<ul>
+<li><strong>Viral load missing as missing</strong> (section 7.3), against the primary analysis in which missing counts as not suppressed. It tests the assumption that a patient without a Harris Health viral load was not suppressed.</li>
+<li><strong>Era comparison with every patient or only those with both eras</strong> (section 8.6).</li>
+<li><strong>Random-intercept models</strong> (section 8.6), which also use differences between patients and assume the patient effect is unrelated to the visit and era.</li>
+</ul>
+</section>
+<section id="10-disclosure-control" class="level2">
+<h2 class="anchored" data-anchor-id="10-disclosure-control">10. Disclosure control</h2>
+<p>The workbooks are de-identified patient-level data of Harris Health System and are not published in this repository. Only numbers reported in the article are quoted, with their location in the article. Nothing computed from the study data is committed.</p>
+</section>
+<section id="11-limitations-to-address-in-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="11-limitations-to-address-in-reporting">11. Limitations to address in reporting</h2>
+<p>As the article discusses <span class="citation" data-cites="flash2015rush">(<a href="#ref-flash2015rush" role="doc-biblioref">Flash et al. 2015</a>)</span>:</p>
+<ul>
+<li>visits at clinics outside Harris Health that are not Ryan White funded, and viral loads drawn outside Harris Health, are not seen; counting them as failures biases every outcome downward;</li>
+<li>a change of provider at the time of the visit could exaggerate the change if earlier care was elsewhere and unseen;</li>
+<li>observational data and historical controls do not support strong causal statements; changes in treatment guidelines and in attention to retention over time may confound the era comparison;</li>
+<li>the “other” race and ethnicity group is small.</li>
+</ul>
+</section>
+<section id="reporting-map" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-map">Reporting map</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Checklist item</th>
+<th>Topic</th>
+<th>Plan section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STROBE 4</td>
+<td>Study design</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>STROBE 5</td>
+<td>Setting, dates</td>
+<td>3, 4, 6</td>
+</tr>
+<tr class="odd">
+<td>STROBE 6 / RECORD 6.1–6.3</td>
+<td>Eligibility, selection, linkage</td>
+<td>3, 4, 6</td>
+</tr>
+<tr class="even">
+<td>STROBE 7 / RECORD 7.1</td>
+<td>Variables, code definitions</td>
+<td>5, 7</td>
+</tr>
+<tr class="odd">
+<td>STROBE 8</td>
+<td>Data sources and measurement</td>
+<td>3, 7</td>
+</tr>
+<tr class="even">
+<td>STROBE 9</td>
+<td>Bias</td>
+<td>2, 11</td>
+</tr>
+<tr class="odd">
+<td>STROBE 10</td>
+<td>Study size</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>STROBE 11</td>
+<td>Quantitative variables</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>STROBE 12</td>
+<td>Statistical methods</td>
+<td>8, 9</td>
+</tr>
+<tr class="even">
+<td>RECORD 12.1–12.2</td>
+<td>Data access, cleaning, linkage</td>
+<td>3, 10</td>
+</tr>
+<tr class="odd">
+<td>STROBE 19</td>
+<td>Limitations</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bates2015lme4" class="csl-entry" role="listitem">
+Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. <span>“Fitting Linear Mixed-Effects Models Using <span class="nocase">lme4</span>.”</span> <em>Journal of Statistical Software</em> 67 (1): 1–48. <a href="https://doi.org/10.18637/jss.v067.i01">https://doi.org/10.18637/jss.v067.i01</a>.
+</div>
+<div id="ref-benchimol2015record" class="csl-entry" role="listitem">
+<span class="nocase">Benchimol, Eric I, Liam Smeeth, Astrid Guttmann, et al.</span> 2015. <span>“The <span>REporting</span> of Studies <span>Conducted</span> Using <span class="nocase">Observational Routinely-collected</span> Health <span>Data</span> (<span>RECORD</span>) Statement.”</span> <em>PLoS Medicine</em> 12 (10): e1001885. <a href="https://doi.org/10.1371/journal.pmed.1001885">https://doi.org/10.1371/journal.pmed.1001885</a>.
+</div>
+<div id="ref-vonelm2007strobe" class="csl-entry" role="listitem">
+<span class="nocase">Elm, Erik von, Douglas G Altman, Matthias Egger, et al.</span> 2007. <span>“The <span class="nocase">Strengthening the Reporting of Observational Studies in Epidemiology (STROBE)</span> Statement: Guidelines for Reporting Observational Studies.”</span> <em>Lancet</em> 370 (9596): 1453–57. <a href="https://doi.org/10.1016/S0140-6736(07)61602-X">https://doi.org/10.1016/S0140-6736(07)61602-X</a>.
+</div>
+<div id="ref-flash2015rush" class="csl-entry" role="listitem">
+Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefits of a Routine Opt-Out <span>HIV</span> Testing and Linkage to Care Program for Previously Diagnosed Patients in Publicly Funded Emergency Departments in <span>Houston, TX</span>.”</span> <em>Journal of Acquired Immune Deficiency Syndromes</em> 69 (Suppl 1): S8–15. <a href="https://doi.org/10.1097/QAI.0000000000000578">https://doi.org/10.1097/QAI.0000000000000578</a>.
+</div>
+<div id="ref-mcnemar1947" class="csl-entry" role="listitem">
+McNemar, Quinn. 1947. <span>“Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages.”</span> <em>Psychometrika</em> 12 (2): 153–57. <a href="https://doi.org/10.1007/BF02295996">https://doi.org/10.1007/BF02295996</a>.
+</div>
+<div id="ref-therneau_survival" class="csl-entry" role="listitem">
+Therneau, Terry M. n.d. <em>A Package for Survival Analysis in <span>R</span></em>. <a href="https://CRAN.R-project.org/package=survival">https://CRAN.R-project.org/package=survival</a>.
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/vagishhemmige\.github\.io\/Harris-Health-RUSH");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../quarto/published_results.html" class="pagination-link" aria-label="Published results and the code behind them">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Published results and the code behind them</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../quarto/architecture.html" class="pagination-link" aria-label="Architecture">
+        <span class="nav-page-text">Architecture</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">pagetitle:</span><span class="co"> "Analysis plan"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">from:</span><span class="co"> markdown+gfm_auto_identifiers</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">This page only shows analysis-plan.md from the repository root, which is the one source:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">edit that file, not this page. Its first heading is the page title.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">The plan links its own sections GitHub's way (for example #3-design). Quarto's</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">default heading IDs drop leading numbers (#design), so `from:` above</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">gives this page GitHub-style IDs and those links work on both.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">--&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../analysis-plan.md &gt;}}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/edit/main/quarto/analysis-plan.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
