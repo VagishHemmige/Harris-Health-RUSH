@@ -64,6 +64,16 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: quarto-dev/quarto-actions/render@v2
 
+      # The rendered pull-request site, for review before merging; it holds
+      # only what the published site would (no study data)
+      - name: Keep the rendered site for review (pull requests only)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-site
+          path: docs/
+          retention-days: 7
+
       - name: Render and publish to GitHub Pages
         if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
