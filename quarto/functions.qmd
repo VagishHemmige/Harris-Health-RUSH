@@ -221,7 +221,7 @@ Turns the counts and the model's odds ratio for the visit into the text cells of
 
 ## Lay out Table 1
 
-From rows of text to a gtsummary table: `as_gtsummary()` makes a table from a data frame, `modify_header()` and `modify_spanning_header()` set the column headings, and `modify_indent()` and `modify_bold()` style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on [Published results](published_results.qmd#the-published-tables).
+From rows of text to a gtsummary table: `as_gtsummary()` makes a table from a data frame, `modify_header()` and `modify_spanning_header()` set the column headings, and `modify_indent()` and `modify_bold()` style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the [Published results](published_results.qmd) pages.
 
 ```{r}
 #| label: format-table-1

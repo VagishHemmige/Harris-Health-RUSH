@@ -86,6 +86,9 @@ website:
               - href: quarto/tables.qmd
                 text: Tables
                 icon: laptop
+              - href: quarto/teaching_figures.qmd
+                text: Teaching figures
+                icon: laptop
 
           - section: Original code
             contents:
@@ -97,6 +100,15 @@ website:
         contents:
           - href: quarto/published_results.qmd
             text: Published results and the code behind them
+            icon: clipboard-data
+          - href: quarto/published_engagement.qmd
+            text: Engagement in care (Table 2)
+            icon: clipboard-data
+          - href: quarto/published_retention.qmd
+            text: Retention in care (Table 3)
+            icon: clipboard-data
+          - href: quarto/published_suppression.qmd
+            text: Viral suppression (Table 4)
             icon: clipboard-data
 
       - section: Project documents
