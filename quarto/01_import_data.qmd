@@ -25,6 +25,13 @@ The code sections below are imported directly from that script when this page is
 knitr::read_chunk("../R/01_import_data.R")
 ```
 
+```{r}
+#| include: false
+#| eval: true
+# Splits the original .do file into parts, as text, for the folded boxes
+source("_stata_sections.R")
+```
+
 ## Check the data folder
 
 Stop at once, with a message saying what to set, if `RUSH_DATA_DIR` is missing or does not point to a folder. Without this the first `read_excel()` would fail with a less helpful message about a file path.
@@ -42,6 +49,15 @@ The second workbook has one row per patient in the RUSH-era cohort: the number o
 #| label: read-years-since-diagnosis
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("years"))
+```
+:::
 
 ## Read the study cohort
 
@@ -63,6 +79,15 @@ Keeping unmatched patients is the original code's choice; a patient with no year
 #| eval: false
 ```
 
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("import"))
+```
+:::
+
 ## Clean the study cohort
 
 Apply the cleaning both sheets share, `clean_cohort()` on [Functions](functions.qmd#clean-a-cohort): drop the place columns, number the categories as Stata's `encode` did, and rename the outcomes for reshaping.
@@ -71,6 +96,15 @@ Apply the cleaning both sheets share, `clean_cohort()` on [Functions](functions.
 #| label: clean-study-cohort
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("clean", "rename"))
+```
+:::
 
 ## Describe the study cohort
 
@@ -81,6 +115,15 @@ The original code tabulated race, sex, age group, year and years since diagnosis
 #| eval: false
 ```
 
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("tabs"))
+```
+:::
+
 ## Read the control cohort
 
 The "Controls" sheet: one row per patient with a qualifying pre-RUSH visit ([analysis plan §6](analysis-plan.qmd#6-comparator)), the same patients and patient numbers as in the study cohort, with the same columns except that the visit year is not needed. It gets the same cleaning, so its sex and age group are factors too. Its race codes are numbered from its own values, which is why the race groups in the next script use a separate list for this sheet.
@@ -89,3 +132,12 @@ The "Controls" sheet: one row per patient with a qualifying pre-RUSH visit ([ana
 #| label: read-control-cohort
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("controls"))
+```
+:::

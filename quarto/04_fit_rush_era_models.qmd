@@ -25,6 +25,13 @@ The code sections below are imported directly from that script when this page is
 knitr::read_chunk("../R/04_fit_rush_era_models.R")
 ```
 
+```{r}
+#| include: false
+#| eval: true
+# Splits the original .do file into parts, as text, for the folded boxes
+source("_stata_sections.R")
+```
+
 ## The effect of the visit
 
 One model per outcome, with `post_visit` as the only term: the original code's first four `clogit` commands. The odds ratio for `post_visit` compares the odds of the outcome after the visit with before it, within patients. With two records per patient it equals the number of patients who improved divided by the number who got worse, which the synthetic test checks ([Methodological background](methodological_background.qmd#conditional-logistic-regression)).
@@ -36,6 +43,15 @@ For viral suppression with missing results excluded, a patient tested in only on
 #| eval: false
 ```
 
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("visit"))
+```
+:::
+
 ## Subgroup models
 
 For each characteristic and outcome, `post_visit` plus its interaction with the characteristic ([analysis plan §8.4](analysis-plan.qmd#84-differences-by-patient-characteristics)). The models are stored as `subgroup_models[[characteristic]][[outcome]]`. The one model the original code could not fit is skipped by looking it up in the table on [Setup](setup.qmd#models-the-original-code-could-not-fit), so the list of skipped models lives in one place.
@@ -46,6 +62,15 @@ For each characteristic and outcome, `post_visit` plus its interaction with the 
 #| label: fit-subgroup-models
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("year", "ysd", "gender", "age", "race_models", "new_race", "african_american"))
+```
+:::
 
 ## Does the effect differ?
 
@@ -74,6 +99,15 @@ Patients diagnosed long ago tend to be older, so a difference by years since dia
 #| eval: false
 ```
 
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("combined"))
+```
+:::
+
 ## Multivariable models
 
 `post_visit` with its interactions with year, sex, age group and race, in one model, for three outcomes: once with the African American indicator and once with race as recorded ([analysis plan §8.5](analysis-plan.qmd#85-multivariable-models)). The original code did not fit them for viral suppression with missing results excluded. They are tabulated as odds ratios for every coefficient, as Stata printed them.
@@ -82,3 +116,12 @@ Patients diagnosed long ago tend to be older, so a difference by years since dia
 #| label: fit-multivariable-models
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("multivariable"))
+```
+:::
