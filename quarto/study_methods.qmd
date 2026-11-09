@@ -13,7 +13,7 @@ This page explains, in plain language and without code, what this study chose an
 
 Does an HIV test in an emergency department with routine testing and service linkage help a person who already knows they have HIV get back into care? The study answers it by comparing each patient with themself: their engagement, retention and viral suppression in the months before an emergency department visit against the same outcomes in the months after it. A second comparison, around an earlier visit by some of the same patients before the program existed, asks whether the change around a RUSH-era visit is larger than the change around any emergency department visit [@flash2015rush].
 
-The before-and-after comparison within patients removes every stable difference between patients: sex, race, how long they have had HIV, and everything unmeasured that stays the same across the two windows. It does not remove what changes over time for everyone, such as treatment guidelines; the comparison with the pre-RUSH era addresses part of that.
+The before-and-after comparison within patients removes every stable difference between patients: sex, race, how long they have had HIV, and everything unmeasured that stays the same across the two windows. It does not remove what changes over time for everyone, such as treatment guidelines. The comparison with the pre-RUSH era removes the part of the change that would follow any emergency department visit, if that part was the same in both eras; it does not remove trends that changed the months after the visit more in one era than in the other, such as the 2012 recommendation to treat everyone with HIV. A similar program in Seattle saw viral suppression rise after emergency department and hospital visits, but no more than among comparable patients outside the program once such trends were allowed for [@avoundjian2020dataexchange]. The program offered service linkage to every patient who tested positive, but contact was not always made, and whether a patient was reached is not recorded: the study measures the program as offered [@flash2015rush].
 
 **Specified in:** [§1 Objective](analysis-plan.qmd#1-objective), [§2 Design](analysis-plan.qmd#2-design).
 
@@ -32,6 +32,10 @@ Each outcome has its own window, the same length before and after the visit [@fl
 - **Engagement:** 6 months. The authors chose 6 rather than 3 months because 3 months seemed too short a window for the period before the visit.
 - **Retention:** 12 months, with two visits at least 3 months apart.
 - **Viral suppression:** 12 months, shifted by 10 days. A viral load drawn in the days after the visit reflects treatment before it, so it belongs to the "before" window; the "after" window starts on day 11.
+
+::: {.teaching-figure}
+![The windows before and after the visit for each outcome. Viral suppression's dividing line is 10 days after the visit; the shift is drawn to scale.](teaching_figures/outcome_windows.svg){fig-alt="Timeline from 12 months before to 12 months after the emergency department visit. Engagement compares the 6 months before with the 6 months after. Retention compares the 12 months before with the 12 months after. Viral suppression compares 12-month windows whose dividing line is 10 days after the visit, so the after window starts on day 11."}
+:::
 
 Visits count if they are in the Harris Health record or in the Houston area's Ryan White visit database. Viral loads are only seen if drawn at Harris Health.
 

@@ -20,12 +20,16 @@ The two measurements are not independent. A person in care before a visit is mor
 
 **Example.** Of 100 people, 30 had the outcome both times (*a*), 5 lost it (*b*), 20 gained it (*c*) and 45 never had it (*d*). The proportion rose from 35% to 50%. Only the 25 discordant pairs say anything about change, and 20 of the 25 changed for the better.
 
+::: {.teaching-figure}
+![The invented example as a picture. The two highlighted cells, the people whose outcome changed, carry all the information about change. The same table also answers the clinician's questions: how many without the outcome gained it, and how many with it lost it.](teaching_figures/discordant_pairs.svg){fig-alt="Invented example of 100 people. A two-by-two table: 30 had the outcome both times, 45 never had it, 5 lost it and 20 gained it; the 5 and the 20 are highlighted. The odds ratio is 20 divided by 5, 4.0. Of the 65 without the outcome before, 20 gained it, 31%; of the 35 with it, 5 lost it, 14%."}
+:::
+
 ## McNemar's test
 
 McNemar's test asks whether the two kinds of discordant pair are equally common, which is the same as asking whether the before and after proportions are equal [@mcnemar1947]. If change in either direction were equally likely, each discordant pair would be a coin toss, and *c* would follow a binomial distribution with *n* = *b* + *c* and probability 0.5.
 
 - **Chi-squared version:** (*c* − *b*)² / (*b* + *c*), compared with a chi-squared distribution with one degree of freedom. In the example, (20 − 5)² / 25 = 9.0, P = 0.003.
-- **Exact version:** the binomial probability of a split as uneven as 20 to 5 or more, in either direction, from 25 tosses: P = 0.004. It is preferred when *b* + *c* is small.
+- **Exact version:** the binomial probability of a split as uneven as 20 to 5 or more, in either direction, from 25 tosses: P = 0.004. It is often recommended when *b* + *c* is small, but it is conservative: its P values tend to be too large. A mid-P version, or the chi-squared version, keeps closer to the intended error rate [@fagerland2013mcnemar].
 
 Stata's `mcc` command reports both. In R, `mcnemar.test(table, correct = FALSE)` gives the chi-squared version (without the continuity correction, as Stata's), and `binom.test(c, b + c)` the exact one.
 
