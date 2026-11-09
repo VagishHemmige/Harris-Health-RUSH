@@ -176,7 +176,7 @@ Every coefficient of a model as an odds ratio with its confidence interval and P
 
 ## Pair an outcome
 
-One row per patient with the outcome's value before and after the visit, made from the long data with `pivot_wider()`, plus the patient's characteristics: the layout `paired_mcnemar()` needs when it is run within each category for Tables 2 to 4.
+One row per patient with the outcome's value before and after the visit, made from the long data with `pivot_wider()`, plus the patient's characteristics: the layout `count_pairs()` needs when it counts each category for Tables 2 to 4.
 
 ```{r}
 #| label: pair-outcome
@@ -201,9 +201,18 @@ For Table 1: each category's number of patients and column percentage, with prin
 #| eval: false
 ```
 
+## Count pairs
+
+For Tables 2 to 4: the patients with both values, the number with the outcome before and after, and the two kinds of discordant pair, worse and better. Patients missing either value are left out, as they are from the models.
+
+```{r}
+#| label: count-pairs
+#| eval: false
+```
+
 ## Format a row of Tables 2 to 4
 
-Turns one `paired_mcnemar()` result into the text cells of a row. gtsummary's `style_percent()`, `style_ratio()` and `style_pvalue()` do the rounding. An odds ratio with no worsened pairs is infinite and printed "∞", as the article's Table 4 prints it; with no discordant pairs there is no odds ratio and the cell is empty.
+Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary's `style_percent()`, `style_ratio()` and `style_pvalue()` do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.
 
 ```{r}
 #| label: format-change

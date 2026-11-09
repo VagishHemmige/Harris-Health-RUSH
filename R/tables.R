@@ -1,12 +1,14 @@
 # Purpose: build the article's Tables 1 to 4 from the data with gtsummary:
 # Table 1, the characteristics of the two cohorts; Tables 2 to 4, each
 # outcome before and after the RUSH-era visit, by subgroup, with the
-# matched-pairs odds ratio and the test of difference across groups.
+# odds ratio for the visit from the conditional logistic regression and the
+# test of difference across groups.
 # Needs: study_long and control_long (R/02_build_long_data.R);
-# subgroup_tests (R/04_fit_rush_era_models.R); the table constants
-# (R/setup.R); count_categories(), paired_mcnemar(), pair_outcome(),
-# format_change(), relabel_levels(), format_table_1() and
-# format_outcome_table() (R/functions.R).
+# visit_effects, subgroup_effects and subgroup_tests
+# (R/04_fit_rush_era_models.R); the table constants (R/setup.R);
+# count_categories(), pair_outcome(), count_pairs(), format_change(),
+# relabel_levels(), format_table_1() and format_outcome_table()
+# (R/functions.R).
 # Produces: published_style_tables, a named list of four gtsummary tables,
 # and the rows behind them (table_1_rows, outcome_table_rows); writes HTML
 # copies to tables/, which is gitignored: tables made from the study data
@@ -79,42 +81,51 @@ table_1_rows <- bind_rows(
 )
 
 ## ---- compute-outcome-table-rows
-# For each outcome, characteristic and category: patients with both values,
-# the number and percentage with the outcome before and after the visit,
-# McNemar's matched-pairs odds ratio with its exact interval, and the
-# McNemar chi-squared P value (paired_mcnemar()). The test across groups is
-# the joint Wald test of the visit-by-characteristic interaction from
-# R/04_fit_rush_era_models.R, shown once per characteristic. Whether these
-# are the exact statistics behind the article's columns is part of issue #5.
+# For each outcome, characteristic and category: patients with both values
+# and the number and percentage with the outcome before and after the visit
+# (count_pairs()); the odds ratio for the visit with its Wald interval and
+# P value from the conditional logistic regression, as the article prints
+# them (decision in issue #5): for a category, from the model with the
+# visit-by-characteristic interaction (subgroup_effects, Stata's lincom);
+# for the Total row, from the model with the visit alone (visit_effects).
+# The test across groups is the joint Wald test of that interaction
+# (subgroup_tests, Stata's testparm), shown once per characteristic.
+# No McNemar test is run here.
 outcome_table_rows <- list()
 for (outcome in names(table_outcomes)) {
   pairs <- pair_outcome(study_long, outcome, names(table_characteristics))
   rows <- list()
   for (characteristic in names(table_characteristics)) {
     test <- subgroup_tests[[characteristic]][[outcome]]
+    effects <- subgroup_effects[[characteristic]][[outcome]]
+    if (is.null(effects)) {
+      effects <- tibble(level = character(), odds_ratio = numeric())
+    }
     levels_present <- pairs |>
       filter(!is.na(.data[[characteristic]])) |>
       pull(.data[[characteristic]]) |>
       unique() |>
       sort()
     for (i in seq_along(levels_present)) {
+      category <- as.character(levels_present[i])
       level_pairs <- pairs |>
         filter(.data[[characteristic]] == levels_present[i])
+      level_effect <- effects |>
+        filter(level == category)
       rows[[str_c(characteristic, "_", i)]] <- format_change(
-        paired_mcnemar(level_pairs, "before", "after")
+        count_pairs(level_pairs), level_effect
       ) |>
         mutate(
           group = table_characteristics[[characteristic]],
-          row_label = relabel_levels(
-            as.character(levels_present[i]),
-            table_level_labels[[characteristic]]
-          ),
+          row_label = relabel_levels(category, table_level_labels[[characteristic]]),
           chi_squared = if (i == 1) style_number(test$chi_squared, digits = 2) else "",
           chi_p = if (i == 1) style_pvalue(test$p_value, digits = 3) else ""
         )
     }
   }
-  rows[["total"]] <- format_change(paired_mcnemar(pairs, "before", "after")) |>
+  total_effect <- visit_effects |>
+    filter(.data$outcome == .env$outcome, term == "post_visit")
+  rows[["total"]] <- format_change(count_pairs(pairs), total_effect) |>
     mutate(group = "Total", row_label = "Total", chi_squared = "", chi_p = "")
   outcome_table_rows[[outcome]] <- bind_rows(rows) |>
     relocate(group, row_label)
