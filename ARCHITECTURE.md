@@ -58,7 +58,7 @@ flowchart TD
 
 ## Website
 
-Each definitive script has a page in `quarto/` that imports its labelled sections with `knitr::read_chunk()` and shows them without running them. `quarto/original_stata.qmd` reads `stata/RUSH_analysis_2015-01-15.do` as text. `.github/workflows/publish.yml` renders the site and publishes it to `gh-pages`.
+Each definitive script has a page in `quarto/` that imports its labelled sections with `knitr::read_chunk()` and shows them without running them. `quarto/_stata_sections.R` reads `stata/RUSH_analysis_2015-01-15.do` as text and splits it into 29 parts, each starting at one of the file's own comment lines (it stops if an anchor is missing); `quarto/original_stata.qmd` shows every part with a link to its R page, and each script page shows its parts in folded boxes beside the R that replaces them. `.github/workflows/publish.yml` renders the site and publishes it to `gh-pages`.
 
 ## Tests
 

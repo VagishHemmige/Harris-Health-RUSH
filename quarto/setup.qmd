@@ -20,6 +20,13 @@ The code sections below are imported directly from that script when this page is
 knitr::read_chunk("../R/setup.R")
 ```
 
+```{r}
+#| include: false
+#| eval: true
+# Splits the original .do file into parts, as text, for the folded boxes
+source("_stata_sections.R")
+```
+
 ## Packages
 
 Five packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **gtsummary** lays out the article's four tables ([Tables](tables.qmd)). The original code needed no packages: everything was built into Stata.
@@ -28,6 +35,15 @@ Five packages besides the tidyverse. **readxl** reads the two de-identified Exce
 #| label: load-packages
 #| eval: false
 ```
+
+::: {.callout-note collapse="true" title="Original Stata code"}
+```{r}
+#| echo: false
+#| eval: true
+#| output: asis
+show_stata(c("setup"))
+```
+:::
 
 ## Data files
 
