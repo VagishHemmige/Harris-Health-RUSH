@@ -125,3 +125,11 @@ show_stata(c("combined"))
 show_stata(c("multivariable"))
 ```
 :::
+
+## Learn more
+
+Free teaching material on the topics of this page, outside this site.
+
+- [Conditional logistic regression for matched case-control data](https://www.bookdown.org/rwnahhas/RMPH/blr-conditional.html), Ramzi W. Nahhas, *Introduction to Regression Methods for Public Health Using R*, section 6.20 (free online): `survival::clogit()` with one stratum per matched set, in R.
+- [Logistic Regression with Stata, chapter 6: conditional logistic regression](https://stats.oarc.ucla.edu/stata/webbooks/logistic/chapter6/logistic-regression-with-statachapter-6-conditional-logistic-regression/), UCLA Statistical Methods and Data Analytics: worked `clogit` examples with 1:1 and 1:2 matching, the command the original code used.
+- [Deciphering interactions in logistic regression](https://stats.oarc.ucla.edu/stata/seminars/deciphering-interactions-in-logistic-regression/), UCLA Statistical Methods and Data Analytics (Stata seminar): the odds ratio within each category of a categorical-by-categorical interaction, and why the interaction term is the ratio of those odds ratios.

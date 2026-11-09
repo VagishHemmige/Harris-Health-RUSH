@@ -114,6 +114,13 @@ show_stata(c("era_all_random", "era_both_random"))
 ```
 :::
 
+## Learn more
+
+Free teaching material on the topics of this page, outside this site.
+
+- [Difference-in-difference estimation](https://www.publichealth.columbia.edu/research/population-health-methods/difference-difference-estimation), Columbia University Mailman School of Public Health, Population Health Methods: the design, the parallel-trends assumption, the regression model, and further reading.
+- [Mixed effects logistic regression: R data analysis examples](https://stats.oarc.ucla.edu/r/dae/mixed-effects-logistic-regression/), UCLA Statistical Methods and Data Analytics: `lme4::glmer()` with a random intercept, and adaptive quadrature (`nAGQ`).
+
 ## References
 
 ::: {#refs}

@@ -33,6 +33,16 @@ The study measured three steps of the care continuum, each before and after the 
 
 How each is measured, and why the viral load windows are shifted by 10 days, is on [Study design and methods](study_methods.qmd).
 
+## Learn more
+
+Free teaching material on the topics of this page, outside this site.
+
+- [HIV Screening Recommendations](https://www.hiv.uw.edu/go/screening-diagnosis/recommendations-testing/core-concept/all), National HIV Curriculum (University of Washington), Screening and Diagnosis lesson 2: routine opt-out screening in health care settings, from the CDC's 2006 recommendations to the USPSTF.
+- [HIV Care Continuum](https://www.hiv.gov/federal-response/other-topics/hiv-aids-care-continuum), HIV.gov: the stages from diagnosis through linkage, retention and viral suppression.
+- [Undetectable = Untransmittable](https://www.cdc.gov/global-hiv-tb/php/our-approach/undetectable-untransmittable.html), CDC: what U=U means for people on treatment and their partners.
+- [Retention in HIV Care](https://www.hiv.uw.edu/go/basic-primary-care/retention-care/core-concept/), National HIV Curriculum, Basic HIV Primary Care lesson 8: how retention is measured, and ways to improve retention and re-engagement.
+- [Core Performance Measures](https://ryanwhite.hrsa.gov/sites/default/files/ryanwhite/about-program/hab-core-performance-measures.pdf), HRSA HIV/AIDS Bureau (PDF, updated October 2025): today's Ryan White definitions. They count the *last* viral load in a calendar year, among patients with a visit, and retention as two encounters at least 90 days apart, so they differ from this study's windows around the visit.
+
 ## References
 
 ::: {#refs}
