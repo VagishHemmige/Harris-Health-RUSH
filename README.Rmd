@@ -42,7 +42,7 @@ https://vagishhemmige.github.io/Harris-Health-RUSH/
 
 Requires authorized access to the de-identified workbooks, which are not in this repository. Set `RUSH_DATA_DIR` in `.Renviron` to the folder that holds them, restart R, and run `R/main.R` from the project root. Needs the packages attached in `R/setup.R`.
 
-To run the code on synthetic data instead: `Rscript tests/synthetic/run_pipeline.R` (also needs writexl).
+To run the code on synthetic data instead: `Rscript tests/synthetic/run_pipeline.R` (also needs [{writexl}](https://CRAN.R-project.org/package=writexl)).
 
 ## License and citation
 

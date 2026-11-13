@@ -212,7 +212,7 @@ For Tables 2 to 4: the patients with both values, the number with the outcome be
 
 ## Format a row of Tables 2 to 4
 
-Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary's `style_percent()`, `style_ratio()` and `style_pvalue()` do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.
+Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/)'s `style_percent()`, `style_ratio()` and `style_pvalue()` do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.
 
 ```{r}
 #| label: format-change
@@ -221,7 +221,7 @@ Turns the counts and the model's odds ratio for the visit into the text cells of
 
 ## Lay out Table 1
 
-From rows of text to a gtsummary table: `as_gtsummary()` makes a table from a data frame, `modify_header()` and `modify_spanning_header()` set the column headings, and `modify_indent()` and `modify_bold()` style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the [Published results](published_results.qmd) pages.
+From rows of text to a {gtsummary} table: `as_gtsummary()` makes a table from a data frame, `modify_header()` and `modify_spanning_header()` set the column headings, and `modify_indent()` and `modify_bold()` style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the [Published results](published_results.qmd) pages.
 
 ```{r}
 #| label: format-table-1

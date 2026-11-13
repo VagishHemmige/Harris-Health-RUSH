@@ -15,7 +15,7 @@ The current implementation: scripts, data flow, and the objects passed between t
 | 5 | `R/03_paired_comparisons.R` | 1 to 4 | `mcnemar_results`, `crosstabs` | Results from study data |
 | 6 | `R/04_fit_rush_era_models.R` | 1 to 4 | `visit_models`, `visit_effects`; `subgroup_models`, `subgroup_tests`, `subgroup_effects`; `combined_models`, `combined_tests`, `combined_effects`; `multivariable_models`, `multivariable_effects` | Results from study data |
 | 7 | `R/05_compare_eras.R` | 1 to 4 | `era_samples`; `era_models`, `era_effects`; `era_subgroup_models`, `era_subgroup_tests`; `random_effects_models`, `random_effects_effects` | Results from study data |
-| 8 | `R/tables.R` | 1, 2, 4, 6 | `table_1_rows`, `outcome_table_rows`; `published_style_tables` (four gtsummary tables); HTML copies in `tables/` | Outputs, gitignored |
+| 8 | `R/tables.R` | 1, 2, 4, 6 | `table_1_rows`, `outcome_table_rows`; `published_style_tables` (four [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) tables); HTML copies in `tables/` | Outputs, gitignored |
 
 ## Data flow
 
@@ -50,13 +50,13 @@ flowchart TD
 - **Skipped models in one place.** `skipped_rush_subgroup_models` and `skipped_era_subgroup_models_all` (`setup.R`) list the models the original code could not fit; `04` and `05` skip them by lookup.
 - **Two era samples.** `era_samples` holds `all_patients` and `both_eras` (patients with `rows_per_patient_both_eras` rows); every model in `05` loops over both.
 - **One layout for computed and published tables.** `format_table_1()` and `format_outcome_table()` take rows of text, so `R/tables.R` (from the data) and the published-results pages (from the article's printed values in `quarto/published/`, read by `quarto/_published_values.R`) produce tables with the same layout.
-- **Teaching figures apart from the analysis.** `R/teaching_figures.R` sources `setup.R` and `functions.R` itself, as `main.R` does, and draws the site's figures with ggplot2 from the published-values CSV and the constants in `define-teaching-figure-constants`; `main.R` never sources it, and it reads no study data. It writes SVG files with svglite to `quarto/teaching_figures/`, which are committed; the site shows them and `quarto/teaching_figures.qmd` shows its code.
+- **Teaching figures apart from the analysis.** `R/teaching_figures.R` sources `setup.R` and `functions.R` itself, as `main.R` does, and draws the site's figures with [{ggplot2}](https://ggplot2.tidyverse.org/) from the published-values CSV and the constants in `define-teaching-figure-constants`; `main.R` never sources it, and it reads no study data. It writes SVG files with [{svglite}](https://svglite.r-lib.org/) to `quarto/teaching_figures/`, which are committed; the site shows them and `quarto/teaching_figures.qmd` shows its code.
 - **Inputs are checked.** `01` stops if `RUSH_DATA_DIR` is unset or a workbook lacks an expected column; the message names columns only. `check_unique_patients()` stops the import if a patient number repeats in any sheet.
 
 ## Dependencies outside this repository
 
 - **The study data**, in the folder named by `RUSH_DATA_DIR`: the two de-identified workbooks. Neither is in the repository; their columns have not been checked against the code.
-- **Packages** attached in `setup.R`: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl, and `R/teaching_figures.R` needs svglite.
+- **Packages** attached in `setup.R`: [{tidyverse}](https://www.tidyverse.org/), [{readxl}](https://readxl.tidyverse.org/), [{survival}](https://CRAN.R-project.org/package=survival), [{lme4}](https://CRAN.R-project.org/package=lme4) and {gtsummary} (with gt to save the tables). The synthetic test also needs [{writexl}](https://CRAN.R-project.org/package=writexl), and `R/teaching_figures.R` needs {svglite}.
 
 ## Website
 

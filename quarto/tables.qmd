@@ -3,7 +3,7 @@ title: "Tables"
 format: html
 ---
 
-This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values ([Published results](published_results.qmd) and its pages for [engagement](published_engagement.qmd), [retention](published_retention.qmd) and [viral suppression](published_suppression.qmd)), laid out by the same functions; the script itself writes HTML copies to `tables/`, which is never committed.
+This script builds the article's four tables from the data with [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/): Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values ([Published results](published_results.qmd) and its pages for [engagement](published_engagement.qmd), [retention](published_retention.qmd) and [viral suppression](published_suppression.qmd)), laid out by the same functions; the script itself writes HTML copies to `tables/`, which is never committed.
 
 ::: {.Rcode title="Source code"}
 The full R script is available at:
@@ -62,7 +62,7 @@ The test across categories, the article's χ² column, is the interaction test f
 
 ## Build the tables
 
-`format_table_1()` and `format_outcome_table()` turn the rows into gtsummary tables in the article's layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.
+`format_table_1()` and `format_outcome_table()` turn the rows into {gtsummary} tables in the article's layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.
 
 ```{r}
 #| label: build-tables
