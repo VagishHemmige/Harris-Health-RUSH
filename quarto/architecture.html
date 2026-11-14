@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,6 +115,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
+  background-image: none;
+}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -135,17 +146,6 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
-  background-image: none;
-}
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
   background-image: none;
 }
 </style>
@@ -523,13 +523,6 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h2 class="anchored" data-anchor-id="running-order">Running order</h2>
 <p><code>R/main.R</code> sources the scripts in this order. Each script runs in the global environment and leaves the objects listed for later scripts. The only files written are the HTML tables in <code>tables/</code>.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Order</th>
@@ -593,7 +586,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <td>8</td>
 <td><code>R/tables.R</code></td>
 <td>1, 2, 4, 6</td>
-<td><code>table_1_rows</code>, <code>outcome_table_rows</code>; <code>published_style_tables</code> (four gtsummary tables); HTML copies in <code>tables/</code></td>
+<td><code>table_1_rows</code>, <code>outcome_table_rows</code>; <code>published_style_tables</code> (four <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a> tables); HTML copies in <code>tables/</code></td>
 <td>Outputs, gitignored</td>
 </tr>
 </tbody>
@@ -624,7 +617,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <li><strong>Skipped models in one place.</strong> <code>skipped_rush_subgroup_models</code> and <code>skipped_era_subgroup_models_all</code> (<code>setup.R</code>) list the models the original code could not fit; <code>04</code> and <code>05</code> skip them by lookup.</li>
 <li><strong>Two era samples.</strong> <code>era_samples</code> holds <code>all_patients</code> and <code>both_eras</code> (patients with <code>rows_per_patient_both_eras</code> rows); every model in <code>05</code> loops over both.</li>
 <li><strong>One layout for computed and published tables.</strong> <code>format_table_1()</code> and <code>format_outcome_table()</code> take rows of text, so <code>R/tables.R</code> (from the data) and the published-results pages (from the article’s printed values in <code>quarto/published/</code>, read by <code>quarto/_published_values.R</code>) produce tables with the same layout.</li>
-<li><strong>Teaching figures apart from the analysis.</strong> <code>R/teaching_figures.R</code> sources <code>setup.R</code> and <code>functions.R</code> itself, as <code>main.R</code> does, and draws the site’s figures with ggplot2 from the published-values CSV and the constants in <code>define-teaching-figure-constants</code>; <code>main.R</code> never sources it, and it reads no study data. It writes SVG files with svglite to <code>quarto/teaching_figures/</code>, which are committed; the site shows them and <code>quarto/teaching_figures.qmd</code> shows its code.</li>
+<li><strong>Teaching figures apart from the analysis.</strong> <code>R/teaching_figures.R</code> sources <code>setup.R</code> and <code>functions.R</code> itself, as <code>main.R</code> does, and draws the site’s figures with <a href="https://ggplot2.tidyverse.org/">{ggplot2}</a> from the published-values CSV and the constants in <code>define-teaching-figure-constants</code>; <code>main.R</code> never sources it, and it reads no study data. It writes SVG files with <a href="https://svglite.r-lib.org/">{svglite}</a> to <code>quarto/teaching_figures/</code>, which are committed; the site shows them and <code>quarto/teaching_figures.qmd</code> shows its code.</li>
 <li><strong>Inputs are checked.</strong> <code>01</code> stops if <code>RUSH_DATA_DIR</code> is unset or a workbook lacks an expected column; the message names columns only. <code>check_unique_patients()</code> stops the import if a patient number repeats in any sheet.</li>
 </ul>
 </section>
@@ -632,7 +625,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h2 class="anchored" data-anchor-id="dependencies-outside-this-repository">Dependencies outside this repository</h2>
 <ul>
 <li><strong>The study data</strong>, in the folder named by <code>RUSH_DATA_DIR</code>: the two de-identified workbooks. Neither is in the repository; their columns have not been checked against the code.</li>
-<li><strong>Packages</strong> attached in <code>setup.R</code>: tidyverse, readxl, survival, lme4 and gtsummary (with gt to save the tables). The synthetic test also needs writexl, and <code>R/teaching_figures.R</code> needs svglite.</li>
+<li><strong>Packages</strong> attached in <code>setup.R</code>: <a href="https://www.tidyverse.org/">{tidyverse}</a>, <a href="https://readxl.tidyverse.org/">{readxl}</a>, <a href="https://CRAN.R-project.org/package=survival">{survival}</a>, <a href="https://CRAN.R-project.org/package=lme4">{lme4}</a> and {gtsummary} (with gt to save the tables). The synthetic test also needs <a href="https://CRAN.R-project.org/package=writexl">{writexl}</a>, and <code>R/teaching_figures.R</code> needs {svglite}.</li>
 </ul>
 </section>
 <section id="website" class="level2">

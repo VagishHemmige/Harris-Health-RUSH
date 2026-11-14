@@ -101,7 +101,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -130,15 +130,15 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
 }
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
 }
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Pending.callout {
@@ -152,15 +152,15 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   content: '⏳';
   background-image: none;
 }
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
+div.callout-Results.callout {
+  border-left-color: #198754;
 }
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
 }
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -552,9 +552,9 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <li><a href="../quarto/03_paired_comparisons.html"><strong>3. Paired comparisons</strong></a>: McNemar’s tests and crosstabs.</li>
 <li><a href="../quarto/04_fit_rush_era_models.html"><strong>4. RUSH-era models</strong></a>: conditional logistic regression for the visit, by subgroup, and multivariable.</li>
 <li><a href="../quarto/05_compare_eras.html"><strong>5. Comparison with the pre-RUSH era</strong></a>: the era models, their subgroup versions and the random-intercept models.</li>
-<li><a href="../quarto/tables.html"><strong>Tables</strong></a>: the article’s Tables 1 to 4 built from the data with gtsummary.</li>
+<li><a href="../quarto/tables.html"><strong>Tables</strong></a>: the article’s Tables 1 to 4 built from the data with <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a>.</li>
 <li><a href="../quarto/original_stata.html"><strong>Original Stata code (2015)</strong></a>: the .do file the article’s results came from.</li>
-<li><a href="../quarto/teaching_figures.html"><strong>Teaching figures</strong></a>: the ggplot2 code that draws the site’s figures from the article’s printed values and an invented example.</li>
+<li><a href="../quarto/teaching_figures.html"><strong>Teaching figures</strong></a>: the <a href="https://ggplot2.tidyverse.org/">{ggplot2}</a> code that draws the site’s figures from the article’s printed values and an invented example.</li>
 <li><a href="../quarto/published_results.html"><strong>Published results and the code behind them</strong></a>, with one page each for <a href="../quarto/published_engagement.html">engagement</a>, <a href="../quarto/published_retention.html">retention</a> and <a href="../quarto/published_suppression.html">viral suppression</a>: each number the article reports, the step of the code that computes it, and the article’s four tables with their printed values and forest plots.</li>
 <li><a href="../quarto/analysis-plan.html"><strong>Analysis plan</strong></a>, <a href="../quarto/architecture.html"><strong>Architecture</strong></a>, <a href="../quarto/agents.html"><strong>AGENTS.md</strong></a> and <a href="../quarto/repository-blueprint.html"><strong>Repository blueprint</strong></a>: the project documents.</li>
 </ul>
@@ -1076,9 +1076,9 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**3. Paired comparisons**</span><span class="co">](03_paired_comparisons.qmd)</span>: McNemar's tests and crosstabs.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**4. RUSH-era models**</span><span class="co">](04_fit_rush_era_models.qmd)</span>: conditional logistic regression for the visit, by subgroup, and multivariable.</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**5. Comparison with the pre-RUSH era**</span><span class="co">](05_compare_eras.qmd)</span>: the era models, their subgroup versions and the random-intercept models.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Tables**</span><span class="co">](tables.qmd)</span>: the article's Tables 1 to 4 built from the data with gtsummary.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Tables**</span><span class="co">](tables.qmd)</span>: the article's Tables 1 to 4 built from the data with <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span>.</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Original Stata code (2015)**</span><span class="co">](original_stata.qmd)</span>: the .do file the article's results came from.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Teaching figures**</span><span class="co">](teaching_figures.qmd)</span>: the ggplot2 code that draws the site's figures from the article's printed values and an invented example.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Teaching figures**</span><span class="co">](teaching_figures.qmd)</span>: the <span class="co">[</span><span class="ot">{ggplot2}</span><span class="co">](https://ggplot2.tidyverse.org/)</span> code that draws the site's figures from the article's printed values and an invented example.</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Published results and the code behind them**</span><span class="co">](published_results.qmd)</span>, with one page each for <span class="co">[</span><span class="ot">engagement</span><span class="co">](published_engagement.qmd)</span>, <span class="co">[</span><span class="ot">retention</span><span class="co">](published_retention.qmd)</span> and <span class="co">[</span><span class="ot">viral suppression</span><span class="co">](published_suppression.qmd)</span>: each number the article reports, the step of the code that computes it, and the article's four tables with their printed values and forest plots.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**Analysis plan**</span><span class="co">](analysis-plan.qmd)</span>, <span class="co">[</span><span class="ot">**Architecture**</span><span class="co">](architecture.qmd)</span>, <span class="co">[</span><span class="ot">**AGENTS.md**</span><span class="co">](agents.qmd)</span> and <span class="co">[</span><span class="ot">**Repository blueprint**</span><span class="co">](repository-blueprint.qmd)</span>: the project documents.</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>

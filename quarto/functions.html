@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,17 +123,6 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   content: '💻';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -143,6 +132,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 </style>
@@ -1088,7 +1088,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="format-a-row-of-tables-2-to-4" class="level2">
 <h2 class="anchored" data-anchor-id="format-a-row-of-tables-2-to-4">Format a row of Tables 2 to 4</h2>
-<p>Turns the counts and the model’s odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary’s <code>style_percent()</code>, <code>style_ratio()</code> and <code>style_pvalue()</code> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints “∞” and “-”, as the article’s Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</p>
+<p>Turns the counts and the model’s odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a>’s <code>style_percent()</code>, <code>style_ratio()</code> and <code>style_pvalue()</code> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints “∞” and “-”, as the article’s Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1134,7 +1134,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="lay-out-table-1" class="level2">
 <h2 class="anchored" data-anchor-id="lay-out-table-1">Lay out Table 1</h2>
-<p>From rows of text to a gtsummary table: <code>as_gtsummary()</code> makes a table from a data frame, <code>modify_header()</code> and <code>modify_spanning_header()</code> set the column headings, and <code>modify_indent()</code> and <code>modify_bold()</code> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article’s printed values on the <a href="../quarto/published_results.html">Published results</a> pages.</p>
+<p>From rows of text to a {gtsummary} table: <code>as_gtsummary()</code> makes a table from a data frame, <code>modify_header()</code> and <code>modify_spanning_header()</code> set the column headings, and <code>modify_indent()</code> and <code>modify_bold()</code> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article’s printed values on the <a href="../quarto/published_results.html">Published results</a> pages.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1928,7 +1928,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb25-254"><a href="#cb25-254" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-255"><a href="#cb25-255" aria-hidden="true" tabindex="-1"></a><span class="fu">## Format a row of Tables 2 to 4</span></span>
 <span id="cb25-256"><a href="#cb25-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. gtsummary's <span class="in">`style_percent()`</span>, <span class="in">`style_ratio()`</span> and <span class="in">`style_pvalue()`</span> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</span>
+<span id="cb25-257"><a href="#cb25-257" aria-hidden="true" tabindex="-1"></a>Turns the counts and the model's odds ratio for the visit into the text cells of a row: the odds ratio with its Wald interval and the Wald P value, as the article prints them. <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span>'s <span class="in">`style_percent()`</span>, <span class="in">`style_ratio()`</span> and <span class="in">`style_pvalue()`</span> do the rounding. When no patient got worse the odds ratio is infinite: the model can only return a very large number with no usable interval, so the row prints "∞" and "-", as the article's Table 4 does. Whether that applies is read from the counts, not from the model. With no discordant pairs, or no fitted model, the cells are empty.</span>
 <span id="cb25-258"><a href="#cb25-258" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-261"><a href="#cb25-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb25-262"><a href="#cb25-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-change</span></span>
@@ -1937,7 +1937,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb25-265"><a href="#cb25-265" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-266"><a href="#cb25-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lay out Table 1</span></span>
 <span id="cb25-267"><a href="#cb25-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>From rows of text to a gtsummary table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> pages.</span>
+<span id="cb25-268"><a href="#cb25-268" aria-hidden="true" tabindex="-1"></a>From rows of text to a {gtsummary} table: <span class="in">`as_gtsummary()`</span> makes a table from a data frame, <span class="in">`modify_header()`</span> and <span class="in">`modify_spanning_header()`</span> set the column headings, and <span class="in">`modify_indent()`</span> and <span class="in">`modify_bold()`</span> style the categories and their headings. Taking text rather than data is deliberate: the same function lays out the table computed from the data and the table of the article's printed values on the <span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> pages.</span>
 <span id="cb25-269"><a href="#cb25-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-272"><a href="#cb25-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb25-273"><a href="#cb25-273" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: format-table-1</span></span>

@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,17 +131,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -151,6 +140,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -667,7 +667,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="added-the-articles-tables" class="level2">
 <h2 class="anchored" data-anchor-id="added-the-articles-tables">Added: the article’s tables</h2>
-<p>The Stata code makes none of the article’s four tables. <code>R/tables.R</code> builds them with gtsummary, in the article’s layout, so the code shows how each was made:</p>
+<p>The Stata code makes none of the article’s four tables. <code>R/tables.R</code> builds them with <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a>, in the article’s layout, so the code shows how each was made:</p>
 <ul>
 <li><strong>Table 1</strong> counts each cohort’s patients by sex, race group, visit year (paired by position across eras), age group and years since diagnosis. The control sheet holds no years since diagnosis; the controls are the same patients, so their groups are taken from the years workbook by patient number. That workbook gives years to the RUSH-era index visit, so the controls’ column uses that value. The Stata code never uses years since diagnosis for the controls; the article’s control column, which may be years to the pre-RUSH visit, probably came from the SPSS work the article mentions, so the two columns need not match.</li>
 <li><strong>Tables 2 to 4</strong> show, for each subgroup, the patients with both values, the number with the outcome before and after, the odds ratio for the visit with its Wald interval and Wald P value from the conditional logistic regression (the within-category effects of <a href="../quarto/04_fit_rush_era_models.html#the-effect-within-each-category">4. RUSH-era models</a>, as the original code’s <code>lincom</code>, and for the Total row the model without interactions), and, once per characteristic, the interaction test of <a href="../quarto/04_fit_rush_era_models.html#does-the-effect-differ">4. RUSH-era models</a>. Each interval the article prints matches the Wald interval worked out from its row, so these are the article’s statistics (decision issue <a href="https://github.com/VagishHemmige/Harris-Health-RUSH/issues/5">#5</a>). The article’s column heading, “McNemar OR”, names the odds ratio, which for paired data equals the ratio of discordant pairs; the tables here head it “OR after vs before”. The article’s χ² values fit tests with one fewer degree of freedom than categories, as the interaction test has.</li>
@@ -1225,7 +1225,7 @@ Flash, Charlene A, Siavash Pasalar, Vagish Hemmige, et al. 2015. <span>“Benefi
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Added: the article's tables</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The Stata code makes none of the article's four tables. <span class="in">`R/tables.R`</span> builds them with gtsummary, in the article's layout, so the code shows how each was made:</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The Stata code makes none of the article's four tables. <span class="in">`R/tables.R`</span> builds them with <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span>, in the article's layout, so the code shows how each was made:</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Table 1** counts each cohort's patients by sex, race group, visit year (paired by position across eras), age group and years since diagnosis. The control sheet holds no years since diagnosis; the controls are the same patients, so their groups are taken from the years workbook by patient number. That workbook gives years to the RUSH-era index visit, so the controls' column uses that value. The Stata code never uses years since diagnosis for the controls; the article's control column, which may be years to the pre-RUSH visit, probably came from the SPSS work the article mentions, so the two columns need not match.</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tables 2 to 4** show, for each subgroup, the patients with both values, the number with the outcome before and after, the odds ratio for the visit with its Wald interval and Wald P value from the conditional logistic regression (the within-category effects of <span class="co">[</span><span class="ot">4. RUSH-era models</span><span class="co">](04_fit_rush_era_models.qmd#the-effect-within-each-category)</span>, as the original code's <span class="in">`lincom`</span>, and for the Total row the model without interactions), and, once per characteristic, the interaction test of <span class="co">[</span><span class="ot">4. RUSH-era models</span><span class="co">](04_fit_rush_era_models.qmd#does-the-effect-differ)</span>. Each interval the article prints matches the Wald interval worked out from its row, so these are the article's statistics (decision issue <span class="co">[</span><span class="ot">#5</span><span class="co">](https://github.com/VagishHemmige/Harris-Health-RUSH/issues/5)</span>). The article's column heading, "McNemar OR", names the odds ratio, which for paired data equals the ratio of discordant pairs; the tables here head it "OR after vs before". The article's χ² values fit tests with one fewer degree of freedom than categories, as the interaction test has.</span>

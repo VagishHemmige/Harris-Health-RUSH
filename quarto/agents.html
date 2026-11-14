@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -123,17 +123,6 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   content: '⏳';
   background-image: none;
 }
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -143,6 +132,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 </style>
@@ -549,7 +549,7 @@ edit that file, not this page. Its first heading is the page title.
 <li><strong>Deciders.</strong> Scientific decisions are made by Vagish Hemmige, in any area. Anyone may open or contribute to a decision issue; only a decider settles it (see “Working with agents”).</li>
 <li><strong>Departures from the original analysis.</strong> The original Stata code and the paper are the record of what was done. When the R code differs from the Stata code, or the Stata code from the paper, do not silently copy it or silently fix it: the site’s “Differences from the original code” page records every difference, and choices between the paper and the code go to a decision issue.</li>
 <li><strong>The original code is a record.</strong> <code>stata/RUSH_analysis_2015-01-15.do</code> is not edited, except to remove private information (a local path, a name that is not an author’s); each such change is listed in its header.</li>
-<li><strong>This is an analysis project, not an R package.</strong> Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure, or apply CRAN conventions.</li>
+<li><strong>This is an analysis project, not an R package.</strong> Do not add DESCRIPTION, NAMESPACE, roxygen, or <a href="https://pkgdown.r-lib.org/">{pkgdown}</a> infrastructure, or apply CRAN conventions.</li>
 <li><strong>Default branch:</strong> <code>main</code>, protected. Changes reach it only through pull requests.</li>
 </ul>
 </section>
@@ -678,7 +678,7 @@ edit that file, not this page. Its first heading is the page title.
 </table>
 <p>The original Stata code page is R code (it is code). The differences page is study design and methods. The published-results pages are results, and each one’s notice says the numbers are quoted from the article, not produced by this code.</p></li>
 <li><p><strong>Published tables</strong> are shown as tables rebuilt from the values the article prints: the values are typed into <code>quarto/published/table_1.csv</code> and <code>tables_2_to_4.csv</code>, exactly as printed, and formatted by the same functions <code>R/tables.R</code> uses on the data. Each table cites its place in the article and says it is not output of this code. Values that look inconsistent are kept as printed and noted, never corrected. The journal’s own typeset tables and Figure 1 are not copied; they need the publisher’s permission (RightsLink), after which the page notice states it.</p></li>
-<li><p><strong>Teaching figures</strong> are SVG files in <code>quarto/teaching_figures/</code>, drawn with ggplot2 by <code>R/teaching_figures.R</code> (run by hand from the project root with <code>Rscript R/teaching_figures.R</code>; the files are committed) from the published-values CSV or from invented values labelled as such. It is the one script in <code>R/</code> that <code>main.R</code> does not source, because it is not part of the analysis; its site page is “Teaching figures”. The site shows the files and never runs the script. Each figure has alt text and a caption that names its source. They are not the journal’s Figure 1 and copy no typeset figure. A figure made from the study data would go in <code>figures/</code> instead, and is not published.</p></li>
+<li><p><strong>Teaching figures</strong> are SVG files in <code>quarto/teaching_figures/</code>, drawn with <a href="https://ggplot2.tidyverse.org/">{ggplot2}</a> by <code>R/teaching_figures.R</code> (run by hand from the project root with <code>Rscript R/teaching_figures.R</code>; the files are committed) from the published-values CSV or from invented values labelled as such. It is the one script in <code>R/</code> that <code>main.R</code> does not source, because it is not part of the analysis; its site page is “Teaching figures”. The site shows the files and never runs the script. Each figure has alt text and a caption that names its source. They are not the journal’s Figure 1 and copy no typeset figure. A figure made from the study data would go in <code>figures/</code> instead, and is not published.</p></li>
 <li><p><strong>Provisional content.</strong> <code>quarto/_pending.lua</code> highlights in yellow every paragraph that starts with <strong>Decision pending:</strong>, every paragraph of the plan’s page that contains the plan’s <strong>Open:</strong> marker, and any <code>[text]{.pending}</code>, and adds a ⏳ <code>Pending</code> callout to pages that have a mark. Mark only what an open decision could change, link its decision issue, and remove the mark when the decision is settled.</p></li>
 <li><p><strong>Never evaluate analysis code in the site.</strong> The only chunks that run are the hidden <code>read_chunk()</code> imports, the Architecture page’s reader of <code>ARCHITECTURE.md</code>, the readers of the <code>.do</code> file (<code>quarto/_stata_sections.R</code>, used by the original-code page and the folded “Original Stata code” boxes on the script pages), which read that file as text, and the published-results pages’ chunks, which read the two published-values CSVs through <code>quarto/_published_values.R</code> and format them with the table functions in <code>R/functions.R</code>. None reads study data or fits a model.</p></li>
 <li><p>The site renders to <code>docs/</code>, which is not committed. <code>.github/workflows/publish.yml</code> renders it on every pull request as a check and, on each push to <code>main</code>, publishes it to the <code>gh-pages</code> branch, which GitHub Pages serves. When you add a script, add its page and sidebar entry in the same pull request.</p></li>
@@ -709,7 +709,7 @@ edit that file, not this page. Its first heading is the page title.
 <li><strong>Race codes.</strong> The two workbook sheets number race values separately. Race groups are made from each sheet’s own codes, and only the groups, never the codes, are used once the eras are stacked.</li>
 <li><strong>Reported quantities</strong> (odds ratios within a category, joint interaction tests) come from the named functions in <code>R/functions.R</code>, which are checked on synthetic data.</li>
 <li><strong>Package APIs:</strong> read the help page and NEWS for the installed version before calling a package; don’t write calls from memory.</li>
-<li><strong>Style:</strong> readable tidyverse code, following the tidyverse style guide: dplyr pipelines (<code>|&gt;</code>), one step per line; <code>case_when()</code> rather than nested <code>ifelse()</code>; models, rows and columns selected by name, never by position; repeated fits as for-loops over names into named lists. Style changes go in their own commits.</li>
+<li><strong>Style:</strong> readable tidyverse code, following the tidyverse style guide: <a href="https://dplyr.tidyverse.org/">{dplyr}</a> pipelines (<code>|&gt;</code>), one step per line; <code>case_when()</code> rather than nested <code>ifelse()</code>; models, rows and columns selected by name, never by position; repeated fits as for-loops over names into named lists. Style changes go in their own commits.</li>
 </ul>
 </section>
 <section id="checks-for-any-change" class="level2">

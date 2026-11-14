@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,6 +131,17 @@ div.csl-indent {
   }
 }</script>
 <style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -151,17 +162,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
   background-image: none;
 }
 </style>
@@ -542,7 +542,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 </div>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>Five packages besides the tidyverse. <strong>readxl</strong> reads the two de-identified Excel workbooks, the only data the analysis uses. <strong>survival</strong> provides <code>clogit()</code>, R’s conditional logistic regression, the model behind almost every result <span class="citation" data-cites="therneau_survival">(<a href="#ref-therneau_survival" role="doc-biblioref">Therneau, n.d.</a>)</span>. <strong>lme4</strong> provides <code>glmer()</code>, used only for the random-intercept comparison models that replace Stata’s <code>xtlogit</code> <span class="citation" data-cites="bates2015lme4">(<a href="#ref-bates2015lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>. <strong>gtsummary</strong> lays out the article’s four tables (<a href="../quarto/tables.html">Tables</a>). The original code needed no packages: everything was built into Stata.</p>
+<p>Five packages besides the <a href="https://www.tidyverse.org/">{tidyverse}</a>. <strong><a href="https://readxl.tidyverse.org/">{readxl}</a></strong> reads the two de-identified Excel workbooks, the only data the analysis uses. <strong><a href="https://CRAN.R-project.org/package=survival">{survival}</a></strong> provides <code>clogit()</code>, R’s conditional logistic regression, the model behind almost every result <span class="citation" data-cites="therneau_survival">(<a href="#ref-therneau_survival" role="doc-biblioref">Therneau, n.d.</a>)</span>. <strong><a href="https://CRAN.R-project.org/package=lme4">{lme4}</a></strong> provides <code>glmer()</code>, used only for the random-intercept comparison models that replace Stata’s <code>xtlogit</code> <span class="citation" data-cites="bates2015lme4">(<a href="#ref-bates2015lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>. <strong><a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a></strong> lays out the article’s four tables (<a href="../quarto/tables.html">Tables</a>). The original code needed no packages: everything was built into Stata.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1327,7 +1327,7 @@ Therneau, Terry M. n.d. <em>A Package for Survival Analysis in <span>R</span></e
 <span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Packages</span></span>
 <span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>Five packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **gtsummary** lays out the article's four tables (<span class="co">[</span><span class="ot">Tables</span><span class="co">](tables.qmd)</span>). The original code needed no packages: everything was built into Stata.</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>Five packages besides the <span class="co">[</span><span class="ot">{tidyverse}</span><span class="co">](https://www.tidyverse.org/)</span>. **[{readxl}](https://readxl.tidyverse.org/)** reads the two de-identified Excel workbooks, the only data the analysis uses. **[{survival}](https://CRAN.R-project.org/package=survival)** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **[{lme4}](https://CRAN.R-project.org/package=lme4)** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **[{gtsummary}](https://www.danieldsjoberg.com/gtsummary/)** lays out the article's four tables (<span class="co">[</span><span class="ot">Tables</span><span class="co">](tables.qmd)</span>). The original code needed no packages: everything was built into Stata.</span>
 <span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages</span></span>

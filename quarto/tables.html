@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -498,7 +498,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </header>
 
 
-<p>This script builds the article’s four tables from the data with gtsummary: Table 1, the two cohorts’ characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article’s printed values (<a href="../quarto/published_results.html">Published results</a> and its pages for <a href="../quarto/published_engagement.html">engagement</a>, <a href="../quarto/published_retention.html">retention</a> and <a href="../quarto/published_suppression.html">viral suppression</a>), laid out by the same functions; the script itself writes HTML copies to <code>tables/</code>, which is never committed.</p>
+<p>This script builds the article’s four tables from the data with <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a>: Table 1, the two cohorts’ characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article’s printed values (<a href="../quarto/published_results.html">Published results</a> and its pages for <a href="../quarto/published_engagement.html">engagement</a>, <a href="../quarto/published_retention.html">retention</a> and <a href="../quarto/published_suppression.html">viral suppression</a>), laid out by the same functions; the script itself writes HTML copies to <code>tables/</code>, which is never committed.</p>
 <div class="callout callout-style-default callout-Rcode callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -665,7 +665,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="build-the-tables" class="level2">
 <h2 class="anchored" data-anchor-id="build-the-tables">Build the tables</h2>
-<p><code>format_table_1()</code> and <code>format_outcome_table()</code> turn the rows into gtsummary tables in the article’s layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.</p>
+<p><code>format_table_1()</code> and <code>format_outcome_table()</code> turn the rows into {gtsummary} tables in the article’s layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1178,7 +1178,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>This script builds the article's four tables from the data with gtsummary: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> and its pages for <span class="co">[</span><span class="ot">engagement</span><span class="co">](published_engagement.qmd)</span>, <span class="co">[</span><span class="ot">retention</span><span class="co">](published_retention.qmd)</span> and <span class="co">[</span><span class="ot">viral suppression</span><span class="co">](published_suppression.qmd)</span>), laid out by the same functions; the script itself writes HTML copies to <span class="in">`tables/`</span>, which is never committed.</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>This script builds the article's four tables from the data with <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span>: Table 1, the two cohorts' characteristics, and Tables 2 to 4, each outcome before and after the visit within every subgroup. The Stata code made none of them. On this site the tables are shown filled with the article's printed values (<span class="co">[</span><span class="ot">Published results</span><span class="co">](published_results.qmd)</span> and its pages for <span class="co">[</span><span class="ot">engagement</span><span class="co">](published_engagement.qmd)</span>, <span class="co">[</span><span class="ot">retention</span><span class="co">](published_retention.qmd)</span> and <span class="co">[</span><span class="ot">viral suppression</span><span class="co">](published_suppression.qmd)</span>), laid out by the same functions; the script itself writes HTML copies to <span class="in">`tables/`</span>, which is never committed.</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>::: {.Rcode title="Source code"}</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>The full R script is available at:</span>
@@ -1237,7 +1237,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Build the tables</span></span>
 <span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="in">`format_table_1()`</span> and <span class="in">`format_outcome_table()`</span> turn the rows into gtsummary tables in the article's layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="in">`format_table_1()`</span> and <span class="in">`format_outcome_table()`</span> turn the rows into {gtsummary} tables in the article's layout: a heading row for each characteristic, its categories indented, and spanning headers over Before and After. They are stored in one named list.</span>
 <span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: build-tables</span></span>
