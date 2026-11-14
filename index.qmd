@@ -31,6 +31,8 @@ This site is a teaching resource. It uses the published study to show how a pair
 
 The code is shown, not run. The de-identified patient data are Harris Health System data and are not in this repository, so no result on this site comes from running the code. The study's results are those published in the article, quoted with their place there on [Published results](quarto/published_results.qmd). The R code has been run only on synthetic data, to check that it runs and that its helper functions give the answers known from theory.
 
+[Braces](https://forum.posit.co/t/curly-braces-around-package-name-convention/122547) identify R packages throughout this site.
+
 ## Methods
 
 [Methodological background](quarto/methodological_background.qmd) explains the methods in general terms; [Study design and methods](quarto/study_methods.qmd) explains what this study chose. Every difference between the R version and the Stata original is listed on [Differences from the original code](quarto/differences.qmd). The authoritative specification is the [analysis plan](quarto/analysis-plan.qmd), which records the published methods. Reporting follows STROBE and RECORD [@vonelm2007strobe; @benchimol2015record].

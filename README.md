@@ -49,7 +49,7 @@ that holds them, restart R, and run `R/main.R` from the project root.
 Needs the packages attached in `R/setup.R`.
 
 To run the code on synthetic data instead:
-`Rscript tests/synthetic/run_pipeline.R` (also needs writexl).
+`Rscript tests/synthetic/run_pipeline.R` (also needs [{writexl}](https://CRAN.R-project.org/package=writexl)).
 
 ## License and citation
 

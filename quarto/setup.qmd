@@ -29,7 +29,7 @@ source("_stata_sections.R")
 
 ## Packages
 
-Five packages besides the tidyverse. **readxl** reads the two de-identified Excel workbooks, the only data the analysis uses. **survival** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **lme4** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **gtsummary** lays out the article's four tables ([Tables](tables.qmd)). The original code needed no packages: everything was built into Stata.
+Five packages besides the [{tidyverse}](https://www.tidyverse.org/). **[{readxl}](https://readxl.tidyverse.org/)** reads the two de-identified Excel workbooks, the only data the analysis uses. **[{survival}](https://CRAN.R-project.org/package=survival)** provides `clogit()`, R's conditional logistic regression, the model behind almost every result [@therneau_survival]. **[{lme4}](https://CRAN.R-project.org/package=lme4)** provides `glmer()`, used only for the random-intercept comparison models that replace Stata's `xtlogit` [@bates2015lme4]. **[{gtsummary}](https://www.danieldsjoberg.com/gtsummary/)** lays out the article's four tables ([Tables](tables.qmd)). The original code needed no packages: everything was built into Stata.
 
 ```{r}
 #| label: load-packages
